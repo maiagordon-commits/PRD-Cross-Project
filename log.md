@@ -88,3 +88,11 @@ Created a shareable DOCX export of the PMS Data Mirroring Playbook.
 Created:
 - `exports/PMS Data Mirroring Playbook.docx`
 
+## [2026-06-01] update | Exported PMS data mirroring playbook previews
+
+Created browser-viewable and plain Markdown exports after the DOCX artifact was not directly viewable in Cursor.
+
+Created:
+- `exports/PMS Data Mirroring Playbook.html`
+- `exports/PMS Data Mirroring Playbook.md`
+

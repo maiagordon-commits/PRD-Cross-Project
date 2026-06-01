@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PMS Data Mirroring Playbook</title>
+<style>
+body { font-family: Arial, sans-serif; line-height: 1.5; margin: 40px; color: #1f2937; }
+h1, h2, h3, h4 { color: #111827; }
+blockquote { border-left: 4px solid #94a3b8; margin-left: 0; padding-left: 16px; color: #475569; }
+table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 13px; }
+th, td { border: 1px solid #cbd5e1; padding: 8px; vertical-align: top; }
+th { background: #f1f5f9; }
+ul, ol { margin-top: 4px; margin-bottom: 4px; }
+code { background: #f3f4f6; padding: 1px 4px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<h1>PMS Data Mirroring Playbook</h1>
+<blockquote>This playbook combines two internal workshops on improving how old PMS data is mirrored into Guesty so migrated customers can get accurate financial data.</blockquote>
+<h2>Summary</h2>
+<p>Migrating enterprise customers from legacy PMS systems to Guesty creates financial reconciliation gaps because OTA data, legacy PMS data, and Guesty accounting configuration often represent fees, taxes, rent, and host payout differently. The workshops aligned on a practical operating model: keep channel data as the source of truth for Guesty imports, mirror the old PMS for financial reconciliation where needed, and use controlled mapping/settings-based approaches to avoid endless manual adjustment cycles.</p>
+<p>The playbook is organized by channel and cross-channel process areas so Product, Financials, Distribution, and Implementation can see the use case, pain point, current state, current solution, potential solution, and assumptions.</p>
+<h2>Key Facts</h2>
+<ul><li>Use case: improve the long and difficult process of mirroring old PMS data into Guesty so financial data is accurate.</li></ul>
+<ul><li>Workshop 1 date: 2026-05-20.</li></ul>
+<ul><li>Workshop 1 participants: Maia Gordon, Alex B, Ella Waldman, and Javier.</li></ul>
+<ul><li>Workshop 2 date: 2026-05-28.</li></ul>
+<ul><li>Workshop 2 participants: Maia Gordon, Alex B, Ella Waldman, Javier, and Rinat.</li></ul>
+<ul><li>Stakeholder roles represented:</li></ul>
+<ul><li>Implementation: Alex B, Implementation Manager.</li></ul>
+<ul><li>Financials Product: Ella Waldman, Financials Product Director; Rinat, Financials Product Manager.</li></ul>
+<ul><li>Distribution Product: Javier, Distribution Product Director.</li></ul>
+<ul><li>Channels discussed: Airbnb, VRBO, and Booking.com.</li></ul>
+<ul><li>Legacy/source systems discussed: Vacasa, Track PMS, Streamline, Casa, LiveRes, Escapia Track, ViewStay, and Hometime/Avari migration examples.</li></ul>
+<ul><li>This work is mainly relevant to enterprise / white-glove migrations, not standard SMB onboarding.</li></ul>
+<h2>Current Status</h2>
+<ul><li>Source links are preserved in <code>raw/meetings/</code>.</li></ul>
+<ul><li>Workshop summaries have been synthesized into this playbook.</li></ul>
+<ul><li>Product-facing details still need validation by Financials, Distribution, and Implementation before this becomes an official operating playbook.</li></ul>
+<h2>Workshop Sources</h2>
+<table>
+<tr><th>Date</th><th>Workshop</th><th>Participants</th><th>Source</th></tr>
+<tr><td>2026-05-20</td><td>PMS Data Mirroring Workshop 1</td><td>Maia Gordon; Alex B; Ella Waldman; Javier</td><td><a href="https://fellow.link/NHN1S8ZSXE6H">Fellow notes</a></td></tr>
+<tr><td>2026-05-28</td><td>PMS Data Mirroring Workshop 2</td><td>Maia Gordon; Alex B; Ella Waldman; Javier; Rinat</td><td><a href="https://fellow.link/QWH0FDG5XDC4">Fellow notes</a></td></tr>
+</table>
+<h2>Playbook Goal</h2>
+<p>Create a repeatable per-channel view that answers:</p>
+<ul><li>What is the discussed use case?</li></ul>
+<ul><li>What is the current pain point?</li></ul>
+<ul><li>What does each channel currently have related to this pain point?</li></ul>
+<ul><li>What is the current solution?</li></ul>
+<ul><li>What is the potential solution?</li></ul>
+<ul><li>What assumptions must be validated?</li></ul>
+<h2>Executive Takeaways</h2>
+<ul><li>Guesty should import from channels as the operational source of truth, but migration reconciliation should mirror the old PMS where customers expect historical financial continuity.</li></ul>
+<ul><li>Host payout mismatches between old PMS and channels should be surfaced to customers instead of silently reconciled by Guesty when the source systems disagree.</li></ul>
+<ul><li>Manual adjustments appear to persist through tested channel updates, which makes bulk reconciliation possible, but the team still needs a clear list of update types that can override adjustments.</li></ul>
+<ul><li>A settings/snapshot-based financial mapping tool is the preferred direction because it could reduce repeated monthly adjustment work and avoid override loops.</li></ul>
+<ul><li>VRBO tax data and channel/PMS fee quality remain major blockers.</li></ul>
+<ul><li>Default fee setup or import-specific mapping logic is needed to prevent unrecognized imported fees from breaking accounting mappings.</li></ul>
+<ul><li>Regional tax rules, especially Australia/APAC and EMEA, make a single global solution risky without explicit assumptions and validation.</li></ul>
+<h2>Confirmed Decisions</h2>
+<table>
+<tr><th>Date</th><th>Decision</th><th>Impact</th></tr>
+<tr><td>2026-05-20</td><td>Financial reconciliation for migrations should mirror the old PMS, not channel data, when the goal is matching customer expectations from the legacy system.</td><td>Implementation can reconcile against legacy financial reports while Guesty still imports channel data.</td></tr>
+<tr><td>2026-05-20</td><td>Channel data remains the source of truth for Guesty imports.</td><td>Guesty should not invent imported channel financial data from legacy PMS values.</td></tr>
+<tr><td>2026-05-20</td><td>Host payout discrepancies between legacy systems and channels are the customer&#x27;s responsibility to resolve.</td><td>Implementation should provide an imbalance report rather than force a reconciliation when source data disagrees.</td></tr>
+<tr><td>2026-05-20</td><td>When fees are bundled into rent, rent adjustments should mirror the source system and realization dates should align with the customer&#x27;s revenue-recognition method.</td><td>Reconciliation must include accounting-date handling, not only amount matching.</td></tr>
+<tr><td>2026-05-28</td><td>The financial mapping tool should have intake/mapping and output/settings components.</td><td>Product direction favors creating settings or setting snapshots rather than ongoing adjustments.</td></tr>
+<tr><td>2026-05-28</td><td>Channel fees should remain visible on folios while adjusted fees are applied as settings in the background.</td><td>Preserves channel source-of-truth visibility while making financial output usable.</td></tr>
+</table>
+<h2>Channel Playbook Matrix</h2>
+<table>
+<tr><th>Channel</th><th>Discussed Use Case</th><th>Current Pain Point</th><th>What This Channel Currently Has</th><th>Current Solution</th><th>Potential Solution</th><th>Assumptions</th><th>Source</th></tr>
+<tr><td>Airbnb</td><td>Import and reconcile reservations where fees, taxes, rent, and cleaning fees from the old PMS do not match the Airbnb/Guesty view.</td><td>Legacy systems may bundle fees into rent or calculate cleaning fees differently from Airbnb, which creates rent, cleaning fee, tax, and host payout deltas.</td><td>Airbnb data is treated as channel source of truth; Airbnb can send multiple tax types and fee details, but tax settings may not always be sent when tax was calculated as part of net rent.</td><td>Compare legacy PMS reports to Guesty/channel data; adjust rent or cleaning fees to mirror the old PMS where needed; use Toolkit/Gemini-assisted bulk invoice-item creation for large batches.</td><td>Move toward a mapping/settings approach that creates reservation-level financial settings or snapshots, keeps channel data visible, and reduces recurring manual adjustments.</td><td>Manual adjustments continue to persist through tested Airbnb updates; imported reservation settings can safely become the future source for financial calculations; source records are available to calculate deltas.</td><td><a href="https://fellow.link/NHN1S8ZSXE6H">Workshop 1</a>, <a href="https://fellow.link/QWH0FDG5XDC4">Workshop 2</a></td></tr>
+<tr><td>VRBO</td><td>Import and reconcile reservations where bundled fees and tax breakdowns are needed for accurate financial reporting.</td><td>VRBO sends lumped tax instead of granular tax breakdowns, and some VRBO data is polluted by incorrect PMS/channel-manager data, creating excessive or zero-value invoice items.</td><td>VRBO is strong on bundled-fee setup and can support proper bundled-fee behavior, but current reservation data can include a single tax bucket or many low-quality fee lines.</td><td>Zero out VRBO tax and manually re-add tax types according to customer specifications; escalate granular tax breakdown needs with VRBO.</td><td>Re-engage VRBO for granular tax transmission and/or initial reservation breakdowns; preserve channel fee visibility while applying adjusted settings in the background.</td><td>VRBO has the underlying data needed for better breakdowns; VRBO can provide a cleaner data contract; Guesty can keep channel fee visibility without compromising reconciled financial output.</td><td><a href="https://fellow.link/NHN1S8ZSXE6H">Workshop 1</a>, <a href="https://fellow.link/QWH0FDG5XDC4">Workshop 2</a></td></tr>
+<tr><td>Booking.com</td><td>Reconcile imported reservations where taxes and fees do not map cleanly, especially in markets where taxes apply to fees.</td><td>Booking.com does not support all Guesty fee/tax rules; bundled fees can inflate accommodation fare and make tax percentages look wrong after fee deduction.</td><td>Booking.com may bundle fees into rent and has limitations around tax/fee rule support, especially in Australia/New Zealand where taxes must apply on top of all fees.</td><td>Investigate deltas during reconciliation and adjust imported financials manually where needed.</td><td>Define import mapping rules that let customers override how taxes/fees are treated on import; validate region-specific rules before applying global behavior.</td><td>Booking.com limitations cannot be solved only inside Guesty; regional tax handling needs explicit configuration; import mapping can reduce ongoing manual reconciliation.</td><td><a href="https://fellow.link/NHN1S8ZSXE6H">Workshop 1</a>, <a href="https://fellow.link/QWH0FDG5XDC4">Workshop 2</a></td></tr>
+</table>
+<h2>Detailed Playbook by Area</h2>
+<h3>1. Financial Reconciliation Methodology</h3>
+<h4>Discussed use case</h4>
+<p>During enterprise migrations, Implementation needs to compare the old PMS and Guesty/channel data and make Guesty financials match what the customer expects from their legacy PMS reporting.</p>
+<h4>Current pain point</h4>
+<ul><li>Legacy PMS systems and channels represent rent, fees, taxes, and host payout differently.</li></ul>
+<ul><li>Some legacy systems create values that do not match channel data, especially Track PMS and some Vacasa cases.</li></ul>
+<ul><li>Customers expect financial continuity, even when the channel and old PMS disagree.</li></ul>
+<ul><li>Realization dates and revenue recognition rules add accounting friction beyond simple amount matching.</li></ul>
+<h4>What currently exists</h4>
+<ul><li>Reconciliation compares legacy PMS reports against Guesty/channel reservation data.</li></ul>
+<ul><li>Three primary use cases were identified:</li></ul>
+<ul><li>total host payout discrepancies,</li></ul>
+<ul><li>fees bundled into rent,</li></ul>
+<ul><li>cleaning fee imbalances.</li></ul>
+<ul><li>Alex&#x27;s team uses a create-invoice Toolkit and a Gemini-assisted workflow to generate bulk invoice items from reconciliation sheets.</li></ul>
+<h4>Current solution</h4>
+<ul><li>Use channel data as the source of truth for Guesty imports.</li></ul>
+<ul><li>Mirror the old PMS for financial reconciliation when the customer needs legacy-system continuity.</li></ul>
+<ul><li>For bundled fees, adjust rent to match the source system.</li></ul>
+<ul><li>For cleaning fee imbalances, adjust cleaning fees if source records can identify the delta.</li></ul>
+<ul><li>For host payout mismatches that do not make sense, provide an imbalance report and ask the customer to resolve or advise.</li></ul>
+<h4>Potential solution</h4>
+<ul><li>Build a financial mapping tool with:</li></ul>
+<ul><li>intake templates per competitor/PMS,</li></ul>
+<ul><li>assisted mapping with knowledgeable implementation leads,</li></ul>
+<ul><li>output that creates settings or setting snapshots on reservations rather than recurring adjustments.</li></ul>
+<ul><li>Treat mapped imported reservations like regular reservations with settings so future alterations update accommodation fare while preserving mapped fee logic.</li></ul>
+<h4>Assumptions</h4>
+<ul><li>Enterprise customers need white-glove reconciliation; SMBs may continue with &quot;what comes from the channel is what you get.&quot;</li></ul>
+<ul><li>Old PMS financial continuity matters for customer acceptance even when the old PMS is not technically correct.</li></ul>
+<ul><li>Manual adjustment persistence needs final validation across all relevant channel update scenarios.</li></ul>
+<h3>2. Fee Setup and Imported Reservation Accounting</h3>
+<h4>Discussed use case</h4>
+<p>Prevent imported reservations from creating unrecognized fees or journal-entry/accounting issues when fee settings are missing during onboarding.</p>
+<h4>Current pain point</h4>
+<ul><li>Reservations may import before fee setup is complete.</li></ul>
+<ul><li>Imported fees can be reverse-mapped to default Guesty fee types that do not exist in the customer&#x27;s configured business model.</li></ul>
+<ul><li>This creates accounting confusion, advanced deposit issues, and unexpected folio behavior.</li></ul>
+<h4>What currently exists</h4>
+<ul><li>Implementation sometimes creates a $1 per-stay fee for every fee type before imports to avoid unrecognized journal entries.</li></ul>
+<ul><li>A mini-toolkit exists to batch-create these $1 fees at account level.</li></ul>
+<ul><li>Hometime and similar cases showed resort fees or old-system fees mapped incorrectly when setup was incomplete.</li></ul>
+<h4>Current solution</h4>
+<ul><li>Pre-create fee settings broadly before importing reservations.</li></ul>
+<ul><li>Use batch tooling to reduce the manual setup cost.</li></ul>
+<ul><li>Document reverse-mapping gaps for imported reservations.</li></ul>
+<h4>Potential solution</h4>
+<ul><li>Add default fee configuration at account creation for relevant onboarding flows.</li></ul>
+<ul><li>Add imported-reservation-specific accounting logic or an imported flag.</li></ul>
+<ul><li>Create import mapping rules that let customers or implementation define how incoming fees/taxes should map before they hit accounting.</li></ul>
+<h4>Assumptions</h4>
+<ul><li>Default fee setup is safer for complex enterprise migrations than relying on users to configure every fee manually.</li></ul>
+<ul><li>A one-size default may be risky for single-market accounts with uniform fee structures.</li></ul>
+<ul><li>Product needs to decide whether this is an accounting behavior change, an import behavior change, or both.</li></ul>
+<h3>3. Tax Handling</h3>
+<h4>Discussed use case</h4>
+<p>Handle tax discrepancies where channels, legacy PMS systems, and Guesty have different tax structures, especially across APAC, EMEA, and US rules.</p>
+<h4>Current pain point</h4>
+<ul><li>VRBO sends lumped tax instead of granular tax breakdowns.</li></ul>
+<ul><li>Airbnb can send multiple tax types, but the team may only know the total imbalance and not the correct proportional allocation.</li></ul>
+<ul><li>Booking.com may not support all fee/tax rules.</li></ul>
+<ul><li>Australia has special handling where rent is non-taxable but fees are subject to GST.</li></ul>
+<ul><li>Tax discrepancies can create legal and compliance risk for property managers.</li></ul>
+<h4>What currently exists</h4>
+<ul><li>For VRBO, Implementation zeros out tax and manually re-adds the expected tax types.</li></ul>
+<ul><li>For Airbnb multiple tax types, the team may adjust the larger tax item when allocation cannot be determined.</li></ul>
+<ul><li>Guesty extracts taxes based on local settings for some imported Airbnb reservations when tax settings cannot be pushed through third-party tools.</li></ul>
+<h4>Current solution</h4>
+<ul><li>Handle tax corrections manually during enterprise reconciliation.</li></ul>
+<ul><li>Escalate VRBO tax-breakdown limitations.</li></ul>
+<ul><li>Use local settings and tax-inclusive logic where applicable.</li></ul>
+<h4>Potential solution</h4>
+<ul><li>Push VRBO for granular tax breakdowns or cleaner initial reservation breakdowns.</li></ul>
+<ul><li>Define import mapping rules for taxes and fees by channel and region.</li></ul>
+<ul><li>Add validation rules for high-risk regions before applying bulk reconciliation.</li></ul>
+<h4>Assumptions</h4>
+<ul><li>Tax handling cannot be fully standardized across regions.</li></ul>
+<ul><li>Product and legal/compliance input is needed before changing tax behavior.</li></ul>
+<ul><li>Tax deltas should be transparent to customers when Guesty cannot infer correct allocation.</li></ul>
+<h3>4. Manual Adjustments vs Settings-Based Mapping</h3>
+<h4>Discussed use case</h4>
+<p>Reduce recurring monthly reconciliation by replacing repeated manual adjustments with a mapping/settings approach.</p>
+<h4>Current pain point</h4>
+<ul><li>Avari currently requires 5-6 hours of monthly adjustment work.</li></ul>
+<ul><li>Manual adjustments may appear fragile because stakeholders worry channel updates could override them.</li></ul>
+<ul><li>If recurring reconciliation continues monthly, implementation effort does not scale.</li></ul>
+<h4>What currently exists</h4>
+<ul><li>Alex tested multiple scenarios over two months, including ARCs, payment webhooks, date changes, Resolution Center updates, and future check-ins.</li></ul>
+<ul><li>In tested scenarios, channel updates did not override manual adjustments.</li></ul>
+<ul><li>Bulk adjustments may be possible for 6-8 months of data if override behavior is understood.</li></ul>
+<h4>Current solution</h4>
+<ul><li>Use bulk adjustments and Toolkit where the team has confidence.</li></ul>
+<ul><li>Continue tracking override scenarios manually.</li></ul>
+<h4>Potential solution</h4>
+<ul><li>Create settings or setting snapshots during import/mapping so adjusted fees become part of reservation configuration instead of post-import adjustments.</li></ul>
+<ul><li>Preserve channel fees on folios while applying adjusted settings behind the scenes.</li></ul>
+<ul><li>Use AI-assisted mapping to reduce mapping time from hours to a shorter guided workflow.</li></ul>
+<h4>Assumptions</h4>
+<ul><li>Settings-based output avoids the &quot;endless override loop.&quot;</li></ul>
+<ul><li>Channel alterations can update accommodation fare proportionally while preserving mapped fee calculations.</li></ul>
+<ul><li>Product must define which future updates are allowed to override mapped settings.</li></ul>
+<h3>5. Legacy PMS and Customer-Specific Migration Handling</h3>
+<h4>Discussed use case</h4>
+<p>Understand how competitor systems calculate financial fields so Guesty can map or reconcile migration data correctly.</p>
+<h4>Current pain point</h4>
+<ul><li>Track PMS and similar systems may generate unreliable or internally derived financial data.</li></ul>
+<ul><li>Vacasa internal logic can produce cleaning fee or host payout values that do not match Airbnb/channel data.</li></ul>
+<ul><li>Host payout definitions vary by system.</li></ul>
+<h4>What currently exists</h4>
+<ul><li>Track migrations may require asking customers what values they want rather than attempting deterministic reconciliation.</li></ul>
+<ul><li>Vacasa reconciliation can work for most reservations, but a meaningful minority require customer input.</li></ul>
+<ul><li>AI-based mapping cannot work until the system understands how each legacy PMS calculates host payout and fees.</li></ul>
+<h4>Current solution</h4>
+<ul><li>Reconcile what can be matched.</li></ul>
+<ul><li>Flag irreconcilable host payout discrepancies for the customer.</li></ul>
+<ul><li>Use reports to show customers where the old PMS and channel disagree.</li></ul>
+<h4>Potential solution</h4>
+<ul><li>Build competitor-specific intake templates for Streamline, Casa, LiveRes, Escapia Track, Track PMS, Vacasa, and other high-volume systems.</li></ul>
+<ul><li>Bring experienced implementation leads into mapping sessions.</li></ul>
+<ul><li>Use AI to learn fee structures and generate proposed settings/snapshots.</li></ul>
+<h4>Assumptions</h4>
+<ul><li>Competitor-specific mapping is required; one generic mapping model will not be enough.</li></ul>
+<ul><li>Customer confirmation is required when source systems disagree materially.</li></ul>
+<h3>6. Avari / Hometime Operational Lessons</h3>
+<h4>Discussed use case</h4>
+<p>Use current migration incidents to shape the product and implementation playbook.</p>
+<h4>Current pain point</h4>
+<ul><li>Avari had 1,200 March/April reservations stuck in locked accounting periods needing migration to DeductLogic 2.0 before owner statements.</li></ul>
+<ul><li>BEAST migration tools may not override locked periods as expected.</li></ul>
+<ul><li>Hometime had imported fee and reverse-mapping issues, including fees from old systems mapping into unexpected Guesty fee behavior.</li></ul>
+<ul><li>Rates and availability feature-toggle behavior can affect whether fees are bundled into accommodation fare.</li></ul>
+<h4>What currently exists</h4>
+<ul><li>Avari has a process to record payments and an API path to mark payments if needed with written approval.</li></ul>
+<ul><li>Avari end-of-month processing should complete before ViewStay processing to avoid Wallet transaction-limit issues.</li></ul>
+<ul><li>A report is needed for customers using rates and availability without the feature toggle enabled.</li></ul>
+<h4>Current solution</h4>
+<ul><li>Use a dual path for urgent migrations: Tier 3 via API and Product/Financials validation of BEAST capability.</li></ul>
+<ul><li>Coordinate Rinat, Autumn, Alex, Jordan, and Tier 3 for locked-period issues.</li></ul>
+<ul><li>Keep Avari and ViewStay sequencing explicit for end-of-month processing.</li></ul>
+<h4>Potential solution</h4>
+<ul><li>Fix or document BEAST locked-period limitations.</li></ul>
+<ul><li>Define when API override is acceptable.</li></ul>
+<ul><li>Produce a rates-and-availability impact report before changing default behavior or customer communications.</li></ul>
+<h4>Assumptions</h4>
+<ul><li>Locked-period overrides require careful accounting control.</li></ul>
+<ul><li>Customer written approval may be required for bulk payment marking because of bank reconciliation impact.</li></ul>
+<ul><li>Legal review may be needed before broad customer communication about rates-and-availability behavior.</li></ul>
+<h2>Product / Process Recommendations</h2>
+<ol><li><strong>Create official import mapping rules.</strong> Support per-channel and per-region choices for fees, taxes, VAT/GST, bundled fees, and accommodation fare.</li></ol>
+<ol><li><strong>Design the financial mapping tool around settings, not recurring adjustments.</strong> The output should create reservation settings/snapshots that survive future alterations.</li></ol>
+<ol><li><strong>Preserve channel source-of-truth visibility.</strong> Keep channel fee lines visible on folios while using mapped settings for reconciled financial output.</li></ol>
+<ol><li><strong>Define enterprise-only reconciliation scope.</strong> Make clear which services are white-glove enterprise migration support and which are not included for SMBs.</li></ol>
+<ol><li><strong>Build competitor-specific templates.</strong> Start with Track/Escapia Track, Vacasa, Streamline, Casa, and LiveRes.</li></ol>
+<ol><li><strong>Clarify tax ownership and compliance rules.</strong> Tax allocation should not be guessed when channels provide insufficient detail.</li></ol>
+<ol><li><strong>Document override behavior.</strong> Product/Engineering should identify which channel updates can override manual or mapped financial settings.</li></ol>
+<ol><li><strong>Create reports before changing rates-and-availability behavior.</strong> Identify impacted customers and legal/commercial risk first.</li></ol>
+<h2>Action Items</h2>
+<table>
+<tr><th>Action Item</th><th>Owner</th><th>Due Date / Timing</th><th>Status</th><th>Source</th></tr>
+<tr><td>Re-open conversation with VRBO about tax data transmission and push for granular tax breakdown instead of lump sum.</td><td>Javier Ibarz</td><td></td><td>Open</td><td>Workshop 1</td></tr>
+<tr><td>Message / escalate to the Erpal team about VRBO tax data impact on Guesty&#x27;s reconciliation process.</td><td>Javier Ibarz</td><td></td><td>Open</td><td>Workshop 1</td></tr>
+<tr><td>Document reverse mapping not applying cleanly to imported reservations and the default-fee behavior gap.</td><td>Rinat Elimelech</td><td></td><td>Open</td><td>Workshop 1</td></tr>
+<tr><td>Create Tier 3 ticket to migrate 1,200 March/April Avari reservations to DeductLogic 2.0 via API.</td><td>Alex Borack</td><td>End of day after Workshop 2</td><td>Open / verify externally</td><td>Workshop 2</td></tr>
+<tr><td>Coordinate with Autumn and Alex on BEAST not overriding locked periods.</td><td>Rinat Elimelech</td><td></td><td>Open / verify externally</td><td>Workshop 2</td></tr>
+<tr><td>Create Tier 3 ticket to override locked periods and zero out zero-amount invoice items for Hometime migration; coordinate with Jordan if needed.</td><td>Alex Borack</td><td></td><td>Open / verify externally</td><td>Workshop 2</td></tr>
+<tr><td>Escalate BEAST migration tooling issue to Product Management.</td><td>Rinat Elimelech</td><td></td><td>Open</td><td>Workshop 2</td></tr>
+<tr><td>Connect with Tamar to review the CSV converter tool with AI and assess expansion for competitor mapping.</td><td>Ella Waldman</td><td></td><td>Open</td><td>Workshop 2</td></tr>
+<tr><td>Create report of customers using rates and availability without the feature toggle enabled and impacted by fees not bundled into accommodation fare.</td><td>Javier Ibarz</td><td></td><td>Open</td><td>Workshop 2</td></tr>
+</table>
+<h2>Risks / Blockers to Watch</h2>
+<table>
+<tr><th>Risk / Blocker</th><th>Impact</th><th>Owner / Function</th><th>Mitigation / Next Step</th></tr>
+<tr><td>VRBO provides lumped tax and low-quality fee/tax data.</td><td>Manual tax reconstruction remains expensive and risky.</td><td>Distribution / Javier</td><td>Push VRBO for granular tax breakdown and cleaner initial reservation data.</td></tr>
+<tr><td>Legacy PMS data is unreliable or internally derived.</td><td>Guesty cannot safely reconcile without customer input.</td><td>Implementation</td><td>Provide discrepancy reports and get customer guidance.</td></tr>
+<tr><td>Imported fees reverse-map to incorrect Guesty fee settings.</td><td>Accounting mappings and owner statements can be wrong.</td><td>Financials Product</td><td>Define imported-reservation mapping behavior and default fee setup.</td></tr>
+<tr><td>Regional tax rules differ materially.</td><td>Global import behavior could create compliance risk.</td><td>Financials / Legal / Product</td><td>Validate APAC, EMEA, US handling separately.</td></tr>
+<tr><td>Manual adjustments may be overridden by unknown future events.</td><td>Bulk reconciliation may be unsafe if override cases are missed.</td><td>Product / Engineering</td><td>Publish tested and untested channel update scenarios.</td></tr>
+<tr><td>BEAST tools may not override locked periods.</td><td>Avari/Hometime migrations can miss owner-statement deadlines.</td><td>Financials Product / Tier 3</td><td>Validate tool behavior and define API fallback.</td></tr>
+<tr><td>Rates-and-availability behavior affects customer revenue expectations.</td><td>Release notes or product changes may trigger compensation/liability concerns.</td><td>Distribution / Legal / Product</td><td>Produce impact report and legal review before rollout.</td></tr>
+</table>
+<h2>Open Questions / Gaps</h2>
+<ul><li>Which parts of this playbook should become product requirements versus implementation process?</li></ul>
+<ul><li>Which imported-reservation events are guaranteed not to override mapped settings or manual adjustments?</li></ul>
+<ul><li>What is the official source-of-truth policy when old PMS, OTA, and Guesty disagree?</li></ul>
+<ul><li>Which competitor PMS templates should be prioritized first?</li></ul>
+<ul><li>What minimum fields are required in the intake template for AI-assisted financial mapping?</li></ul>
+<ul><li>Should default fee setup be enabled for all enterprise migration accounts or only selected migration profiles?</li></ul>
+<ul><li>What approval is required before Guesty bulk-marks payments or overrides locked accounting periods?</li></ul>
+<ul><li>What customer-facing language is needed for rates-and-availability limitations?</li></ul>
+<h2>Suggested Share Title</h2>
+<p><strong>PMS Data Mirroring Playbook: OTA Reverse Engineering for Accurate Financial Migration Data</strong></p>
+<h2>Related Pages</h2>
+<ul><li>[[Processes]]</li></ul>
+<ul><li>[[../meetings/Meetings]]</li></ul>
+<ul><li>[[../projects/Distribution Project]]</li></ul>
+<ul><li>[[../risks/Risk Register]]</li></ul>
+<ul><li>[[../dependencies/Dependencies]]</li></ul>
+<ul><li>[[../decisions/Decision Log]]</li></ul>
+<h2>Source Log</h2>
+<table>
+<tr><th>Date</th><th>Source</th><th>What was added</th></tr>
+<tr><td>2026-06-01</td><td><a href="https://fellow.link/NHN1S8ZSXE6H">PMS Data Mirroring Workshop 1</a></td><td>Captured meeting metadata, participants, use case, and playbook need.</td></tr>
+<tr><td>2026-06-01</td><td><a href="https://fellow.link/QWH0FDG5XDC4">PMS Data Mirroring Workshop 2</a></td><td>Captured meeting metadata, additional participant, use case, and playbook need.</td></tr>
+<tr><td>2026-06-01</td><td>User-pasted Fellow summaries</td><td>Synthesized detailed combined playbook, decisions, channel matrix, action items, risks, and recommendations.</td></tr>
+</table>
+</body>
+</html>
