@@ -96,3 +96,20 @@ Created:
 - `exports/PMS Data Mirroring Playbook.html`
 - `exports/PMS Data Mirroring Playbook.md`
 
+## [2026-06-01] update | Exported PMS data mirroring playbook spreadsheet
+
+Created a Google Sheets-friendly XLSX workbook from the PMS Data Mirroring Playbook.
+
+Created:
+- `exports/PMS Data Mirroring Playbook Spreadsheet.xlsx`
+
+Workbook tabs:
+- Overview
+- Channel Matrix
+- Detailed Areas
+- Decisions
+- Recommendations
+- Action Items
+- Risks
+- Open Questions
+
