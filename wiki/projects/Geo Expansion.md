@@ -6,7 +6,7 @@ type: project
 status: active
 owner: Maia Gordon
 last_updated: 2026-06-01
-source_count: 1
+source_count: 2
 tags: [geo-expansion, delivery]
 ---
 
@@ -18,10 +18,12 @@ Geo Expansion is a known initiative in Maia Gordon's Guesty project-management s
 
 ## Key Facts
 - Listed by Maia as a managed program/initiative.
+- Source presentation: [Geo Expansion Program](https://docs.google.com/presentation/d/1YmaYCJKlnXW8bPTKtw5hFnn_QBEcYyirtI4-i0aN3IQ/edit?slide=id.g3b524ef109b_0_8#slide=id.g3b524ef109b_0_8).
 - Detailed scope, Jira mapping, stakeholders, and milestone data are not yet captured.
 
 ## Current Status
-- Placeholder page created during vault setup.
+- Source presentation link has been captured in `raw/docs/`.
+- Slide content still needs review before this page can be synthesized beyond the initial project placeholder.
 
 ## Open Questions / Gaps
 - What geographic scope or rollout areas are included?
@@ -40,4 +42,5 @@ Geo Expansion is a known initiative in Maia Gordon's Guesty project-management s
 | Date | Source | What was added |
 |------|--------|----------------|
 | 2026-06-01 | User setup response | Created project placeholder from initial program list. |
+| 2026-06-01 | [Geo Expansion Program](https://docs.google.com/presentation/d/1YmaYCJKlnXW8bPTKtw5hFnn_QBEcYyirtI4-i0aN3IQ/edit?slide=id.g3b524ef109b_0_8#slide=id.g3b524ef109b_0_8) | Preserved source presentation link for future synthesis. |
 

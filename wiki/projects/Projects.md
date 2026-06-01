@@ -6,7 +6,7 @@ type: overview
 status: active
 owner: Maia Gordon
 last_updated: 2026-06-01
-source_count: 1
+source_count: 2
 tags: [projects, programs, delivery]
 ---
 
@@ -26,11 +26,14 @@ Maia's project-management scope includes cross-team delivery initiatives, enterp
   - [[Casago End of Month]]
   - [[Avari End of Month]]
   - [[Translations Project]]
+  - [[Distribution Project]]
+  - [[Top Priority Enterprise Requests]]
 - Live issue/task status should remain in Jira or the relevant tracker.
 - This vault should capture durable summaries, action items, issue analysis, and delivery context.
 
 ## Current Status
 - Starter pages exist for each known project/program.
+- Source links have been captured for Geo Expansion, AI Program, Distribution Project, and Top Priority Enterprise Requests.
 - Project status, owners, milestones, Jira links, Slack channels, Confluence links, and risks are pending source-backed updates.
 
 ## Open Questions / Gaps
@@ -51,4 +54,5 @@ Maia's project-management scope includes cross-team delivery initiatives, enterp
 | Date | Source | What was added |
 |------|--------|----------------|
 | 2026-06-01 | User setup response | Captured initial project/program list. |
+| 2026-06-01 | User-shared Google links | Added source links for Geo Expansion, AI Program, Distribution Project, and Top Priority Enterprise Requests. |
 

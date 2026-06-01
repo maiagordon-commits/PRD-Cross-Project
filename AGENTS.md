@@ -100,7 +100,8 @@ Use this structure where relevant:
 - Do not change raw source wording except for light formatting or redaction.
 
 ## Current known Guesty context
-- Active/known programs: Geo Expansion, RooM Program, AI Program, Alloggio Re-onboarding, Hometime End of Month, Casago End of Month, Avari End of Month, and Translations Project.
+- Active/known programs: Geo Expansion, RooM Program, AI Program, Alloggio Re-onboarding, Hometime End of Month, Casago End of Month, Avari End of Month, Translations Project, Distribution Project, and Top Priority Enterprise Requests.
+- Source links currently preserved for: Geo Expansion Program, AI Program, Distribution Project, and Top Priority Enterprise Requests.
 - Documentation style preference: Standard.
 - Task tracking preference: Mainly summaries, action items, and issue analysis in this vault; detailed task status should remain in Jira or the relevant system.
 

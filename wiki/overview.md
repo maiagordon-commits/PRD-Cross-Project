@@ -6,7 +6,7 @@ type: overview
 status: active
 owner: Maia Gordon
 last_updated: 2026-06-01
-source_count: 1
+source_count: 2
 tags: [guesty, project-management, overview]
 ---
 
@@ -24,12 +24,13 @@ The documentation style should be standard: clear enough to support handoffs and
 - Team/org: Product.
 - Reporting line: CTO.
 - Primary responsibilities: delivery of cross-team initiatives, enterprise escalations, issue analysis, requests, and internal Guesty technical programs on the roadmap.
-- Known programs and initiatives: Geo Expansion, RooM Program, AI Program, Alloggio Re-onboarding, Hometime End of Month, Casago End of Month, Avari End of Month, and Translations Project.
+- Known programs and initiatives: Geo Expansion, RooM Program, AI Program, Alloggio Re-onboarding, Hometime End of Month, Casago End of Month, Avari End of Month, Translations Project, Distribution Project, and Top Priority Enterprise Requests.
 - Task preference: this vault should mainly store summaries, action items, and issue analysis rather than replacing Jira or other operational trackers.
 
 ## Current Status
 - Starter vault structure is initialized.
 - Known programs have placeholder project pages.
+- Google Slides/Sheets source links have been captured for Geo Expansion, AI Program, Distribution Project, and Top Priority Enterprise Requests.
 - Jira boards, Slack channels, Confluence pages, recurring meetings, and stakeholder details still need source-backed setup.
 
 ## Open Questions / Gaps
@@ -50,4 +51,5 @@ The documentation style should be standard: clear enough to support handoffs and
 | Date | Source | What was added |
 |------|--------|----------------|
 | 2026-06-01 | User setup response | Captured owner, role, scope, known programs, documentation style, and task-tracking preference. |
+| 2026-06-01 | User-shared Google links | Added source links for Geo Expansion, AI Program, Distribution Project, and Top Priority Enterprise Requests. |
 

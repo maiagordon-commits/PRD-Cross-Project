@@ -6,7 +6,7 @@ type: project
 status: active
 owner: Maia Gordon
 last_updated: 2026-06-01
-source_count: 1
+source_count: 2
 tags: [ai, program, delivery]
 ---
 
@@ -18,10 +18,12 @@ AI Program is a known program in Maia Gordon's Guesty project-management scope. 
 
 ## Key Facts
 - Listed by Maia as a managed program/initiative.
+- Source presentation: [AI Program](https://docs.google.com/presentation/d/1d-0KiLurDMA96RkDjPnE5fuALzITGjCPNqTnVMGmZtQ/edit?slide=id.g3a8b3a3fe39_0_11#slide=id.g3a8b3a3fe39_0_11).
 - Specific AI workstreams, product areas, owners, and delivery milestones still need source-backed detail.
 
 ## Current Status
-- Placeholder page created during vault setup.
+- Source presentation link has been captured in `raw/docs/`.
+- Slide content still needs review before this page can be synthesized beyond the initial program placeholder.
 
 ## Open Questions / Gaps
 - Which AI initiatives are included in the program?
@@ -40,4 +42,5 @@ AI Program is a known program in Maia Gordon's Guesty project-management scope. 
 | Date | Source | What was added |
 |------|--------|----------------|
 | 2026-06-01 | User setup response | Created project placeholder from initial program list. |
+| 2026-06-01 | [AI Program](https://docs.google.com/presentation/d/1d-0KiLurDMA96RkDjPnE5fuALzITGjCPNqTnVMGmZtQ/edit?slide=id.g3a8b3a3fe39_0_11#slide=id.g3a8b3a3fe39_0_11) | Preserved source presentation link for future synthesis. |
 

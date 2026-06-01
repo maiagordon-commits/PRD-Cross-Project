@@ -18,6 +18,8 @@
 - [[wiki/projects/Casago End of Month|Casago End of Month]]
 - [[wiki/projects/Avari End of Month|Avari End of Month]]
 - [[wiki/projects/Translations Project|Translations Project]]
+- [[wiki/projects/Distribution Project|Distribution Project]]
+- [[wiki/projects/Top Priority Enterprise Requests|Top Priority Enterprise Requests]]
 
 ## Workstreams and Domains
 - [[wiki/workstreams/Workstreams|Workstreams]]
@@ -56,6 +58,10 @@
 
 ## Source Intake
 - [[raw/Raw Sources Guide|Raw Sources Guide]]
+- [[raw/docs/2026-06-01 Geo Expansion Program|Geo Expansion Program source]]
+- [[raw/docs/2026-06-01 AI Program|AI Program source]]
+- [[raw/docs/2026-06-01 Distribution Project|Distribution Project source]]
+- [[raw/docs/2026-06-01 Top Priority Enterprise Requests|Top Priority Enterprise Requests source]]
 
 ## Maintenance Notes
 - Update this index whenever wiki pages are created, renamed, archived, or deleted.
