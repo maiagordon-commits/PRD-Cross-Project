@@ -32,6 +32,8 @@
 
 ## Meetings and Rituals
 - [[wiki/meetings/Meetings|Meetings]]
+- [[raw/meetings/2026-05-20 PMS Data Mirroring Workshop|PMS Data Mirroring Workshop 1 source]]
+- [[raw/meetings/2026-05-28 PMS Data Mirroring Workshop|PMS Data Mirroring Workshop 2 source]]
 - Recurring meetings are pending setup.
 
 ## Decisions
@@ -48,6 +50,7 @@
 
 ## Processes
 - [[wiki/processes/Processes|Processes]]
+- [[wiki/processes/PMS Data Mirroring Playbook|PMS Data Mirroring Playbook]]
 
 ## Templates
 - [[wiki/templates/Project Page Template|Project Page Template]]

@@ -6,7 +6,7 @@ type: meeting
 status: active
 owner: Maia Gordon
 last_updated: 2026-06-01
-source_count: 0
+source_count: 2
 tags: [meetings, rituals, action-items]
 ---
 
@@ -20,9 +20,11 @@ Meeting pages should help future agents find recurring rituals, capture decision
 - Raw meeting notes belong in `raw/meetings/`.
 - Synthesized recurring-meeting context and durable summaries belong in `wiki/meetings/`.
 - Action items can be captured in this vault, but live task execution should remain in Jira or the relevant tracker.
+- PMS Data Mirroring workshops were held on 2026-05-20 and 2026-05-28 with Product, Financials, Distribution, and Implementation stakeholders.
 
 ## Current Status
 - Meeting catalog is initialized.
+- PMS Data Mirroring workshop source links are captured in `raw/meetings/`.
 - Specific recurring meetings, owners, cadence, participants, and agendas are pending.
 
 ## Open Questions / Gaps
@@ -37,8 +39,11 @@ Meeting pages should help future agents find recurring rituals, capture decision
 - [[../decisions/Decision Log]]
 - [[../risks/Risk Register]]
 - [[../status/Status Reports]]
+- [[../processes/PMS Data Mirroring Playbook]]
 
 ## Source Log
 | Date | Source | What was added |
 |------|--------|----------------|
+| 2026-06-01 | [PMS Data Mirroring Workshop 1](https://fellow.link/NHN1S8ZSXE6H) | Captured source link and meeting metadata. |
+| 2026-06-01 | [PMS Data Mirroring Workshop 2](https://fellow.link/QWH0FDG5XDC4) | Captured source link and meeting metadata. |
 

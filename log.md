@@ -43,3 +43,19 @@ Updated:
 - `wiki/projects/Top Priority Enterprise Requests.md`
 - `wiki/workstreams/Workstreams.md`
 
+## [2026-06-01] meeting | Created PMS data mirroring workshop playbook
+
+Captured Fellow source links for two PMS data mirroring workshops and created a channel-by-channel playbook shell for improving old PMS data mirroring into Guesty for accurate financial data.
+
+Added sources for:
+- 2026-05-20 PMS Data Mirroring Workshop
+- 2026-05-28 PMS Data Mirroring Workshop
+
+Created:
+- `wiki/processes/PMS Data Mirroring Playbook.md`
+
+Updated:
+- `Master Wiki Index.md`
+- `wiki/meetings/Meetings.md`
+- `wiki/processes/Processes.md`
+
