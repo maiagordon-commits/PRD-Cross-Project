@@ -81,3 +81,10 @@ Captured:
 - Avari/Hometime operational risks
 - action items, risks, decisions, assumptions, and open questions
 
+## [2026-06-01] update | Exported PMS data mirroring playbook to DOCX
+
+Created a shareable DOCX export of the PMS Data Mirroring Playbook.
+
+Created:
+- `exports/PMS Data Mirroring Playbook.docx`
+
