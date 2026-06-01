@@ -59,3 +59,25 @@ Updated:
 - `wiki/meetings/Meetings.md`
 - `wiki/processes/Processes.md`
 
+## [2026-06-01] update | Filled PMS data mirroring playbook from Fellow summaries
+
+Combined the pasted Fellow summaries from the May 20 and May 28 PMS data mirroring workshops into a detailed product-shareable playbook.
+
+Updated:
+- `raw/meetings/2026-05-20 PMS Data Mirroring Workshop.md`
+- `raw/meetings/2026-05-28 PMS Data Mirroring Workshop.md`
+- `wiki/processes/PMS Data Mirroring Playbook.md`
+- `wiki/decisions/Decision Log.md`
+- `wiki/risks/Risk Register.md`
+- `wiki/meetings/Meetings.md`
+
+Captured:
+- channel-specific playbook matrix for Airbnb, VRBO, and Booking.com
+- financial reconciliation methodology
+- fee setup and accounting gaps
+- tax handling challenges
+- manual adjustment versus settings-based mapping approach
+- legacy PMS and migration handling lessons
+- Avari/Hometime operational risks
+- action items, risks, decisions, assumptions, and open questions
+

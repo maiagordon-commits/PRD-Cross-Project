@@ -24,7 +24,7 @@ Meeting pages should help future agents find recurring rituals, capture decision
 
 ## Current Status
 - Meeting catalog is initialized.
-- PMS Data Mirroring workshop source links are captured in `raw/meetings/`.
+- PMS Data Mirroring workshop source links and pasted Fellow summaries are captured in `raw/meetings/`.
 - Specific recurring meetings, owners, cadence, participants, and agendas are pending.
 
 ## Open Questions / Gaps
@@ -46,4 +46,5 @@ Meeting pages should help future agents find recurring rituals, capture decision
 |------|--------|----------------|
 | 2026-06-01 | [PMS Data Mirroring Workshop 1](https://fellow.link/NHN1S8ZSXE6H) | Captured source link and meeting metadata. |
 | 2026-06-01 | [PMS Data Mirroring Workshop 2](https://fellow.link/QWH0FDG5XDC4) | Captured source link and meeting metadata. |
+| 2026-06-01 | User-pasted Fellow summaries | Updated source records with workshop summaries and action/decision/risk context. |
 
