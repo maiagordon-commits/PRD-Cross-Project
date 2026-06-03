@@ -2,7 +2,7 @@
 
 ## Executive summary
 
-For Issues 3-6, the customer's frustration is materially justified. Issues 3 and 5 are confirmed platform/API defects, Issue 4 appears to be expected accounting/reporting behavior but was handled poorly at first, and Issue 6 is a finance-calculation complaint where the available Jira workflow resolution says user error/misconfiguration but the support record does not yet show a customer-ready explanation.
+For Issues 3-6, the customer's frustration is materially justified. Issues 3 and 5 are confirmed platform/API defects, Issue 4 appears to be expected accounting/reporting behavior but was handled poorly at first, and Issue 6 shows a finance UI/calculation consistency gap where the displayed refund suggestion differed from the balance engine by $0.22.
 
 The largest patterns are:
 
@@ -19,7 +19,7 @@ The largest patterns are:
 | Issue 3 - Properties reports not delivered / blank | Apr 14, 18:12 | Apr 15, 05:37 | Jira created Apr 15, engineering finding Apr 16 | Not confirmed resolved; later status says bugfix ready and awaiting release | About 11h 25m | Not resolved; latest customer failure was about 23 days 4h after creation |
 | Issue 4 - Owners Portal / Analytics discrepancy | Saturday, 00:16 | Sunday, 03:43 | CSM escalation Saturday 00:57; domain specialist analysis Monday 09:44 | Monday 09:54 answer, assuming it fully addressed the Loom | About 27h 27m | About 2 days 9h 38m to final answer |
 | Issue 5 - reservations-v3 VRBO retrieval failure | Not included in pasted content | Sunday, 11:03, based on known customer-facing response | Internal validation Sunday 09:47; Jira/pre-triage about May 31 | Not confirmed resolved; escalated to RES | Cannot calculate exactly without created timestamp | Not resolved / not enough data |
-| Issue 6 - Refund / folio balance overpayment discrepancy | Jun 1, 19:27 | Jun 2, 17:07 | CSM reopened Jun 1, 20:19; escalated incorrectly to API Jun 2, then redirected to T3/GOLD | Jira GOLD-9476 resolved as User Error or Misconfiguration; pending CSM reply as of Jun 3, 11:28 | About 21h 40m to first useful human customer update | Not customer-resolved yet; Jira closure came about 39h 26m after creation |
+| Issue 6 - Refund / folio balance overpayment discrepancy | Jun 1, 19:27 | Jun 2, 17:07 | CSM reopened Jun 1, 20:19; escalated incorrectly to API Jun 2, then redirected to T3/GOLD; R&D analysis Jun 2, 19:17 | Jira GOLD-9476 resolved as User Error or Misconfiguration; Payments/Financials found no domain failure, but R&D identified a $0.22 UI-vs-engine payout mismatch | About 21h 40m to first useful human customer update | Not customer-resolved yet; Jira closure came about 39h 26m after creation |
 
 ## Issue 3 - Properties report emails not delivered / blank
 
@@ -322,6 +322,10 @@ For Issue 5, the customer's complaint is justified and technically accurate. The
 | T3 ticket referenced | Jun 2, 17:06 |
 | First useful human customer response | Jun 2, 17:07 |
 | Time to first useful human response | About 21h 40m |
+| R&D investigation | Jun 2, 19:17 |
+| Management escalation note | Jun 2, 19:08 |
+| Financials response | Jun 3, 07:47 |
+| Payments response | Jun 3, 10:50 |
 | Jira workflow resolution | Jun 3, 10:53, GOLD-9476 resolved as User Error or Misconfiguration |
 | Latest known status | Pending reply from CSMs as of Jun 3, 11:28 |
 | Time to Jira resolution | About 39h 26m from created date |
@@ -333,11 +337,11 @@ For Issue 5, the customer's complaint is justified and technically accurate. The
 | Category | Assessment |
 |---|---|
 | Customer impact | Medium-high. The issue concerns refund, folio, tax, rounding, and balance calculations; even a $0.22 discrepancy can undermine trust in financial accuracy. |
-| System/platform issue | Not confirmed from the pasted evidence. Jira workflow says User Error or Misconfiguration, but the ticket content does not include the actual Jira analysis proving that conclusion. |
-| Support quality | Poor to mixed. The AI response was clearly wrong, the ticket was initially sent toward API despite no API action, and the customer had not received a substantive explanation by the latest note. |
-| Engineering handling | Redirected from API to dev/T3/GOLD. Jira closed as user error/misconfiguration, but the evidence shared here does not show the root-cause explanation. |
+| System/platform issue | Partial product/system issue. Payments and Financials say their calculations were correct, but R&D found the refund suggestion UI used display hostPayout $2,407.68 while balanceDue used balance-engine hostPayout $2,407.46, producing the exact $0.22 residual. |
+| Support quality | Poor to mixed. The AI response was clearly wrong, the ticket was initially sent toward API despite no API action, and the customer had not yet received a substantive explanation in the pasted support thread. |
+| Engineering handling | R&D produced a useful root-cause analysis quickly after escalation. Financials and Payments rejected ownership, and the workflow resolution as User Error or Misconfiguration risks underselling the UI mismatch. |
 | Current status | Internally reopened after Jira closure; pending CSM reply. Not customer-resolved. |
-| Customer complaint justified? | Partially justified based on support handling and the financial-trust impact. Platform defect is unproven with the available evidence. |
+| Customer complaint justified? | Yes on experience and UI trust; partially on platform defect. The refund payment itself worked, but the customer followed Guesty's displayed refund suggestion and still got a $0.22 overpayment. |
 
 ### Support review
 
@@ -345,7 +349,8 @@ For Issue 5, the customer's complaint is justified and technically accurate. The
 - The CSM reopen summary was actually strong: it captured the user's claim, refund amount, accommodation fare adjustments, overpayment amount, missing evidence, and likely category.
 - The initial escalation to API was misrouted; API correctly noted this should go to dev/T3 if it is a bug.
 - The first useful customer-facing human update came almost a day after the ticket opened and only said the issue was escalated to development.
-- After Jira resolved as User Error or Misconfiguration, the ticket reopened with generic workflow guidance, but no customer-facing explanation is shown yet.
+- R&D analysis identified the exact $0.22 source, but the support workflow still reopened with generic "user error or misconfiguration" guidance.
+- No customer-facing explanation is shown yet that translates the R&D finding into plain language.
 
 ### Answers to review questions
 
@@ -363,11 +368,11 @@ The AI answer was generic and wrong. The internal CSM summary was specific. The 
 
 #### Did the ticket get ownership and follow-up?
 
-There was follow-up, but ownership was not clean. The ticket moved from AI to CSM, then toward API, then away from API to T3/GOLD. As of the latest note, CSM reply was still pending.
+There was follow-up, but ownership was not clean. The ticket moved from AI to CSM, then toward API, then away from API to T3/GOLD, then Financials and Payments both said their domains were not at fault. As of the latest note, CSM reply was still pending.
 
 #### Were escalations handled quickly enough?
 
-Escalation happened, but the path was inefficient. It took until the next day to route away from API and into T3/GOLD, and Jira then closed as User Error or Misconfiguration without the pasted support content showing a customer-ready explanation.
+Escalation happened, but the path was inefficient. It took until the next day to route away from API and into T3/GOLD. R&D did provide a useful analysis on Jun 2 at 19:17, but Jira then closed as User Error or Misconfiguration without the pasted support content showing a customer-ready explanation.
 
 #### Did the customer have to repeat themselves?
 
@@ -375,37 +380,41 @@ No repeat is shown in the pasted content. However, the AI response asked the cus
 
 #### Was the issue actually resolved?
 
-Not from the customer's perspective. Jira was resolved as User Error or Misconfiguration, but the Zendesk ticket was reopened and a CSM reply was still pending. Treat this as not customer-resolved until support explains the exact configuration/usage/data-entry issue and how to avoid the $0.22 discrepancy.
+Not from the customer's perspective. Jira was resolved as User Error or Misconfiguration, but the Zendesk ticket was reopened and a CSM reply was still pending. Treat this as not customer-resolved until support explains the exact $0.22 mismatch and what the customer should do differently next time.
 
 ### Platform findings
 
-No platform bug is proven from the pasted evidence. The plausible possibilities are:
+The refund itself did not fail, and Payments/Financials found no incorrect domain calculation. However, the R&D analysis shows a real product inconsistency in the customer-facing workflow:
 
-- User workflow or configuration issue, matching the Jira workflow resolution.
-- Rounding/tax/folio recalculation behavior that is technically expected but confusing.
-- A real calculation defect that could not be proven because the customer lacked before/after folio screenshots.
+- Two successful GuestyPay payments were made for $2,406.61 each, totaling $4,813.22.
+- The customer refunded $2,405.54, and the refund succeeded.
+- The balance engine calculated hostPayout as $2,407.46 and true over-collected amount as $2,405.76.
+- The refund UI suggestion implied display hostPayout of $2,407.68 and over-collected amount of $2,405.54.
+- The $0.22 gap between $2,407.68 and $2,407.46 exactly explains the remaining $0.22 overpayment.
+- The $19.23 and $2.25 values were automatic county tax recalculations after accommodation fare cuts, not the primary accommodation fare reductions.
+- A manual +$0.22 adjustment by Seth zeroed the balance.
 
-The review should not call this a confirmed system error without the actual GOLD-9476 analysis. It should call it a financial-calculation concern with insufficient evidence for a bug, plus poor initial support handling.
+The best classification is not "refund failed." It is a UI/calculation-consistency gap: the Over-collected / refund suggestion should align with the same hostPayout used by balanceDue calculated-fields.
 
 ### Recommended CTO-ready conclusion
 
-For Issue 6, the customer's frustration is partially justified. The available evidence does not prove a platform defect, and Jira apparently resolved GOLD-9476 as User Error or Misconfiguration. However, support handling was weak: the AI response was incorrect, the ticket was briefly misrouted to API, and the customer still lacked a clear explanation after Jira closure. Because the issue involves financial reconciliation, support should provide a precise, customer-safe breakdown rather than a generic "user error" message.
+For Issue 6, the customer's frustration is justified. The refund did execute correctly for the amount submitted, and Payments/Financials did not find a domain failure. However, the customer relied on Guesty's displayed Over-collected / refund amount, and R&D found that this display path differed from the balance engine by exactly $0.22. Support handling was also weak: the AI response was wrong, the ticket was briefly misrouted to API, and the customer still needed a plain explanation after Jira closure. This should be communicated as a calculation-display alignment issue, not simply "user error."
 
 ### Recommended next actions
 
-- Retrieve or paste the full GOLD-9476 analysis before finalizing the platform conclusion.
 - Have CSM/support send a clear explanation of why the $0.22 overpayment appeared.
-- Include the exact calculation path: fare adjustments, taxes, refund amount, resulting balance, and manual adjustment.
-- If this is expected rounding behavior, document it and explain how to avoid it.
-- If the user's workflow was wrong, explain the correct refund/folio adjustment sequence.
-- Avoid labeling this as "user error" in customer-facing language; use "we identified the calculation path/configuration that caused the remaining $0.22 balance."
+- Include the exact calculation path: total paid $4,813.22, refund $2,405.54, display hostPayout $2,407.68, balance-engine hostPayout $2,407.46, residual $0.22.
+- Clarify that the refund succeeded, but the suggested over-collected amount did not match the balance engine after manual fare and tax recalculations.
+- If the current product behavior is expected, document how users should validate the final balance before refunding.
+- If the mismatch is not expected, route to the owning team for alignment of the Over-collected / refund suggestion with balanceDue calculated-fields.
+- Avoid labeling this as "user error" in customer-facing language; use "we identified a $0.22 mismatch between the displayed refund suggestion and the final balance calculation."
 - Add internal guidance that financial-calculation Loom tickets from escalated accounts should bypass AI-only first responses.
 
 ## Cross-issue patterns
 
 | Pattern | Evidence |
 |---|---|
-| Real platform issues exist | Issue 3 and Issue 5 are confirmed bugs/defects; Issue 6 is not confirmed as a bug from the pasted evidence. |
+| Real platform issues exist | Issue 3 and Issue 5 are confirmed bugs/defects; Issue 6 shows a refund suggestion vs balance engine mismatch, even though Payments/Financials found no domain failure. |
 | Customer provides strong evidence | Looms, screenshots, report IDs, reservation IDs, request IDs, and exact endpoints. |
 | Support quality is inconsistent | Issue 5 was handled well; Issues 3, 4, and 6 had avoidable support friction. |
 | AI/generic replies increase frustration | Issue 4 and Issue 6 AI responses ignored or misread customer context. |
@@ -424,5 +433,5 @@ For Issue 6, the customer's frustration is partially justified. The available ev
 3. For Issue 3, do not mark resolved until scheduled reports for the exact Sundial views are validated after release.
 4. For Issue 4, send a clearer accounting explanation and acknowledge the poor AI first response.
 5. For Issue 5, provide RES ticket status, owner, next engineering step, and the temporary v2 fallback.
-6. For Issue 6, get the full GOLD-9476 analysis and send a precise refund/folio calculation explanation before treating it as resolved.
+6. For Issue 6, send a precise refund/folio calculation explanation and route the UI-vs-engine mismatch to the owning product/engineering team if not already tracked.
 7. Add internal support note: for this account, avoid AI-only replies and avoid asking for evidence already provided.
