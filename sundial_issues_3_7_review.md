@@ -1,12 +1,12 @@
-# Sundial Getaways - Issues 3-6 Support and Platform Review
+# Sundial Getaways - Issues 3-7 Support and Platform Review
 
 ## Executive summary
 
-For Issues 3-6, the customer's frustration is materially justified. Issues 3 and 5 are confirmed platform/API defects, Issue 4 appears to be expected accounting/reporting behavior but was handled poorly at first, and Issue 6 shows a finance UI/calculation consistency gap where the displayed refund suggestion differed from the balance engine by $0.22.
+For Issues 3-7, the customer's frustration is materially justified. Issues 3, 5, and 7 are confirmed platform/API defects, Issue 4 appears to be expected accounting/reporting behavior but was handled poorly at first, and Issue 6 shows a finance UI/calculation consistency gap where the displayed refund suggestion differed from the balance engine by $0.22.
 
 The largest patterns are:
 
-- Real product defects were present in multiple areas: property report email delivery, scheduled report content, and reservations-v3 retrieval.
+- Real product defects were present in multiple areas: property report email delivery, scheduled report content, reservations-v3 retrieval, and VRBO reservation extension financial recalculation.
 - Support often responded, but ownership was fragmented and sometimes relied on generic or premature responses.
 - Resolution was communicated before the customer's real use case was validated, especially on Issue 3.
 - The customer repeatedly supplied detailed evidence, including Loom videos, examples, screenshots, IDs, and request IDs.
@@ -20,6 +20,7 @@ The largest patterns are:
 | Issue 4 - Owners Portal / Analytics discrepancy | Saturday, 00:16 | Sunday, 03:43 | CSM escalation Saturday 00:57; domain specialist analysis Monday 09:44 | Monday 09:54 answer, assuming it fully addressed the Loom | About 27h 27m | About 2 days 9h 38m to final answer |
 | Issue 5 - reservations-v3 VRBO retrieval failure | Not included in pasted content | Sunday, 11:03, based on known customer-facing response | Internal validation Sunday 09:47; Jira/pre-triage about May 31 | Not confirmed resolved; escalated to RES | Cannot calculate exactly without created timestamp | Not resolved / not enough data |
 | Issue 6 - Refund / folio balance overpayment discrepancy | Jun 1, 19:27 | Jun 2, 17:07 | CSM reopened Jun 1, 20:19; escalated incorrectly to API Jun 2, then redirected to T3/GOLD; R&D analysis Jun 2, 19:17 | Jira GOLD-9476 resolved as User Error or Misconfiguration; Payments/Financials found no domain failure, but R&D identified a $0.22 UI-vs-engine payout mismatch | About 21h 40m to first useful human customer update | Not customer-resolved yet; Jira closure came about 39h 26m after creation |
+| Issue 7 - VRBO reservation extension recalculation defect | Jun 2, creation time not included; first internal note 04:07 | Jun 2, 05:06 | Reopened/escalated Jun 2, 18:22; Jira T3-166905 created Jun 2, 20:51; ZORI pre-triage Jun 2, 20:53 | Not resolved; manual triage required and T3 needs full money document / calculation context | Cannot calculate exactly without created timestamp; first known human response came about 59m after first internal note | Not resolved / cannot calculate final resolution |
 
 ## Issue 3 - Properties report emails not delivered / blank
 
@@ -410,17 +411,118 @@ For Issue 6, the customer's frustration is justified. The refund did execute cor
 - Avoid labeling this as "user error" in customer-facing language; use "we identified a $0.22 mismatch between the displayed refund suggestion and the final balance calculation."
 - Add internal guidance that financial-calculation Loom tickets from escalated accounts should bypass AI-only first responses.
 
+## Issue 7 - VRBO reservation extension recalculation defect
+
+### Timeline and elapsed time
+
+| Metric | Value |
+|---|---|
+| Created date | Jun 2, exact ticket creation time not included |
+| First known internal analysis | Jun 2, 04:07 |
+| First human customer response | Jun 2, 05:06 |
+| Time to first human response | Cannot calculate exactly without created timestamp; about 59m after first known internal analysis |
+| Ticket marked NFAR | Jun 2, 17:08 |
+| CSM reopen / escalation | Jun 2, 18:22 |
+| User feedback Loom added | Jun 2, 18:56 |
+| Internal clarification of issue | Jun 2, 20:22 |
+| Jira escalation template | Jun 2, 20:50 |
+| Jira T3-166905 referenced | Jun 2, 20:51 |
+| Public customer update with root-cause explanation | Jun 2, 21:01 |
+| Jira pre-triage | Jun 2, 20:53 |
+| Jira triage recommendation | Jun 2, 20:57 |
+| Current status | Manual triage required; not resolved in pasted evidence |
+| Time to Jira escalation | Cannot calculate exactly without created timestamp |
+| Time to resolution | Not resolved / cannot calculate final resolution |
+
+### Assessment
+
+| Category | Assessment |
+|---|---|
+| Customer impact | High. Reservation extension pricing showed one amount during modification, then final folio/payment status showed a much lower charge and over-collected state, creating risk of incorrect guest charges/refunds. |
+| System/platform issue | Yes. Jira/ZORI evidence indicates totalPaid was inflated from the true Stripe total of $5,544.04 to $6,627.83 after VRBO reservation alteration, creating a phantom surplus and -$249.03 balance due. |
+| Support quality | Mixed. First response explained general repricing rules but missed the core mismatch; CSM correctly reopened; later support provided a detailed, customer-facing explanation and escalated to Jira. |
+| Engineering handling | Not complete. ZORI recommends manual T3 triage because automated logs are insufficient; engineer must pull full money document and moneyCalculationContext. |
+| Current status | Escalated to T3-166905; no final fix or owner response shown. |
+| Customer complaint justified? | Yes. The customer identified a real discrepancy between the modification workflow and final financial result, with evidence of phantom totalPaid inflation. |
+
+### Support review
+
+- The initial internal explanation focused on expected repricing behavior: VRBO promotion discounts removed, weekly/monthly discounts applied, taxes recalculated, and new dates repriced.
+- The first public response repeated that general explanation but did not answer the specific issue: why the amount shown during modification did not match the final folio outcome.
+- CSM escalation correctly identified the gap and asked the team to investigate the second half of the Loom.
+- Later internal analysis identified the real symptom: folio amount moved from $5,544.04 to $6,597.31, but balance due showed only $249.03 / over-collected instead of the expected positive charge variance.
+- The final customer reply was unusually detailed and acknowledged a system data-processing issue, which is stronger than the earlier generic explanation.
+
+### Answers to review questions
+
+#### Was the first response timely?
+
+Likely yes, but exact calculation is blocked because the ticket creation timestamp was not pasted. The first known internal note was Jun 2 at 04:07, and the first human customer response was Jun 2 at 05:06.
+
+#### Did support understand the issue correctly?
+
+Not initially. Support first explained expected date-change repricing, but the customer's main issue was the mismatch between the extension workflow estimate and the final accounting/payment result. CSM later clarified the real concern.
+
+#### Were answers specific or generic?
+
+The first answer was specific to Guesty repricing rules but generic relative to the actual defect. The later Jun 2 21:01 response was specific and gave a root-cause-style explanation.
+
+#### Did the ticket get ownership and follow-up?
+
+Eventually yes. The ticket was reopened/escalated by CSM, analyzed internally, and escalated to Jira T3-166905. However, the early NFAR status suggests the first pass nearly closed without addressing the core issue.
+
+#### Were escalations handled quickly enough?
+
+Escalation happened the same day, but only after CSM pushed back. Given the account was escalated and the issue involved financial calculations, the first pass should have gone deeper before NFAR.
+
+#### Did the customer have to repeat themselves?
+
+The customer had to provide additional feedback/Loom context after the first answer did not address the main discrepancy. This is another example where support answered the general topic rather than the specific failure shown in the recording.
+
+#### Was the issue actually resolved?
+
+No. Jira triage says manual triage is required. The needed next step is to pull the full money document and moneyCalculationContext to verify whether weekly discount data was double-counted into totalPaid during recalculation.
+
+### Platform findings
+
+This appears to be a real financial recalculation defect tied to VRBO reservation alteration.
+
+Key facts:
+
+- Reservation ID: 695993542381d00014db7752 / HA-JDe3U9a.
+- Source: VRBO.
+- Original payments: two Stripe charges of $2,772.02 each, totaling $5,544.04.
+- User extended stay from 5 to 7 nights by changing check-in from Jun 4 to Jun 2.
+- Expected new total shown in screenshots: $6,597.31, implying correct balance due should be about $1,053.27 against true paid amount.
+- System recalculated totalPaid from $5,544.04 to $6,627.83, overstating paid amount by $1,083.79.
+- Resulting balanceDue became -$249.03 / overpaid, despite additional stay dates being added.
+- ZORI recommends manual triage because full invoiceItems and calculation context are needed; automated log queries are insufficient.
+
+### Recommended CTO-ready conclusion
+
+For Issue 7, the customer's complaint is justified and points to a real platform defect. The initial support response explained expected repricing behavior but missed the central problem: Guesty displayed one expected increase during extension, then finalized a folio/payment state that treated the guest as overpaid. Jira evidence shows totalPaid was inflated beyond actual Stripe payments, creating a phantom surplus. The case should remain open until T3 validates the full money document and calculation context and either repairs the reservation state or identifies the owning financial recalculation bug.
+
+### Recommended next actions
+
+- Keep T3-166905 open until manual triage is completed.
+- Pull the full financials money document and moneyCalculationContext for reservation 695993542381d00014db7752.
+- Reconcile totalPaid only against actual Stripe transactions: $5,544.04.
+- Identify why the alteration flow inflated totalPaid to $6,627.83.
+- Confirm whether weekly discount removal/array cleanup double-counted into totalPaid.
+- Repair the affected reservation balance if needed.
+- Give the customer a clear owner and next update time, because this is a financial-impact issue on a management-escalated account.
+
 ## Cross-issue patterns
 
 | Pattern | Evidence |
 |---|---|
-| Real platform issues exist | Issue 3 and Issue 5 are confirmed bugs/defects; Issue 6 shows a refund suggestion vs balance engine mismatch, even though Payments/Financials found no domain failure. |
+| Real platform issues exist | Issue 3, Issue 5, and Issue 7 are confirmed bugs/defects; Issue 6 shows a refund suggestion vs balance engine mismatch, even though Payments/Financials found no domain failure. |
 | Customer provides strong evidence | Looms, screenshots, report IDs, reservation IDs, request IDs, and exact endpoints. |
-| Support quality is inconsistent | Issue 5 was handled well; Issues 3, 4, and 6 had avoidable support friction. |
+| Support quality is inconsistent | Issue 5 was handled well; Issues 3, 4, 6, and 7 had avoidable support friction. |
 | AI/generic replies increase frustration | Issue 4 and Issue 6 AI responses ignored or misread customer context. |
 | Premature resolution is risky | Issue 3 was called fixed before the scheduled-report use case was validated. |
-| Financial issues need careful explanation | Issues 4 and 6 involve accounting/finance logic where a generic answer can further erode trust. |
-| Need named owner | Fragmented ownership appears in Issues 3, 4, and 6. |
+| Financial issues need careful explanation | Issues 4, 6, and 7 involve accounting/finance logic where a generic answer can further erode trust. |
+| Need named owner | Fragmented ownership appears in Issues 3, 4, 6, and 7. |
 
 ## Recommended account recovery actions
 
@@ -434,4 +536,5 @@ For Issue 6, the customer's frustration is justified. The refund did execute cor
 4. For Issue 4, send a clearer accounting explanation and acknowledge the poor AI first response.
 5. For Issue 5, provide RES ticket status, owner, next engineering step, and the temporary v2 fallback.
 6. For Issue 6, send a precise refund/folio calculation explanation and route the UI-vs-engine mismatch to the owning product/engineering team if not already tracked.
-7. Add internal support note: for this account, avoid AI-only replies and avoid asking for evidence already provided.
+7. For Issue 7, keep T3-166905 open until full manual triage confirms why totalPaid inflated beyond actual Stripe payments.
+8. Add internal support note: for this account, avoid AI-only replies and avoid asking for evidence already provided.
