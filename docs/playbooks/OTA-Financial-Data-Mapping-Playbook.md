@@ -1,621 +1,488 @@
-# OTA Financial Data Mapping & Reverse Engineering Playbook
+# OTA Financial Data Mapping Playbook
 
-**Audience:** Product, PMO, CFT, Biz Ops, Accounting, Financials  
-**Status:** Working draft — synthesized from Internal Workshops #1 & #2 (May 2026) and related internal materials  
+**Product department reference — reverse engineering & migration**  
 **Last updated:** June 14, 2026  
-**Maintainers:** Maia Gordon (PMO), Alex Borack (Biz/CFT), Javier Ibarz (Distribution), Rinat Elimelech (Financials)
+**Sources:** Internal Workshop #1 (May 20, 2026) · Internal Workshop #2 (May 28, 2026) · Slack `#reverse-mapping-ga` · Confluence · Jira
 
 ---
 
-## How to use this document
+## Table of Contents
 
-This playbook merges two internal workshops on **OTA reverse engineering of financial data** into one implementation guide for the product organization.
-
-| Workshop | Date | Focus |
-|---|---|---|
-| **Workshop #1** | May 20, 2026 | Use-case discovery: where channel data and Guesty configuration diverge during onboarding and reservation import |
-| **Workshop #2** | May 28, 2026 | Deep dive on distribution sync, bundled fees, tax setup gaps, and operational decisions for GA rollout |
-
-Use this guide when:
-- Onboarding an ENT account with OTA-connected inventory
-- Investigating folio discrepancies on imported or live channel reservations
-- Designing product behavior around fee/tax/commission mapping
-- Communicating expected variances vs. bugs to customers
-
----
-
-## Table of contents
-
-1. [Executive summary](#1-executive-summary)
-2. [Background: why reverse engineering exists](#2-background-why-reverse-engineering-exists)
-3. [Core concepts & terminology](#3-core-concepts--terminology)
-4. [End-to-end data flow](#4-end-to-end-data-flow)
-5. [Channel reference guide](#5-channel-reference-guide)
-6. [Forward mapping — Guesty to OTA (implementation)](#6-forward-mapping--guesty-to-ota-implementation)
-7. [Reverse mapping — OTA to Guesty (implementation)](#7-reverse-mapping--ota-to-guesty-implementation)
-8. [Workshop use cases & patterns](#8-workshop-use-cases--patterns)
-9. [Implementation playbook by lifecycle stage](#9-implementation-playbook-by-lifecycle-stage)
-10. [Decision log](#10-decision-log)
-11. [Known limitations & “working as designed” scenarios](#11-known-limitations--working-as-designed-scenarios)
-12. [Tools, checklists & resources](#12-tools-checklists--resources)
-13. [Ownership & escalation matrix](#13-ownership--escalation-matrix)
-14. [Open items & future work](#14-open-items--future-work)
+1. [Executive Summary](#1-executive-summary)
+2. [Workshop Participants & Context](#2-workshop-participants--context)
+3. [Decision Log](#3-decision-log)
+4. [Source of Truth Framework](#4-source-of-truth-framework)
+5. [Topic: Reverse Mapping & Migration Scope](#5-topic-reverse-mapping--migration-scope)
+6. [Topic: Fee Mapping & Configuration](#6-topic-fee-mapping--configuration)
+7. [Topic: Taxes & Legal Compliance](#7-topic-taxes--legal-compliance)
+8. [Topic: Reservation Settings & Manual Adjustments](#8-topic-reservation-settings--manual-adjustments)
+9. [Topic: Import Mapping Rules (BDC, VRBO, Airbnb)](#9-topic-import-mapping-rules-bdc-vrbo-airbnb)
+10. [Topic: Data Quality & Known Bugs](#10-topic-data-quality--known-bugs)
+11. [Topic: Beast Tool & Operational Workflows](#11-topic-beast-tool--operational-workflows)
+12. [Topic: AI Agent & Settings Snapshots (Roadmap)](#12-topic-ai-agent--settings-snapshots-roadmap)
+13. [Topic: Rates & Availability Toggle Removal](#13-topic-rates--availability-toggle-removal)
+14. [Topic: Customer Support & Enterprise vs SMB](#14-topic-customer-support--enterprise-vs-smb)
+15. [Topic: Regional Complexity (Australia, GST)](#15-topic-regional-complexity-australia-gst)
+16. [Implementation Guidance by Phase](#16-implementation-guidance-by-phase)
+17. [Action Items & Open Questions](#17-action-items--open-questions)
+18. [Appendix: Related Links & Source Files](#18-appendix-related-links--source-files)
 
 ---
 
-## 1. Executive summary
+## 1. Executive Summary
 
-### The problem
+This playbook consolidates two internal workshops on OTA financial data reverse engineering and migration. It is intended for the Product department to align on **what we decided**, **why**, and **how to implement** financial data mapping during PMS-to-Guesty transitions.
 
-OTAs and Guesty do not share the same financial model. OTAs often:
-- Support **fewer fee types** than Guesty
-- **Bundle** multiple fees into one guest-facing line (especially Airbnb)
-- Apply their own **deduction, rounding, and tax logic** before sending totals to Guesty
+### Core problem
 
-Guesty must therefore **reverse engineer** incoming channel totals into the itemized folio the customer configured — while keeping **totals aligned with the OTA (source of truth)**.
+When migrating accounts from legacy PMS systems (Guesty Lite, Avari, etc.) to Guesty Pro, financial data from OTAs (Booking.com, Airbnb, VRBO) must be mapped correctly. Channels send reservation-level financial payloads; legacy PMS data may differ. The team must decide **which source wins** and **who owns reconciliation** when they conflict.
 
-When setup on the OTA side differs from Guesty setup — or when historical reservations are imported — discrepancies appear. Many are **configuration or model differences**, not calculation bugs.
+### Strategic direction (Workshop #2)
 
-### What changed in May 2026
+| Phase | Approach | Status |
+|-------|----------|--------|
+| **Phase 1 (MVP — July 10 release)** | AI agent converts CSV exports → automated mapping | In development |
+| **Phase 2** | Settings-based snapshots on reservations (replace manual adjustments) | Planned — estimated to reduce Avari maintenance from 5–6 hrs/month to ~30 min |
+| **Long term** | No universal one-size-fits-all import — regional/account variation requires flexible tooling | Accepted constraint |
 
-**Automatic OTA Fees Reverse Mapping** reached GA (May 26, 2026). On newly confirmed reservations, Guesty automatically maps incoming OTA fee types back to the correct internal Guesty fee types configured under **Sync to Channel**.
+### Key principles (both workshops)
 
-### What this playbook delivers
-
-- Shared vocabulary across Product, Distribution, Financials, and Accounting
-- Channel-specific mapping behavior
-- Pre/during/post-implementation checklists
-- Documented workshop decisions and open gaps
-- Escalation paths when folio data does not reconcile
+- **Migrated accounts mirror previous PMS data**, not strictly channel data — unless channel is legally required (taxes).
+- **Customer is liable** for resolving discrepancies when channel is source of truth but conflicts with legacy data.
+- **Client owns financial reconciliation accuracy** — we provide imbalance reports, not universal migration fixes.
+- **Manual reservation overrides are not reverted** by channel updates (validated by Alex's testing).
+- **Tax adjustments are prohibited** — prioritize channel tax data for legal remittance.
 
 ---
 
-## 2. Background: why reverse engineering exists
+## 2. Workshop Participants & Context
 
-### 2.1 The structural mismatch
+### Workshop #1 — May 20, 2026
 
-| Dimension | Typical OTA behavior | Guesty behavior |
-|---|---|---|
-| Fee granularity | Limited fee categories (e.g., one “Management fee”) | Many configurable additional fees |
-| Guest presentation | Bundled / all-inclusive pricing | Separated line items for reporting & tax |
-| Tax handling | Channel-specific bundling & rounding | Tax per line item (TPLI), inclusive/exclusive models |
-| Source of truth on booking | **OTA** for confirmed channel reservations | Guesty config drives direct & pre-sync pricing |
+| Participant | Role / Contribution |
+|-------------|---------------------|
+| Maia Gordon | Product lead, workshop facilitator |
+| Alex Borack | Engineering — manual override testing, Beast tool |
+| Ella Waldman | Product / migration strategy |
+| Javier Ibarz | Engineering |
+| Rinat Elimelech | Product |
+| Vadym Padalko | Engineering |
+| Eyal Razi | Product / operations |
 
-### 2.2 Two directions of mapping
+### Workshop #2 — May 28, 2026
+
+Same core group; additional context from Rotem Meir (enterprise accounts). Focus shifted to **July 10 release**, **AI agent MVP**, **settings snapshots**, and **Rates & Availability toggle removal**.
+
+### Background
+
+- Reverse mapping GA rollout ongoing; ~2,000 BDC reservations need Deduct 2.0 migration (T3 escalation path).
+- Beast tool used for bulk financial corrections; known issues with locked accounting periods.
+- Avari accounts require 5–6 hours/month of manual maintenance — settings snapshots target ~30 min.
+
+---
+
+## 3. Decision Log
+
+### Aligned — Workshop #1 (May 20)
+
+| # | Decision | Rationale |
+|---|----------|-----------|
+| D1 | Migrated accounts should mirror **previous PMS data**, not strictly channel data | Preserves customer expectations from legacy system |
+| D2 | Customer is **liable** for resolving discrepancies when channel is source of truth but conflicts with legacy | Avoids Guesty owning reconciliation liability |
+| D3 | **Account-level fee workaround:** add $1/day per fee type at account level to prevent mapping failures | Prevents import failures when fee types missing |
+| D4 | **Tax adjustments prohibited** — prioritize channel tax data | Legal remittance requirements |
+| D5 | **Client owns** financial reconciliation accuracy | Support model boundary |
+| D6 | Manual reservation overrides **not reverted** by channel updates | Alex validated; protects customer edits |
+| D7 | Provide clients **imbalance reports**, not universal migration fixes | Scalable support model |
+| D8 | Enterprise white-glove support vs SMB self-service | Tiered support approach |
+
+### Needs Further Discussion — Workshop #1
+
+| # | Topic | Notes |
+|---|-------|-------|
+| O1 | Default fee configuration / system-level fee dictionary for new accounts | No final strategy |
+| O2 | Final strategy for financial import discrepancy resolution | Partially addressed in WS2 |
+
+### Aligned — Workshop #2 (May 28)
+
+| # | Decision | Rationale |
+|---|----------|-----------|
+| D9 | **July 10 release** confirmed for reverse mapping / AI agent MVP | Product milestone |
+| D10 | Transition to **reservation settings as source of truth** (replacing manual adjustments) | Phase 2 architecture |
+| D11 | Remove **Rates & Availability feature toggle** — legal review required first (Shan), impact report needed | Simplifies product; legal gate |
+| D12 | No universal one-size-fits-all import solution | Regional variation (Australia GST, etc.) |
+
+---
+
+## 4. Source of Truth Framework
+
+### Hierarchy (evolving)
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        GUESTY SETUP                             │
-│  Additional Fees → Sync to Channel → OTA fee type               │
-│                     (FORWARD MAPPING)                           │
-└───────────────────────────┬─────────────────────────────────────┘
-                            │ pricing / fee sync (where supported)
-                            ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                     OTA (Airbnb, BDC, Vrbo…)                    │
-│  Guest books → OTA calculates bundled total                     │
-└───────────────────────────┬─────────────────────────────────────┘
-                            │ reservation confirmation payload
-                            ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                   GUESTY RESERVATION FOLIO                        │
-│  Reverse engineer totals → internal fee/tax line items          │
-│                     (REVERSE MAPPING)                           │
-└─────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│  LEGACY MIGRATION (current)                                  │
+│  Source of truth: Previous PMS data                          │
+│  Exception: Taxes → Channel data (legal)                     │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│  PHASE 2 (planned)                                           │
+│  Source of truth: Reservation settings (snapshots)           │
+│  Replaces: Manual adjustments                                │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│  ONGOING CHANNEL UPDATES                                     │
+│  Manual overrides: NOT reverted by channel                   │
+│  Tax data: Always from channel                               │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-### 2.3 When friction is highest
+### When sources conflict
 
-Workshop #1 identified these as the highest-friction implementation moments:
-
-1. **Historical reservation import** — OTA snapshot reflects old PMS/channel setup, not current Guesty config
-2. **Merged fees** — multiple Guesty fees mapped to one OTA fee type must be split back proportionally
-3. **Markups on fees (Airbnb)** — Guesty extracts markup/tax from bundled OTA totals; line items may not match configured percentages even when totals are correct
-4. **Rates & Availability (R&A) connections** — fees may not be bundled into channel rent at pricing push time, causing negative accommodation fare on deduction
-5. **Tax setup timing gaps** — reservations created between FT enablement and tax configuration may miss extraction
-6. **Payment recording** — channel payout correct but Guesty payments recorded only against AF + tax, not full fee stack
-
----
-
-## 3. Core concepts & terminology
-
-| Term | Definition |
-|---|---|
-| **Forward mapping** | Mapping a Guesty additional fee type to an OTA-supported fee category before/during sync |
-| **Reverse mapping** | Mapping an incoming OTA fee type on a confirmed reservation back to the configured Guesty fee type(s) |
-| **Fee merge** | Multiple Guesty fee types mapped to the same OTA fee type; values are combined when syncing outbound |
-| **Proportional split** | On reverse mapping, merged OTA amounts are distributed across Guesty fee types by configured ratio |
-| **Bundled fees** | Fees included in accommodation fare / channel rent on the OTA side |
-| **Reverse engineering / de-bundling** | Extracting Guesty line items from OTA-provided totals |
-| **Source of truth** | For confirmed OTA reservations, the **OTA payload** is authoritative for amounts received |
-| **R&A connection** | Rates & Availability only — fees/taxes may not sync; channel-side fee setup may diverge |
-| **Full sync** | Full content + pricing + fees sync model (channel-dependent) |
-| **TPLI** | Tax Per Line Item — taxes stored/displayed per invoice line |
-| **BEAST tools** | Internal support tools for fee sync inspection, migration, and bulk operations |
-
-### Folio line naming (guest folio)
-
-Each additional fee can show three names:
-1. **Guesty fee type** — used in reports, accounting, owner statements
-2. **Fee type on channel** — what the guest/OTA displayed
-3. **Guesty fee name** — internal freeform label
+| Scenario | Source of truth | Owner |
+|----------|-----------------|-------|
+| Fee amounts (migration) | Previous PMS | Customer resolves via imbalance report |
+| Tax amounts | Channel (OTA) | Guesty must not adjust; customer remits per channel |
+| Manual reservation edit | Reservation (customer override) | Protected from channel revert |
+| Missing fee type at account | Account-level $1/day workaround | Ops/Product configure |
+| BDC VAT in accommodation fare | Import mapping rules | See [Topic: Import Mapping Rules](#9-topic-import-mapping-rules-bdc-vrbo-airbnb) |
 
 ---
 
-## 4. End-to-end data flow
+## 5. Topic: Reverse Mapping & Migration Scope
 
-### 4.1 Happy path (new live reservation)
+### Background
 
-1. Customer configures additional fees in Guesty
-2. Customer maps each fee to supported **Sync to Channel** OTA type (forward mapping)
-3. Guesty syncs fee configuration to OTA where supported
-4. Guest books on OTA; OTA sends confirmation payload
-5. Guesty validates incoming fee types against forward mapping
-6. **Reverse mapping (GA)** remaps OTA fees to internal Guesty types automatically
-7. Financials distributes taxes/markups; Accounting folio reflects mapped types
+Reverse mapping translates OTA reservation financial payloads into Guesty Pro structures during and after migration. Scope includes Guesty Lite → Pro, Avari → Pro, and in-place BDC Deduct 2.0 migrations.
 
-### 4.2 Failure paths (workshop-identified)
+### Decisions
 
-| Stage | Symptom | Likely cause |
-|---|---|---|
-| Pricing push | Guesty rent ≠ OTA rent | Fees not bundled on channel (R&A); conditional/LOS fees unsupported on Airbnb |
-| Confirmation | Unexpected fee type in folio | Unmapped OTA fee → Guesty auto-maps to closest type (warning shown) |
-| Confirmation | Merged fee split looks “wrong” | Proportional split across unequal Guesty fee values |
-| Import | Totals OK, line items wrong | Historical OTA setup ≠ current Guesty setup |
-| Import | Missing taxes | Tax FT enabled before Guesty tax config completed |
-| Post-conf | Balance due / overpaid | Payments recorded against subset of line items |
-| Accounting | Fee in guest folio missing in accounting folio | Fee not in additional fees setup or BM/NRI config mismatch |
+- **~2,000 BDC reservations** require Deduct 2.0 migration — T3 escalation path for bulk handling.
+- Migrated data reflects **legacy PMS**, not a fresh channel pull — reduces surprise for customers.
+- **Imbalance reports** delivered to clients; no promise of universal auto-fix.
+
+### Implementation guidance
+
+1. Run reverse mapping per account with documented source-of-truth rules (Section 4).
+2. Generate imbalance report post-migration; client validates.
+3. For BDC Deduct 2.0 backlog, coordinate with T3 for batch processing.
+4. Track migration status in Jira/ops dashboards.
 
 ---
 
-## 5. Channel reference guide
+## 6. Topic: Fee Mapping & Configuration
 
-### 5.1 Airbnb
+### Background
 
-**Connection models:** Full sync nuances; R&A + bundled fees FT is critical for fee-in-rent behavior
+OTAs send fees in varied structures (per-night, per-stay, bundled, zero-dollar placeholders). Legacy PMS may use different fee dictionaries. Missing fee types cause import failures.
 
-| Topic | Behavior | Implementation note |
-|---|---|---|
-| Outbound fee sync | Airbnb does **not** support date-range or LOS-dependent fees the way Guesty does | PMS may send one value to channel but apply different logic on reservation — validate with reservation ID |
-| Bundling | Airbnb bundles & deducts on its side | Guesty reverse-engineers markup/tax from received totals |
-| Markups on fees | Supported (FIN) | Perceived “gaps” vs configured % often WAD — totals match Airbnb |
-| Commission | Host service fee + tax (`hostServiceFeeTax`) | Requires `FIN_channel_commission_breakdown` FT; watch `isChannelUpdate` on request-to-book |
-| Imported reservations | Common pain point | May need tax-inclusive migration + manual review |
-| Source of truth | Airbnb totals | Guesty line items are reconstructed |
+### Decisions
 
-**Workshop example (May 20):** Reservation `HM32M4CCZS` — Airbnb cleaning fee $108 vs Vacasa import sheet $128. Root cause class: **PMS sent end-result value to channel** or **different logic at reservation time** vs listing sync.
+- **Account-level workaround:** Add $1/day per fee type at account level to prevent mapping failures when fee type absent.
+- Default fee configuration / system-level fee dictionary — **still open** (Workshop #1 O1).
 
-### 5.2 Booking.com
+### Known patterns
 
-| Topic | Behavior | Implementation note |
-|---|---|---|
-| Full sync | Receives sum amounts incl. taxes on AF + additional fees (excl. CF in some models) | Guesty calculates: `fareAccommodation = totalAmount - sum(inclusive invoiceItems)` |
-| R&A connection | Fees/taxes **not synced** at pricing level | User must manage fees on BDC; Guesty receives amounts on confirmation only |
-| Historical tax on property | Taxes on BDC before Guesty connection persist on old reservations | Cannot remove retroactively from BDC — expect import variance by booking date |
-| Payments | Payout from BDC may be correct while Guesty shows underpaid | Verify payments recorded against **all** fee lines, not just AF + tax |
+| Pattern | Handling |
+|---------|----------|
+| Zero-dollar fees (VRBO) | Data quality issue; may need manual correction or Beast |
+| Bundled fees | Map to Guesty fee structure per channel rules |
+| Per-night vs per-stay | Respect channel payload; document in mapping rules |
+| Missing fee type | $1/day account-level placeholder |
 
-### 5.3 Vrbo
+### Implementation guidance
 
-| Topic | Behavior | Implementation note |
-|---|---|---|
-| Payload | XML includes fee/tax breakdown | More granular than BDC |
-| Calculation model | Today: Guesty may calculate from config | **Planned:** use OTA as source of truth (similar to Airbnb/BDC) |
-| Promotions | New reservation support; imported edge cases need explicit mapping rules | Confirm scope per release |
-| Imported lump-sum taxes | May require spreadsheet/API bulk correction | Coordinate with API team |
-
-### 5.4 Direct / manual / imported reservations
-
-| Topic | Behavior | Implementation note |
-|---|---|---|
-| No OTA payload | Guesty config is source of truth | Reverse mapping not applicable |
-| Upload / import | `createdAt` ≠ booking date | Use **Booking Date** column (Reservations Upload Template col R) for PriceLabs/Wheelhouse accuracy |
-| Historical import timing | High risk during EOM / owner statement cycles | Defer bulk import; enable required FTs immediately before import |
+1. Audit account fee dictionary before migration.
+2. Apply $1/day workaround for any fee types referenced in reservations but missing at account level.
+3. Document fee mapping in account-specific runbook.
+4. Revisit system-level fee dictionary in follow-up workshop (O1).
 
 ---
 
-## 6. Forward mapping — Guesty to OTA (implementation)
+## 7. Topic: Taxes & Legal Compliance
 
-### 6.1 Configuration steps (customer-facing)
+### Background
 
-1. **Additional Fees** → create fee types with amounts/conditions
-2. **Sync to Channel** → map each fee to OTA-supported type per channel
-3. Review **merge warnings** when multiple Guesty types map to one OTA type
-4. Enable channel sync toggles per listing
-5. Run **BEAST: Syncing additional fees with OTAs** after material config changes
-6. Monitor sync warnings for unsupported fee configurations
+Tax remittance is legally sensitive. Guesty must not alter channel tax data. Australia GST and regional rules add complexity (Hometime example in Workshop #2).
 
-### 6.2 Product rules
+### Decisions
 
-- If Guesty fee types differ in value and share one OTA type, outbound sync **merges values**
-- Unsupported Guesty conditions (LOS, date range) may silently fail or push simplified values on Airbnb
-- R&A listings may **not** bundle fees into rent unless bundled-fees FT + correct pricing push — validate before go-live
+- **Tax adjustments prohibited** — always prioritize channel tax data.
+- Customer responsible for remittance accuracy; Guesty provides data as received from channel.
 
-### 6.3 Pre-go-live validation (per listing sample)
+### Implementation guidance
 
-- [ ] Compare Guesty calendar rent vs OTA extranet for same dates
-- [ ] Confirm each additional fee appears under expected OTA category
-- [ ] Test conditional fee listing → verify OTA response (Airbnb: expect limitation)
-- [ ] For R&A: confirm whether fees are in rent or separate on channel
-- [ ] Document channel HotelId / listing ID relationships (BDC multi-ID cases)
+1. Never apply manual tax adjustments during import or Beast runs.
+2. Flag tax discrepancies in imbalance report for customer review.
+3. For Australia GST / tax eligibility edge cases, escalate to regional product/legal (see Section 15).
+4. BDC: VAT may appear in accommodation fare — use import mapping rules (Section 9).
 
 ---
 
-## 7. Reverse mapping — OTA to Guesty (implementation)
+## 8. Topic: Reservation Settings & Manual Adjustments
 
-### 7.1 GA scope (May 2026)
+### Background
 
-**In scope:**
-- Automatic reverse mapping of OTA fee types → configured Guesty fee types on **newly confirmed** reservations
-- Accurate visibility in Guest Folio, Accounting Folio, Financial & Accounting Reports
-- Splitting merged fees back to multiple Guesty types (proportionally)
+Historically, manual adjustments were used to correct financial data on reservations. Workshop #2 aligned on moving to **reservation settings as source of truth** with snapshots.
 
-**Out of scope / limitations:**
-- **Not retroactive** — existing reservations are not migrated
-- Unmapped OTA fees still fall back to closest Guesty type with folio warning
-- Manual folio adjustment still required for edge cases
+### Decisions
 
-### 7.2 Example
+- Manual reservation overrides **not reverted** by channel updates (Alex tested).
+- Phase 2: **Settings-based snapshots** replace manual adjustments — target ~30 min/month Avari maintenance vs 5–6 hrs today.
 
-Incoming Airbnb **Management Fee** $200 maps to:
-- Guesty **Credit Card Processing Fee** only, or
-- Split across **two merged Guesty fees** proportionally
+### Implementation guidance
 
-### 7.3 Accounting alignment
-
-Accounting users should validate after go-live:
-- Business Models include expected fee types in NRI / deductions
-- Additional Fee setup matches Sync to Channel mapping
-- Owner statements reflect Guesty fee **types**, not OTA display names
-
-**HC references:**
-- [How channel additional fees appear in Guesty (Reverse mapping)](https://help.guesty.com/hc/en-gb/articles/23771841142941-How-channel-additional-fees-appear-in-Guesty-Reverse-mapping)
-- [Accounting and additional fee reverse mapping](https://help.guesty.com/hc/en-gb/articles/35376796233117-Accounting-and-additional-fee-reverse-mapping)
-
-### 7.4 Manual correction pattern
-
-When auto mapping is wrong on a live reservation:
-1. Set incorrect mapped Guesty fee line to **zero**
-2. Add/adjust line item with preferred fee mapping
-3. Fix forward mapping to prevent recurrence
-4. Reprocess only when approved (watch accounting locks / disbursements)
+1. **Now:** Preserve manual overrides; do not overwrite on channel sync.
+2. **Phase 2:** Implement settings snapshots on reservation create/update; store financial config at reservation level.
+3. Deprecate manual adjustment workflows once snapshots are GA.
+4. Communicate change to CS and enterprise accounts (white-glove).
 
 ---
 
-## 8. Workshop use cases & patterns
+## 9. Topic: Import Mapping Rules (BDC, VRBO, Airbnb)
 
-> Template used in Workshop #1: [Synthesizing Data Accuracy for Imported OTA Bookings](https://docs.google.com/spreadsheets/d/1XnLucNJ1H4WhMhVePXKw_j0xVFKVUVE6fq7-oNbp0js/edit?gid=774243903#gid=774243903)
+### Booking.com (BDC)
 
-### UC-01 — Imported OTA reservations with outdated channel setup
+- **VAT in accommodation fare:** Map per BDC payload structure; VAT may be embedded in accommodation line.
+- **Deduct 2.0:** ~2,000 reservations pending migration; use T3 escalation for bulk.
+- Import mapping rules documented in engineering specs — Product validates against workshop decisions.
 
-**Scenario:** Customer imports historical Airbnb/BDC reservations after connecting Guesty. OTA fee/tax structure reflects **previous PMS**, not current Guesty additional fees.
+### VRBO
 
-**Symptoms:** Owner statements wrong; rent includes fees customer expects separated; cleaning fee “missing” from business model.
+- **Zero-dollar fees:** Known data quality issue; often requires post-import correction.
+- **Lump-sum taxes:** May not break down by line item; map to Guesty tax structure with customer validation.
 
-**Decision:** Treat as **implementation/setup mismatch**, not default recalculation bug. Requires import plan: identify reservations, reprocess or manual adjustment, align listing fee config **before** import.
+### Airbnb
 
-**Owners:** Alex Borack (Biz), Javier Ibarz (Distribution), FIN/ACC for reprocess policy
+- Referenced in broader reverse mapping GA; follow channel payload as secondary source except where PMS migration rules override (fees) or taxes (channel always wins).
 
----
+### Implementation guidance
 
-### UC-02 — PMS sends channel end-state, not Guesty-configured fee
-
-**Scenario:** Previous PMS pushed **final computed values** to OTA (e.g., $128 cleaning on sheet) while Airbnb stores **$108** from its own bundle logic.
-
-**Symptoms:** Imported folio ≠ customer spreadsheet; owner paid on spreadsheet assumptions.
-
-**Decision:** Validate **reservation-level payload** vs listing sync. Educate customer that OTA-confirmed amount is authoritative.
-
-**Workshop evidence:** `HM32M4CCZS` — Airbnb $108 vs Vacasa sheet $128.
+1. Maintain channel-specific mapping rule docs (Confluence/Jira).
+2. Test import with sample payloads per channel before account migration.
+3. Log unmapped fields in imbalance report.
 
 ---
 
-### UC-03 — Airbnb conditional / LOS fees unsupported on channel
+## 10. Topic: Data Quality & Known Bugs
 
-**Scenario:** Guesty fees vary by date range or length of stay; Airbnb rejects or ignores conditional sync.
+### Beast tool — locked accounting periods
 
-**Symptoms:** OTA response errors; fee amounts on channel don’t match Guesty listing settings.
+- Beast **fails** when accounting period is locked.
+- **Duplicates zero-dollar fees** bug — documented; avoid Beast on affected reservations until fix.
 
-**Decision:** Do not promise 1:1 conditional fee parity on Airbnb. Options: simplify fee structure for Airbnb listings, absorb variance in markup, or manual folio handling.
+### VRBO
 
-**Owners:** Javier Ibarz (Distribution), Rinat Elimelech (FIN)
+- Zero-dollar fees and lump-sum taxes (Section 9).
 
----
+### General
 
-### UC-04 — Markup on fees (Airbnb) — perceived vs actual gap
+- No single import path fits all regions or account configurations.
 
-**Scenario:** Customer configures markup (e.g., 18.34%) but individual folio lines don’t match naive percentage math.
+### Implementation guidance
 
-**Symptoms:** CSM tickets alleging calculation bugs; Alloggio-style audits.
-
-**Decision:** **Working as designed** when totals reconcile to Airbnb. Guesty de-bundles bundled OTA totals using internal extraction formula.
-
-**Customer comms template:** Available via FIN-10159 / Alloggio internal thread — explain bundled OTA model vs Guesty separated lines.
-
-**Owners:** Rinat Elimelech (FIN PM), LDS for customer-facing explanation
+1. Check accounting period lock before Beast runs.
+2. QA zero-dollar fee duplication after Beast; rollback if detected.
+3. Track bugs in Jira with link to this playbook.
 
 ---
 
-### UC-05 — Merged fees + reverse mapping
+## 11. Topic: Beast Tool & Operational Workflows
 
-**Scenario:** Multiple Guesty fees → one OTA “Resort/Management fee”; reverse mapping must split incoming amount.
+### Background
 
-**Symptoms:** Individual fee lines look arbitrary but sum is correct; accounting attribution unclear.
+Beast is the bulk financial correction tool used by ops/engineering for migration fixes and data cleanup.
 
-**Decision:** Forward mapping must be deliberate. After GA, new reservations auto-split proportionally. Legacy reservations: manual adjustment or bulk reprocess (if approved).
+### Constraints
 
----
+- Cannot run on **locked accounting periods**.
+- Known bug: **duplicates zero-dollar fees**.
 
-### UC-06 — Rates & Availability + bundled fees not in rent
+### Workflow
 
-**Scenario:** Listing uses R&A; bundled fees FT enabled but pricing push didn’t add fees to rent → AF lower than total fees → **negative AF** on deduction.
+1. Verify period unlocked.
+2. Run Beast with scoped reservation set.
+3. Validate output; check for zero-dollar fee duplication.
+4. Provide imbalance report to customer for remaining discrepancies.
 
-**Symptoms:** Hometime/Avari-class tax extraction failures; folio discrepancies on R&A listings.
+### Implementation guidance
 
-**Decision (May 28 workshop):** Move bundled-fees-for-linked-listings FT toward **GA for new customers** after:
-1. Legal review (UI previously notified fees aren’t bundled under R&A)
-2. Remove misleading tooltip (FIN PM)
-3. Enable for all new accounts (Distribution)
-4. Execute MTC for existing accounts
-
-**Owners:** Javier Ibarz, Pawel Rytel (FT), Ella Waldman (Legal), Rinat Elimelech (FIN)
-
----
-
-### UC-07 — Tax setup timing gap
-
-**Scenario:** Account added to Tax Inclusive / TPLI FT before customer completes tax configuration.
-
-**Symptoms:** Imported Airbnb reservations without inclusive tax extraction; exclusive tax behavior on inclusive account.
-
-**Decision:** OB checklist must enforce **tax config complete** before import/connect. Use migration tools for fix-forward.
-
-**Owners:** Alex Fischer Birnbaum (FIN ops), Harry Houldsworth (OB)
+- Prefer settings snapshots (Phase 2) over repeated Beast runs for recurring accounts (e.g. Avari).
+- Enterprise: white-glove Beast support; SMB: self-service + documentation.
 
 ---
 
-### UC-08 — BDC payment recorded on partial line items
+## 12. Topic: AI Agent & Settings Snapshots (Roadmap)
 
-**Scenario:** BDC payout correct; Guesty payments logged against AF + tax only.
+### Phase 1 — AI Agent MVP (July 10 release)
 
-**Symptoms:** Reservations appear underpaid; owner statement revenue wrong.
+| Item | Detail |
+|------|--------|
+| **Goal** | Convert CSV exports → automated mapping |
+| **Release** | July 10, 2026 (confirmed Workshop #2) |
+| **Scope** | MVP — not full regional coverage |
 
-**Decision:** User/process fix for historical; product to verify auto-payment allocation covers all imported fee lines.
+**Implementation guidance**
 
----
+- Product defines CSV input schema and expected mapping outputs.
+- Engineering delivers agent pipeline; QA with real account exports.
+- Document limitations (no universal import — Section 4).
 
-### UC-09 — Channel commission tax not deducted from payout
+### Phase 2 — Settings Snapshots
 
-**Scenario:** `hostServiceFeeTax` parsed but not added as invoice item when `isChannelUpdate=false` (request-to-book).
+| Item | Detail |
+|------|--------|
+| **Goal** | Reservation settings as source of truth |
+| **Benefit** | Avari maintenance: 5–6 hrs/month → ~30 min |
+| **Replaces** | Manual adjustments |
 
-**Symptoms:** Total payout in folio ≠ Airbnb UI.
+**Implementation guidance**
 
-**Decision:** FIN defect — fix in host service calculation; part of broader `isChannelUpdate` refactor.
-
----
-
-### UC-10 — Bulk historical import during EOM
-
-**Scenario:** Customer requests large historical import during owner statement week.
-
-**Decision (May 28):** **Defer** import when risk to balances/JEs exceeds capacity. Prefer post-payout window; enable FT immediately pre-import; batch uploads (~1k) via UI with validation (`sum(invoice items) = total paid`).
-
-**Owners:** Maia Gordon (PMO), Ella Waldman, Gil Wasserman, Alex Borack
-
----
-
-## 9. Implementation playbook by lifecycle stage
-
-### Phase A — Discovery & design (T-8 to T-4 weeks)
-
-| Step | Action | Owner |
-|---|---|---|
-| A1 | Inventory all additional fees, taxes, markups, commissions | Customer + CFT |
-| A2 | Document current OTA fee categories per listing (extranet screenshots) | CFT |
-| A3 | Identify merged fee strategies (what can collapse to OTA types) | FIN PM + Customer |
-| A4 | Flag unsupported patterns (LOS/date fees on Airbnb, R&A listings) | Distribution |
-| A5 | Decide import strategy: live-only vs historical; cutoff dates | PMO + Biz + ACC |
-| A6 | Confirm accounting: BM, NRI, TPLI/inclusive model, recognition rules | ACC PM |
-
-### Phase B — Configuration (T-4 to T-1 weeks)
-
-| Step | Action | Owner |
-|---|---|---|
-| B1 | Build additional fees in Guesty | Customer/CFT |
-| B2 | Complete **Sync to Channel** forward mapping per OTA | Customer/CFT |
-| B3 | Enable required FTs (see §12.2) | PMO + R&D |
-| B4 | Complete tax configuration **before** channel connect/import | Customer + FIN ops |
-| B5 | Run BEAST fee sync + listing-level verification sample | LDS/T3 |
-| B6 | Validate R&A vs full sync per listing; test rent parity sheet | Distribution |
-| B7 | Align channel commission + markup settings | FIN |
-
-### Phase C — Connection & first reservations (Go-live week)
-
-| Step | Action | Owner |
-|---|---|---|
-| C1 | Connect channels in controlled batches | CFT |
-| C2 | Monitor first 24–72h reservations per channel daily | CFT + PMO |
-| C3 | Compare folio to OTA extranet for **every** discrepancy | CFT |
-| C4 | Classify: setup vs bug vs WAD (§11) | PMO + FIN + Distribution |
-| C5 | No bulk historical import during EOM unless exec-approved | PMO + ACC |
-
-### Phase D — Historical import (if applicable)
-
-| Step | Action | Owner |
-|---|---|---|
-| D1 | Freeze owner statements until import plan approved | Biz + ACC |
-| D2 | Enable FTs immediately before import | R&D |
-| D3 | Split files ≤1k reservations; validate totals column | CFT |
-| D4 | Import via UI; track failures (payment total mismatch = common) | CFT |
-| D5 | Post-import: remove erroneous JEs via approved ACC/T3 process | ACC |
-| D6 | Update booking dates for revenue tools (col R / API) | CFT + API |
-
-### Phase D — Steady state & regression prevention
-
-| Step | Action | Owner |
-|---|---|---|
-| E1 | Monthly audit: sample reservations per channel | CFT |
-| E2 | After fee mapping changes, verify **new** reservations only (GA limit) | FIN PM |
-| E3 | Update HC/customer docs when mapping changes | Product Marketing |
-| E4 | Track discrepancies in shared sheet with Owner / Action / Status | PMO |
+- Snapshot financial settings at reservation creation.
+- Channel updates respect snapshot + override rules (Section 8).
+- Rollout after Phase 1 stabilizes.
 
 ---
 
-## 10. Decision log
+## 13. Topic: Rates & Availability Toggle Removal
 
-| # | Date | Decision | Rationale | Status |
-|---|---|---|---|---|
-| D-01 | May 20, 2026 | Workshop use cases documented in shared spreadsheet template | Align Biz + Product on concrete scenarios | ✅ Active |
-| D-02 | May 20, 2026 | OTA reservation payload is authoritative for confirmed amounts | Prevents endless “fix to match spreadsheet” loops | ✅ Active |
-| D-03 | May 26, 2026 | Reverse mapping GA for **new** reservations only | Avoid retroactive accounting risk | ✅ Shipped |
-| D-04 | May 28, 2026 | Bundled fees FT → GA path for **new customers** | Prevent negative AF / tax extraction failures on R&A | 🔄 In progress |
-| D-05 | May 28, 2026 | Legal review required before GA (UI previously disclosed R&A limitation) | Reduce customer trust risk | 🔄 Pending |
-| D-06 | May 28, 2026 | Defer Avari-scale historical import during EOM | Protect owner statements & dev capacity | ✅ Decided (case-by-case override requires exec alignment) |
-| D-07 | May 28, 2026 | Hometime discrepancy tracker: zero new unexplained discrepancies | Operational quality bar | ✅ Active |
-| D-08 | Jun 2026 | Vrbo to move toward OTA-as-source-of-truth for fees/taxes | Align with Airbnb/BDC model | 📋 Planned |
+### Decision (Workshop #2)
 
----
+Remove **Rates & Availability feature toggle** from product.
 
-## 11. Known limitations & “working as designed” scenarios
+### Gates
 
-Use this section before opening FIN/Distribution defects.
+1. **Legal review** — Shan (required before removal).
+2. **Impact report** — assess accounts still on toggle.
 
-| Symptom | Likely classification | Response |
-|---|---|---|
-| Markup % on line ≠ configured % but totals match Airbnb | **WAD** — de-bundling math | Use customer comms template; cite FIN-10159 pattern |
-| BDC R&A reservation fees unlike Guesty listing | **WAD** — fees not synced on R&A | Manage on BDC; Guesty uses confirmation payload |
-| Old BDC reservations include taxes after property tax removal | **WAD** — historical channel state | Explain booking-date cutoff |
-| Merged fee split proportions look odd | **WAD** — proportional reverse split | Validate sum; adjust forward mapping if business-wrong |
-| Reverse mapping not applied to old reservations | **Known limitation** — GA scope | Manual adjustment or approved reprocess |
-| Guesty rent ≠ OTA on R&A before bundled fees GA | **Known gap** — pricing push | Enable FT / fix listing; track Javier sheet |
-| Penny rounding on imported sheets | **Data prep issue** | Fix upload formulas before import |
+### Implementation guidance
 
-**Non-negotiables (from ENT onboarding practice):**
-- Do not recommend disconnecting live OTA listings to fix MU association without E2E data-loss plan
-- Do not duplicate thousands of properties as a workaround for MU limits
-- Do not lose fees, taxes, photos, or content during inventory transitions
+1. Complete legal review with Shan.
+2. Publish impact report (accounts affected, migration path).
+3. Communicate deprecation timeline to CS and enterprise.
+4. Remove toggle in release after approvals.
 
 ---
 
-## 12. Tools, checklists & resources
+## 14. Topic: Customer Support & Enterprise vs SMB
 
-### 12.1 Internal documents & templates
+### Decisions
 
-| Resource | Link | Purpose |
-|---|---|---|
-| Workshop use case template | [Google Sheet](https://docs.google.com/spreadsheets/d/1XnLucNJ1H4WhMhVePXKw_j0xVFKVUVE6fq7-oNbp0js/edit?gid=774243903#gid=774243903) | Capture & prioritize mapping scenarios |
-| Synthesizing Data Accuracy for Imported OTA Bookings | Slack file F0B4QQ1LBEZ | Pre-workshop data accuracy framework |
-| Playbook: Reverse Engineer Channel Reservations | Slack file F0AUV8KGX5G (Alex Borack) | CFT operational reverse-engineering steps |
-| Reverse Mapping MTC Process V2 | Slack file F0ANEK9SX19 | Moving the Cheese for reverse mapping GA |
-| TPLI / Airbnb options doc | Slack file F096KA6J9T7 | Tax per line item migration decisions |
-| Product education — Reverse mapping | [Google Drive folder](https://drive.google.com/drive/folders/1rcaTzyD0BcPu9TLXo6jWHU2RFHXNa2JN) | Demos & enablement |
-| Rollout sheet — Reverse mapping | [Google Sheet](https://docs.google.com/spreadsheets/d/14jvSOOEy6qPx1Cp5d7K4n2PHLIIul7yn9nDv906dS5U/edit) | GA tracking |
+- **Client owns** financial reconciliation accuracy.
+- **Imbalance reports** — not universal migration fixes.
+- **Enterprise:** white-glove support for migration and Beast.
+- **SMB:** self-service + documentation + imbalance reports.
 
-### 12.2 BEAST / support tools (IKB)
+### Implementation guidance
 
-- BEAST: Syncing additional fees with OTAs
-- BEAST: Using the Reservation Financials Inspector
-- BEAST: Look up additional fees listing setup per channel
-- BEAST: Copying additional fees to multiple listings
-
-### 12.3 FTs commonly required for ENT OTA mapping (US accounts — draft)
-
-> PMO thread May 28, 2026: compile authoritative mandatory FT package per PM. Until published, verify per account:
-
-| FT / capability | Typical need |
-|---|---|
-| Tax Inclusive / TPLI | Tax extraction accuracy |
-| FIN_channel_commission_breakdown | Airbnb commission tax in folio |
-| Bundled fees for linked listings | R&A fee-in-rent |
-| Reverse mapping | Auto OTA→Guesty fee remap (GA) |
-| Markups on fees | Airbnb markup extraction |
-| Accounting upon payment | Recognition timing |
-
-### 12.4 Pre-flight checklist (printable)
-
-**Account setup**
-- [ ] All additional fees created with final names/types
-- [ ] Sync to Channel mapping complete for every OTA in scope
-- [ ] Merge strategy documented where Guesty fees > OTA types
-- [ ] Taxes configured and verified (not just FT-enabled)
-- [ ] Business Models reference correct fee types
-- [ ] Channel commission settings validated
-
-**Listing / channel**
-- [ ] Connection type documented per listing (Full vs R&A)
-- [ ] Sample listing rent parity verified on OTA extranet
-- [ ] BEAST fee sync executed post-config
-- [ ] Unsupported conditional fees flagged to customer
-
-**Import (if applicable)**
-- [ ] Import window avoids EOM / owner payouts
-- [ ] FTs enabled immediately before import
-- [ ] Files validated: Σ line items = total paid
-- [ ] Booking dates populated for revenue integrations
-- [ ] JE cleanup plan approved by Accounting
-
-**Post-go-live monitoring (first 14 days)**
-- [ ] Daily reservation sample audit per channel
-- [ ] Discrepancy log with owner + action + status
-- [ ] Zero untracked new discrepancies policy
+1. Template imbalance report for CS (fields: reservation ID, channel, PMS value, channel value, tax flag).
+2. Escalation path: SMB → CS docs; Enterprise → dedicated CSM + T3 for bulk (BDC 2.0).
+3. Do not commit to auto-fix all discrepancies.
 
 ---
 
-## 13. Ownership & escalation matrix
+## 15. Topic: Regional Complexity (Australia, GST)
 
-| Domain | Primary owner | Escalation topics |
-|---|---|---|
-| **PMO / cross-product** | Maia Gordon | Workshop outcomes, ENT OB package, import timing, exec comms |
-| **Biz / CFT** | Alex Borack | Customer setup, import execution, use case validation |
-| **Distribution / channels** | Javier Ibarz | BDC/Airbnb/Vrbo sync, R&A bundling, extranet parity |
-| **Financials PM** | Rinat Elimelech | Reverse mapping, markups, fees conditions, folio calculation |
-| **Accounting PM** | Rotem Meir | BM/NRI, JE impact, owner statements, bulk reversals |
-| **FIN dev escalation** | Roi Mehalel / FIN team | Calculation defects, FT behavior, reprocess |
-| **ACC dev escalation** | Rotem Meir / ACC team | Accounting folio mismatches, disbursement blockers |
-| **LDS / T3** | Mariana Viñas / BEAST | Tooling, bulk fee copy, inspection tickets |
+### Background
 
-**Escalation rule:** Classify first (§11). If true defect, route to FIN vs Distribution vs ACC based on whether issue originates in **payload**, **calculation**, or **accounting mapping**.
+Workshop #2 discussed Hometime and Australia GST / tax eligibility — no one-size-fits-all solution.
 
----
+### Principles
 
-## 14. Open items & future work
+- Regional tax rules override generic mapping templates.
+- Channel tax data still source of truth for remittance.
+- Product/legal review for edge cases.
 
-| Item | Owner | Notes |
-|---|---|---|
-| Publish consolidated workshop summary from Gemini notes | Maia Gordon | Merge into this doc when source notes uploaded |
-| Mandatory ENT FT package (US) | All PMs (`#onlyproduct` thread) | Single OB handout for CFT |
-| Bundled fees GA + MTC | Javier / Rinat / Ella | Legal + tooltip removal + new-account enablement |
-| Vrbo OTA-as-source-of-truth | Rinat / FIN + Distribution | Cross-functional initiative |
-| Reverse mapping retroactive migration policy | FIN + ACC | Currently out of GA scope — customer comms needed |
-| Grand Welcome field-mapping matrix per OTA | Distribution PMs | Customer request — set expectations on effort |
-| Improve import validator (total paid vs line items) | Yarin / Upload team | Reduce Avari-class upload failures |
-| `isChannelUpdate` refactor | FIN dev | Prevents commission tax gaps on request-to-book |
+### Implementation guidance
+
+1. Document Australia GST exceptions in regional appendix (Confluence).
+2. Flag AU accounts in migration checklist.
+3. Escalate Hometime-like cases to product + legal before custom mapping.
 
 ---
 
-## Appendix A — Glossary of common tickets / patterns
+## 16. Implementation Guidance by Phase
 
-| Pattern | Example tickets / refs |
-|---|---|
-| Markup variance | FIN-10159, Alloggio threads |
-| Taxes not mapping to accounting | FIN-10768, ACC-5926 |
-| Negative AF / bundled fees | T3-166405, Avari/Hometime sheets |
-| BDC payment allocation | FIN-10623, Hometime May 13 deep dive |
-| Channel commission tax | FIN channel commission breakdown / calculateHostService |
+### Pre-migration checklist
+
+- [ ] Audit account fee dictionary; apply $1/day workaround where needed
+- [ ] Confirm source-of-truth rules with customer (PMS vs channel for fees; channel for taxes)
+- [ ] Export sample reservations per channel (BDC, VRBO, Airbnb)
+- [ ] Check BDC Deduct 2.0 status
+- [ ] Identify enterprise vs SMB support tier
+
+### Migration execution
+
+- [ ] Run reverse mapping with PMS-as-truth for fees
+- [ ] Import taxes from channel only — no adjustments
+- [ ] Preserve manual overrides
+- [ ] Generate imbalance report
+
+### Post-migration
+
+- [ ] Deliver imbalance report to client
+- [ ] Client-owned reconciliation
+- [ ] Beast only if period unlocked; watch zero-dollar fee bug
+- [ ] Log open items for Phase 2 (settings snapshots)
+
+### July 10 release (Phase 1)
+
+- [ ] AI agent CSV → mapping pipeline GA
+- [ ] Release notes + limitations doc
+- [ ] CS training on new workflow
 
 ---
 
-## Appendix B — Related workshop participants
+## 17. Action Items & Open Questions
 
-| Name | Role |
-|---|---|
-| Maia Gordon | PMO — workshop lead |
-| Alex Borack | Biz/CFT — use cases & implementation |
-| Javier Ibarz | Distribution — channel sync & bundling |
-| Ella Waldman | Product leadership |
-| Rinat Elimelech | Financials PM |
-| Rotem Meir | Accounting PM |
-| Vadym Padalko | R&D (approved workshop) |
+### Action items (from workshops)
+
+| Owner | Action | Workshop |
+|-------|--------|----------|
+| Product | Finalize default fee dictionary strategy | WS1 O1 |
+| Product | Impact report for Rates & Availability toggle | WS2 D11 |
+| Shan / Legal | Legal review for toggle removal | WS2 D11 |
+| Engineering | AI agent MVP for July 10 | WS2 D9 |
+| Engineering | Settings snapshots (Phase 2) | WS2 D10 |
+| Engineering | Fix Beast zero-dollar fee duplication | WS2 |
+| Ops / T3 | BDC Deduct 2.0 ~2,000 reservations | WS2 |
+| Alex / Engineering | Document manual override non-revert behavior | WS1 D6 |
+
+### Open questions
+
+1. System-level fee dictionary for new accounts (WS1 O1)
+2. Final financial import discrepancy resolution strategy (WS1 O2) — partially addressed by imbalance reports + client ownership
+3. Australia GST / Hometime edge cases — regional playbook needed
+4. Beast fix timeline for locked periods and zero-dollar fees
 
 ---
 
-*This document should be treated as a living playbook. When Gemini workshop notes and the finalized use-case spreadsheet are available, merge them into §8 and §10 and remove any interim drafting notes.*
+## 18. Appendix: Related Links & Source Files
+
+### Source workshop notes (Gemini)
+
+| Workshop | File |
+|----------|------|
+| #1 — May 20, 2026 | [`docs/workshop-notes/workshop-1-may-20-gemini-notes.txt`](../workshop-notes/workshop-1-may-20-gemini-notes.txt) |
+| #2 — May 28, 2026 | [`docs/workshop-notes/workshop-2-may-28-gemini-notes.txt`](../workshop-notes/workshop-2-may-28-gemini-notes.txt) |
+| Original `.docx` | [`docs/workshop-notes/`](../workshop-notes/) |
+
+### Internal references
+
+- Slack: `#reverse-mapping-ga`
+- Jira: reverse mapping / BDC Deduct 2.0 epics
+- Confluence: channel import mapping specs
+
+### Document history
+
+| Date | Change |
+|------|--------|
+| June 2026 | Initial interim draft (Slack/docs synthesis) |
+| June 14, 2026 | Merged Gemini workshop notes #1 and #2; full decision log and topic structure |
+
+---
+
+*This playbook is a living document. Update after each reverse-mapping workshop or major release.*
