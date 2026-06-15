@@ -4,10 +4,8 @@
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
-from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
+from pptx.enum.text import PP_ALIGN
 from pptx.enum.shapes import MSO_SHAPE
-from pptx.chart.data import CategoryChartData
-from pptx.enum.chart import XL_CHART_TYPE, XL_LEGEND_POSITION
 
 # --- Data (edit these values to update the slide) ---
 MIGRATION_DATA = [
@@ -36,7 +34,7 @@ COLOR_BG = RGBColor(245, 240, 232)
 COLOR_TEXT = RGBColor(30, 41, 59)
 COLOR_MID = RGBColor(156, 163, 175)
 COLOR_WHITE = RGBColor(255, 255, 255)
-COLOR_CARD_BORDER = RGBColor(229, 231, 235)
+COLOR_CARD_BORDER = RGBColor(209, 213, 219)
 COLOR_GHOST = RGBColor(209, 213, 219)
 
 SLIDE_W = Inches(13.333)
@@ -52,7 +50,10 @@ def set_no_line(shape):
     shape.line.fill.background()
 
 
-def add_textbox(slide, left, top, width, height, text, size=12, bold=False, color=COLOR_TEXT, align=PP_ALIGN.LEFT, italic=False):
+def add_textbox(
+    slide, left, top, width, height, text,
+    size=12, bold=False, color=COLOR_TEXT, align=PP_ALIGN.LEFT, italic=False,
+):
     box = slide.shapes.add_textbox(left, top, width, height)
     tf = box.text_frame
     tf.word_wrap = True
@@ -66,14 +67,15 @@ def add_textbox(slide, left, top, width, height, text, size=12, bold=False, colo
     return box
 
 
-def add_rounded_rect(slide, left, top, width, height, fill_color, line_color=None):
+def add_rounded_rect(slide, left, top, width, height, fill_color, line_color=None, radius=0.08):
     shape = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, left, top, width, height)
     set_fill(shape, fill_color)
     if line_color:
         shape.line.color.rgb = line_color
-        shape.line.width = Pt(1)
+        shape.line.width = Pt(1.25)
     else:
         set_no_line(shape)
+    shape.adjustments[0] = radius
     return shape
 
 
@@ -83,146 +85,157 @@ def add_mini_stacked_bar(slide, left, top, width, height, lite_count, total):
     smb_w = width - lite_w
 
     if lite_w > 0:
-        lite_bar = add_rounded_rect(slide, left, top, lite_w, height, COLOR_LITE)
-        lite_bar.adjustments[0] = 0.15
+        add_rounded_rect(slide, left, top, lite_w, height, COLOR_LITE, radius=0.2)
     if smb_w > 0:
-        smb_bar = add_rounded_rect(slide, left + lite_w, top, smb_w, height, COLOR_SMB)
-        smb_bar.adjustments[0] = 0.15
+        add_rounded_rect(slide, left + lite_w, top, smb_w, height, COLOR_SMB, radius=0.2)
 
 
 def add_data_card(slide, left, top, width, height, entry):
     total = entry["total"]
     lite = entry["lite"]
     smb = entry["smb"]
+    lite_pct = lite / total * 100
+    smb_pct = smb / total * 100
 
     card = add_rounded_rect(slide, left, top, width, height, COLOR_WHITE, COLOR_CARD_BORDER)
-    card.adjustments[0] = 0.08
 
-    pad = Inches(0.2)
-    y = top + pad
+    pad = Inches(0.35)
+    inner_w = width - pad * 2
+    y = top + Inches(0.3)
 
-    add_textbox(slide, left + pad, y, width - pad * 2, Inches(0.35), entry["date"], size=16, bold=True)
-    y += Inches(0.4)
+    # Date header
+    add_textbox(slide, left + pad, y, inner_w, Inches(0.45), entry["date"], size=20, bold=True)
+    y += Inches(0.55)
 
+    # Growth badge (June 15th only)
     if entry["pct_change"] is not None:
-        add_textbox(
-            slide, left + pad, y, width - pad * 2, Inches(0.3),
-            f"↑ +{entry['pct_change']:.1f}%", size=13, bold=True, color=COLOR_SMB,
-        )
-        y += Inches(0.35)
+        badge_w = Inches(1.1)
+        badge = add_rounded_rect(slide, left + pad, y, badge_w, Inches(0.35), COLOR_SMB, radius=0.3)
+        badge_tf = badge.text_frame
+        badge_tf.paragraphs[0].text = f"+{entry['pct_change']:.1f}%"
+        badge_tf.paragraphs[0].font.size = Pt(12)
+        badge_tf.paragraphs[0].font.bold = True
+        badge_tf.paragraphs[0].font.color.rgb = COLOR_WHITE
+        badge_tf.paragraphs[0].alignment = PP_ALIGN.CENTER
+        badge_tf.vertical_anchor = 1
+        y += Inches(0.5)
 
-    add_textbox(slide, left + pad, y, width - pad * 2, Inches(0.3), f"Total Accounts: {total:,}", size=13)
-    y += Inches(0.35)
+    # Total accounts - large number
+    add_textbox(
+        slide, left + pad, y, inner_w, Inches(0.35),
+        f"Total Accounts: {total:,}", size=16, bold=True,
+    )
+    y += Inches(0.55)
+
+    # Segment rows
+    add_textbox(
+        slide, left + pad, y, inner_w, Inches(0.32),
+        f"LITE Segment: {lite:,} ({lite_pct:.1f}%)", size=14, color=COLOR_LITE, bold=True,
+    )
+    y += Inches(0.42)
 
     add_textbox(
-        slide, left + pad, y, width - pad * 2, Inches(0.28),
-        f"LITE Segment: {lite:,} ({lite / total * 100:.1f}%)", size=11, color=COLOR_LITE,
+        slide, left + pad, y, inner_w, Inches(0.32),
+        f"SMB Segment: {smb:,} ({smb_pct:.1f}%)", size=14, color=COLOR_SMB, bold=True,
     )
-    y += Inches(0.3)
+    y += Inches(0.42)
 
     add_textbox(
-        slide, left + pad, y, width - pad * 2, Inches(0.28),
-        f"SMB Segment: {smb:,} ({smb / total * 100:.1f}%)", size=11, color=COLOR_SMB,
+        slide, left + pad, y, inner_w, Inches(0.32),
+        f"Mid-Market: {entry['mid_market']}", size=14, color=COLOR_MID, italic=True,
     )
-    y += Inches(0.3)
+    y += Inches(0.55)
 
-    add_textbox(
-        slide, left + pad, y, width - pad * 2, Inches(0.28),
-        f"Mid-Market: {entry['mid_market']}", size=11, color=COLOR_MID, italic=True,
-    )
-    y += Inches(0.45)
-
-    add_mini_stacked_bar(slide, left + pad, y, width - pad * 2, Inches(0.18), lite, total)
+    # Mini stacked bar
+    add_mini_stacked_bar(slide, left + pad, y, inner_w, Inches(0.22), lite, total)
 
 
 def add_timeline(slide):
-    bar_left = Inches(1.2)
-    bar_top = Inches(1.55)
-    bar_width = Inches(10.9)
-    bar_height = Inches(0.22)
+    bar_left = Inches(1.5)
+    bar_top = Inches(1.75)
+    bar_width = Inches(10.3)
+    bar_height = Inches(0.28)
 
-    # Blue segment (June 8th progress)
-    blue_w = int(bar_width * 0.38)
-    blue = add_rounded_rect(slide, bar_left, bar_top, blue_w, bar_height, COLOR_LITE)
-    blue.adjustments[0] = 0.5
-
-    # Green segment (June 8th -> June 15th)
-    green_left = bar_left + blue_w
-    green_w = int(bar_width * 0.22)
-    green = add_rounded_rect(slide, green_left, bar_top, green_w, bar_height, COLOR_SMB)
-    green.adjustments[0] = 0.5
-
-    # Ghost / remaining segment
-    ghost_left = green_left + green_w
+    # Progress segments: blue -> green -> ghost
+    blue_w = int(bar_width * 0.35)
+    green_w = int(bar_width * 0.25)
     ghost_w = bar_width - blue_w - green_w
-    ghost = add_rounded_rect(slide, ghost_left, bar_top, ghost_w, bar_height, COLOR_GHOST)
-    ghost.adjustments[0] = 0.5
-    ghost.fill.transparency = 0.45
 
-    # Timeline markers
-    marker_y = bar_top + bar_height / 2 - Inches(0.12)
-    for x_frac, color, label in [(0.05, COLOR_LITE, "June 8th"), (0.60, COLOR_SMB, "June 15th")]:
+    add_rounded_rect(slide, bar_left, bar_top, blue_w, bar_height, COLOR_LITE, radius=0.5)
+    add_rounded_rect(slide, bar_left + blue_w, bar_top, green_w, bar_height, COLOR_SMB, radius=0.5)
+
+    ghost = add_rounded_rect(slide, bar_left + blue_w + green_w, bar_top, ghost_w, bar_height, COLOR_GHOST, radius=0.5)
+    ghost.fill.transparency = 0.35
+
+    # Timeline dots and labels
+    markers = [
+        (0.04, COLOR_LITE, "June 8th"),
+        (0.58, COLOR_SMB, "June 15th"),
+        (0.92, COLOR_SMB, ""),  # future milestone
+    ]
+    dot_size = Inches(0.28)
+    for x_frac, color, label in markers:
         x = bar_left + int(bar_width * x_frac)
-        dot = slide.shapes.add_shape(MSO_SHAPE.OVAL, x, marker_y, Inches(0.24), Inches(0.24))
+        dot_y = bar_top + bar_height / 2 - dot_size / 2
+        dot = slide.shapes.add_shape(MSO_SHAPE.OVAL, x, dot_y, dot_size, dot_size)
         set_fill(dot, color)
         set_no_line(dot)
-        add_textbox(
-            slide, x - Inches(0.5), bar_top + Inches(0.35), Inches(1.2), Inches(0.3),
-            label, size=10, align=PP_ALIGN.CENTER,
-        )
+        if label:
+            add_textbox(
+                slide, x - Inches(0.55), bar_top + Inches(0.42), Inches(1.3), Inches(0.35),
+                label, size=11, align=PP_ALIGN.CENTER,
+            )
 
 
-def add_stacked_bar_chart(slide):
-    chart_data = CategoryChartData()
-    chart_data.categories = [d["date"] for d in MIGRATION_DATA]
-    chart_data.add_series("LITE Segment", [d["lite"] for d in MIGRATION_DATA])
-    chart_data.add_series("SMB Segment", [d["smb"] for d in MIGRATION_DATA])
+def add_data_table_slide(prs):
+    """Second slide with raw editable data table."""
+    slide = prs.slides.add_slide(prs.slide_layouts[6])
 
-    chart_frame = slide.shapes.add_chart(
-        XL_CHART_TYPE.COLUMN_STACKED,
-        Inches(0.8), Inches(2.2), Inches(6.2), Inches(3.8),
-        chart_data,
+    bg = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, SLIDE_W, SLIDE_H)
+    set_fill(bg, COLOR_BG)
+    set_no_line(bg)
+    slide.shapes._spTree.remove(bg._element)
+    slide.shapes._spTree.insert(2, bg._element)
+
+    add_textbox(
+        slide, Inches(0.8), Inches(0.5), Inches(10), Inches(0.6),
+        "Migration Data (Editable)", size=24, bold=True,
     )
-    chart = chart_frame.chart
-    chart.has_legend = True
-    chart.legend.position = XL_LEGEND_POSITION.TOP
-    chart.legend.include_in_layout = False
-    chart.chart_title.has_text_frame = False
 
-    plot = chart.plots[0]
-    plot.gap_width = 80
+    rows, cols = 3, 6
+    table_shape = slide.shapes.add_table(rows, cols, Inches(0.8), Inches(1.5), Inches(11.5), Inches(1.8))
+    table = table_shape.table
 
-    series_colors = [COLOR_LITE, COLOR_SMB]
-    for idx, series in enumerate(chart.series):
-        series.format.fill.solid()
-        series.format.fill.fore_color.rgb = series_colors[idx]
+    headers = ["Date", "Total Accounts", "LITE", "SMB", "Mid-Market", "Change %"]
+    for col, header in enumerate(headers):
+        cell = table.cell(0, col)
+        cell.text = header
+        cell.text_frame.paragraphs[0].font.bold = True
+        cell.text_frame.paragraphs[0].font.size = Pt(12)
+        cell.fill.solid()
+        cell.fill.fore_color.rgb = COLOR_LITE
+        cell.text_frame.paragraphs[0].font.color.rgb = COLOR_WHITE
 
-    value_axis = chart.value_axis
-    value_axis.has_major_gridlines = True
-    value_axis.maximum_scale = 3000
+    for row_idx, entry in enumerate(MIGRATION_DATA, start=1):
+        values = [
+            entry["date"],
+            f"{entry['total']:,}",
+            f"{entry['lite']:,} ({entry['lite'] / entry['total'] * 100:.1f}%)",
+            f"{entry['smb']:,} ({entry['smb'] / entry['total'] * 100:.1f}%)",
+            entry["mid_market"],
+            f"+{entry['pct_change']:.1f}%" if entry["pct_change"] else "—",
+        ]
+        for col, value in enumerate(values):
+            cell = table.cell(row_idx, col)
+            cell.text = value
+            cell.text_frame.paragraphs[0].font.size = Pt(11)
 
-
-def add_growth_line_chart(slide):
-    chart_data = CategoryChartData()
-    chart_data.categories = [d["date"] for d in MIGRATION_DATA]
-    chart_data.add_series("Total Accounts", [d["total"] for d in MIGRATION_DATA])
-
-    chart_frame = slide.shapes.add_chart(
-        XL_CHART_TYPE.LINE_MARKERS,
-        Inches(0.8), Inches(6.0), Inches(6.2), Inches(1.2),
-        chart_data,
+    add_textbox(
+        slide, Inches(0.8), Inches(3.6), Inches(11), Inches(2),
+        "Edit the table above, then update the visual slide to match.\n"
+        "Tip: In Google Slides, click any text box or table cell to edit directly.",
+        size=12, color=COLOR_MID, italic=True,
     )
-    chart = chart_frame.chart
-    chart.has_legend = False
-    chart.chart_title.has_text_frame = False
-
-    series = chart.series[0]
-    series.format.line.color.rgb = COLOR_SMB
-    series.format.line.width = Pt(2.5)
-    series.marker.style = None
-    series.marker.size = 8
-    series.marker.format.fill.solid()
-    series.marker.format.fill.fore_color.rgb = COLOR_SMB
 
 
 def build_slide(output_path="/workspace/migration_progress_slide.pptx"):
@@ -230,8 +243,7 @@ def build_slide(output_path="/workspace/migration_progress_slide.pptx"):
     prs.slide_width = SLIDE_W
     prs.slide_height = SLIDE_H
 
-    slide_layout = prs.slide_layouts[6]  # blank
-    slide = prs.slides.add_slide(slide_layout)
+    slide = prs.slides.add_slide(prs.slide_layouts[6])
 
     # Background
     bg = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, SLIDE_W, SLIDE_H)
@@ -242,26 +254,37 @@ def build_slide(output_path="/workspace/migration_progress_slide.pptx"):
 
     # Title
     add_textbox(
-        slide, Inches(0.8), Inches(0.45), Inches(11), Inches(0.7),
-        "Existing Accounts Migration Progress", size=28, bold=True,
+        slide, Inches(0.8), Inches(0.55), Inches(11.5), Inches(0.75),
+        "Existing Accounts Migration Progress", size=30, bold=True, align=PP_ALIGN.CENTER,
     )
 
     add_timeline(slide)
-    add_stacked_bar_chart(slide)
-    add_growth_line_chart(slide)
 
-    # Data cards (right column)
-    card_w = Inches(4.5)
-    card_h = Inches(2.35)
-    card_left = Inches(8.3)
-    add_data_card(slide, card_left, Inches(2.2), card_w, card_h, MIGRATION_DATA[0])
-    add_data_card(slide, card_left, Inches(4.85), card_w, card_h, MIGRATION_DATA[1])
+    # Two data cards side by side (matching original screenshot layout)
+    card_w = Inches(5.2)
+    card_h = Inches(3.6)
+    card_top = Inches(2.65)
+    gap = Inches(0.6)
+    total_cards_w = card_w * 2 + gap
+    card_left_start = (SLIDE_W - total_cards_w) / 2
+
+    add_data_card(slide, card_left_start, card_top, card_w, card_h, MIGRATION_DATA[0])
+    add_data_card(slide, card_left_start + card_w + gap, card_top, card_w, card_h, MIGRATION_DATA[1])
 
     # Branding
-    add_textbox(slide, Inches(0.8), Inches(6.95), Inches(2), Inches(0.35), "Guesty", size=16, bold=True, color=COLOR_LITE, italic=True)
+    add_textbox(
+        slide, Inches(0.8), Inches(6.85), Inches(2), Inches(0.4),
+        "Guesty", size=18, bold=True, color=COLOR_LITE, italic=True,
+    )
+
+    # Data table slide for easy editing
+    add_data_table_slide(prs)
 
     prs.save(output_path)
     print(f"Saved editable slide to {output_path}")
+    print("Slides included:")
+    print("  1. Visual progress slide (timeline + data cards)")
+    print("  2. Editable data table")
     print("Upload to Google Drive, then open with Google Slides to edit.")
 
 
