@@ -10,7 +10,18 @@ from migration_actual_vs_planned_data import (
     ACTUAL_WEEKLY,
     PLANNED_CUMULATIVE,
     FINAL_TARGET,
+    CURRENT_AS_OF,
+    CURRENT_CUMULATIVE,
+    RECENT_DAILY_ACCOUNTS,
+    MIGRATION_PHASES,
+    THROUGHPUT_RATES,
+    FULL_PROGRAM_ACCOUNTS,
+    PROGRAM_END_DATE,
     build_chart_rows,
+    build_projection_rows,
+    phase_cumulative_accounts,
+    format_duration,
+    processing_minutes_per_day,
     weekly_total,
 )
 
@@ -141,6 +152,101 @@ def create_xlsx(output_path="/workspace/migration_actual_vs_planned.xlsx"):
         ws_detail.write(i, 3, entry["enterprise"], num_fmt)
         ws_detail.write(i, 4, weekly_total(entry), num_fmt)
 
+    # --- Migration Phases sheet ---
+    ws_phases = workbook.add_worksheet("Migration Phases")
+    ws_phases.set_column("A:A", 14)
+    ws_phases.set_column("B:C", 12)
+    ws_phases.set_column("D:D", 8)
+    ws_phases.set_column("E:H", 16)
+    ws_phases.set_column("I:K", 14)
+
+    phase_headers = [
+        "Phase", "Start", "End", "Days", "Avg Res/Day", "Total Reservations",
+        "Accounts (Phase)", "Avg Res/Account",
+        "Processing @ 900/min", "Processing @ 8,024/min", "Processing @ 14,000/min",
+    ]
+    for col, h in enumerate(phase_headers):
+        ws_phases.write(0, col, h, header_fmt)
+
+    for i, phase in enumerate(MIGRATION_PHASES, start=1):
+        ws_phases.write(i, 0, phase["phase"], text_fmt)
+        ws_phases.write(i, 1, phase["start"], text_fmt)
+        ws_phases.write(i, 2, phase["end"], text_fmt)
+        ws_phases.write(i, 3, phase["days"], num_fmt)
+        ws_phases.write(i, 4, phase["avg_res_per_day"], num_fmt)
+        ws_phases.write(i, 5, phase["total_reservations"], num_fmt)
+        ws_phases.write(i, 6, phase["accounts_in_phase"], num_fmt)
+        ws_phases.write(i, 7, phase["avg_res_per_account"], num_fmt)
+        for j, rate_info in enumerate(THROUGHPUT_RATES):
+            mins = processing_minutes_per_day(phase["avg_res_per_day"], rate_info["rate"])
+            ws_phases.write(i, 8 + j, format_duration(mins), text_fmt)
+
+    total_row = len(MIGRATION_PHASES) + 1
+    ws_phases.write(total_row, 0, "TOTAL", header_fmt)
+    ws_phases.write(total_row, 3, sum(p["days"] for p in MIGRATION_PHASES), num_fmt)
+    ws_phases.write(total_row, 5, sum(p["total_reservations"] for p in MIGRATION_PHASES), num_fmt)
+    ws_phases.write(total_row, 6, sum(p["accounts_in_phase"] for p in MIGRATION_PHASES), num_fmt)
+
+    # --- Phase Timeline sheet (cumulative account milestones) ---
+    ws_timeline = workbook.add_worksheet("Phase Timeline")
+    ws_timeline.set_column("A:D", 22)
+    timeline_headers = ["Phase", "End Date", "Accounts This Phase", "Cumulative Accounts"]
+    for col, h in enumerate(timeline_headers):
+        ws_timeline.write(0, col, h, header_fmt)
+    milestones = phase_cumulative_accounts()
+    for i, m in enumerate(milestones, start=1):
+        ws_timeline.write(i, 0, m["phase"], text_fmt)
+        ws_timeline.write(i, 1, m["end_date"], text_fmt)
+        ws_timeline.write(i, 2, m["phase_accounts"], num_fmt)
+        ws_timeline.write(i, 3, m["cumulative_accounts"], num_fmt)
+
+    ws_timeline.write(len(milestones) + 2, 0, "Current status (as of " + CURRENT_AS_OF + ")", header_fmt)
+    ws_timeline.write(len(milestones) + 2, 1, CURRENT_AS_OF, text_fmt)
+    ws_timeline.write(len(milestones) + 2, 3, CURRENT_CUMULATIVE, num_fmt)
+    ws_timeline.write(len(milestones) + 3, 0, "Recent run rate (accounts/day)", text_fmt)
+    ws_timeline.write(len(milestones) + 3, 3, RECENT_DAILY_ACCOUNTS, num_fmt)
+
+    # --- Projections sheet ---
+    ws_proj = workbook.add_worksheet("Projections")
+    ws_proj.set_column("A:A", 32)
+    ws_proj.set_column("B:H", 16)
+    proj_headers = [
+        "Goal", "Target", "Scenario", "Accounts/Day",
+        "Days Remaining", "Projected Finish", "Planned Finish", "Days Ahead of Plan",
+    ]
+    for col, h in enumerate(proj_headers):
+        ws_proj.write(0, col, h, header_fmt)
+
+    projections = build_projection_rows()
+    ahead_fmt = workbook.add_format({"num_format": "+#,##0;-#,##0", "border": 1, "font_color": "#2E9E5B"})
+    for i, row in enumerate(projections, start=1):
+        ws_proj.write(i, 0, row["goal"], text_fmt)
+        ws_proj.write(i, 1, row["target"], num_fmt)
+        ws_proj.write(i, 2, row["scenario"], text_fmt)
+        ws_proj.write(i, 3, row["daily_rate"], num_fmt)
+        if row["days_remaining"] != "":
+            ws_proj.write(i, 4, row["days_remaining"], num_fmt)
+        else:
+            ws_proj.write(i, 4, "", text_fmt)
+        ws_proj.write(i, 5, row["projected_finish"], text_fmt)
+        ws_proj.write(i, 6, row["planned_finish"], text_fmt)
+        if row["days_ahead_of_plan"] != "":
+            fmt = ahead_fmt if row["days_ahead_of_plan"] >= 0 else pct_fmt
+            ws_proj.write(i, 7, row["days_ahead_of_plan"], fmt)
+        else:
+            ws_proj.write(i, 7, "", text_fmt)
+
+    note_fmt = workbook.add_format({"italic": True, "font_color": "#64748B", "text_wrap": True})
+    ws_proj.write(len(projections) + 2, 0,
+                  "Days Ahead of Plan = positive means finishing BEFORE planned date. "
+                  f"Based on {CURRENT_CUMULATIVE:,} accounts as of {CURRENT_AS_OF}.",
+                  note_fmt)
+    ws_proj.write(len(projections) + 3, 0,
+                  "Note: Full program projection assumes constant account pace. Later phases (Steady Growth → Full Speed) "
+                  "require 2–4× more reservations per account; reservation throughput (900 vs 8,024 vs 14,000/min) "
+                  "may constrain finish date even if account onboarding stays ahead.",
+                  note_fmt)
+
     # --- Chart sheet ---
     ws_chart = workbook.add_worksheet("Chart")
     ws_chart.hide_gridlines(2)
@@ -174,8 +280,9 @@ def create_xlsx(output_path="/workspace/migration_actual_vs_planned.xlsx"):
     # Instructions
     instr_fmt = workbook.add_format({"italic": True, "font_color": "#64748B", "text_wrap": True})
     ws_chart.write("B28",
-                   "To use in Google Sheets: Upload this file to Google Drive → Open with Google Sheets. "
-                   "Edit values on the Data tab; recreate the chart via Insert → Chart if needed.",
+                   "To use in Google Sheets: Upload to Google Drive → Open with Google Sheets. "
+                   "Edit Data / Migration Phases / Projections tabs. Tabs: Data, Weekly Detail, "
+                   "Migration Phases, Phase Timeline, Projections, Chart.",
                    instr_fmt)
 
     workbook.close()
@@ -192,7 +299,16 @@ def print_summary():
     if latest["planned_cumulative"] != "":
         print(f"Planned target:     {latest['planned_cumulative']:,}")
         print(f"Variance:           {latest['variance']:+,} ({latest['variance']/latest['planned_cumulative']*100:+.1f}%)")
-    print(f"Final goal:         {FINAL_TARGET:,}")
+    print(f"Near-term goal:     {FINAL_TARGET:,}")
+    print(f"Full program:       {FULL_PROGRAM_ACCOUNTS:,} by {PROGRAM_END_DATE}")
+    print(f"Recent pace:        {RECENT_DAILY_ACCOUNTS} accounts/day")
+
+    print("\n=== Projected Finish (current pace) ===")
+    for row in build_projection_rows():
+        if row["scenario"] == "Current pace":
+            ahead = row["days_ahead_of_plan"]
+            ahead_str = f"{ahead} days ahead" if ahead >= 0 else f"{abs(ahead)} days behind"
+            print(f"  {row['goal']}: {row['projected_finish']} ({ahead_str} vs plan)")
 
 
 if __name__ == "__main__":
