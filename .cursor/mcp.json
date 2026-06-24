@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "grafana": {
-      "type": "streamableHttp",
+      "type": "http",
       "url": "https://grafana-mcp.mgmt.gue5ty.com/mcp"
     }
   }
