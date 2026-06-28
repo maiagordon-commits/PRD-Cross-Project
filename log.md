@@ -113,3 +113,19 @@ Workbook tabs:
 - Risks
 - Open Questions
 
+## [2026-06-28] update | Created Agent Hub V2 milestones editable slide
+
+Created an editable PowerPoint slide for the Agent Hub milestones update.
+
+Created:
+- `exports/Agent Hub V2 Milestones Editable Slide.pptx`
+
+Captured:
+- Agent Hub V2 scope box
+- Agent decision as a status
+- Hyperlinks to artifacts in agent output
+- scheduled runs according to account timezone
+- unified UI including Rev Center and Accounting
+- Agent Hub role toggle
+- current access: 17 accounts
+
