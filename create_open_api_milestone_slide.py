@@ -258,7 +258,7 @@ def build_data_slide(slide):
                 size=12, color=COLOR_TEXT)
 
 
-def build_deck(output_path="/workspace/open_api_milestone_timeline.pptx"):
+def build_deck(output_path="/workspace/open_api_milestone_timeline.pptx", google_compatible=False):
     prs = Presentation()
     prs.slide_width = SLIDE_W
     prs.slide_height = SLIDE_H
@@ -270,28 +270,38 @@ def build_deck(output_path="/workspace/open_api_milestone_timeline.pptx"):
     build_timeline_slide(s_timeline)
     build_data_slide(s_data)
 
-    # Link from timeline to data slide (click hint)
-    hint = s_timeline.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE,
-                                       Inches(10.5), Inches(6.85), Inches(2.3), Inches(0.4))
-    set_fill(hint, COLOR_NEW)
-    set_no_line(hint)
-    hint.adjustments[0] = 0.4
-    hint.click_action.target_slide = s_data
-    tf = hint.text_frame
-    tf.paragraphs[0].text = "✎ Edit milestone data →"
-    tf.paragraphs[0].font.size = Pt(10)
-    tf.paragraphs[0].font.bold = True
-    tf.paragraphs[0].font.color.rgb = COLOR_WHITE
-    tf.paragraphs[0].alignment = PP_ALIGN.CENTER
-    tf.vertical_anchor = MSO_ANCHOR.MIDDLE
+    if not google_compatible:
+        # Internal slide links break Google Slides import — skip in compatible mode
+        hint = s_timeline.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE,
+                                           Inches(10.5), Inches(6.85), Inches(2.3), Inches(0.4))
+        set_fill(hint, COLOR_NEW)
+        set_no_line(hint)
+        hint.adjustments[0] = 0.4
+        hint.click_action.target_slide = s_data
+        tf = hint.text_frame
+        tf.paragraphs[0].text = "✎ Edit milestone data →"
+        tf.paragraphs[0].font.size = Pt(10)
+        tf.paragraphs[0].font.bold = True
+        tf.paragraphs[0].font.color.rgb = COLOR_WHITE
+        tf.paragraphs[0].alignment = PP_ALIGN.CENTER
+        tf.vertical_anchor = MSO_ANCHOR.MIDDLE
+    else:
+        add_textbox(s_timeline, Inches(10.2), Inches(6.85), Inches(2.6), Inches(0.4),
+                    "Slide 2: Milestone Data", size=10, bold=True, color=COLOR_NEW, align=PP_ALIGN.CENTER)
 
     prs.save(output_path)
     print(f"Saved to {output_path}")
+    mode = "Google-compatible" if google_compatible else "Interactive"
+    print(f"Mode: {mode}")
     print("Slides:")
     print("  1. Milestone Timeline — visual timeline bar (editable text boxes)")
     print("  2. Milestone Data — editable table")
-    print("\nImport: Google Drive → Open with Google Slides")
+    if google_compatible:
+        print("\nImport: Google Drive → Upload → Right-click → Open with Google Slides")
 
 
 if __name__ == "__main__":
-    build_deck()
+    import sys
+    compatible = "--google-compatible" in sys.argv
+    path = "/workspace/open_api_milestone_timeline_google.pptx" if compatible else "/workspace/open_api_milestone_timeline.pptx"
+    build_deck(path, google_compatible=compatible)

@@ -3,59 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guesty Migration Slides</title>
+  <title>Guesty Migration — Slides &amp; Sheets</title>
   <style>
-    body { font-family: "Segoe UI", Arial, sans-serif; background: #f5f0e8; padding: 48px; max-width: 720px; margin: 0 auto; color: #1e293b; }
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f5f0e8; padding: 48px; max-width: 760px; margin: 0 auto; color: #1e293b; }
     h1 { color: #1b4f8a; margin-bottom: 8px; }
-    p { color: #64748b; margin-bottom: 32px; }
-    .card {
-      display: block;
-      background: white;
-      border: 2px solid #1b4f8a;
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin-bottom: 16px;
-      text-decoration: none;
-      color: #1e293b;
-      transition: box-shadow 0.2s;
+    p { color: #64748b; margin-bottom: 24px; line-height: 1.5; }
+    .banner {
+      background: #dcfce7; border: 2px solid #2e9e5b; border-radius: 12px;
+      padding: 18px 22px; margin-bottom: 28px; line-height: 1.55;
     }
-    .card:hover { box-shadow: 0 4px 16px rgba(27,79,138,0.15); }
-    .card strong { display: block; font-size: 1.1rem; color: #1b4f8a; margin-bottom: 6px; }
-    .card span { font-size: 0.9rem; color: #64748b; }
+    .banner strong { color: #166534; }
+    .warn {
+      background: #fef3c7; border: 2px solid #f59e0b; border-radius: 12px;
+      padding: 16px 20px; margin-bottom: 28px; font-size: 0.92rem; line-height: 1.5;
+    }
+    .section { font-size: 0.8rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; margin: 28px 0 12px; }
+    .card {
+      display: block; background: white; border: 2px solid #1b4f8a; border-radius: 12px;
+      padding: 18px 22px; margin-bottom: 14px; text-decoration: none; color: #1e293b;
+    }
+    .card.primary { border-color: #2e9e5b; background: #f0fdf4; }
+    .card:hover { box-shadow: 0 4px 16px rgba(27,79,138,0.12); }
+    .card strong { display: block; font-size: 1.05rem; color: #1b4f8a; margin-bottom: 5px; }
+    .card.primary strong { color: #166534; }
+    .card span { font-size: 0.88rem; color: #64748b; }
+    ol { padding-left: 20px; color: #475569; line-height: 1.7; font-size: 0.92rem; }
   </style>
 </head>
 <body>
-  <h1>Guesty Migration — Clickable Slides</h1>
-  <p>Open directly in your browser. No import required.</p>
+  <h1>Guesty Migration — Slides &amp; Sheets</h1>
+  <p>Pick the option that works for you. If Google Slides import fails, use the green <strong>browser slides</strong> — they work instantly.</p>
 
-  <a class="card" href="open-api-milestone.html">
+  <div class="banner">
+    <strong>Recommended — open in browser (no import):</strong><br>
+    Works like Google Slides. Arrow keys to navigate. Click text to edit. Share the link with your team.
+  </div>
+
+  <div class="section">Browser slides — click to open</div>
+
+  <a class="card primary" href="open-api-milestone.html">
     <strong>Open API Milestone Timeline →</strong>
-    <span>New Users &amp; Existing Users milestone bar (Jul 2026 – Mar 2027)</span>
+    <span>Jul 2026 – Mar 2027 · New Users &amp; Existing Users</span>
   </a>
 
-  <a class="card" href="migration-cumulative.html">
+  <a class="card primary" href="migration-cumulative.html">
     <strong>Migration Cumulative Progress →</strong>
-    <span>Actual vs planned chart, data tables, and reservation phases</span>
+    <span>Actual vs planned · data tables · reservation phases</span>
   </a>
+
+  <div class="section">Google Slides import (fixed files)</div>
+
+  <div class="warn">
+    <strong>Import tip:</strong> Do <em>not</em> use File → Import in Google Slides directly.
+    Upload to <a href="https://drive.google.com">Google Drive</a> first, then right-click → <strong>Open with → Google Slides</strong>.
+    Use the <strong>_google.pptx</strong> files below (internal links removed — old files often fail).
+  </div>
+
+  <a class="card" href="https://github.com/maiagordon-commits/PRD-Cross-Project/releases/download/google-slides-compatible-v1/open_api_milestone_timeline_google.pptx">
+    <strong>Download Open API PPTX (Google-compatible) →</strong>
+    <span>Fixed for Drive import · 2 slides</span>
+  </a>
+
+  <a class="card" href="https://github.com/maiagordon-commits/PRD-Cross-Project/releases/download/google-slides-compatible-v1/migration_cumulative_slide_google.pptx">
+    <strong>Download Migration PPTX (Google-compatible) →</strong>
+    <span>Fixed for Drive import · 5 slides</span>
+  </a>
+
+  <a class="card" href="https://github.com/maiagordon-commits/PRD-Cross-Project/releases/download/google-slides-compatible-v1/open_api_milestone_slides.pdf">
+    <strong>Download Open API PDF →</strong>
+    <span>Import via Drive → Open with Google Slides (each page = one slide)</span>
+  </a>
+
+  <a class="card" href="https://github.com/maiagordon-commits/PRD-Cross-Project/releases/download/google-slides-compatible-v1/migration_cumulative_slides.pdf">
+    <strong>Download Migration PDF →</strong>
+    <span>5 pages · alternative if PPTX still fails</span>
+  </a>
+
+  <div class="section">Google Sheets timeline</div>
 
   <a class="card" href="https://github.com/maiagordon-commits/PRD-Cross-Project/releases/download/timeline-sheet-v1/guesty_timeline.xlsx">
-    <strong>Download Timeline Google Sheet (XLSX) →</strong>
-    <span>Open API + Account Migration + Reservation Phases · Upload to Google Drive → Open with Google Sheets</span>
+    <strong>Download Timeline Spreadsheet (XLSX) →</strong>
+    <span>Upload to Drive → Open with Google Sheets</span>
   </a>
 
-  <a class="card" href="https://github.com/maiagordon-commits/PRD-Cross-Project/releases/download/timeline-sheet-v1/guesty_timeline.csv">
-    <strong>Download Timeline CSV</strong>
-    <span>For File → Import in Google Sheets</span>
-  </a>
-
-  <a class="card" href="https://github.com/maiagordon-commits/PRD-Cross-Project/releases/download/open-api-milestone-v1/open_api_milestone_timeline.pptx">
-    <strong>Download Open API PPTX</strong>
-    <span>For Google Slides import via Drive</span>
-  </a>
-
-  <a class="card" href="https://github.com/maiagordon-commits/PRD-Cross-Project/releases/download/cumulative-slide-v1/migration_cumulative_slide.pptx">
-    <strong>Download Migration Progress PPTX</strong>
-    <span>Cumulative actual vs planned deck</span>
-  </a>
+  <div class="section">Step-by-step: open PPTX in Google Slides</div>
+  <ol>
+    <li>Download the <strong>Google-compatible</strong> PPTX above (not the old release files)</li>
+    <li>Go to <a href="https://drive.google.com">drive.google.com</a></li>
+    <li>Click <strong>New → File upload</strong> and select the .pptx</li>
+    <li>When upload finishes, <strong>right-click</strong> the file</li>
+    <li>Choose <strong>Open with → Google Slides</strong></li>
+  </ol>
 </body>
 </html>

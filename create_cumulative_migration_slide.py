@@ -70,8 +70,8 @@ def add_textbox(slide, left, top, width, height, text, size=12, bold=False,
     return box
 
 
-def add_nav_bar(slide, slides_map, active_key):
-    """Clickable navigation bar linking to other slides."""
+def add_nav_bar(slide, slides_map, active_key, google_compatible=False):
+    """Navigation bar — hyperlinks omitted in google_compatible mode (breaks Slides import)."""
     items = [
         ("overview", "Overview"),
         ("chart", "Chart"),
@@ -95,7 +95,7 @@ def add_nav_bar(slide, slides_map, active_key):
         btn.line.color.rgb = COLOR_PLANNED
         btn.line.width = Pt(1)
         btn.adjustments[0] = 0.3
-        if not is_active:
+        if not google_compatible and not is_active:
             btn.click_action.target_slide = slides_map[key]
         tf = btn.text_frame
         tf.paragraphs[0].text = label
@@ -119,7 +119,7 @@ def style_cum_header_cell(cell, text):
     style_header_cell(cell, text, bg=COLOR_ACTUAL)
 
 
-def build_overview_slide(slide, slides_map, rows):
+def build_overview_slide(slide, slides_map, rows, google_compatible=False):
     add_bg(slide)
     latest = [r for r in rows if r["cumulative_actual"] != ""][-1]
     planned = latest["planned_cumulative"] if latest["planned_cumulative"] != "" else "—"
@@ -149,7 +149,8 @@ def build_overview_slide(slide, slides_map, rows):
         set_fill(card, COLOR_WHITE)
         card.line.color.rgb = COLOR_BORDER
         card.adjustments[0] = 0.08
-        card.click_action.target_slide = slides_map["data"]
+        if not google_compatible:
+            card.click_action.target_slide = slides_map["data"]
         add_textbox(slide, left + Inches(0.2), Inches(2.0), card_w - Inches(0.4), Inches(0.35),
                     title, size=11, bold=True, color=color, align=PP_ALIGN.CENTER)
         add_textbox(slide, left + Inches(0.2), Inches(2.45), card_w - Inches(0.4), Inches(0.55),
@@ -180,14 +181,15 @@ def build_overview_slide(slide, slides_map, rows):
     # Chart preview thumbnail — clickable
     if os.path.exists(CHART_PNG):
         pic = slide.shapes.add_picture(CHART_PNG, Inches(8.6), Inches(3.85), width=Inches(4.0))
-        pic.click_action.target_slide = slides_map["chart"]
+        if not google_compatible:
+            pic.click_action.target_slide = slides_map["chart"]
         add_textbox(slide, Inches(8.6), Inches(6.35), Inches(4.0), Inches(0.3),
-                    "▸ Click chart to enlarge", size=10, color=COLOR_PLANNED, align=PP_ALIGN.CENTER, bold=True)
+                    "See Chart slide for full view", size=10, color=COLOR_PLANNED, align=PP_ALIGN.CENTER, bold=True)
 
-    add_nav_bar(slide, slides_map, "overview")
+    add_nav_bar(slide, slides_map, "overview", google_compatible)
 
 
-def build_chart_slide(slide, slides_map):
+def build_chart_slide(slide, slides_map, google_compatible=False):
     add_bg(slide)
     add_textbox(slide, Inches(0.8), Inches(0.4), Inches(11.5), Inches(0.6),
                 "Actual vs Planned — Cumulative Line Chart", size=24, bold=True, align=PP_ALIGN.CENTER)
@@ -202,24 +204,28 @@ def build_chart_slide(slide, slides_map):
                     "Chart image not found. Run: python3 create_actual_vs_planned_chart.py",
                     size=14, color=COLOR_WARN, align=PP_ALIGN.CENTER)
 
-    # Clickable hint to data
-    hint = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(4.5), Inches(6.2), Inches(4.3), Inches(0.42))
-    set_fill(hint, COLOR_ACTUAL)
-    set_no_line(hint)
-    hint.adjustments[0] = 0.4
-    hint.click_action.target_slide = slides_map["data"]
-    tf = hint.text_frame
-    tf.paragraphs[0].text = "✎  Edit data on Cumulative Data slide"
-    tf.paragraphs[0].font.size = Pt(11)
-    tf.paragraphs[0].font.bold = True
-    tf.paragraphs[0].font.color.rgb = COLOR_WHITE
-    tf.paragraphs[0].alignment = PP_ALIGN.CENTER
-    tf.vertical_anchor = MSO_ANCHOR.MIDDLE
+    if not google_compatible:
+        hint = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(4.5), Inches(6.2), Inches(4.3), Inches(0.42))
+        set_fill(hint, COLOR_ACTUAL)
+        set_no_line(hint)
+        hint.adjustments[0] = 0.4
+        hint.click_action.target_slide = slides_map["data"]
+        tf = hint.text_frame
+        tf.paragraphs[0].text = "✎  Edit data on Cumulative Data slide"
+        tf.paragraphs[0].font.size = Pt(11)
+        tf.paragraphs[0].font.bold = True
+        tf.paragraphs[0].font.color.rgb = COLOR_WHITE
+        tf.paragraphs[0].alignment = PP_ALIGN.CENTER
+        tf.vertical_anchor = MSO_ANCHOR.MIDDLE
+    else:
+        add_textbox(slide, Inches(4.5), Inches(6.2), Inches(4.3), Inches(0.42),
+                    "Edit numbers on slide 3: Cumulative Data", size=11, bold=True,
+                    color=COLOR_ACTUAL, align=PP_ALIGN.CENTER)
 
-    add_nav_bar(slide, slides_map, "chart")
+    add_nav_bar(slide, slides_map, "chart", google_compatible)
 
 
-def build_data_slide(slide, slides_map, rows):
+def build_data_slide(slide, slides_map, rows, google_compatible=False):
     add_bg(slide)
     add_textbox(slide, Inches(0.8), Inches(0.4), Inches(11.5), Inches(0.55),
                 "Cumulative Data (Editable)", size=24, bold=True)
@@ -269,10 +275,10 @@ def build_data_slide(slide, slides_map, rows):
                 cell.fill.solid()
                 cell.fill.fore_color.rgb = RGBColor(232, 245, 237)
 
-    add_nav_bar(slide, slides_map, "data")
+    add_nav_bar(slide, slides_map, "data", google_compatible)
 
 
-def build_weekly_slide(slide, slides_map):
+def build_weekly_slide(slide, slides_map, google_compatible=False):
     add_bg(slide)
     add_textbox(slide, Inches(0.8), Inches(0.4), Inches(11.5), Inches(0.55),
                 "Weekly Detail by Segment (Editable)", size=24, bold=True)
@@ -305,10 +311,10 @@ def build_weekly_slide(slide, slides_map):
                 f"Grand cumulative total through {CURRENT_AS_OF}: {CURRENT_CUMULATIVE:,}",
                 size=12, bold=True, color=COLOR_ACTUAL, align=PP_ALIGN.CENTER)
 
-    add_nav_bar(slide, slides_map, "weekly")
+    add_nav_bar(slide, slides_map, "weekly", google_compatible)
 
 
-def build_phases_slide(slide, slides_map):
+def build_phases_slide(slide, slides_map, google_compatible=False):
     add_bg(slide)
     add_textbox(slide, Inches(0.8), Inches(0.4), Inches(11.5), Inches(0.55),
                 "Migration Phases (Editable)", size=24, bold=True)
@@ -331,7 +337,7 @@ def build_phases_slide(slide, slides_map):
             table.cell(ri, ci).text = val
             table.cell(ri, ci).text_frame.paragraphs[0].font.size = Pt(10)
 
-    add_nav_bar(slide, slides_map, "phases")
+    add_nav_bar(slide, slides_map, "phases", google_compatible)
 
 
 def ensure_chart_png():
@@ -339,7 +345,7 @@ def ensure_chart_png():
         subprocess.run([sys.executable, "/workspace/create_actual_vs_planned_chart.py"], check=True)
 
 
-def build_deck(output_path="/workspace/migration_cumulative_slide.pptx"):
+def build_deck(output_path="/workspace/migration_cumulative_slide.pptx", google_compatible=False):
     ensure_chart_png()
     rows = build_chart_rows()
 
@@ -362,22 +368,31 @@ def build_deck(output_path="/workspace/migration_cumulative_slide.pptx"):
         "phases": s_phases,
     }
 
-    build_overview_slide(s_overview, slides_map, rows)
-    build_chart_slide(s_chart, slides_map)
-    build_data_slide(s_data, slides_map, rows)
-    build_weekly_slide(s_weekly, slides_map)
-    build_phases_slide(s_phases, slides_map)
+    build_overview_slide(s_overview, slides_map, rows, google_compatible)
+    build_chart_slide(s_chart, slides_map, google_compatible)
+    build_data_slide(s_data, slides_map, rows, google_compatible)
+    build_weekly_slide(s_weekly, slides_map, google_compatible)
+    build_phases_slide(s_phases, slides_map, google_compatible)
 
     prs.save(output_path)
-    print(f"Saved Google Slides deck to {output_path}")
-    print("Slides (clickable nav bar on each slide):")
+    mode = "Google-compatible" if google_compatible else "Interactive"
+    print(f"Saved Google Slides deck to {output_path} ({mode})")
+    print("Slides:")
     print("  1. Overview — summary cards + recent cumulative totals")
     print("  2. Chart — Actual vs Planned line chart")
     print("  3. Cumulative Data — editable weekly + cumulative table")
     print("  4. Weekly Detail — editable segment breakdown")
     print("  5. Migration Phases — editable phase plan")
-    print("\nImport: Upload to Google Drive → Open with Google Slides")
+    if google_compatible:
+        print("\nImport: Google Drive → Upload file → Right-click → Open with Google Slides")
+    else:
+        print("\nImport: Upload to Google Drive → Open with Google Slides")
 
 
 if __name__ == "__main__":
-    build_deck()
+    import sys
+    compatible = "--google-compatible" in sys.argv
+    path = "/workspace/migration_cumulative_slide_google.pptx" if compatible else "/workspace/migration_cumulative_slide.pptx"
+    if not os.path.exists(CHART_PNG):
+        subprocess.run([sys.executable, "/workspace/create_actual_vs_planned_chart.py"], check=False)
+    build_deck(path, google_compatible=compatible)
