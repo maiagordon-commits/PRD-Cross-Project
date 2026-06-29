@@ -4,7 +4,8 @@
 Edit ACTUAL_WEEKLY and PLANNED_CUMULATIVE below to update the chart.
 """
 
-# Weekly actual migrations from Room_Migration_Progress sheet (screenshot)
+# Weekly actual migrations — each row is THAT WEEK ONLY (not cumulative).
+# Cumulative totals are computed automatically in build_chart_rows().
 ACTUAL_WEEKLY = [
     {"week": "4/13/2026", "lite": 5, "pro": 0, "enterprise": 0},
     {"week": "4/20/2026", "lite": 11, "pro": 4, "enterprise": 0},
@@ -15,7 +16,8 @@ ACTUAL_WEEKLY = [
     {"week": "5/25/2026", "lite": 159, "pro": 98, "enterprise": 0},
     {"week": "6/1/2026", "lite": 109, "pro": 136, "enterprise": 0},
     {"week": "6/8/2026", "lite": 424, "pro": 571, "enterprise": 9},
-    {"week": "6/15/2026", "lite": 776, "pro": 1159, "enterprise": 9},
+    {"week": "6/15/2026", "lite": 0, "pro": 312, "enterprise": 0},
+    {"week": "6/22/2026", "lite": 3, "pro": 546, "enterprise": 0},
 ]
 
 # Planned cumulative targets from Reservation Migration Plan canvas
@@ -31,11 +33,11 @@ PLANNED_CUMULATIVE = [
 FINAL_TARGET = 8500
 FULL_PROGRAM_ACCOUNTS = 35001  # sum of accounts across all 4 phases
 PROGRAM_END_DATE = "12/31/2026"
-CURRENT_AS_OF = "6/15/2026"
-CURRENT_CUMULATIVE = 3576  # cumulative actual as of CURRENT_AS_OF
+CURRENT_AS_OF = "6/22/2026"
+CURRENT_CUMULATIVE = 2493  # cumulative actual as of CURRENT_AS_OF
 
 # Recent run rate (accounts/day) derived from last full week of actuals
-RECENT_WEEKLY_ACCOUNTS = 1944  # week of 6/15/2026
+RECENT_WEEKLY_ACCOUNTS = 549  # week of 6/22/2026
 RECENT_DAILY_ACCOUNTS = round(RECENT_WEEKLY_ACCOUNTS / 7, 1)
 
 # Reservation migration phases (Jun 15 – Dec 31)
@@ -103,14 +105,24 @@ def build_chart_rows():
     """Merge actual and planned into rows for chart/spreadsheet."""
     planned_map = {p["week"]: p["planned_total"] for p in PLANNED_CUMULATIVE}
     cumulative = 0
+    cum_lite = cum_pro = cum_ent = 0
     rows = []
 
     for entry in ACTUAL_WEEKLY:
         weekly = weekly_total(entry)
         cumulative += weekly
+        cum_lite += entry["lite"]
+        cum_pro += entry["pro"]
+        cum_ent += entry["enterprise"]
         rows.append({
             "week": entry["week"],
+            "weekly_lite": entry["lite"],
+            "weekly_pro": entry["pro"],
+            "weekly_enterprise": entry["enterprise"],
             "weekly_actual": weekly,
+            "cumulative_lite": cum_lite,
+            "cumulative_pro": cum_pro,
+            "cumulative_enterprise": cum_ent,
             "cumulative_actual": cumulative,
             "planned_cumulative": planned_map.get(entry["week"], ""),
             "variance": cumulative - planned_map[entry["week"]] if entry["week"] in planned_map else "",
@@ -122,7 +134,13 @@ def build_chart_rows():
         if p["week"] not in actual_weeks:
             rows.append({
                 "week": p["week"],
+                "weekly_lite": "",
+                "weekly_pro": "",
+                "weekly_enterprise": "",
                 "weekly_actual": "",
+                "cumulative_lite": "",
+                "cumulative_pro": "",
+                "cumulative_enterprise": "",
                 "cumulative_actual": "",
                 "planned_cumulative": p["planned_total"],
                 "variance": "",

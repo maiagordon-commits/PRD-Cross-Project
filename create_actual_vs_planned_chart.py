@@ -102,41 +102,64 @@ def create_xlsx(output_path="/workspace/migration_actual_vs_planned.xlsx"):
     # --- Data sheet ---
     ws_data = workbook.add_worksheet("Data")
     ws_data.set_column("A:A", 14)
-    ws_data.set_column("B:E", 18)
+    ws_data.set_column("B:K", 14)
 
     header_fmt = workbook.add_format({
         "bold": True, "bg_color": "#1B4F8A", "font_color": "white",
-        "border": 1, "align": "center",
+        "border": 1, "align": "center", "text_wrap": True,
+    })
+    cum_header_fmt = workbook.add_format({
+        "bold": True, "bg_color": "#2E9E5B", "font_color": "white",
+        "border": 1, "align": "center", "text_wrap": True,
     })
     num_fmt = workbook.add_format({"num_format": "#,##0", "border": 1})
+    cum_num_fmt = workbook.add_format({"num_format": "#,##0", "border": 1, "bg_color": "#E8F5EE"})
     text_fmt = workbook.add_format({"border": 1})
     pct_fmt = workbook.add_format({"num_format": "+#,##0;-#,##0", "border": 1})
 
     headers = [
-        "Week Starting", "Weekly Actual", "Cumulative Actual",
-        "Planned Cumulative", "Variance (Actual - Planned)",
+        ("Week Starting", header_fmt),
+        ("Weekly Lite", header_fmt),
+        ("Weekly Pro", header_fmt),
+        ("Weekly Enterprise", header_fmt),
+        ("Weekly Total", header_fmt),
+        ("Cumulative Lite", cum_header_fmt),
+        ("Cumulative Pro", cum_header_fmt),
+        ("Cumulative Enterprise", cum_header_fmt),
+        ("Cumulative Total", cum_header_fmt),
+        ("Planned Cumulative", header_fmt),
+        ("Variance", header_fmt),
     ]
-    for col, h in enumerate(headers):
-        ws_data.write(0, col, h, header_fmt)
+    for col, (h, fmt) in enumerate(headers):
+        ws_data.write(0, col, h, fmt)
 
     for i, row in enumerate(rows, start=1):
         ws_data.write(i, 0, row["week"], text_fmt)
-        if row["weekly_actual"] != "":
-            ws_data.write(i, 1, row["weekly_actual"], num_fmt)
-        else:
-            ws_data.write(i, 1, "", text_fmt)
-        if row["cumulative_actual"] != "":
-            ws_data.write(i, 2, row["cumulative_actual"], num_fmt)
-        else:
-            ws_data.write(i, 2, "", text_fmt)
+        weekly_fields = [
+            ("weekly_lite", 1), ("weekly_pro", 2), ("weekly_enterprise", 3), ("weekly_actual", 4),
+        ]
+        for key, col in weekly_fields:
+            if row[key] != "":
+                ws_data.write(i, col, row[key], num_fmt)
+            else:
+                ws_data.write(i, col, "", text_fmt)
+        cum_fields = [
+            ("cumulative_lite", 5), ("cumulative_pro", 6),
+            ("cumulative_enterprise", 7), ("cumulative_actual", 8),
+        ]
+        for key, col in cum_fields:
+            if row[key] != "":
+                ws_data.write(i, col, row[key], cum_num_fmt)
+            else:
+                ws_data.write(i, col, "", text_fmt)
         if row["planned_cumulative"] != "":
-            ws_data.write(i, 3, row["planned_cumulative"], num_fmt)
+            ws_data.write(i, 9, row["planned_cumulative"], num_fmt)
         else:
-            ws_data.write(i, 3, "", text_fmt)
+            ws_data.write(i, 9, "", text_fmt)
         if row["variance"] != "":
-            ws_data.write(i, 4, row["variance"], pct_fmt)
+            ws_data.write(i, 10, row["variance"], pct_fmt)
         else:
-            ws_data.write(i, 4, "", text_fmt)
+            ws_data.write(i, 10, "", text_fmt)
 
     # --- Weekly detail sheet (segment breakdown) ---
     ws_detail = workbook.add_worksheet("Weekly Detail")
@@ -257,14 +280,14 @@ def create_xlsx(output_path="/workspace/migration_actual_vs_planned.xlsx"):
     chart.add_series({
         "name": "Actual (cumulative)",
         "categories": ["Data", 1, 0, last_data_row, 0],
-        "values": ["Data", 1, 2, last_data_row, 2],
+        "values": ["Data", 1, 8, last_data_row, 8],
         "line": {"color": COLOR_ACTUAL, "width": 2.5},
         "marker": {"type": "circle", "size": 7, "fill": {"color": COLOR_ACTUAL}},
     })
     chart.add_series({
         "name": "Planned (cumulative)",
         "categories": ["Data", 1, 0, last_data_row, 0],
-        "values": ["Data", 1, 3, last_data_row, 3],
+        "values": ["Data", 1, 9, last_data_row, 9],
         "line": {"color": COLOR_PLANNED, "width": 2, "dash_type": "dash"},
         "marker": {"type": "square", "size": 6, "fill": {"color": COLOR_PLANNED}},
     })
