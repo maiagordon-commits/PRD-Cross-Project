@@ -125,45 +125,109 @@ def draw_point_milestone(slide, top, date_str, label, title, color):
                 title, size=8, color=COLOR_TEXT, align=PP_ALIGN.CENTER)
 
 
+def api_date_to_fraction(date_str):
+    """Position on Open API timeline (Jul 2026 → Mar 2027)."""
+    start = parse_iso(OPEN_API_TIMELINE_START)
+    end = parse_iso(OPEN_API_TIMELINE_END)
+    dt = parse_iso(date_str)
+    total = (end - start).days
+    if total <= 0:
+        return 0.0
+    return max(0.0, min(1.0, (dt - start).days / total))
+
+
+def draw_unified_open_api_bar(slide, track_top):
+    """Single timeline bar: green (New Users) + blue (Existing Users) with all milestones."""
+    bar_h = Inches(0.18)
+    bar_y = track_top + Inches(0.55)
+
+    # Gray background
+    bg = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, BAR_LEFT, bar_y, BAR_WIDTH, bar_h)
+    set_fill(bg, COLOR_BAR)
+    set_no_line(bg)
+
+    # Two-tone fill: green until Existing Users phase, then blue through end
+    split_frac = api_date_to_fraction("2026-09-01")
+    green_w = int(BAR_WIDTH * split_frac)
+    if green_w > 0:
+        green = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, BAR_LEFT, bar_y, green_w, bar_h)
+        set_fill(green, COLOR_NEW)
+        set_no_line(green)
+    blue_left = BAR_LEFT + green_w
+    blue_w = BAR_WIDTH - green_w
+    if blue_w > 0:
+        blue = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, blue_left, bar_y, blue_w, bar_h)
+        set_fill(blue, COLOR_OPEN_API)
+        set_no_line(blue)
+
+    add_textbox(slide, Inches(0.15), track_top + Inches(0.35), Inches(1.1), Inches(0.45),
+                "Open API\nMilestones", size=9, bold=True, color=COLOR_TEXT, align=PP_ALIGN.RIGHT)
+
+    # Milestone markers on the single bar (cards alternate above / below)
+    for i, m in enumerate(OPEN_API_MILESTONES):
+        is_new = m["track"] == "New Users"
+        color = COLOR_NEW if is_new else COLOR_OPEN_API
+        x = BAR_LEFT + int(BAR_WIDTH * api_date_to_fraction(m["start_date"]))
+        dot_y = bar_y - Inches(0.04)
+        dot = slide.shapes.add_shape(MSO_SHAPE.OVAL, x - Inches(0.1), dot_y, Inches(0.2), Inches(0.2))
+        set_fill(dot, color)
+        set_no_line(dot)
+        dot.line.color.rgb = COLOR_WHITE
+        dot.line.width = Pt(2)
+
+        above = i % 2 == 0
+        if above:
+            date_top = track_top - Inches(0.05)
+            card_top = track_top + Inches(0.05)
+        else:
+            date_top = bar_y + Inches(0.35)
+            card_top = bar_y + Inches(0.55)
+
+        add_textbox(slide, x - Inches(0.65), date_top, Inches(1.3), Inches(0.28),
+                    m["date_label"], size=9, bold=True, color=color, align=PP_ALIGN.CENTER)
+
+        card_w = Inches(2.55)
+        card = slide.shapes.add_shape(
+            MSO_SHAPE.ROUNDED_RECTANGLE, x - card_w // 2, card_top, card_w, Inches(0.95))
+        set_fill(card, COLOR_WHITE)
+        card.line.color.rgb = color
+        card.line.width = Pt(1.5)
+        card.adjustments[0] = 0.06
+        seg = "New Users" if is_new else "Existing Users"
+        add_textbox(slide, x - card_w // 2 + Inches(0.1), card_top + Inches(0.06),
+                    card_w - Inches(0.2), Inches(0.22), seg, size=7, bold=True, color=color, align=PP_ALIGN.CENTER)
+        add_textbox(slide, x - card_w // 2 + Inches(0.1), card_top + Inches(0.28),
+                    card_w - Inches(0.2), Inches(0.35), m["milestone"], size=8, bold=True,
+                    color=COLOR_TEXT, align=PP_ALIGN.CENTER)
+        add_textbox(slide, x - card_w // 2 + Inches(0.1), card_top + Inches(0.62),
+                    card_w - Inches(0.2), Inches(0.3), m["description"], size=7,
+                    color=COLOR_MID, align=PP_ALIGN.CENTER, italic=True)
+
+
 def build_open_api_slide(slide):
     set_slide_bg(slide)
     add_textbox(slide, Inches(0.6), Inches(0.35), Inches(12), Inches(0.55),
                 "Open API — Milestone Timeline", size=26, bold=True, align=PP_ALIGN.CENTER)
     add_textbox(slide, Inches(0.6), Inches(0.88), Inches(12), Inches(0.3),
-                "Jul 2026 → Mar 2027 · Click any text to edit after import",
+                "Jul 2026 → Mar 2027 · Green = New Users · Blue = Existing Users",
                 size=11, color=COLOR_MID, align=PP_ALIGN.CENTER, italic=True)
-    add_axis(slide, Inches(1.35))
 
-    # New Users track
-    add_textbox(slide, Inches(0.15), Inches(1.85), Inches(1.1), Inches(0.5),
-                "New\nUsers", size=9, bold=True, color=COLOR_NEW, align=PP_ALIGN.RIGHT)
-    new_m = OPEN_API_MILESTONES[0]
-    draw_point_milestone(slide, Inches(1.75), new_m["start_date"], new_m["date_label"],
-                         new_m["milestone"], COLOR_NEW)
+    add_textbox(slide, BAR_LEFT, Inches(1.28), Inches(1.2), Inches(0.28), "Jul 2026",
+                size=9, bold=True, color=COLOR_MID)
+    add_textbox(slide, BAR_LEFT + BAR_WIDTH - Inches(1.4), Inches(1.28), Inches(1.4), Inches(0.28),
+                "Mar 2027", size=9, bold=True, color=COLOR_MID, align=PP_ALIGN.RIGHT)
 
-    # Existing Users track
-    add_textbox(slide, Inches(0.15), Inches(3.05), Inches(1.1), Inches(0.5),
-                "Existing\nUsers", size=9, bold=True, color=COLOR_OPEN_API, align=PP_ALIGN.RIGHT)
-    for m in OPEN_API_MILESTONES[1:]:
-        draw_point_milestone(slide, Inches(2.95), m["start_date"], m["date_label"],
-                             m["milestone"], COLOR_OPEN_API)
+    draw_unified_open_api_bar(slide, Inches(1.55))
 
-    # Summary cards
-    cards = [
-        (COLOR_NEW, "New Users", "Early Q3 — Block API by registration date"),
-        (COLOR_OPEN_API, "Existing Users", "Sept emails → Sept comms → Mar 27 OAPI deprecation"),
-    ]
-    for i, (color, title, body) in enumerate(cards):
-        left = Inches(0.8) + i * Inches(6.2)
-        card = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, left, Inches(4.85), Inches(5.8), Inches(1.35))
-        set_fill(card, COLOR_WHITE)
-        card.line.color.rgb = color
-        card.line.width = Pt(1.5)
-        card.adjustments[0] = 0.06
-        add_textbox(slide, left + Inches(0.2), Inches(5.0), Inches(5.4), Inches(0.3),
-                    title, size=12, bold=True, color=color)
-        add_textbox(slide, left + Inches(0.2), Inches(5.35), Inches(5.4), Inches(0.7),
-                    body, size=10, color=COLOR_TEXT)
+    # Legend
+    legend_y = Inches(6.35)
+    for i, (label, color) in enumerate([("New Users", COLOR_NEW), ("Existing Users", COLOR_OPEN_API)]):
+        left = Inches(4.8) + i * Inches(2.8)
+        sq = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, left, legend_y, Inches(0.22), Inches(0.22))
+        set_fill(sq, color)
+        set_no_line(sq)
+        add_textbox(slide, left + Inches(0.32), legend_y - Inches(0.04), Inches(2.2), Inches(0.3),
+                    label, size=10, color=COLOR_TEXT)
 
     add_textbox(slide, Inches(0.6), Inches(6.75), Inches(2), Inches(0.3),
                 "Guesty", size=13, bold=True, color=COLOR_OPEN_API, italic=True)

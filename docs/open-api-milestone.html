@@ -35,6 +35,13 @@
       padding: 0 120px 0 100px;
     }
     .track { margin-bottom: 48px; position: relative; }
+    .track.unified { margin-top: 24px; margin-bottom: 24px; }
+    .bar-wrap.single-bar { margin-left: 100px; margin-right: 40px; position: relative; height: 280px; }
+    .bar-wrap.single-bar .bar-bg { top: 120px; height: 10px; }
+    .bar-wrap.single-bar .bar-fill.new { top: 120px; height: 10px; border-radius: 4px 0 0 4px; }
+    .bar-wrap.single-bar .marker { top: 110px; }
+    .bar-wrap.single-bar .card { margin-top: 12px; }
+    .bar-wrap.single-bar .card.below { margin-top: 48px; }
     .track-label {
       position: absolute;
       left: 0;
@@ -162,40 +169,33 @@
 
       <div class="axis"><span>Jul 2026</span><span>Mar 2027</span></div>
 
-      <div class="track">
-        <div class="track-label new">New<br>Users</div>
-        <div class="bar-wrap">
+      <div class="track unified">
+        <div class="bar-wrap single-bar">
           <div class="bar-bg"></div>
-          <div class="bar-fill new"></div>
+          <div class="bar-fill new" style="width: 42%;"></div>
+          <div class="bar-fill existing" style="left: 42%; width: 58%; position: absolute; top: 36px; height: 8px; border-radius: 0 4px 4px 0;"></div>
+
           <div class="marker" style="left: 5%;">
             <div class="dot new"></div>
             <div class="date-label new" contenteditable="true">Early Q3</div>
             <div class="card new">
-              <strong contenteditable="true">Block API usage by registration date</strong>
+              <strong contenteditable="true">New Users · Block API usage by registration date</strong>
               <span contenteditable="true">By registration date, block API usage for new users</span>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="track">
-        <div class="track-label existing">Existing<br>Users</div>
-        <div class="bar-wrap">
-          <div class="bar-bg"></div>
-          <div class="bar-fill existing"></div>
           <div class="marker" style="left: 42%;">
             <div class="dot existing"></div>
             <div class="date-label existing" contenteditable="true">Beginning of Sept</div>
             <div class="card existing">
-              <strong contenteditable="true">Automated email to migrated users</strong>
+              <strong contenteditable="true">Existing Users · Automated email to migrated users</strong>
               <span contenteditable="true">Start sending automated email to migrated users</span>
             </div>
           </div>
           <div class="marker" style="left: 52%;">
             <div class="dot existing"></div>
             <div class="date-label existing" contenteditable="true">End of September</div>
-            <div class="card existing">
-              <strong contenteditable="true">Communication to all users</strong>
+            <div class="card existing below">
+              <strong contenteditable="true">Existing Users · Communication to all users</strong>
               <span contenteditable="true">Sending communication to all users</span>
             </div>
           </div>
@@ -203,7 +203,7 @@
             <div class="dot existing"></div>
             <div class="date-label existing" contenteditable="true">EO March 27</div>
             <div class="card existing">
-              <strong contenteditable="true">Deprecation of old Open API</strong>
+              <strong contenteditable="true">Existing Users · Deprecation of old Open API</strong>
               <span contenteditable="true">End of deprecation period for old OAPI</span>
             </div>
           </div>

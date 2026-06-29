@@ -165,10 +165,9 @@ def build_timeline_slide(slide):
     add_textbox(slide, Inches(0.8), Inches(0.4), Inches(11.5), Inches(0.65),
                 "Open API — Milestone Timeline", size=28, bold=True, align=PP_ALIGN.CENTER)
     add_textbox(slide, Inches(0.8), Inches(1.0), Inches(11.5), Inches(0.35),
-                f"{TIMELINE_START} → {TIMELINE_END}  ·  Click any text box or table cell to edit",
+                f"{TIMELINE_START} → {TIMELINE_END}  ·  Green = New Users  ·  Blue = Existing Users",
                 size=11, color=RGBColor(100, 116, 139), align=PP_ALIGN.CENTER, italic=True)
 
-    # Timeline axis labels
     bar_left = Inches(1.2)
     bar_width = Inches(10.9)
     axis_y = Inches(1.55)
@@ -177,16 +176,71 @@ def build_timeline_slide(slide):
     add_textbox(slide, bar_left + bar_width - Inches(1.2), axis_y, Inches(1.2), Inches(0.3),
                 TIMELINE_END, size=10, bold=True, color=COLOR_TEXT, align=PP_ALIGN.RIGHT)
 
-    # Prepare milestone dicts with position keys
+    track_top = Inches(2.4)
+    bar_h = Inches(0.14)
+    bar_y = track_top + Inches(0.55)
+
+    # Background bar
+    add_rounded_rect(slide, bar_left, bar_y, bar_width, bar_h, COLOR_BAR, radius=0.5)
+
+    # Green segment (New Users period) + blue segment (Existing Users period)
+    split_pos = MILESTONE_POSITIONS.get("Sep 2026 (begin)", 0.42)
+    green_w = int(bar_width * split_pos)
+    if green_w > 0:
+        add_rounded_rect(slide, bar_left, bar_y, green_w, bar_h, COLOR_NEW, radius=0.5)
+    blue_w = bar_width - green_w
+    if blue_w > 0:
+        add_rounded_rect(slide, bar_left + green_w, bar_y, blue_w, bar_h, COLOR_EXISTING, radius=0.5)
+
+    add_textbox(slide, Inches(0.25), track_top + Inches(0.35), Inches(0.9), Inches(0.5),
+                "Open API\nMilestones", size=9, bold=True, color=COLOR_TEXT, align=PP_ALIGN.RIGHT)
+
+    # All milestones on one bar
     existing = []
     for i, m in enumerate(EXISTING_USERS_MILESTONES):
         key = "Sep 2026 (begin)" if i == 0 else "Sep 2026 (end)" if i == 1 else "Mar 27, 2027"
-        existing.append({**m, "position_key": key})
+        existing.append({**m, "position_key": key, "segment": "Existing Users", "color": COLOR_EXISTING})
 
-    new = [{**NEW_USERS_MILESTONES[0], "position_key": "Early Q3 2026"}]
+    new = [{**NEW_USERS_MILESTONES[0], "position_key": "Early Q3 2026",
+            "segment": "New Users", "color": COLOR_NEW}]
 
-    add_timeline_bar(slide, Inches(2.0), "New\nUsers", new, COLOR_NEW, MILESTONE_POSITIONS)
-    add_timeline_bar(slide, Inches(4.1), "Existing\nUsers", existing, COLOR_EXISTING, MILESTONE_POSITIONS)
+    all_milestones = new + existing
+    positions = MILESTONE_POSITIONS
+
+    for i, m in enumerate(all_milestones):
+        pos = positions.get(m["position_key"], 0.5)
+        x = bar_left + int(bar_width * pos)
+        color = m["color"]
+        dot_size = Inches(0.22)
+        dot_y = bar_y - Inches(0.04)
+
+        dot = slide.shapes.add_shape(MSO_SHAPE.OVAL, x - dot_size // 2, dot_y, dot_size, dot_size)
+        set_fill(dot, color)
+        dot.line.color.rgb = COLOR_WHITE
+        dot.line.width = Pt(2)
+
+        above = i % 2 == 0
+        date_y = track_top + Inches(0.05) if above else bar_y + Inches(0.35)
+        card_top = track_top + Inches(0.28) if above else bar_y + Inches(0.55)
+
+        add_textbox(slide, x - Inches(0.65), date_y, Inches(1.3), Inches(0.28),
+                    m["date_detail"], size=9, bold=True, color=color, align=PP_ALIGN.CENTER)
+
+        card_w = Inches(2.6)
+        card_h = Inches(1.05)
+        card_left = x - card_w // 2
+        card = add_rounded_rect(slide, card_left, card_top, card_w, card_h, COLOR_WHITE, color)
+        card.line.width = Pt(1.5)
+
+        add_textbox(slide, card_left + Inches(0.12), card_top + Inches(0.06),
+                    card_w - Inches(0.24), Inches(0.22),
+                    m["segment"], size=8, bold=True, color=color, align=PP_ALIGN.CENTER)
+        add_textbox(slide, card_left + Inches(0.12), card_top + Inches(0.28),
+                    card_w - Inches(0.24), Inches(0.35),
+                    m["title"], size=9, bold=True, color=color, align=PP_ALIGN.CENTER)
+        add_textbox(slide, card_left + Inches(0.12), card_top + Inches(0.62),
+                    card_w - Inches(0.24), Inches(0.38),
+                    m["description"], size=8, color=COLOR_TEXT, align=PP_ALIGN.CENTER, italic=True)
 
     # Legend
     legend_y = Inches(6.55)
