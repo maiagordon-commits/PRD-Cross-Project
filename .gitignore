@@ -1,0 +1,5 @@
+# Local clone of guestyorg/1000-agents-hub-workflows (not committed)
+vendor/
+
+# Generated dashboard snapshot
+exports/agents_versions.json
