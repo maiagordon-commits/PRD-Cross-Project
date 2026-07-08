@@ -61,13 +61,18 @@ def load(input_path):
     return rows
 
 
-def build_model(rows):
+def build_model(rows, exclude_ids=None):
+    exclude_ids = set(exclude_ids or [])
     accounts = {}            # id -> meta, preserving first-seen order (newest first in export)
     order = []
     agent_cat = {}
     status = {}              # (acct_id, agent) -> 'active' | 'inactive'
+    excluded_seen = set()
     for r in rows:
         aid = r['Account ID'].strip()
+        if aid in exclude_ids:
+            excluded_seen.add(aid)
+            continue
         name = r['Account Name'].strip()
         agent = r['Agent Name'].strip()
         cat = (r.get('Agent Category') or 'OTHER').strip() or 'OTHER'
@@ -94,11 +99,19 @@ def build_model(rows):
     for c in cats_present:
         for a in sorted(x for x in agent_cat if agent_cat[x] == c):
             agent_cols.append((c, a))
-    return accounts, order, agent_cols, status
+    return accounts, order, agent_cols, status, sorted(excluded_seen)
 
 
 def account_active_today(aid, agent_cols, status):
     return any(status.get((aid, a)) == 'active' for _, a in agent_cols)
+
+
+def agent_active_counts(order, agent_cols, status):
+    """Number of accounts with the agent activated (V), per agent column."""
+    counts = []
+    for _, agent in agent_cols:
+        counts.append(sum(1 for aid in order if status.get((aid, agent)) == 'active'))
+    return counts
 
 
 def write_xlsx(path, accounts, order, agent_cols, status, label, src_name):
@@ -133,6 +146,9 @@ def write_xlsx(path, accounts, order, agent_cols, status, label, src_name):
     f_v = wb.add_format({'bold': True, 'font_size': 10, 'font_color': '#166534', 'bg_color': '#DCFCE7', 'align': 'center', 'valign': 'vcenter', 'border': 1, 'border_color': '#E2E8F0'})
     f_off = wb.add_format({'font_size': 9, 'font_color': '#B91C1C', 'bg_color': '#FEE2E2', 'align': 'center', 'valign': 'vcenter', 'border': 1, 'border_color': '#E2E8F0'})
     f_count = wb.add_format({'bold': True, 'font_size': 9, 'font_color': '#1E293B', 'bg_color': '#EEF2FF', 'align': 'center', 'valign': 'vcenter', 'border': 1, 'border_color': '#E2E8F0'})
+    f_sum_lbl = wb.add_format({'bold': True, 'font_size': 9, 'font_color': 'white', 'bg_color': '#0F766E', 'align': 'right', 'valign': 'vcenter', 'border': 1, 'border_color': 'white'})
+    f_sum = wb.add_format({'bold': True, 'font_size': 10, 'font_color': '#0F766E', 'bg_color': '#CCFBF1', 'align': 'center', 'valign': 'vcenter', 'border': 1, 'border_color': '#E2E8F0'})
+    f_sum_total = wb.add_format({'bold': True, 'font_size': 10, 'font_color': 'white', 'bg_color': '#0F766E', 'align': 'center', 'valign': 'vcenter', 'border': 1, 'border_color': '#E2E8F0'})
 
     INFO = ['Account ID', 'Account Name', 'Segment', 'Package', 'CSM', 'Interview Date', 'Active today']
     first_agent = len(INFO)
@@ -143,7 +159,7 @@ def write_xlsx(path, accounts, order, agent_cols, status, label, src_name):
     ws.write(1, 0, f'Snapshot: {label}  ·  source: {src_name}  ·  {len(order)} accounts · {len(agent_cols)} agents  ·  '
                    'V = activated, OFF = added but deactivated, blank = not added. CSM & Interview Date left blank for manual entry.', f_sub)
 
-    CAT_ROW, AGENT_ROW, DATA = 3, 4, 5
+    CAT_ROW, AGENT_ROW, SUMMARY, DATA = 3, 4, 5, 6
     for i, name in enumerate(INFO):
         ws.merge_range(CAT_ROW, i, AGENT_ROW, i, name, f_hdr if i in (0, 1) else f_hdr_c)
     idx = 0
@@ -161,6 +177,12 @@ def write_xlsx(path, accounts, order, agent_cols, status, label, src_name):
     for k, (_, agent) in enumerate(agent_cols):
         ws.write(AGENT_ROW, first_agent + k, agent, f_agent)
     ws.merge_range(CAT_ROW, count_col, AGENT_ROW, count_col, '# Active', f_hdr_c)
+
+    counts = agent_active_counts(order, agent_cols, status)
+    ws.merge_range(SUMMARY, 0, SUMMARY, first_agent - 1, f'# Accounts activated (of {len(order)})  \u2192', f_sum_lbl)
+    for k, c in enumerate(counts):
+        ws.write(SUMMARY, first_agent + k, c, f_sum)
+    ws.write(SUMMARY, count_col, sum(counts), f_sum_total)
 
     for ri, aid in enumerate(order):
         row = DATA + ri
@@ -200,6 +222,10 @@ def write_csv(path, accounts, order, agent_cols, status):
     with Path(path).open('w', newline='', encoding='utf-8') as f:
         w = csv.writer(f)
         w.writerow(INFO + [a for _, a in agent_cols] + ['# Active'])
+        # summary row: accounts that activated each agent
+        counts = agent_active_counts(order, agent_cols, status)
+        summary = [f'Accounts activated (of {len(order)})', '', '', '', '', '', ''] + counts + [sum(counts)]
+        w.writerow(summary)
         for aid in order:
             meta = accounts[aid]
             line = [aid, meta['name'], meta['segment'], meta['package'], '', '',
@@ -230,7 +256,7 @@ def write_preview(path, accounts, order, agent_cols, status, label):
     head_h, row_h, top, left = 150, 25, 72, 10
     n = len(agent_cols)
     W = left + id_w + name_w + seg_w + today_w + n * cell_w + count_w + 16
-    H = top + head_h + len(order) * row_h + 24
+    H = top + head_h + (len(order) + 1) * row_h + 24
     img = Image.new('RGB', (W, H), 'white')
     d = ImageDraw.Draw(img)
     f_t, f_s, f_sm, f_c, f_a, f_h = _font(19, True), _font(10), _font(9), _font(11, True), _font(10, True), _font(9, True)
@@ -267,8 +293,18 @@ def write_preview(path, accounts, order, agent_cols, status, label):
         img.paste(tmp, (cx + k * cell_w, top + 20), tmp)
     d.rectangle((cx + n * cell_w, top, cx + n * cell_w + count_w, y_hb), fill=(35, 42, 60))
     d.text((cx + n * cell_w + 4, y_hb - 20), '#Act', font=f_h, fill=(255, 255, 255))
+    # summary band: number of accounts that activated each agent
+    counts = agent_active_counts(order, agent_cols, status)
+    d.rectangle((x0, y_hb, cx, y_hb + row_h), fill=(15, 118, 110), outline=(255, 255, 255))
+    d.text((x0 + 6, y_hb + 6), f'# Accounts activated (of {len(order)})', font=f_h, fill=(255, 255, 255))
+    for k, c in enumerate(counts):
+        cellx = cx + k * cell_w
+        d.rectangle((cellx, y_hb, cellx + cell_w, y_hb + row_h), fill=(204, 251, 241), outline=(226, 232, 240))
+        d.text((cellx + cell_w / 2 - (7 if c >= 10 else 3), y_hb + 6), str(c), font=f_c, fill=(15, 118, 110))
+    d.rectangle((cx + n * cell_w, y_hb, cx + n * cell_w + count_w, y_hb + row_h), fill=(15, 118, 110), outline=(226, 232, 240))
+    d.text((cx + n * cell_w + count_w / 2 - 7, y_hb + 6), str(sum(counts)), font=f_c, fill=(255, 255, 255))
     for ri, aid in enumerate(order):
-        y = y_hb + ri * row_h
+        y = y_hb + row_h + ri * row_h
         bg = (248, 250, 252) if ri % 2 else (255, 255, 255)
         d.rectangle((x0, y, cx + n * cell_w + count_w, y + row_h), fill=bg, outline=(238, 242, 247))
         meta = accounts[aid]
@@ -316,6 +352,8 @@ def main():
     ap.add_argument('--label', help='Snapshot label (default: inferred from filename or today)')
     ap.add_argument('--outdir', default='exports', help='Output directory (default: exports)')
     ap.add_argument('--base', help='Output base filename (default: agents_activation_matrix_<label>)')
+    ap.add_argument('--exclude', default='', help='Comma-separated Account IDs to exclude (e.g. test accounts)')
+    ap.add_argument('--exclude-file', help='Path to a file with one Account ID to exclude per line (# comments allowed)')
     args = ap.parse_args()
 
     label = args.label or infer_label(args.input)
@@ -324,8 +362,19 @@ def main():
     safe = re.sub(r'[^0-9A-Za-z_-]', '_', label)
     base = args.base or f'agents_activation_matrix_{safe}'
 
+    exclude_ids = set()
+    for tok in args.exclude.split(','):
+        tok = tok.strip()
+        if tok:
+            exclude_ids.add(tok)
+    if args.exclude_file:
+        for line in Path(args.exclude_file).read_text(encoding='utf-8').splitlines():
+            line = line.split('#', 1)[0].strip()
+            if line:
+                exclude_ids.add(line)
+
     rows = load(args.input)
-    accounts, order, agent_cols, status = build_model(rows)
+    accounts, order, agent_cols, status, excluded_seen = build_model(rows, exclude_ids)
 
     xlsx_path = outdir / f'{base}.xlsx'
     csv_path = outdir / f'{base}.csv'
@@ -338,6 +387,7 @@ def main():
 
     active_accounts = sum(1 for aid in order if account_active_today(aid, agent_cols, status))
     print(f'label={label}')
+    print(f'excluded_requested={len(exclude_ids)} excluded_found_in_file={len(excluded_seen)}')
     print(f'accounts={len(order)} active_today={active_accounts} agents={len(agent_cols)}')
     print(xlsx_path)
     print(csv_path)
@@ -379,6 +429,9 @@ def _write_xlsx_with_raw(path, accounts, order, agent_cols, status, label, src_n
     f_v = wb.add_format({'bold': True, 'font_size': 10, 'font_color': '#166534', 'bg_color': '#DCFCE7', 'align': 'center', 'valign': 'vcenter', 'border': 1, 'border_color': '#E2E8F0'})
     f_off = wb.add_format({'font_size': 9, 'font_color': '#B91C1C', 'bg_color': '#FEE2E2', 'align': 'center', 'valign': 'vcenter', 'border': 1, 'border_color': '#E2E8F0'})
     f_count = wb.add_format({'bold': True, 'font_size': 9, 'font_color': '#1E293B', 'bg_color': '#EEF2FF', 'align': 'center', 'valign': 'vcenter', 'border': 1, 'border_color': '#E2E8F0'})
+    f_sum_lbl = wb.add_format({'bold': True, 'font_size': 9, 'font_color': 'white', 'bg_color': '#0F766E', 'align': 'right', 'valign': 'vcenter', 'border': 1, 'border_color': 'white'})
+    f_sum = wb.add_format({'bold': True, 'font_size': 10, 'font_color': '#0F766E', 'bg_color': '#CCFBF1', 'align': 'center', 'valign': 'vcenter', 'border': 1, 'border_color': '#E2E8F0'})
+    f_sum_total = wb.add_format({'bold': True, 'font_size': 10, 'font_color': 'white', 'bg_color': '#0F766E', 'align': 'center', 'valign': 'vcenter', 'border': 1, 'border_color': '#E2E8F0'})
 
     INFO = ['Account ID', 'Account Name', 'Segment', 'Package', 'CSM', 'Interview Date', 'Active today']
     first_agent = len(INFO)
@@ -389,7 +442,7 @@ def _write_xlsx_with_raw(path, accounts, order, agent_cols, status, label, src_n
     ws.write(1, 0, f'Snapshot: {label}  ·  source: {src_name}  ·  {len(order)} accounts · {len(agent_cols)} agents  ·  '
                    'V = activated, OFF = added but deactivated, blank = not added. CSM & Interview Date left blank for manual entry.', f_sub)
 
-    CAT_ROW, AGENT_ROW, DATA = 3, 4, 5
+    CAT_ROW, AGENT_ROW, SUMMARY, DATA = 3, 4, 5, 6
     for i, name in enumerate(INFO):
         ws.merge_range(CAT_ROW, i, AGENT_ROW, i, name, f_hdr if i in (0, 1) else f_hdr_c)
     idx = 0
@@ -407,6 +460,12 @@ def _write_xlsx_with_raw(path, accounts, order, agent_cols, status, label, src_n
     for k, (_, agent) in enumerate(agent_cols):
         ws.write(AGENT_ROW, first_agent + k, agent, f_agent)
     ws.merge_range(CAT_ROW, count_col, AGENT_ROW, count_col, '# Active', f_hdr_c)
+
+    counts = agent_active_counts(order, agent_cols, status)
+    ws.merge_range(SUMMARY, 0, SUMMARY, first_agent - 1, f'# Accounts activated (of {len(order)})  \u2192', f_sum_lbl)
+    for k, c in enumerate(counts):
+        ws.write(SUMMARY, first_agent + k, c, f_sum)
+    ws.write(SUMMARY, count_col, sum(counts), f_sum_total)
 
     for ri, aid in enumerate(order):
         row = DATA + ri

@@ -1,0 +1,65 @@
+Account ID,Account Name,Segment,Package,CSM,Interview Date,Active today,Amenity gap detector,Calendar conflict detector,Check-in readiness,Commitment keeper,Daily task coverage board,Inquiry expiry manager,Maintenance tracker,Reservation duplicate detector,Reservation handoff brief,Reservation readiness surfacer,Review to task dispatcher,Risky reservation detector,Stay status reconciler,Team access review,Translation gap filler,Weekly Operation Brief,Negative review challenger,Review response drafter,Saved replies optimizer,Checkout balance collection,Fee configuration detector,Security deposit extender,Tax Configuration Audit,Unpaid reservation tracker,Advance deposit checker,Monthly cancelled reservations,Owner payment details collector,Airbnb quality detector,# Active
+Accounts activated (of 63),,,,,,,28,29,17,33,16,20,16,18,15,4,22,34,10,13,23,28,43,38,21,6,15,10,15,33,11,15,11,23,567
+68d6e9bc455d7fda436118d3,BUHO Property,SMB,pro,,,true,V,V,,V,V,,,V,,,V,V,V,V,V,V,V,V,,,V,,,V,,V,,,16
+68017d44259cbcdbc6e8c5c3,Lark Mountain Properties,Mid-Market,pro,,,true,,,,,,,,,,,,V,,,V,V,V,V,V,,,,,V,,V,,,8
+6542c4e210675435b7246225,Bungalow Solutions LLC,SME,pro,,,true,V,V,V,V,V,,,,,,,,,,V,V,V,V,,,V,,,V,,V,,,12
+68d6d384455d7fda436118ca,Scenic Stays,Enterprise,enterprise,,,true,V,V,V,V,,OFF,,V,,,,V,,,V,,V,,,,V,,,V,V,V,,,12
+644296ae8062130039e4a8f9,Virtual Homes Realty,Mid-Market,pro,,,true,V,V,V,V,V,V,V,V,,,V,V,,,V,V,V,V,V,,V,,,V,,V,,,18
+614f3a3a96a3a1002ffb58df,PBD Living,Mid-Market,pro,,,true,,,,V,,,V,,,,,,,,,,,,,,,,,,,,,,2
+655346f4ac25e87d1056b160,Stay Homy,Mid-Market,pro,,,true,,,V,,,,,,,,,V,,V,V,V,V,,,,,,,,,,,,6
+698643d7c43dd1a712877d97,Wilder Waters Vacation Rental Management Inc,Mid-Market,pro,,,true,V,V,V,,V,,V,,,,,,,,,V,,V,,,,,,,,,,,7
+67f01c8f48a9aa094fae1a6a,William Andrade,SMB,pro,,,true,V,V,V,V,V,,V,,V,,V,V,V,,,V,V,V,V,V,V,V,V,V,V,V,V,V,23
+694ad57b5746ac96c0eb4e07,Residentas PT,Mid-Market,pro,,,true,,,,,,,,,,,,,,,V,,V,V,V,,,,,V,,,,,5
+5d6d5ce1229c8c0020c217ae,Horseshoe Bay Living,SME,pro,,,true,V,,,V,,,,,,V,V,V,,,,V,V,,,,,,V,,,,,,8
+65e11cec79b43b53e1af5c81,Synergy Rental Group,Mid-Market,pro,,,true,,,,,,,,,,,,,V,,,,,,,,V,,,,,,,,2
+699699720e798385617b4d65,Whistler Breaks Vacation Rentals Ltd,Mid-Market,pro,,,true,,,,,,,,V,,,,,,,,,,,,,,,,,V,V,,,3
+6994ba6006158b9341e7e0a2,Marisol & Co. Hospitality Group,Mid-Market,pro,,,true,,,,,,,V,,,,,,,,,,V,V,,,,,V,,,,V,,5
+664cd7b17ece3a46c68c5b09,Bee Cave Mgmt LLC,Mid-Market,pro,,,true,V,V,V,V,V,V,V,V,V,,V,V,V,V,,V,V,V,V,,V,V,V,V,V,V,V,,24
+69cc4d66a9f6b32e370fe8f5,GEKO S.A.C.,Mid-Market,pro,,,true,V,,,,,,,,,,,,,,,,,,V,,,,,,,,,,2
+662c7b0c713d3ca356f497cb,Freedom Vacation Rentals,Mid-Market,pro,,,true,,V,OFF,V,V,,V,V,V,,,,,V,V,V,V,V,V,,,,,V,V,,,,14
+63d7edf439e935004cc1d253,Stars Vacation Homes,SME,pro,,,true,,V,,,,,V,,,,,,,,,,V,,,,,,,,,,,,3
+6691731ff6abdb39ff57bbc6,DreamStay Vacation Rentals,Mid-Market,pro,,,true,V,V,,V,V,V,V,V,,,,V,,V,,,V,V,,,,,,,,V,,,12
+6361401a09cd6a004c376443,APEK Rentals,Enterprise,pro,,,true,V,V,V,V,V,V,V,V,V,,V,V,V,V,V,V,V,V,V,,V,V,V,V,V,V,V,,25
+633ce6133627590032806db7,Premier Vacation Stays,Mid-Market,pro,,,true,,,,,,V,,V,,,,V,V,,,V,V,V,,,,,V,,,,,,8
+67b793cf40e1ed4a6dae237e,South Padre Island Trips,Mid-Market,pro,,,true,V,V,V,V,V,,,V,,,,V,,V,V,V,V,,,,V,,,V,V,,,V,15
+697cf07e97c71aa6720b0e9b,Asesoria e Inversiones Riverso Andes SPA,Mid-Market,pro,,,true,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+675088ce3780f3a8abe636d7,SMART HOST VACATION HOME RENTAL L.L.C.,Mid-Market,pro,,,true,,,,,,,,,,,,,,,,,,,,,,,V,V,V,,,,3
+6639b053af65b5a61d2cec4c,Clifton Partners Property,Mid-Market,pro,,,true,V,,OFF,V,V,V,,V,V,,V,V,,V,V,V,V,V,V,V,,V,V,V,,,V,V,20
+697a2cee97c71aa6720b0d44,Mountain Laurel Chalets,Mid-Market,pro,,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,1
+66d07cd5f48715e4ecea2688,Vivendos Homes SL,SMB,pro,,,true,V,V,,,,,,V,,,V,V,,V,,,V,V,V,,,,,,,,,V,10
+693fe0317e1715aa98c354f6,Ilic Corporation,SMB,pro,,,true,V,V,,,,,,,,,,V,,,,,V,,,,,,,,,,,V,5
+696e0505b558d35d8ff05dbe,Salt & City Stays,Mid-Market,pro,,,true,,,,V,,,,,V,,,,,,,,V,,,,,,,,,,,V,4
+68cbee25467ac68da2e582a7,Nordic Guest AB,SMB,pro,,,true,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,1
+69e250520f8cce78dc112886,Vacant Nests,Mid-Market,pro,,,true,,,,,,,,,,,,,,,,V,V,,,,,,,V,,,,V,4
+63f77f4e7e251b0030c1464a,Cloud9,Mid-Market,pro,,,true,V,V,V,V,,V,,,,,,V,,V,V,V,V,V,V,,V,V,,,,V,,V,16
+68dbf54b455d7fda43611a1a,Golden Isles Retreats,Mid-Market,pro,,,true,,,,V,,V,,,,,,V,,,,V,V,V,V,,,,V,V,,,,V,10
+65351c644892a1c2b05f9e34,AIR MGMT,SME,pro,,,true,V,V,,V,,V,V,,,,V,V,V,,,V,V,V,,,,,,V,,,,V,13
+6840ab56ca0d576ff1aa1e3a,UAB Domillion,Mid-Market,pro,,,true,,,,,,,,,,,,,,,V,V,,,,,,,,V,,,,,3
+65fbdfd0d916089814834489,Praia Villas,Mid-Market,pro,,,true,,V,,,,,,,,,,,,,,,,,,,,,,,,,,V,2
+660583ed73200f683ecf3134,OutpostX,Mid-Market,pro,,,true,,V,V,V,,,,,,,,,V,,V,V,,,,,,,,V,,,,,7
+685065549bf7f8c07ec24d1f,Coast to Coast Connections,SMB,pro,,,true,,V,V,V,V,V,V,,V,,V,V,,,V,V,V,V,,V,,,V,V,V,V,V,V,20
+6893952b8fa2976c485f6a35,Full Circle Property,SMB,pro,,,true,V,,OFF,V,,,,,V,,,,,,,V,V,V,,V,,,V,V,,,V,V,11
+6a270d0f4b2eed6c34919d5f,Luxury Getaways,Mid-Market,pro,,,true,V,V,V,V,V,V,,V,,,,V,,,V,V,V,V,V,,V,,V,V,,,V,V,18
+6862ebb9b12c774daba25021,Royal Vista Vacations Homes Co. LLC,Mid-Market,pro,,,true,,,V,V,,,,,,,,,,,,,,,,,,,,,,,,,2
+68890ecea14c863e5df1290d,KSN Real Estate,SMB,pro,,,true,V,V,V,V,,,,V,V,,,,,V,,,V,V,V,V,V,,,V,V,,V,V,16
+6862e08eb12c774daba2501a,LS Living Solutions GmbH,SMB,pro,,,true,V,,V,V,,V,,,,V,,V,,,V,,V,V,,,,,,V,,,,V,11
+6350a5240e693e0030bf2c4e,Peachy Properties,Mid-Market,pro,,,true,,,,V,,,,,,,,V,,,,,V,,V,,,V,,,,V,,V,7
+66885058f6abdb39ff57b9a9,Nestoria Estates Inc.,Mid-Market,pro,,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,1
+62b337033513aa00347a2410,Jeff Nisius,Mid-Market,pro,,,true,V,V,,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,,V,V,V,V,,V,,V,24
+668f4d5b3a1924cbf20ceb9b,NextGen Furnished Rentals LLC,Mid-Market,pro,,,true,V,,,V,,V,V,V,V,,V,V,,,,V,V,V,V,,V,,V,,,,,V,15
+63cfe630ecbfb30039426da8,Maxwell Residences,Mid-Market,pro,,,true,,,OFF,V,,,OFF,,OFF,,V,OFF,,,,V,,,,,,V,,V,,,,,5
+692087d60cb25a3efd780f59,CJR Stays,SMB,pro,,,true,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,28
+693592c67e6de65e769be230,Weston Holidays,SMB,pro,,,true,V,V,OFF,V,V,,V,,V,,V,V,,,,V,V,V,V,,,,,,,,,V,13
+67d362f57468c0a23a0281f5,Stay Portland,SME,pro,,,true,V,,,V,,,,,,,,,,,,,V,V,,,,,,,,,,,4
+680f840727962971e7ee00c0,Wyndale Living,SMB,pro,,,true,V,,,V,,,,,V,,,V,,,V,,V,V,V,,,,,,,,,,8
+5f75b1fbc3e3190028c14764,Richmond Property Group Ltd,SMB,pro,,,true,,,,,,,,,,,V,V,,,V,,V,V,V,,,,,V,,,,,7
+69f45411a36ffdd106868926,5starbalivilla,Mid-Market,pro,,,true,,V,,V,,,,V,,,,,,,V,,,V,,,,,,,,,,,5
+5db6c592bba9f4001f7d610f,EASY BNB GmbH,SME,pro,,,true,,V,,,,,,,V,,V,V,,,V,,OFF,V,,,,,,,,,,,6
+6601f8d2c9d2b0a68e714a68,"Navigate Stays, Inc.",SME,pro,,,true,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,1
+5db0a5a602bcef001fed7da1,GreatStay,Mid-Market,pro,,,true,,,,,,,,,,,V,,,,,,,V,,,,,,,,,,,2
+5aff29ca5e0f84006a37cb5d,Stay Awhile Villas,SME,pro,,,true,,,,,,OFF,,,,,V,V,,,,,V,,,,,,,,,,V,,4
+5cf3120c0f6abc001ff04f2e,Hello Host,Mid-Market,pro,,,true,,V,,,,V,,,,,V,V,,,,,V,V,,,,,,V,,,,,7
+60b4ed00a32033002e44e4e2,RSB Living / Management,Mid-Market,pro,,,true,,OFF,,,,V,,,,,V,OFF,,,,,V,V,,,,V,,V,,,,,6
+63991db67ee89b004e196515,Soulfull Stayz,SMB,pro,,,true,,V,,,,V,,,,,,V,,,,,,,,,,,,V,,,OFF,,4
+5f3a7d87949020002db896dc,Curated Property,Mid-Market,pro,,,true,,V,,,,V,,,,,V,V,,,,,V,V,,,,,,V,,,,,7
+573b8b688e31d30e0035418f,Bijou Getaways,Mid-Market,pro,,,true,,,,,,V,,,,,,V,,,,,V,V,,,,,,V,,,,,5
