@@ -84,6 +84,8 @@ def build_model(rows, exclude_ids=None):
                 'package': (r.get('Package') or '').strip(),
                 'paying': (r.get('Active paying account') or '').strip(),
                 'hq': (r.get('HQ type') or '').strip(),
+                'csm': (r.get('CSM') or '').strip(),
+                'interview_date': (r.get('Interview Date') or '').strip(),
             }
             order.append(aid)
         agent_cat[agent] = cat
@@ -100,6 +102,59 @@ def build_model(rows, exclude_ids=None):
         for a in sorted(x for x in agent_cat if agent_cat[x] == c):
             agent_cols.append((c, a))
     return accounts, order, agent_cols, status, sorted(excluded_seen)
+
+
+def _norm_name(s):
+    return re.sub(r'\s+', ' ', (s or '').strip().lower())
+
+
+def load_meta_lookup(path):
+    """Load Account ID / Account Name -> {csm, interview_date} from a prior matrix or meta CSV.
+
+    Accepts either:
+      - matrix CSV with columns Account ID, Account Name, CSM, Interview Date
+      - simple meta CSV with the same columns (agent columns ignored if present)
+    Rows may key by Account ID, Account Name, or both.
+    """
+    if not path:
+        return {}, {}
+    rows = list(csv.DictReader(Path(path).open(encoding='utf-8')))
+    by_id, by_name = {}, {}
+    for r in rows:
+        aid = (r.get('Account ID') or '').strip()
+        name = (r.get('Account Name') or '').strip()
+        # skip summary rows
+        if aid.lower().startswith('accounts activated'):
+            continue
+        meta = {
+            'csm': (r.get('CSM') or '').strip(),
+            'interview_date': (r.get('Interview Date') or '').strip(),
+        }
+        if not meta['csm'] and not meta['interview_date']:
+            continue
+        if not aid and not name:
+            continue
+        if aid:
+            by_id[aid] = meta
+        if name:
+            by_name[_norm_name(name)] = meta
+    return by_id, by_name
+
+
+def apply_meta(accounts, by_id, by_name):
+    """Fill blank CSM / Interview Date from a prior lookup (id first, then name)."""
+    filled_csm = filled_iv = 0
+    for aid, meta in accounts.items():
+        src = by_id.get(aid) or by_name.get(_norm_name(meta['name']))
+        if not src:
+            continue
+        if not meta.get('csm') and src.get('csm'):
+            meta['csm'] = src['csm']
+            filled_csm += 1
+        if not meta.get('interview_date') and src.get('interview_date'):
+            meta['interview_date'] = src['interview_date']
+            filled_iv += 1
+    return filled_csm, filled_iv
 
 
 def account_active_today(aid, agent_cols, status):
@@ -157,7 +212,7 @@ def write_xlsx(path, accounts, order, agent_cols, status, label, src_name):
 
     ws.write(0, 0, 'Agents Activation Tracking — Account x Agents', f_title)
     ws.write(1, 0, f'Snapshot: {label}  ·  source: {src_name}  ·  {len(order)} accounts · {len(agent_cols)} agents  ·  '
-                   'V = activated, OFF = added but deactivated, blank = not added. CSM & Interview Date left blank for manual entry.', f_sub)
+                   'V = activated, OFF = added but deactivated, blank = not added. CSM & Interview Date carried from --meta when provided.', f_sub)
 
     CAT_ROW, AGENT_ROW, SUMMARY, DATA = 3, 4, 5, 6
     for i, name in enumerate(INFO):
@@ -192,8 +247,8 @@ def write_xlsx(path, accounts, order, agent_cols, status, label, src_name):
         ws.write(row, 1, meta['name'], acct_fmt(alt))
         ws.write(row, 2, meta['segment'], meta_fmt(alt))
         ws.write(row, 3, meta['package'], meta_fmt(alt))
-        ws.write(row, 4, '', meta_fmt(alt))
-        ws.write(row, 5, '', meta_fmt(alt))
+        ws.write(row, 4, meta.get('csm', ''), meta_fmt(alt))
+        ws.write(row, 5, meta.get('interview_date', ''), meta_fmt(alt))
         ws.write(row, 6, 'true' if account_active_today(aid, agent_cols, status) else 'false', meta_fmt(alt))
         cnt = 0
         for k, (_, agent) in enumerate(agent_cols):
@@ -228,7 +283,8 @@ def write_csv(path, accounts, order, agent_cols, status):
         w.writerow(summary)
         for aid in order:
             meta = accounts[aid]
-            line = [aid, meta['name'], meta['segment'], meta['package'], '', '',
+            line = [aid, meta['name'], meta['segment'], meta['package'],
+                    meta.get('csm', ''), meta.get('interview_date', ''),
                     'true' if account_active_today(aid, agent_cols, status) else 'false']
             cnt = 0
             for _, agent in agent_cols:
@@ -354,6 +410,7 @@ def main():
     ap.add_argument('--base', help='Output base filename (default: agents_activation_matrix_<label>)')
     ap.add_argument('--exclude', default='', help='Comma-separated Account IDs to exclude (e.g. test accounts)')
     ap.add_argument('--exclude-file', help='Path to a file with one Account ID to exclude per line (# comments allowed)')
+    ap.add_argument('--meta', help='Prior matrix/meta CSV to carry over CSM and Interview Date columns')
     args = ap.parse_args()
 
     label = args.label or infer_label(args.input)
@@ -375,6 +432,10 @@ def main():
 
     rows = load(args.input)
     accounts, order, agent_cols, status, excluded_seen = build_model(rows, exclude_ids)
+    filled_csm = filled_iv = 0
+    if args.meta:
+        by_id, by_name = load_meta_lookup(args.meta)
+        filled_csm, filled_iv = apply_meta(accounts, by_id, by_name)
 
     xlsx_path = outdir / f'{base}.xlsx'
     csv_path = outdir / f'{base}.csv'
@@ -389,6 +450,7 @@ def main():
     print(f'label={label}')
     print(f'excluded_requested={len(exclude_ids)} excluded_found_in_file={len(excluded_seen)}')
     print(f'accounts={len(order)} active_today={active_accounts} agents={len(agent_cols)}')
+    print(f'meta_filled_csm={filled_csm} meta_filled_interview_date={filled_iv}')
     print(xlsx_path)
     print(csv_path)
     print(png_path)
@@ -440,7 +502,7 @@ def _write_xlsx_with_raw(path, accounts, order, agent_cols, status, label, src_n
 
     ws.write(0, 0, 'Agents Activation Tracking — Account x Agents', f_title)
     ws.write(1, 0, f'Snapshot: {label}  ·  source: {src_name}  ·  {len(order)} accounts · {len(agent_cols)} agents  ·  '
-                   'V = activated, OFF = added but deactivated, blank = not added. CSM & Interview Date left blank for manual entry.', f_sub)
+                   'V = activated, OFF = added but deactivated, blank = not added. CSM & Interview Date carried from --meta when provided.', f_sub)
 
     CAT_ROW, AGENT_ROW, SUMMARY, DATA = 3, 4, 5, 6
     for i, name in enumerate(INFO):
@@ -475,8 +537,8 @@ def _write_xlsx_with_raw(path, accounts, order, agent_cols, status, label, src_n
         ws.write(row, 1, meta['name'], acct_fmt(alt))
         ws.write(row, 2, meta['segment'], meta_fmt(alt))
         ws.write(row, 3, meta['package'], meta_fmt(alt))
-        ws.write(row, 4, '', meta_fmt(alt))
-        ws.write(row, 5, '', meta_fmt(alt))
+        ws.write(row, 4, meta.get('csm', ''), meta_fmt(alt))
+        ws.write(row, 5, meta.get('interview_date', ''), meta_fmt(alt))
         ws.write(row, 6, 'true' if account_active_today(aid, agent_cols, status) else 'false', meta_fmt(alt))
         cnt = 0
         for k, (_, agent) in enumerate(agent_cols):
