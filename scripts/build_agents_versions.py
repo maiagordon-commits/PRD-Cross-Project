@@ -39,6 +39,15 @@ def detect_repo_path(explicit: Path | None) -> Path:
     cwd = Path.cwd()
     if (cwd / USE_CASES_ROOT).is_dir():
         return cwd
+    candidates = [
+        cwd / "vendor" / "1000-agents-hub-workflows",
+        cwd / "1000-agents-hub-workflows",
+        cwd.parent / "1000-agents-hub-workflows",
+        DEFAULT_REPO,
+    ]
+    for candidate in candidates:
+        if (candidate / USE_CASES_ROOT).is_dir():
+            return candidate
     return DEFAULT_REPO
 
 
