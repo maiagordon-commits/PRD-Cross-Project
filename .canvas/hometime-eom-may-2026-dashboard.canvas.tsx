@@ -11,7 +11,6 @@ import {
   Pill,
   Row,
   Stack,
-  Stat,
   Text,
 } from 'cursor/canvas';
 import { useMemo, useState } from 'react';
@@ -117,7 +116,6 @@ export default function HometimeEomMayDashboard(): JSX.Element {
   );
 
   const openCount = TICKETS.filter((t) => t.status === 'Open').length;
-  const criticalThemes = THEMES.filter((t) => t.severity === 'critical').length;
 
   return (
     <Stack gap={24}>
@@ -136,19 +134,6 @@ export default function HometimeEomMayDashboard(): JSX.Element {
           slow resolution on Immediate-priority tickets that eroded trust with the Hometime team.
         </Text>
       </Callout>
-
-      <Grid columns={4} gap={12}>
-        <Stat label="Critical themes" value={String(criticalThemes)} tone="danger" />
-        <Stat label="Tickets tracked" value={String(TICKETS.length)} />
-        <Stat label="Still open" value={String(openCount)} tone={openCount > 0 ? 'warning' : undefined} />
-        <Stat label="Res affected (tax)" value="51+" tone="warning" />
-      </Grid>
-
-      <Grid columns={3} gap={12}>
-        <Stat label="Payments unrecognized" value="181" sublabel="~A$354,400 · May 2026" tone="danger" />
-        <Stat label="Bulk recalc needed" value="~2,000" sublabel="Markup + tax-inclusive res" tone="warning" />
-        <Stat label="Automations" value="OFF" sublabel="Workaround for duplicate charges" tone="danger" />
-      </Grid>
 
       <Stack gap={12}>
         <H2>Friction themes</H2>

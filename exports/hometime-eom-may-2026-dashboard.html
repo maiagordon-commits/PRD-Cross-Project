@@ -36,23 +36,6 @@
       margin-bottom: 2rem;
     }
     .hero strong { color: var(--critical); display: block; margin-bottom: 0.5rem; }
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .stat {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1rem;
-      text-align: center;
-    }
-    .stat .val { font-size: 1.5rem; font-weight: 700; }
-    .stat .val.danger { color: var(--critical); }
-    .stat .val.warn { color: var(--major); }
-    .stat .lbl { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
     h2 { font-size: 1.25rem; margin: 2rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
     .card {
@@ -116,17 +99,6 @@
     <div class="hero">
       <strong>Main EOM friction</strong>
       A cascade of financial calculation bugs — tax-inclusive errors, duplicate payment charges, missing cash-ledger recognition, and guest-invoice discrepancies — converged on May EOM deadlines, compounded by slow resolution on Immediate-priority tickets that eroded trust with the Hometime team.
-    </div>
-
-    <div class="stats">
-      <div class="stat"><div class="val danger">3</div><div class="lbl">Critical themes</div></div>
-      <div class="stat"><div class="val">12</div><div class="lbl">Tickets tracked</div></div>
-      <div class="stat"><div class="val warn">3</div><div class="lbl">Still open</div></div>
-      <div class="stat"><div class="val warn">51+</div><div class="lbl">Res affected (tax)</div></div>
-      <div class="stat"><div class="val danger">181</div><div class="lbl">Payments unrecognized</div></div>
-      <div class="stat"><div class="val warn">~A$354k</div><div class="lbl">Unrecognized value</div></div>
-      <div class="stat"><div class="val warn">~2,000</div><div class="lbl">Bulk recalc needed</div></div>
-      <div class="stat"><div class="val danger">OFF</div><div class="lbl">Payment automations</div></div>
     </div>
 
     <h2>Top 3 EOM blockers</h2>
