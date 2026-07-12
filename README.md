@@ -1,15 +1,15 @@
-# E-Invoicing Slides
+# E-Invoicing & City Tax Slides
 
-Professional redesign of the WIP **E-Invoicing — Challenges & Next Steps** slide.
+Professional redesigns of Guesty WIP status slides for Google Slides / PowerPoint.
 
 ## Deliverables
 
 | File | Purpose |
 |------|---------|
-| `E-Invoicing_Challenges_Next_Steps.pptx` | Editable deck (import into Google Slides) |
-| `create_einvoicing_slide.py` | Generator script if you need to regenerate |
-
-Preview/PDF copies are also available in the agent artifacts folder.
+| `E-Invoicing_Challenges_Next_Steps.pptx` | Editable E-Invoicing deck |
+| `City_Tax_Challenges_Next_Steps.pptx` | Editable City Tax deck |
+| `create_einvoicing_slide.py` / `create_city_tax_slide.py` | Regenerators |
+| `GOOGLE_SLIDES_IMPORT.md` / `CITY_TAX_GOOGLE_SLIDES_IMPORT.md` | Import instructions |
 
 ## Open in Google Slides
 
@@ -17,5 +17,3 @@ Preview/PDF copies are also available in the agent artifacts folder.
 2. Upload to [Google Drive](https://drive.google.com)
 3. Right-click → **Open with → Google Slides**
 4. **File → Save as Google Slides** for a native shareable link
-
-See `GOOGLE_SLIDES_IMPORT.md` in artifacts for details.
