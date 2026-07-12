@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hometime EOM May 2026 — Friction Dashboard</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --surface2: #243044;
+      --text: #e7ecf3;
+      --muted: #8b9cb3;
+      --critical: #f85149;
+      --major: #d29922;
+      --minor: #58a6ff;
+      --success: #3fb950;
+      --border: #30363d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 2rem 1rem 4rem;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+    h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
+    .hero {
+      background: linear-gradient(135deg, #2d1f1f 0%, #1a2332 100%);
+      border: 1px solid var(--critical);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .hero strong { color: var(--critical); display: block; margin-bottom: 0.5rem; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .stat .val { font-size: 1.5rem; font-weight: 700; }
+    .stat .val.danger { color: var(--critical); }
+    .stat .val.warn { color: var(--major); }
+    .stat .lbl { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+    h2 { font-size: 1.25rem; margin: 2rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .card h3 { font-size: 1rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .badge {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+    .badge.critical { background: rgba(248,81,73,0.2); color: var(--critical); }
+    .badge.major { background: rgba(210,153,34,0.2); color: var(--major); }
+    .card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.75rem; }
+    .impact {
+      background: var(--surface2);
+      border-radius: 6px;
+      padding: 0.75rem;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+    .impact strong { color: var(--text); font-size: 0.75rem; text-transform: uppercase; }
+    .tickets { font-size: 0.8rem; color: var(--minor); }
+    .tickets a { color: var(--minor); text-decoration: none; }
+    .tickets a:hover { text-decoration: underline; }
+    .flow { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    .flow-chain { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .pill { background: var(--surface2); padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.8rem; }
+    .pill.danger { border: 1px solid var(--critical); color: var(--critical); }
+    .pill.warn { border: 1px solid var(--major); color: var(--major); }
+    .arrow { color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 1rem; }
+    th, td { text-align: left; padding: 0.65rem 0.75rem; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; }
+    tr:hover { background: var(--surface2); }
+    a { color: var(--minor); }
+    .open { color: var(--major); font-weight: 600; }
+    .closed { color: var(--success); }
+    .top3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+    .top3 .card { border-top: 3px solid var(--critical); }
+    .footer { margin-top: 3rem; color: var(--muted); font-size: 0.8rem; text-align: center; }
+    .warn-box {
+      background: rgba(210,153,34,0.1);
+      border: 1px solid var(--major);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hometime EOM May 2026 — Friction Dashboard</h1>
+    <p class="subtitle">TBC + MRP accounts · 27 May – 12 Jun 2026 · Jira + hometime-internal Slack</p>
+
+    <div class="hero">
+      <strong>Main EOM friction</strong>
+      A cascade of financial calculation bugs — tax-inclusive errors, duplicate payment charges, missing cash-ledger recognition, and guest-invoice discrepancies — converged on May EOM deadlines, compounded by slow resolution on Immediate-priority tickets that eroded trust with the Hometime team.
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="val danger">3</div><div class="lbl">Critical themes</div></div>
+      <div class="stat"><div class="val">12</div><div class="lbl">Tickets tracked</div></div>
+      <div class="stat"><div class="val warn">3</div><div class="lbl">Still open</div></div>
+      <div class="stat"><div class="val warn">51+</div><div class="lbl">Res affected (tax)</div></div>
+      <div class="stat"><div class="val danger">181</div><div class="lbl">Payments unrecognized</div></div>
+      <div class="stat"><div class="val warn">~A$354k</div><div class="lbl">Unrecognized value</div></div>
+      <div class="stat"><div class="val warn">~2,000</div><div class="lbl">Bulk recalc needed</div></div>
+      <div class="stat"><div class="val danger">OFF</div><div class="lbl">Payment automations</div></div>
+    </div>
+
+    <h2>Top 3 EOM blockers</h2>
+    <div class="top3">
+      <div class="card">
+        <h3><span class="badge critical">#1 Critical</span> Tax-inclusive errors</h3>
+        <p>Taxes added instead of extracted, or missing — 51+ reservations. Negative AF, bundled-fee bugs, markup conflicts.</p>
+        <div class="impact"><strong>EOM impact</strong><br>Blocked payouts & owner statements. Bulk recalc of ~2,000 res required.</div>
+        <div class="tickets"><a href="https://guesty.atlassian.net/browse/FIN-10873">FIN-10873</a> · <a href="https://guesty.atlassian.net/browse/FIN-10855">FIN-10855</a> · T3-166405 · T3-166678</div>
+      </div>
+      <div class="card">
+        <h3><span class="badge critical">#2 Critical</span> Duplicate charges</h3>
+        <p>Guests charged multiple times via Merchant Warrior (up to 10×). Ghost reservations from failed DB saves.</p>
+        <div class="impact"><strong>EOM impact</strong><br>Automations turned off. GOLD-9426 still open — no root-cause fix through EOM.</div>
+        <div class="tickets"><a href="https://guesty.atlassian.net/browse/GOLD-9426">GOLD-9426</a> · <a href="https://guesty.atlassian.net/browse/GOLD-9424">GOLD-9424</a></div>
+      </div>
+      <div class="card">
+        <h3><span class="badge critical">#3 Critical</span> Cash ledger gap</h3>
+        <p>Cash entries stopped auto-creating ~23 May. Generation-day config change left 181 payments unrecognized.</p>
+        <div class="impact"><strong>EOM impact</strong><br>Hometime halted reprocessing. EOM reconciliation impossible without manual BEAST.</div>
+        <div class="tickets"><a href="https://guesty.atlassian.net/browse/ACC-5894">ACC-5894</a> · T3-165833</div>
+      </div>
+    </div>
+
+    <h2>All friction themes</h2>
+    <div class="grid">
+      <div class="card">
+        <h3><span class="badge critical">Critical</span> Duplicate payments</h3>
+        <p>MW duplicate API requests; automations disabled as workaround.</p>
+        <div class="tickets"><a href="https://guesty.atlassian.net/browse/GOLD-9424">GOLD-9424</a> · <a href="https://guesty.atlassian.net/browse/GOLD-9426">GOLD-9426</a></div>
+      </div>
+      <div class="card">
+        <h3><span class="badge critical">Critical</span> Tax-inclusive</h3>
+        <p>Wrong GST extraction, negative AF, bundled fees — 51+ res across TBC + MRP.</p>
+        <div class="tickets"><a href="https://guesty.atlassian.net/browse/FIN-10873">FIN-10873</a> · <a href="https://guesty.atlassian.net/browse/FIN-10855">FIN-10855</a> · T3-166405</div>
+      </div>
+      <div class="card">
+        <h3><span class="badge critical">Critical</span> Cash ledger</h3>
+        <p>181 payments (~A$354k) not recognized from ~23 May.</p>
+        <div class="tickets"><a href="https://guesty.atlassian.net/browse/ACC-5894">ACC-5894</a></div>
+      </div>
+      <div class="card">
+        <h3><span class="badge major">Major</span> Guest invoice</h3>
+        <p>Cleaning fee missing from invoice breakdown. Fix deployed.</p>
+        <div class="tickets"><a href="https://guesty.atlassian.net/browse/FIN-10790">FIN-10790</a></div>
+      </div>
+      <div class="card">
+        <h3><span class="badge major">Major</span> Slow response</h3>
+        <p>Immediate tickets idle 1–2+ weeks. Trust erosion with Hometime.</p>
+        <div class="tickets"><a href="https://guesty.atlassian.net/browse/GOLD-9379">GOLD-9379</a></div>
+      </div>
+      <div class="card">
+        <h3><span class="badge major">Major</span> VRBO auth holds</h3>
+        <p>Fully manual; no automated flow. Feature request open.</p>
+        <div class="tickets"><a href="https://guesty.atlassian.net/browse/PFR-9532">PFR-9532</a></div>
+      </div>
+    </div>
+
+    <h2>How frictions connected</h2>
+    <div class="flow">
+      <div class="flow-chain">
+        <span class="pill danger">Tax rollout</span><span class="arrow">→</span>
+        <span class="pill danger">Folio wrong</span><span class="arrow">→</span>
+        <span class="pill danger">EOM blocked</span>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem;">Mid-May tax-inclusive enablement triggered negative AF, wrong GST, bundled-fee bugs — inflated balance-due and host payouts.</p>
+      <div class="flow-chain">
+        <span class="pill danger">Duplicate charges</span><span class="arrow">→</span>
+        <span class="pill warn">Automations off</span><span class="arrow">→</span>
+        <span class="pill warn">Manual ops</span>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem;">MW duplicates forced automations off during heaviest EOM period.</p>
+      <div class="flow-chain">
+        <span class="pill danger">Cash ledger gap</span><span class="arrow">→</span>
+        <span class="pill danger">Reconciliation halt</span>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem;">From ~23 May, cash journals stopped auto-creating. Hometime paused all reprocessing.</p>
+    </div>
+
+    <h2>Ticket register</h2>
+    <table>
+      <thead>
+        <tr><th>Ticket</th><th>Friction</th><th>Status</th><th>Resolution</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="https://guesty.atlassian.net/browse/GOLD-9426">GOLD-9426</a></td><td>Ongoing duplicate MW charges</td><td class="open">Open</td><td>—</td></tr>
+        <tr><td><a href="https://guesty.atlassian.net/browse/GOLD-9424">GOLD-9424</a></td><td>Duplicate charge same timestamp</td><td class="closed">Closed</td><td>Bugfix</td></tr>
+        <tr><td><a href="https://guesty.atlassian.net/browse/FIN-10873">FIN-10873</a></td><td>Resort-fee GST wrong, 51+ res</td><td class="closed">Closed</td><td>Bugfix</td></tr>
+        <tr><td><a href="https://guesty.atlassian.net/browse/FIN-10855">FIN-10855</a></td><td>Balance due = tax value (VRBO)</td><td class="closed">Closed</td><td>As Designed</td></tr>
+        <tr><td><a href="https://guesty.atlassian.net/browse/T3-166405">T3-166405</a></td><td>Negative AF, 32+ BDC res</td><td class="closed">Closed</td><td>Tech Fix</td></tr>
+        <tr><td><a href="https://guesty.atlassian.net/browse/T3-166678">T3-166678</a></td><td>Bundled fees — A$760 gap</td><td class="closed">Closed</td><td>Duplicate</td></tr>
+        <tr><td><a href="https://guesty.atlassian.net/browse/ACC-5894">ACC-5894</a></td><td>Cash missing from accounting folio</td><td class="closed">Closed</td><td>Tech Fix</td></tr>
+        <tr><td><a href="https://guesty.atlassian.net/browse/FIN-10790">FIN-10790</a></td><td>Cleaning fee missing from invoice</td><td class="closed">Closed</td><td>Tech Fix</td></tr>
+        <tr><td><a href="https://guesty.atlassian.net/browse/PFR-9532">PFR-9532</a></td><td>No automated VRBO auth holds</td><td class="open">Open</td><td>—</td></tr>
+        <tr><td><a href="https://guesty.atlassian.net/browse/GOLD-9427">GOLD-9427</a></td><td>Bulk future auth holds API</td><td class="open">Open</td><td>—</td></tr>
+      </tbody>
+    </table>
+
+    <div class="warn-box">
+      <strong>Still open:</strong> GOLD-9426 (duplicate charge root cause) · PFR-9532 (VRBO auto auth holds) · GOLD-9427 (bulk auth holds API)
+    </div>
+
+    <p class="footer">TBC 69d5bb4de615023969dc3b34 · MRP 6989bac56844f86a9df2db8c · Generated 12 Jul 2026</p>
+  </div>
+</body>
+</html>
