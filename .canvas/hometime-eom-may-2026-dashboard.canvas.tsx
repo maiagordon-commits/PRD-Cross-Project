@@ -27,7 +27,7 @@ const TICKETS: Ticket[] = [
   { key: 'FIN-10855', domain: 'Tax-inclusive', friction: 'Balance due = tax value (VRBO)', resolution: 'As Designed', created: '4 Jun 2026', resolved: '10 Jun 2026' },
   { key: 'T3-166405', domain: 'Tax-inclusive', friction: 'Negative accommodation fare, 32+ BDC res', resolution: 'Tech Fix', created: '28 May 2026', resolved: '28 May 2026' },
   { key: 'T3-166678', domain: 'Tax-inclusive', friction: 'Reverse mapping of fees — A$760 gap', resolution: 'Duplicate', created: '1 Jun 2026', resolved: '4 Jun 2026' },
-  { key: 'GOLD-9424 / GOLD-9426', domain: 'Payments', friction: 'Duplicate MW charges — same issue', resolution: 'Bugfix', created: '27 May 2026', resolved: '27 May 2026' },
+  { key: 'GOLD-9424 / GOLD-9426', domain: 'Payments', friction: 'Duplicate MW charges — duplicate', resolution: 'Bugfix', created: '27 May 2026', resolved: '27 May 2026' },
   { key: 'ACC-5894', domain: 'Accounting', friction: 'Cash missing from accounting folio', resolution: 'Tech Fix', created: '22 May 2026', resolved: '27 May 2026' },
   { key: 'FIN-10790', domain: 'Guest invoice', friction: 'Cleaning fee missing from invoice', resolution: 'Tech Fix', created: '21 May 2026', resolved: '2 Jun 2026' },
   { key: 'GOLD-9379 (GOLD-9427)', domain: 'Payments / API', friction: 'Future auth holds via API — resolved via GOLD-9379', resolution: 'Tech Fix', created: '20 May 2026', resolved: '31 May 2026' },
@@ -41,14 +41,17 @@ export default function HometimeEomMayDashboard(): JSX.Element {
         <Text tone="secondary">TBC + MRP accounts · May – Jun 2026 · Source: Jira + hometime-internal Slack</Text>
       </Stack>
 
-      <Callout tone="info">
-        <Text>
-          Tax-inclusive processing improved significantly in early May. By month-end, however, discrepancies
-          persisted in specific edge cases — reverse mapping of fees, markup on fees, and negative accommodation
-          fares — alongside separate friction in other domains, including duplicate payment charges, cash-ledger
-          recognition, and guest-invoice inconsistencies.
-        </Text>
-      </Callout>
+      <Stack gap={12}>
+        <H2>Summary</H2>
+        <Callout tone="info">
+          <Text>
+            Tax-inclusive processing improved significantly in early May. By month-end, however, discrepancies
+            persisted in specific scenarios — reverse mapping of fees, markup on fees, and negative accommodation
+            fares — alongside separate friction in other domains, including duplicate payment charges, cash-ledger
+            recognition, and guest-invoice inconsistencies.
+          </Text>
+        </Callout>
+      </Stack>
 
       <Stack gap={12}>
         <H2>Critical EOM frictions</H2>
@@ -71,10 +74,10 @@ export default function HometimeEomMayDashboard(): JSX.Element {
             <CardHeader><H3>#2 Duplicate charges</H3></CardHeader>
             <CardBody>
               <Stack gap={8}>
-                <Text tone="secondary">MW duplicate charges — same issue across GOLD-9424 & GOLD-9426.</Text>
+                <Text tone="secondary">MW duplicate charges — duplicate across GOLD-9424 & GOLD-9426.</Text>
                 <Callout tone="success">
                   <Text size="sm" weight="medium">Resolution</Text>
-                  <Text size="sm" tone="secondary">GOLD-9424 (Bugfix) / GOLD-9426 (Bugfix) — same issue</Text>
+                  <Text size="sm" tone="secondary">GOLD-9424 (Bugfix) / GOLD-9426 (Bugfix) — duplicate</Text>
                 </Callout>
               </Stack>
             </CardBody>
