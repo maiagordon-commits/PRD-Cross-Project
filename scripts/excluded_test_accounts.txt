@@ -1,0 +1,12 @@
+# Test / internal Account IDs to exclude from the activation tracker.
+# One Account ID per line. Lines starting with # are ignored.
+# Used via: python3 scripts/build_activation_matrix.py <export>.csv --exclude-file scripts/excluded_test_accounts.txt
+5e2b0fc83a649d001f416612
+596f6fe706112710005d96ff
+6913362e0d64b70041dc153b
+5c7564c10985c4002398084f
+64ac5137a7f3b8002b6a431c
+563e0b6a08a2710e00057b82
+64ac4ed558fd69003fb7e3a4
+5f5f20ed0f358a002ade92f6
+5f85979413248f002a01ad28
