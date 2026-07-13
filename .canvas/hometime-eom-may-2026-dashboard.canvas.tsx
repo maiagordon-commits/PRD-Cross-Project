@@ -43,10 +43,10 @@ export default function HometimeEomMayDashboard(): JSX.Element {
 
       <Callout tone="info">
         <Text>
-          At the beginning of May there was a major improvement in tax-inclusive issues. However, at EOM of the
-          same month we still saw discrepancies caused by specific use cases — reverse mapping of fees, markup on
-          fees, and negative accommodation fare — in addition to issues in other domains (duplicate payments, cash
-          ledger, guest invoicing).
+          Tax-inclusive processing improved significantly in early May. By month-end, however, discrepancies
+          persisted in specific edge cases — reverse mapping of fees, markup on fees, and negative accommodation
+          fares — alongside separate friction in other domains, including duplicate payment charges, cash-ledger
+          recognition, and guest-invoice inconsistencies.
         </Text>
       </Callout>
 
@@ -60,8 +60,9 @@ export default function HometimeEomMayDashboard(): JSX.Element {
                 <Text tone="secondary">Negative AF, reverse mapping of fees bug, markup on fees.</Text>
                 <Callout tone="success">
                   <Text size="sm" weight="medium">Resolution</Text>
-                  <Text size="sm">Closed — Bugfix / Tech Fix / As Designed / Duplicate</Text>
-                  <Text size="sm" tone="secondary">FIN-10873 · FIN-10855 · T3-166405 · T3-166678</Text>
+                  <Text size="sm" tone="secondary">
+                    FIN-10873 (Bugfix) · FIN-10855 (As Designed) · T3-166405 (Tech Fix) · T3-166678 (Duplicate)
+                  </Text>
                 </Callout>
               </Stack>
             </CardBody>
@@ -73,7 +74,7 @@ export default function HometimeEomMayDashboard(): JSX.Element {
                 <Text tone="secondary">MW duplicate charges — same issue across GOLD-9424 & GOLD-9426.</Text>
                 <Callout tone="success">
                   <Text size="sm" weight="medium">Resolution</Text>
-                  <Text size="sm">Closed as Bugfix — GOLD-9424 / GOLD-9426</Text>
+                  <Text size="sm" tone="secondary">GOLD-9424 (Bugfix) / GOLD-9426 (Bugfix) — same issue</Text>
                 </Callout>
               </Stack>
             </CardBody>
@@ -85,7 +86,7 @@ export default function HometimeEomMayDashboard(): JSX.Element {
                 <Text tone="secondary">181 payments unrecognized from ~23 May.</Text>
                 <Callout tone="success">
                   <Text size="sm" weight="medium">Resolution</Text>
-                  <Text size="sm">Closed as Tech Fix — ACC-5894 · T3-165833</Text>
+                  <Text size="sm" tone="secondary">ACC-5894 (Tech Fix) · T3-165833 (Tech Fix)</Text>
                 </Callout>
               </Stack>
             </CardBody>

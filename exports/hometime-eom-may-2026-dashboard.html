@@ -81,7 +81,7 @@
     <p class="subtitle">TBC + MRP accounts · May – Jun 2026 · Jira + hometime-internal Slack</p>
 
     <div class="hero">
-      At the beginning of May there was a major improvement in tax-inclusive issues. However, at EOM of the same month we still saw discrepancies caused by specific use cases — reverse mapping of fees, markup on fees, and negative accommodation fare — in addition to issues in other domains (duplicate payments, cash ledger, guest invoicing).
+      Tax-inclusive processing improved significantly in early May. By month-end, however, discrepancies persisted in specific edge cases — reverse mapping of fees, markup on fees, and negative accommodation fares — alongside separate friction in other domains, including duplicate payment charges, cash-ledger recognition, and guest-invoice inconsistencies.
     </div>
 
     <h2>Critical EOM frictions</h2>
@@ -91,11 +91,10 @@
         <p>Negative AF, reverse mapping of fees bug, markup on fees.</p>
         <div class="resolution">
           <strong>Resolution</strong>
-          Closed — Bugfix / Tech Fix / As Designed / Duplicate<br>
-          <a href="https://guesty.atlassian.net/browse/FIN-10873">FIN-10873</a> ·
-          <a href="https://guesty.atlassian.net/browse/FIN-10855">FIN-10855</a> ·
-          <a href="https://guesty.atlassian.net/browse/T3-166405">T3-166405</a> ·
-          <a href="https://guesty.atlassian.net/browse/T3-166678">T3-166678</a>
+          <a href="https://guesty.atlassian.net/browse/FIN-10873">FIN-10873</a> (Bugfix) ·
+          <a href="https://guesty.atlassian.net/browse/FIN-10855">FIN-10855</a> (As Designed) ·
+          <a href="https://guesty.atlassian.net/browse/T3-166405">T3-166405</a> (Tech Fix) ·
+          <a href="https://guesty.atlassian.net/browse/T3-166678">T3-166678</a> (Duplicate)
         </div>
       </div>
       <div class="card">
@@ -103,7 +102,8 @@
         <p>Guests charged multiple times via Merchant Warrior (up to 10×). Ghost reservations from failed DB saves. Same root issue tracked across both tickets.</p>
         <div class="resolution">
           <strong>Resolution</strong>
-          Closed as Bugfix — <a href="https://guesty.atlassian.net/browse/GOLD-9424">GOLD-9424</a> / <a href="https://guesty.atlassian.net/browse/GOLD-9426">GOLD-9426</a>
+          <a href="https://guesty.atlassian.net/browse/GOLD-9424">GOLD-9424</a> (Bugfix) /
+          <a href="https://guesty.atlassian.net/browse/GOLD-9426">GOLD-9426</a> (Bugfix) — same issue
         </div>
       </div>
       <div class="card">
@@ -111,7 +111,8 @@
         <p>Cash entries stopped auto-creating ~23 May. Generation-day config change left 181 payments unrecognized.</p>
         <div class="resolution">
           <strong>Resolution</strong>
-          Closed as Tech Fix — <a href="https://guesty.atlassian.net/browse/ACC-5894">ACC-5894</a> · <a href="https://guesty.atlassian.net/browse/T3-165833">T3-165833</a>
+          <a href="https://guesty.atlassian.net/browse/ACC-5894">ACC-5894</a> (Tech Fix) ·
+          <a href="https://guesty.atlassian.net/browse/T3-165833">T3-165833</a> (Tech Fix)
         </div>
       </div>
     </div>
