@@ -18,19 +18,17 @@ interface Ticket {
   domain: string;
   friction: string;
   resolution: string;
-  created: string;
-  resolved: string;
 }
 
 const TICKETS: Ticket[] = [
-  { key: 'FIN-10873', domain: 'Tax-inclusive', friction: 'Resort-fee GST wrong on Airbnb res', resolution: 'Bugfix', created: '8 Jun 2026', resolved: '9 Jun 2026' },
-  { key: 'FIN-10855', domain: 'Tax-inclusive', friction: 'Balance due = tax value (VRBO)', resolution: 'As Designed', created: '4 Jun 2026', resolved: '10 Jun 2026' },
-  { key: 'T3-166405', domain: 'Tax-inclusive', friction: 'Negative accommodation fare, 32+ BDC res', resolution: 'Tech Fix', created: '28 May 2026', resolved: '28 May 2026' },
-  { key: 'T3-166678', domain: 'Tax-inclusive', friction: 'Reverse mapping of fees — A$760 gap', resolution: 'Duplicate', created: '1 Jun 2026', resolved: '4 Jun 2026' },
-  { key: 'GOLD-9424 / GOLD-9426', domain: 'Payments', friction: 'Duplicate MW charges — duplicate', resolution: 'Bugfix', created: '27 May 2026', resolved: '27 May 2026' },
-  { key: 'ACC-5894', domain: 'Accounting', friction: 'Cash missing from accounting folio', resolution: 'Tech Fix', created: '22 May 2026', resolved: '27 May 2026' },
-  { key: 'FIN-10790', domain: 'Guest invoice', friction: 'Cleaning fee missing from invoice', resolution: 'Tech Fix', created: '21 May 2026', resolved: '2 Jun 2026' },
-  { key: 'GOLD-9379 (GOLD-9427)', domain: 'Payments / API', friction: 'Future auth holds via API — resolved via GOLD-9379', resolution: 'Tech Fix', created: '20 May 2026', resolved: '31 May 2026' },
+  { key: 'FIN-10873', domain: 'Tax-inclusive', friction: 'Resort-fee GST wrong on Airbnb res', resolution: 'Bugfix' },
+  { key: 'FIN-10855', domain: 'Tax-inclusive', friction: 'Balance due = tax value (VRBO)', resolution: 'As Designed' },
+  { key: 'T3-166405', domain: 'Tax-inclusive', friction: 'Negative accommodation fare, 32+ BDC res', resolution: 'Tech Fix' },
+  { key: 'T3-166678', domain: 'Tax-inclusive', friction: 'Reverse mapping of fees — A$760 gap', resolution: 'Duplicate' },
+  { key: 'GOLD-9424 / GOLD-9426', domain: 'Payments', friction: 'Duplicate MW charges — duplicate', resolution: 'Bugfix' },
+  { key: 'ACC-5894', domain: 'Accounting', friction: 'Cash missing from accounting folio', resolution: 'Tech Fix' },
+  { key: 'FIN-10790', domain: 'Guest invoice', friction: 'Cleaning fee missing from invoice', resolution: 'Tech Fix' },
+  { key: 'GOLD-9379 (GOLD-9427)', domain: 'Payments / API', friction: 'Future auth holds via API — resolved via GOLD-9379', resolution: 'Tech Fix' },
 ];
 
 export default function HometimeEomMayDashboard(): JSX.Element {
@@ -87,7 +85,6 @@ export default function HometimeEomMayDashboard(): JSX.Element {
                     <Pill tone="neutral">{t.resolution}</Pill>
                   </Row>
                   <Text tone="secondary">{t.friction}</Text>
-                  <Text size="sm" tone="tertiary">Created {t.created} · Resolved {t.resolved}</Text>
                 </Stack>
               ))}
             </Stack>
