@@ -1,0 +1,7 @@
+{
+  "snapshot": "snapshot-20260601-8a9954f0-615a-4866-b822-3c35485a1edd",
+  "install": "bash .cursor/scripts/setup-workflows-repo.sh",
+  "repositoryDependencies": [
+    "github.com/guestyorg/1000-agents-hub-workflows"
+  ]
+}
