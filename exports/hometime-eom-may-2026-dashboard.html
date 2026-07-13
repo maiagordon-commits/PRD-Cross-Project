@@ -66,29 +66,15 @@
     .tickets { font-size: 0.8rem; color: var(--minor); }
     .tickets a { color: var(--minor); text-decoration: none; }
     .tickets a:hover { text-decoration: underline; }
-    .flow { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
-    .flow-chain { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
-    .pill { background: var(--surface2); padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.8rem; }
-    .pill.danger { border: 1px solid var(--critical); color: var(--critical); }
-    .pill.warn { border: 1px solid var(--major); color: var(--major); }
-    .arrow { color: var(--muted); }
     table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 1rem; }
     th, td { text-align: left; padding: 0.65rem 0.75rem; border-bottom: 1px solid var(--border); }
     th { color: var(--muted); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; }
     tr:hover { background: var(--surface2); }
     a { color: var(--minor); }
-    .open { color: var(--major); font-weight: 600; }
     .closed { color: var(--success); }
     .top3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
     .top3 .card { border-top: 3px solid var(--critical); }
     .footer { margin-top: 3rem; color: var(--muted); font-size: 0.8rem; text-align: center; }
-    .warn-box {
-      background: rgba(210,153,34,0.1);
-      border: 1px solid var(--major);
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-      margin-top: 2rem;
-    }
   </style>
 </head>
 <body>
@@ -105,15 +91,13 @@
     <div class="top3">
       <div class="card">
         <h3><span class="badge critical">#1 Critical</span> Tax-inclusive errors</h3>
-        <p>Taxes added instead of extracted, or missing — 51+ reservations. Negative AF, bundled-fee bugs, markup conflicts.</p>
-        <div class="impact"><strong>EOM impact</strong><br>Blocked payouts & owner statements. Bulk recalc of ~2,000 res required.</div>
+        <p>Negative AF, reverse mapping of fees bug, markup on fees.</p>
         <div class="tickets"><a href="https://guesty.atlassian.net/browse/FIN-10873">FIN-10873</a> · <a href="https://guesty.atlassian.net/browse/FIN-10855">FIN-10855</a> · T3-166405 · T3-166678</div>
       </div>
       <div class="card">
         <h3><span class="badge critical">#2 Critical</span> Duplicate charges</h3>
-        <p>Guests charged multiple times via Merchant Warrior (up to 10×). Ghost reservations from failed DB saves.</p>
-        <div class="impact"><strong>EOM impact</strong><br>Automations turned off. GOLD-9426 still open — no root-cause fix through EOM.</div>
-        <div class="tickets"><a href="https://guesty.atlassian.net/browse/GOLD-9426">GOLD-9426</a> · <a href="https://guesty.atlassian.net/browse/GOLD-9424">GOLD-9424</a></div>
+        <p>Guests charged multiple times via Merchant Warrior (up to 10×). Ghost reservations from failed DB saves. Same root issue tracked across both tickets.</p>
+        <div class="impact"><strong>Resolution</strong><br>Closed as Bugfix — <a href="https://guesty.atlassian.net/browse/GOLD-9424">GOLD-9424</a> / <a href="https://guesty.atlassian.net/browse/GOLD-9426">GOLD-9426</a></div>
       </div>
       <div class="card">
         <h3><span class="badge critical">#3 Critical</span> Cash ledger gap</h3>
@@ -127,12 +111,12 @@
     <div class="grid">
       <div class="card">
         <h3><span class="badge critical">Critical</span> Duplicate payments</h3>
-        <p>MW duplicate API requests; automations disabled as workaround.</p>
+        <p>MW duplicate API requests; same issue across GOLD-9424 & GOLD-9426. Resolved as Bugfix.</p>
         <div class="tickets"><a href="https://guesty.atlassian.net/browse/GOLD-9424">GOLD-9424</a> · <a href="https://guesty.atlassian.net/browse/GOLD-9426">GOLD-9426</a></div>
       </div>
       <div class="card">
         <h3><span class="badge critical">Critical</span> Tax-inclusive</h3>
-        <p>Wrong GST extraction, negative AF, bundled fees — 51+ res across TBC + MRP.</p>
+        <p>Negative AF, reverse mapping of fees bug, markup on fees across TBC + MRP.</p>
         <div class="tickets"><a href="https://guesty.atlassian.net/browse/FIN-10873">FIN-10873</a> · <a href="https://guesty.atlassian.net/browse/FIN-10855">FIN-10855</a> · T3-166405</div>
       </div>
       <div class="card">
@@ -150,32 +134,6 @@
         <p>Immediate tickets idle 1–2+ weeks. Trust erosion with Hometime.</p>
         <div class="tickets"><a href="https://guesty.atlassian.net/browse/GOLD-9379">GOLD-9379</a></div>
       </div>
-      <div class="card">
-        <h3><span class="badge major">Major</span> VRBO auth holds</h3>
-        <p>Fully manual; no automated flow. Feature request open.</p>
-        <div class="tickets"><a href="https://guesty.atlassian.net/browse/PFR-9532">PFR-9532</a></div>
-      </div>
-    </div>
-
-    <h2>How frictions connected</h2>
-    <div class="flow">
-      <div class="flow-chain">
-        <span class="pill danger">Tax rollout</span><span class="arrow">→</span>
-        <span class="pill danger">Folio wrong</span><span class="arrow">→</span>
-        <span class="pill danger">EOM blocked</span>
-      </div>
-      <p style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem;">Mid-May tax-inclusive enablement triggered negative AF, wrong GST, bundled-fee bugs — inflated balance-due and host payouts.</p>
-      <div class="flow-chain">
-        <span class="pill danger">Duplicate charges</span><span class="arrow">→</span>
-        <span class="pill warn">Automations off</span><span class="arrow">→</span>
-        <span class="pill warn">Manual ops</span>
-      </div>
-      <p style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem;">MW duplicates forced automations off during heaviest EOM period.</p>
-      <div class="flow-chain">
-        <span class="pill danger">Cash ledger gap</span><span class="arrow">→</span>
-        <span class="pill danger">Reconciliation halt</span>
-      </div>
-      <p style="color:var(--muted);font-size:0.9rem;">From ~23 May, cash journals stopped auto-creating. Hometime paused all reprocessing.</p>
     </div>
 
     <h2>Ticket register</h2>
@@ -184,24 +142,28 @@
         <tr><th>Ticket</th><th>Friction</th><th>Status</th><th>Resolution</th></tr>
       </thead>
       <tbody>
-        <tr><td><a href="https://guesty.atlassian.net/browse/GOLD-9426">GOLD-9426</a></td><td>Ongoing duplicate MW charges</td><td class="open">Open</td><td>—</td></tr>
-        <tr><td><a href="https://guesty.atlassian.net/browse/GOLD-9424">GOLD-9424</a></td><td>Duplicate charge same timestamp</td><td class="closed">Closed</td><td>Bugfix</td></tr>
-        <tr><td><a href="https://guesty.atlassian.net/browse/FIN-10873">FIN-10873</a></td><td>Resort-fee GST wrong, 51+ res</td><td class="closed">Closed</td><td>Bugfix</td></tr>
+        <tr>
+          <td><a href="https://guesty.atlassian.net/browse/GOLD-9424">GOLD-9424</a> / <a href="https://guesty.atlassian.net/browse/GOLD-9426">GOLD-9426</a></td>
+          <td>Duplicate MW charges — same issue</td>
+          <td class="closed">Closed</td>
+          <td>Bugfix</td>
+        </tr>
+        <tr><td><a href="https://guesty.atlassian.net/browse/FIN-10873">FIN-10873</a></td><td>Resort-fee GST wrong on Airbnb res</td><td class="closed">Closed</td><td>Bugfix</td></tr>
         <tr><td><a href="https://guesty.atlassian.net/browse/FIN-10855">FIN-10855</a></td><td>Balance due = tax value (VRBO)</td><td class="closed">Closed</td><td>As Designed</td></tr>
         <tr><td><a href="https://guesty.atlassian.net/browse/T3-166405">T3-166405</a></td><td>Negative AF, 32+ BDC res</td><td class="closed">Closed</td><td>Tech Fix</td></tr>
-        <tr><td><a href="https://guesty.atlassian.net/browse/T3-166678">T3-166678</a></td><td>Bundled fees — A$760 gap</td><td class="closed">Closed</td><td>Duplicate</td></tr>
+        <tr><td><a href="https://guesty.atlassian.net/browse/T3-166678">T3-166678</a></td><td>Reverse mapping of fees — A$760 gap</td><td class="closed">Closed</td><td>Duplicate</td></tr>
         <tr><td><a href="https://guesty.atlassian.net/browse/ACC-5894">ACC-5894</a></td><td>Cash missing from accounting folio</td><td class="closed">Closed</td><td>Tech Fix</td></tr>
         <tr><td><a href="https://guesty.atlassian.net/browse/FIN-10790">FIN-10790</a></td><td>Cleaning fee missing from invoice</td><td class="closed">Closed</td><td>Tech Fix</td></tr>
-        <tr><td><a href="https://guesty.atlassian.net/browse/PFR-9532">PFR-9532</a></td><td>No automated VRBO auth holds</td><td class="open">Open</td><td>—</td></tr>
-        <tr><td><a href="https://guesty.atlassian.net/browse/GOLD-9427">GOLD-9427</a></td><td>Bulk future auth holds API</td><td class="open">Open</td><td>—</td></tr>
+        <tr>
+          <td><a href="https://guesty.atlassian.net/browse/GOLD-9379">GOLD-9379</a> (<a href="https://guesty.atlassian.net/browse/GOLD-9427">GOLD-9427</a>)</td>
+          <td>Future auth holds via API — resolved via GOLD-9379</td>
+          <td class="closed">Closed</td>
+          <td>Tech Fix</td>
+        </tr>
       </tbody>
     </table>
 
-    <div class="warn-box">
-      <strong>Still open:</strong> GOLD-9426 (duplicate charge root cause) · PFR-9532 (VRBO auto auth holds) · GOLD-9427 (bulk auth holds API)
-    </div>
-
-    <p class="footer">TBC 69d5bb4de615023969dc3b34 · MRP 6989bac56844f86a9df2db8c · Generated 12 Jul 2026</p>
+    <p class="footer">TBC 69d5bb4de615023969dc3b34 · MRP 6989bac56844f86a9df2db8c · Generated 13 Jul 2026</p>
   </div>
 </body>
 </html>

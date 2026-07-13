@@ -23,7 +23,7 @@ interface Theme {
   label: string;
   severity: Severity;
   summary: string;
-  eomImpact: string;
+  eomImpact?: string;
   tickets: string[];
 }
 
@@ -41,17 +41,15 @@ const THEMES: Theme[] = [
     label: 'Duplicate Payment Charges',
     severity: 'critical',
     summary:
-      'Guests were charged multiple times through Merchant Warrior — in some cases up to 10×. Guesty sent duplicate API requests; ghost reservations from failed DB saves amplified the problem.',
-    eomImpact: 'Payment automations turned off as workaround. Guest cards cancelled/blocked. GOLD-9426 still open.',
-    tickets: ['GOLD-9424', 'GOLD-9426'],
+      'Guests charged multiple times through Merchant Warrior (up to 10×). Same root issue across GOLD-9424 & GOLD-9426 — ghost reservations from failed DB saves.',
+    eomImpact: 'Closed as Bugfix.',
+    tickets: ['GOLD-9424 / GOLD-9426'],
   },
   {
     key: 'tax',
     label: 'Tax-Inclusive Calculation Errors',
     severity: 'critical',
-    summary:
-      'Taxes added instead of extracted, or missing entirely — 51+ reservations across TBC + MRP. Negative AF from disabled feature toggles, bundled-fee bugs, and markup-on-fees + inclusive tax conflicts.',
-    eomImpact: 'Blocked customer payouts and owner statements. Bulk recalc of ~2,000 reservations required.',
+    summary: 'Negative AF, reverse mapping of fees bug, markup on fees across TBC + MRP.',
     tickets: ['T3-166405', 'T3-166678', 'T3-167159', 'T3-167520', 'FIN-10855', 'FIN-10873'],
   },
   {
@@ -59,7 +57,7 @@ const THEMES: Theme[] = [
     label: 'Cash Ledger Not Auto-Created',
     severity: 'critical',
     summary:
-      'Cash entries stopped auto-creating in the Accounting folio from ~23 May. Owner-statement generation-day change to "current month" caused 181 payments (~A$354k) to stay unrecognized.',
+      'Cash entries stopped auto-creating in the Accounting folio from ~23 May. Owner-statement generation-day change caused 181 payments (~A$354k) to stay unrecognized.',
     eomImpact: 'Hometime halted reprocessing pending investigation. EOM reconciliation impossible without manual BEAST runs.',
     tickets: ['ACC-5894', 'T3-165833'],
   },
@@ -78,22 +76,20 @@ const THEMES: Theme[] = [
     severity: 'major',
     summary:
       'Multiple Immediate-priority tickets (opened ~20 May) had no updates after 1–2+ weeks. Harry escalated repeatedly; tickets marked Immediate went unanswered.',
-    eomImpact: 'Eroded trust with Hometime team during critical EOM window. VRBO auth-hold API gap (GOLD-9379) open 2+ weeks.',
-    tickets: ['GOLD-9379', 'PFR-9532', 'GOLD-9427'],
+    eomImpact: 'Eroded trust with Hometime team during critical EOM window.',
+    tickets: ['GOLD-9379'],
   },
 ];
 
 const TICKETS: Ticket[] = [
-  { key: 'GOLD-9426', theme: 'payments', friction: 'Ongoing duplicate MW charges — root cause open', status: 'Open', resolution: '—' },
-  { key: 'GOLD-9424', theme: 'payments', friction: 'Duplicate charge same timestamp — ghost reservations', status: 'Closed', resolution: 'Bugfix' },
-  { key: 'FIN-10873', theme: 'tax', friction: 'Resort-fee GST wrong on 51+ Airbnb res', status: 'Closed', resolution: 'Bugfix' },
+  { key: 'GOLD-9424 / GOLD-9426', theme: 'payments', friction: 'Duplicate MW charges — same issue', status: 'Closed', resolution: 'Bugfix' },
+  { key: 'FIN-10873', theme: 'tax', friction: 'Resort-fee GST wrong on Airbnb res', status: 'Closed', resolution: 'Bugfix' },
   { key: 'FIN-10855', theme: 'tax', friction: 'Balance due = tax value on VRBO res', status: 'Closed', resolution: 'As Designed' },
   { key: 'T3-166405', theme: 'tax', friction: 'Negative AF on 32+ BDC reservations', status: 'Closed', resolution: 'Tech Fix (FT)' },
-  { key: 'T3-166678', theme: 'tax', friction: 'Bundled/deducted fees — A$760 folio gap', status: 'Closed', resolution: 'Duplicate → FIN-10848' },
+  { key: 'T3-166678', theme: 'tax', friction: 'Reverse mapping of fees — A$760 folio gap', status: 'Closed', resolution: 'Duplicate → FIN-10848' },
   { key: 'ACC-5894', theme: 'accounting', friction: 'Cash transactions missing from accounting folio', status: 'Closed', resolution: 'Tech Fix' },
   { key: 'FIN-10790', theme: 'invoice', friction: 'Cleaning fee missing from guest invoice', status: 'Closed', resolution: 'Tech Fix' },
-  { key: 'GOLD-9379', theme: 'process', friction: 'Future auth holds API not working', status: 'Closed', resolution: 'Tech Fix' },
-  { key: 'PFR-9532', theme: 'process', friction: 'No automated VRBO auth-hold flow', status: 'Open', resolution: '—' },
+  { key: 'GOLD-9379 (GOLD-9427)', theme: 'process', friction: 'Future auth holds via API — resolved via GOLD-9379', status: 'Closed', resolution: 'Tech Fix' },
 ];
 
 function severityTone(s: Severity): 'danger' | 'warning' | 'info' | 'neutral' {
@@ -114,8 +110,6 @@ export default function HometimeEomMayDashboard(): JSX.Element {
     () => (filter === 'all' ? TICKETS : TICKETS.filter((t) => t.theme === filter)),
     [filter],
   );
-
-  const openCount = TICKETS.filter((t) => t.status === 'Open').length;
 
   return (
     <Stack gap={24}>
@@ -149,10 +143,12 @@ export default function HometimeEomMayDashboard(): JSX.Element {
               <CardBody>
                 <Stack gap={8}>
                   <Text>{theme.summary}</Text>
-                  <Callout tone={severityTone(theme.severity)}>
-                    <Text size="sm" weight="medium">EOM impact</Text>
-                    <Text size="sm">{theme.eomImpact}</Text>
-                  </Callout>
+                  {theme.eomImpact ? (
+                    <Callout tone={severityTone(theme.severity)}>
+                      <Text size="sm" weight="medium">{theme.key === 'payments' ? 'Resolution' : 'EOM impact'}</Text>
+                      <Text size="sm">{theme.eomImpact}</Text>
+                    </Callout>
+                  ) : null}
                   <Text size="sm" tone="secondary">
                     {theme.tickets.join(' · ')}
                   </Text>
@@ -161,50 +157,6 @@ export default function HometimeEomMayDashboard(): JSX.Element {
             </Card>
           ))}
         </Grid>
-      </Stack>
-
-      <Stack gap={12}>
-        <H2>How the frictions connected</H2>
-        <Card>
-          <CardBody>
-            <Stack gap={12}>
-              <Row gap={8} align="center" wrap>
-                <Pill tone="danger">1. Tax rollout</Pill>
-                <Text tone="secondary">→</Text>
-                <Pill tone="danger">2. Folio / invoice wrong</Pill>
-                <Text tone="secondary">→</Text>
-                <Pill tone="danger">3. EOM blocked</Pill>
-              </Row>
-              <Text tone="secondary">
-                Mid-May tax-inclusive enablement triggered negative AF, wrong GST extraction, and bundled-fee display
-                bugs. These inflated balance-due and host-payout values, making owner statements and customer payouts
-                unreliable.
-              </Text>
-              <Divider />
-              <Row gap={8} align="center" wrap>
-                <Pill tone="danger">4. Duplicate charges</Pill>
-                <Text tone="secondary">→</Text>
-                <Pill tone="warning">5. Automations off</Pill>
-                <Text tone="secondary">→</Text>
-                <Pill tone="warning">6. Manual ops</Pill>
-              </Row>
-              <Text tone="secondary">
-                Parallel to tax issues, MW duplicate charges forced payment automations off — shifting more work to
-                manual processing during the heaviest EOM period.
-              </Text>
-              <Divider />
-              <Row gap={8} align="center" wrap>
-                <Pill tone="danger">7. Cash ledger gap</Pill>
-                <Text tone="secondary">→</Text>
-                <Pill tone="danger">8. Reconciliation halt</Pill>
-              </Row>
-              <Text tone="secondary">
-                From ~23 May, cash journal entries stopped auto-creating (generation-day config change). Hometime
-                paused reservation reprocessing, blocking accounting reconciliation entirely.
-              </Text>
-            </Stack>
-          </CardBody>
-        </Card>
       </Stack>
 
       <Stack gap={12}>
@@ -253,8 +205,8 @@ export default function HometimeEomMayDashboard(): JSX.Element {
             <CardHeader><H3>#1 Tax-inclusive bugs</H3></CardHeader>
             <CardBody>
               <Text>
-                Biggest volume and blast radius. Wrong taxes → wrong payouts → owner statements delayed.
-                Required code fixes plus mass recalculation.
+                Negative AF, reverse mapping of fees bug, and markup on fees drove wrong payouts and delayed owner
+                statements. Required code fixes plus mass recalculation.
               </Text>
             </CardBody>
           </Card>
@@ -262,8 +214,7 @@ export default function HometimeEomMayDashboard(): JSX.Element {
             <CardHeader><H3>#2 Duplicate charges</H3></CardHeader>
             <CardBody>
               <Text>
-                Highest guest-facing urgency. Forced automations off and left GOLD-9426 open with no root-cause
-                fix through EOM.
+                Highest guest-facing urgency. GOLD-9424 / GOLD-9426 — same issue, closed as Bugfix.
               </Text>
             </CardBody>
           </Card>
@@ -279,15 +230,8 @@ export default function HometimeEomMayDashboard(): JSX.Element {
         </Grid>
       </Stack>
 
-      {openCount > 0 ? (
-        <Callout tone="warning">
-          <Text weight="semibold">Still open at report time</Text>
-          <Text>GOLD-9426 (duplicate charge root cause) · PFR-9532 (VRBO auto auth holds) · GOLD-9427 (bulk auth holds API)</Text>
-        </Callout>
-      ) : null}
-
       <Text size="sm" tone="tertiary">
-        Accounts: TBC 69d5bb4de615023969dc3b34 · MRP 6989bac56844f86a9df2db8c · Generated Jul 12, 2026
+        Accounts: TBC 69d5bb4de615023969dc3b34 · MRP 6989bac56844f86a9df2db8c · Generated Jul 13, 2026
       </Text>
     </Stack>
   );
