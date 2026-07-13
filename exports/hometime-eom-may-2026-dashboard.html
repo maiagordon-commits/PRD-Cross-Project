@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hometime EOM May 2026 — Friction Dashboard</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --surface2: #243044;
+      --text: #e7ecf3;
+      --muted: #8b9cb3;
+      --critical: #f85149;
+      --minor: #58a6ff;
+      --success: #3fb950;
+      --border: #30363d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem 4rem;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+    h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
+    .hero {
+      background: linear-gradient(135deg, #1a2a3a 0%, #1a2332 100%);
+      border: 1px solid var(--minor);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    h2 { font-size: 1.25rem; margin: 2rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .card h3 { font-size: 1rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .badge {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(248,81,73,0.2);
+      color: var(--critical);
+    }
+    .card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.75rem; }
+    .resolution {
+      background: var(--surface2);
+      border-radius: 6px;
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+    .resolution strong { color: var(--text); font-size: 0.75rem; text-transform: uppercase; display: block; margin-bottom: 0.35rem; }
+    .resolution a { color: var(--minor); text-decoration: none; }
+    .resolution a:hover { text-decoration: underline; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 1rem; }
+    th, td { text-align: left; padding: 0.65rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; }
+    tr:hover { background: var(--surface2); }
+    a { color: var(--minor); }
+    .closed { color: var(--success); }
+    .top3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+    .top3 .card { border-top: 3px solid var(--critical); }
+    .footer { margin-top: 3rem; color: var(--muted); font-size: 0.8rem; text-align: center; }
+    .domain { color: var(--muted); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hometime EOM May 2026 — Friction Dashboard</h1>
+    <p class="subtitle">TBC + MRP accounts · May – Jun 2026 · Jira + hometime-internal Slack</p>
+
+    <h2>Summary</h2>
+    <div class="hero">
+      Tax-inclusive processing improved significantly in early May. By month-end, however, discrepancies persisted in specific scenarios — reverse mapping of fees, markup on fees, and negative accommodation fares — alongside separate friction in other domains, including duplicate payment charges, cash-ledger recognition, and guest-invoice inconsistencies.
+    </div>
+
+    <h2>Critical EOM frictions</h2>
+    <div class="top3">
+      <div class="card">
+        <h3><span class="badge">#1 Critical</span> Tax-inclusive errors</h3>
+        <p>Negative AF, reverse mapping of fees bug, markup on fees.</p>
+        <div class="resolution">
+          <strong>Resolution</strong>
+          <a href="https://guesty.atlassian.net/browse/FIN-10873">FIN-10873</a> (Bugfix) ·
+          <a href="https://guesty.atlassian.net/browse/FIN-10855">FIN-10855</a> (As Designed) ·
+          <a href="https://guesty.atlassian.net/browse/T3-166405">T3-166405</a> (Tech Fix) ·
+          <a href="https://guesty.atlassian.net/browse/T3-166678">T3-166678</a> (Duplicate)
+        </div>
+      </div>
+      <div class="card">
+        <h3><span class="badge">#2 Critical</span> Duplicate charges</h3>
+        <p>Guests charged multiple times via Merchant Warrior (up to 10×). Ghost reservations from failed DB saves. Duplicate root issue tracked across both tickets.</p>
+        <div class="resolution">
+          <strong>Resolution</strong>
+          <a href="https://guesty.atlassian.net/browse/GOLD-9424">GOLD-9424</a> (Bugfix) /
+          <a href="https://guesty.atlassian.net/browse/GOLD-9426">GOLD-9426</a> (Bugfix) — duplicate
+        </div>
+      </div>
+      <div class="card">
+        <h3><span class="badge">#3 Critical</span> Cash ledger gap</h3>
+        <p>Cash entries stopped auto-creating ~23 May. Generation-day config change left 181 payments unrecognized.</p>
+        <div class="resolution">
+          <strong>Resolution</strong>
+          <a href="https://guesty.atlassian.net/browse/ACC-5894">ACC-5894</a> (Tech Fix) ·
+          <a href="https://guesty.atlassian.net/browse/T3-165833">T3-165833</a> (Tech Fix)
+        </div>
+      </div>
+    </div>
+
+    <h2>Ticket register</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Ticket</th>
+          <th>Domain</th>
+          <th>Friction</th>
+          <th>Status</th>
+          <th>Resolution</th>
+          <th>Created</th>
+          <th>Resolved</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://guesty.atlassian.net/browse/FIN-10873">FIN-10873</a></td>
+          <td class="domain">Tax-inclusive</td>
+          <td>Resort-fee GST wrong on Airbnb res</td>
+          <td class="closed">Closed</td>
+          <td>Bugfix</td>
+          <td>8 Jun 2026</td>
+          <td>9 Jun 2026</td>
+        </tr>
+        <tr>
+          <td><a href="https://guesty.atlassian.net/browse/FIN-10855">FIN-10855</a></td>
+          <td class="domain">Tax-inclusive</td>
+          <td>Balance due = tax value (VRBO)</td>
+          <td class="closed">Closed</td>
+          <td>As Designed</td>
+          <td>4 Jun 2026</td>
+          <td>10 Jun 2026</td>
+        </tr>
+        <tr>
+          <td><a href="https://guesty.atlassian.net/browse/T3-166405">T3-166405</a></td>
+          <td class="domain">Tax-inclusive</td>
+          <td>Negative accommodation fare, 32+ BDC res</td>
+          <td class="closed">Closed</td>
+          <td>Tech Fix</td>
+          <td>28 May 2026</td>
+          <td>28 May 2026</td>
+        </tr>
+        <tr>
+          <td><a href="https://guesty.atlassian.net/browse/T3-166678">T3-166678</a></td>
+          <td class="domain">Tax-inclusive</td>
+          <td>Reverse mapping of fees — A$760 gap</td>
+          <td class="closed">Closed</td>
+          <td>Duplicate</td>
+          <td>1 Jun 2026</td>
+          <td>4 Jun 2026</td>
+        </tr>
+        <tr>
+          <td><a href="https://guesty.atlassian.net/browse/GOLD-9424">GOLD-9424</a> / <a href="https://guesty.atlassian.net/browse/GOLD-9426">GOLD-9426</a></td>
+          <td class="domain">Payments</td>
+          <td>Duplicate MW charges — duplicate</td>
+          <td class="closed">Closed</td>
+          <td>Bugfix</td>
+          <td>27 May 2026</td>
+          <td>27 May 2026</td>
+        </tr>
+        <tr>
+          <td><a href="https://guesty.atlassian.net/browse/ACC-5894">ACC-5894</a></td>
+          <td class="domain">Accounting</td>
+          <td>Cash missing from accounting folio</td>
+          <td class="closed">Closed</td>
+          <td>Tech Fix</td>
+          <td>22 May 2026</td>
+          <td>27 May 2026</td>
+        </tr>
+        <tr>
+          <td><a href="https://guesty.atlassian.net/browse/FIN-10790">FIN-10790</a></td>
+          <td class="domain">Guest invoice</td>
+          <td>Cleaning fee missing from invoice</td>
+          <td class="closed">Closed</td>
+          <td>Tech Fix</td>
+          <td>21 May 2026</td>
+          <td>2 Jun 2026</td>
+        </tr>
+        <tr>
+          <td><a href="https://guesty.atlassian.net/browse/GOLD-9379">GOLD-9379</a> (<a href="https://guesty.atlassian.net/browse/GOLD-9427">GOLD-9427</a>)</td>
+          <td class="domain">Payments / API</td>
+          <td>Future auth holds via API — resolved via GOLD-9379</td>
+          <td class="closed">Closed</td>
+          <td>Tech Fix</td>
+          <td>20 May 2026</td>
+          <td>31 May 2026</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="footer">TBC 69d5bb4de615023969dc3b34 · MRP 6989bac56844f86a9df2db8c · Generated 13 Jul 2026</p>
+  </div>
+</body>
+</html>
