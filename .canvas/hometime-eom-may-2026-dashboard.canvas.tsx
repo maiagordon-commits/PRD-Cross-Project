@@ -42,18 +42,6 @@ export default function HometimeEomMayDashboard(): JSX.Element {
       </Stack>
 
       <Stack gap={12}>
-        <H2>Summary</H2>
-        <Callout tone="info">
-          <Text>
-            Tax-inclusive processing improved significantly in early May. By month-end, however, discrepancies
-            persisted in specific scenarios — reverse mapping of fees, markup on fees, and negative accommodation
-            fares — alongside separate friction in other domains, including duplicate payment charges, cash-ledger
-            recognition, and guest-invoice inconsistencies.
-          </Text>
-        </Callout>
-      </Stack>
-
-      <Stack gap={12}>
         <H2>Critical EOM frictions</H2>
         <Grid columns={2} gap={12}>
           <Card>
