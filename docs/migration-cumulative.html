@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Migration — Cumulative Progress</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #1e293b;
+      color: #1e293b;
+      overflow: hidden;
+      height: 100vh;
+    }
+    .deck { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      background: #f5f0e8;
+      padding: 40px 56px 96px;
+      animation: fade 0.25s ease;
+      overflow-y: auto;
+    }
+    .slide.active { display: flex; flex-direction: column; }
+    @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+    h1 { font-size: 1.85rem; color: #1b4f8a; margin-bottom: 6px; }
+    .subtitle { color: #64748b; font-size: 0.9rem; margin-bottom: 24px; font-style: italic; }
+    .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+    .stat {
+      background: white;
+      border: 2px solid #1b4f8a;
+      border-radius: 10px;
+      padding: 14px 20px;
+      min-width: 140px;
+    }
+    .stat.warn { border-color: #dc2626; }
+    .stat .label { font-size: 0.72rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; }
+    .stat .value { font-size: 1.6rem; font-weight: 700; color: #1b4f8a; }
+    .stat.warn .value { color: #dc2626; }
+    .stat .sub { font-size: 0.78rem; color: #64748b; margin-top: 2px; }
+    .chart-wrap {
+      flex: 1;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #d1d5db;
+      padding: 16px;
+      min-height: 280px;
+    }
+    svg { width: 100%; height: 100%; min-height: 260px; }
+    .legend { display: flex; gap: 24px; justify-content: center; margin-top: 12px; font-size: 0.85rem; }
+    .legend-item { display: flex; align-items: center; gap: 8px; }
+    .legend-line { width: 28px; height: 3px; border-radius: 2px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    th, td { border: 1px solid #d1d5db; padding: 8px 10px; text-align: right; }
+    th { background: #1b4f8a; color: white; text-align: center; }
+    td:first-child, th:first-child { text-align: left; }
+    tr:nth-child(even) { background: #fafafa; }
+    .neg { color: #dc2626; font-weight: 600; }
+    .pos { color: #2e9e5b; font-weight: 600; }
+    .phase-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .phase-card {
+      background: white;
+      border: 2px solid #2e9e5b;
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+    .phase-card strong { display: block; color: #1b4f8a; font-size: 0.95rem; margin-bottom: 6px; }
+    .nav {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: #1b4f8a;
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; padding: 12px 20px; z-index: 100; flex-wrap: wrap;
+    }
+    .nav button, .nav a.tab {
+      background: rgba(255,255,255,0.15); color: white;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 7px 14px; border-radius: 20px;
+      cursor: pointer; font-size: 0.8rem; font-weight: 600; text-decoration: none;
+    }
+    .nav button:hover, .nav a.tab:hover { background: rgba(255,255,255,0.3); }
+    .nav a.tab.active { background: #2e9e5b; border-color: #2e9e5b; }
+    .nav .counter { color: rgba(255,255,255,0.7); font-size: 0.78rem; min-width: 56px; text-align: center; }
+    .brand { margin-top: auto; font-style: italic; font-weight: 700; color: #1b4f8a; font-size: 0.9rem; }
+    [contenteditable]:focus { outline: 2px solid #2e9e5b; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="deck">
+    <section class="slide active" data-slide="0">
+      <h1 contenteditable="true">Reservation Migration — Cumulative Progress</h1>
+      <p class="subtitle" contenteditable="true">As of 6/22/2026 · Arrow keys or tabs below to navigate · Click text to edit</p>
+      <div class="stats">
+        <div class="stat">
+          <div class="label">Cumulative Actual</div>
+          <div class="value">2,493</div>
+          <div class="sub">779 Lite · 1,705 Pro · 9 Ent</div>
+        </div>
+        <div class="stat">
+          <div class="label">Planned (6/22)</div>
+          <div class="value">4,200</div>
+          <div class="sub">Near-term target: 8,500</div>
+        </div>
+        <div class="stat warn">
+          <div class="label">Variance</div>
+          <div class="value">−1,707</div>
+          <div class="sub">~40% behind plan</div>
+        </div>
+        <div class="stat">
+          <div class="label">Recent Pace</div>
+          <div class="value">78/day</div>
+          <div class="sub">549 accounts (week of 6/22)</div>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <svg viewBox="0 0 900 320" preserveAspectRatio="xMidYMid meet">
+          <text x="450" y="22" text-anchor="middle" fill="#64748b" font-size="13">Cumulative Accounts Migrated</text>
+          <!-- grid -->
+          <line x1="70" y1="260" x2="860" y2="260" stroke="#d1d5db" stroke-width="1"/>
+          <line x1="70" y1="40" x2="70" y2="260" stroke="#d1d5db" stroke-width="1"/>
+          <text x="62" y="264" text-anchor="end" fill="#64748b" font-size="11">0</text>
+          <text x="62" y="104" text-anchor="end" fill="#64748b" font-size="11">4,000</text>
+          <text x="62" y="44" text-anchor="end" fill="#64748b" font-size="11">8,000</text>
+          <!-- planned line -->
+          <polyline fill="none" stroke="#1b4f8a" stroke-width="3" stroke-dasharray="8,5"
+            points="130,238 230,218 330,178 430,138 530,98 630,58"/>
+          <!-- actual line -->
+          <polyline fill="none" stroke="#2e9e5b" stroke-width="3"
+            points="130,252 230,244 330,236 430,228 530,210 630,198 730,186 830,174 930,168"/>
+          <!-- dots actual (key weeks) -->
+          <circle cx="430" cy="228" r="5" fill="#2e9e5b"/>
+          <circle cx="530" cy="210" r="5" fill="#2e9e5b"/>
+          <circle cx="630" cy="198" r="5" fill="#2e9e5b"/>
+          <circle cx="730" cy="186" r="6" fill="#2e9e5b" stroke="white" stroke-width="2"/>
+          <!-- x labels -->
+          <text x="130" y="278" text-anchor="middle" fill="#64748b" font-size="10">6/1</text>
+          <text x="330" y="278" text-anchor="middle" fill="#64748b" font-size="10">6/8</text>
+          <text x="530" y="278" text-anchor="middle" fill="#64748b" font-size="10">6/15</text>
+          <text x="730" y="278" text-anchor="middle" fill="#64748b" font-size="10" font-weight="700">6/22</text>
+          <text x="830" y="278" text-anchor="middle" fill="#64748b" font-size="10">6/29</text>
+          <text x="630" y="278" text-anchor="middle" fill="#64748b" font-size="10">7/6</text>
+          <text x="730" y="170" text-anchor="start" fill="#2e9e5b" font-size="11" font-weight="700">2,493</text>
+          <text x="730" y="152" text-anchor="start" fill="#1b4f8a" font-size="11" font-weight="700">4,200 planned</text>
+        </svg>
+      </div>
+      <div class="legend">
+        <div class="legend-item"><div class="legend-line" style="background:#2e9e5b"></div> Actual (cumulative)</div>
+        <div class="legend-item"><div class="legend-line" style="background:#1b4f8a; border-top: 3px dashed #1b4f8a; height:0"></div> Planned (cumulative)</div>
+      </div>
+      <div class="brand">Guesty</div>
+    </section>
+
+    <section class="slide" data-slide="1">
+      <h1 contenteditable="true">Actual vs Planned Chart</h1>
+      <p class="subtitle">Full cumulative view — Jun through Jul 2026</p>
+      <div class="chart-wrap" style="min-height:420px">
+        <svg viewBox="0 0 900 400" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="actualGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2e9e5b" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#2e9e5b" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <line x1="60" y1="340" x2="870" y2="340" stroke="#d1d5db"/>
+          <line x1="60" y1="30" x2="60" y2="340" stroke="#d1d5db"/>
+          <!-- Y grid -->
+          <line x1="60" y1="90" x2="870" y2="90" stroke="#e5e7eb" stroke-dasharray="4"/>
+          <line x1="60" y1="150" x2="870" y2="150" stroke="#e5e7eb" stroke-dasharray="4"/>
+          <line x1="60" y1="210" x2="870" y2="210" stroke="#e5e7eb" stroke-dasharray="4"/>
+          <line x1="60" y1="270" x2="870" y2="270" stroke="#e5e7eb" stroke-dasharray="4"/>
+          <text x="50" y="344" text-anchor="end" fill="#64748b" font-size="11">0</text>
+          <text x="50" y="274" text-anchor="end" fill="#64748b" font-size="11">2K</text>
+          <text x="50" y="214" text-anchor="end" fill="#64748b" font-size="11">4K</text>
+          <text x="50" y="154" text-anchor="end" fill="#64748b" font-size="11">6K</text>
+          <text x="50" y="94" text-anchor="end" fill="#64748b" font-size="11">8K</text>
+          <!-- 8500 target line -->
+          <line x1="60" y1="72" x2="870" y2="72" stroke="#dc2626" stroke-dasharray="6,4" stroke-width="1.5"/>
+          <text x="875" y="76" fill="#dc2626" font-size="10">8,500 goal</text>
+          <!-- planned -->
+          <polyline fill="none" stroke="#1b4f8a" stroke-width="2.5" stroke-dasharray="7,4"
+            points="120,318 220,298 320,258 420,218 520,178 620,138 720,98"/>
+          <!-- actual area + line -->
+          <polygon fill="url(#actualGrad)"
+            points="120,336 180,334 240,332 300,330 360,326 420,318 480,302 540,290 600,282 660,274 720,262 780,254 840,248 840,340 120,340"/>
+          <polyline fill="none" stroke="#2e9e5b" stroke-width="2.5"
+            points="120,336 180,334 240,332 300,330 360,326 420,318 480,302 540,290 600,282 660,274 720,262 780,254 840,248"/>
+          <circle cx="840" cy="248" r="6" fill="#2e9e5b" stroke="white" stroke-width="2"/>
+          <text x="848" y="242" fill="#2e9e5b" font-size="11" font-weight="700">2,493</text>
+          <!-- x axis -->
+          <text x="120" y="358" text-anchor="middle" fill="#64748b" font-size="9">4/13</text>
+          <text x="420" y="358" text-anchor="middle" fill="#64748b" font-size="9">6/1</text>
+          <text x="600" y="358" text-anchor="middle" fill="#64748b" font-size="9">6/15</text>
+          <text x="780" y="358" text-anchor="middle" fill="#64748b" font-size="9" font-weight="700">6/22</text>
+          <text x="720" y="358" text-anchor="middle" fill="#64748b" font-size="9">7/6</text>
+        </svg>
+      </div>
+      <div class="legend">
+        <div class="legend-item"><div class="legend-line" style="background:#2e9e5b"></div> Actual</div>
+        <div class="legend-item"><div class="legend-line" style="background:#1b4f8a"></div> Planned</div>
+        <div class="legend-item"><div class="legend-line" style="background:#dc2626"></div> 8,500 goal</div>
+      </div>
+    </section>
+
+    <section class="slide" data-slide="2">
+      <h1 contenteditable="true">Cumulative Data</h1>
+      <p class="subtitle">Running totals through each week</p>
+      <table contenteditable="true">
+        <thead>
+          <tr>
+            <th>Week</th><th>Weekly</th><th>Cum. Lite</th><th>Cum. Pro</th><th>Cum. Ent</th>
+            <th>Cum. Actual</th><th>Planned</th><th>Variance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>6/1/2026</td><td>245</td><td>352</td><td>276</td><td>0</td><td>628</td><td>500</td><td class="pos">+128</td></tr>
+          <tr><td>6/8/2026</td><td>1,004</td><td>776</td><td>847</td><td>9</td><td>1,632</td><td>1,097</td><td class="pos">+535</td></tr>
+          <tr><td>6/15/2026</td><td>312</td><td>776</td><td>1,159</td><td>9</td><td>1,944</td><td>2,650</td><td class="neg">−706</td></tr>
+          <tr><td>6/22/2026</td><td>549</td><td>779</td><td>1,705</td><td>9</td><td>2,493</td><td>4,200</td><td class="neg">−1,707</td></tr>
+          <tr><td>6/29/2026</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>5,800</td><td>—</td></tr>
+          <tr><td>7/6/2026</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>7,500</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="slide" data-slide="3">
+      <h1 contenteditable="true">Weekly Detail</h1>
+      <p class="subtitle">Weekly increments only (not cumulative)</p>
+      <table contenteditable="true">
+        <thead>
+          <tr><th>Week</th><th>Lite</th><th>Pro</th><th>Enterprise</th><th>Weekly Total</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>4/13/2026</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
+          <tr><td>4/20/2026</td><td>11</td><td>4</td><td>0</td><td>15</td></tr>
+          <tr><td>4/27/2026</td><td>28</td><td>11</td><td>0</td><td>39</td></tr>
+          <tr><td>5/4/2026</td><td>6</td><td>3</td><td>0</td><td>9</td></tr>
+          <tr><td>5/11/2026</td><td>11</td><td>8</td><td>0</td><td>19</td></tr>
+          <tr><td>5/18/2026</td><td>23</td><td>16</td><td>0</td><td>39</td></tr>
+          <tr><td>5/25/2026</td><td>159</td><td>98</td><td>0</td><td>257</td></tr>
+          <tr><td>6/1/2026</td><td>109</td><td>136</td><td>0</td><td>245</td></tr>
+          <tr><td>6/8/2026</td><td>424</td><td>571</td><td>9</td><td>1,004</td></tr>
+          <tr><td>6/15/2026</td><td>0</td><td>312</td><td>0</td><td>312</td></tr>
+          <tr><td>6/22/2026</td><td>3</td><td>546</td><td>0</td><td>549</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="slide" data-slide="4">
+      <h1 contenteditable="true">Reservation Migration Phases</h1>
+      <p class="subtitle">Jun 15 – Dec 31, 2026 · ~35K accounts · ~54M reservations</p>
+      <div class="phase-grid">
+        <div class="phase-card">
+          <strong contenteditable="true">Ramp-up</strong>
+          <span contenteditable="true">6/15 – 8/3 · 50 days<br>11,509 accounts · 7.1M reservations<br>142K res/day · 616 res/account</span>
+        </div>
+        <div class="phase-card">
+          <strong contenteditable="true">Steady Growth</strong>
+          <span contenteditable="true">8/4 – 9/22 · 50 days<br>8,513 accounts · 11.4M reservations<br>227K res/day · 1,335 res/account</span>
+        </div>
+        <div class="phase-card">
+          <strong contenteditable="true">Acceleration</strong>
+          <span contenteditable="true">9/23 – 11/11 · 50 days<br>7,689 accounts · 15.6M reservations<br>313K res/day · 2,034 res/account</span>
+        </div>
+        <div class="phase-card">
+          <strong contenteditable="true">Full Speed</strong>
+          <span contenteditable="true">11/12 – 12/31 · 50 days<br>7,290 accounts · 19.9M reservations<br>398K res/day · 2,731 res/account</span>
+        </div>
+      </div>
+      <div class="brand">Guesty</div>
+    </section>
+  </div>
+
+  <nav class="nav">
+    <button onclick="prev()">← Prev</button>
+    <a class="tab active" href="#" onclick="go(0);return false;">Overview</a>
+    <a class="tab" href="#" onclick="go(1);return false;">Chart</a>
+    <a class="tab" href="#" onclick="go(2);return false;">Data</a>
+    <a class="tab" href="#" onclick="go(3);return false;">Weekly</a>
+    <a class="tab" href="#" onclick="go(4);return false;">Phases</a>
+    <span class="counter" id="counter">1 / 5</span>
+    <button onclick="next()">Next →</button>
+  </nav>
+
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+    const tabs = document.querySelectorAll('.nav a.tab');
+    const total = slides.length;
+    function go(n) {
+      current = Math.max(0, Math.min(total - 1, n));
+      slides.forEach((s, i) => s.classList.toggle('active', i === current));
+      tabs.forEach((t, i) => t.classList.toggle('active', i === current));
+      document.getElementById('counter').textContent = (current + 1) + ' / ' + total;
+    }
+    function next() { go(current + 1); }
+    function prev() { go(current - 1); }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    });
+  </script>
+</body>
+</html>
