@@ -55,7 +55,7 @@ export default function HometimeEomMayDashboard(): JSX.Element {
 
       <Stack gap={12}>
         <H2>Critical EOM frictions</H2>
-        <Grid columns={3} gap={12}>
+        <Grid columns={2} gap={12}>
           <Card>
             <CardHeader><H3>#1 Tax-inclusive errors</H3></CardHeader>
             <CardBody>
@@ -78,18 +78,6 @@ export default function HometimeEomMayDashboard(): JSX.Element {
                 <Callout tone="success">
                   <Text size="sm" weight="medium">Resolution</Text>
                   <Text size="sm" tone="secondary">GOLD-9424 (Bugfix) / GOLD-9426 (Bugfix) — duplicate</Text>
-                </Callout>
-              </Stack>
-            </CardBody>
-          </Card>
-          <Card>
-            <CardHeader><H3>#3 Cash ledger gap</H3></CardHeader>
-            <CardBody>
-              <Stack gap={8}>
-                <Text tone="secondary">181 payments unrecognized from ~23 May.</Text>
-                <Callout tone="success">
-                  <Text size="sm" weight="medium">Resolution</Text>
-                  <Text size="sm" tone="secondary">ACC-5894 (Tech Fix) · T3-165833 (Tech Fix)</Text>
                 </Callout>
               </Stack>
             </CardBody>
