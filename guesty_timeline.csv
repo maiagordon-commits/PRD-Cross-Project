@@ -1,0 +1,18 @@
+Program,Track,Milestone,Description,Date Label,Start Date,End Date,Status,Target Accounts,Actual Accounts,Variance
+Account Migration,Weekly,Migration kickoff,Week 1 · Planned cumulative: 500 · Actual: 628,Jun 1,2026-06-01,2026-06-01,Actual,500,628,128
+Account Migration,Weekly,LITE + SMB rollout,"Week 2 · Planned cumulative: 1,097 · Actual: 1,632",Jun 8,2026-06-08,2026-06-08,Actual,1097,1632,535
+Reservation Migration,Ramp-up,Ramp-up phase,"11,509 accounts · 7,090,000 reservations · 142,000 res/day",6/15/2026 – 8/3/2026,2026-06-15,2026-08-03,Planned,11509,,
+Account Migration,Weekly,Accelerated migration,"Week 3 · Planned cumulative: 2,650 · Actual: 1,944",Jun 15,2026-06-15,2026-06-15,Actual,2650,1944,-706
+Account Migration,Weekly,Mid-Market onboarding,"Week 4 · Planned cumulative: 4,200 · Actual: 2,493",Jun 22,2026-06-22,2026-06-22,Actual,4200,2493,-1707
+Account Migration,Status,Current cumulative (as of snapshot),"2,493 accounts migrated",6/22/2026,2026-06-22,2026-06-22,Actual,2493,,
+Account Migration,Weekly,Full segment coverage,"Week 5 · Planned cumulative: 5,800",Jun 29,2026-06-29,2026-06-29,Planned,5800,,
+Open API,New Users,Block API usage by registration date,"By registration date, block API usage for new users",Early Q3,2026-07-01,2026-07-15,Planned,,,
+Account Migration,Weekly,GA readiness,"Week 6 · Planned cumulative: 7,500",Jul 6,2026-07-06,2026-07-06,Planned,7500,,
+Account Migration,Near-term,"Near-term goal (8,500 accounts)",Target cumulative migrated accounts,7/13/2026,2026-07-13,2026-07-13,Planned,8500,,
+Reservation Migration,Steady Growth,Steady Growth phase,"8,513 accounts · 11,360,000 reservations · 227,200 res/day",8/4/2026 – 9/22/2026,2026-08-04,2026-09-22,Planned,20022,,
+Open API,Existing Users,Automated email to migrated users,Start sending automated email to migrated users,Beginning of Sept,2026-09-01,2026-09-07,Planned,,,
+Open API,Existing Users,Communication to all users,Sending communication to all users,End of September,2026-09-22,2026-09-30,Planned,,,
+Reservation Migration,Acceleration,Acceleration phase,"7,689 accounts · 15,640,000 reservations · 312,800 res/day",9/23/2026 – 11/11/2026,2026-09-23,2026-11-11,Planned,27711,,
+Reservation Migration,Full Speed,Full Speed phase,"7,290 accounts · 19,910,000 reservations · 398,200 res/day",11/12/2026 – 12/31/2026,2026-11-12,2026-12-31,Planned,35001,,
+Account Migration,Full Program,"Full program (~35,001 accounts)",End of reservation migration program,12/31/2026,2026-12-31,2026-12-31,Planned,35001,,
+Open API,Existing Users,Deprecation of old Open API (OAPI),End of deprecation period for old OAPI,EO March 27,2027-03-27,2027-03-27,Planned,,,
