@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Co-Pilot — Usage Summary</title>
+  <style>
+    :root {
+      --navy: #1a2b4a;
+      --slate: #334155;
+      --muted: #64748b;
+      --bg: #f7f4ee;
+      --card: #ffffff;
+      --border: #e5e0d8;
+      --teal: #0d9b8a;
+      --sage: #5b8c5a;
+      --blue: #3b82f6;
+      --gold: #c9a227;
+      --light-teal: #e6f7f4;
+      --shadow: 0 4px 14px rgba(26, 43, 74, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #e8e4dc;
+      font-family: Calibri, "Segoe UI", system-ui, sans-serif;
+      color: var(--slate);
+      display: flex;
+      justify-content: center;
+      padding: 24px 12px 40px;
+    }
+    .slide {
+      width: min(1280px, 100%);
+      aspect-ratio: 16 / 9;
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 28px 36px 32px;
+      box-shadow: 0 12px 40px rgba(26, 43, 74, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(22px, 2.4vw, 32px);
+      color: var(--navy);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .sub {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: clamp(11px, 1vw, 13px);
+    }
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .kpi {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 16px 12px 14px;
+      text-align: center;
+    }
+    .kpi .val {
+      font-size: clamp(24px, 2.6vw, 34px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .kpi .lbl {
+      color: var(--muted);
+      font-size: clamp(11px, 1vw, 13px);
+    }
+    .c-teal { color: var(--teal); }
+    .c-sage { color: var(--sage); }
+    .c-blue { color: var(--blue); }
+    .c-gold { color: var(--gold); }
+    .main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.95fr 1fr;
+      gap: 16px;
+      min-height: 0;
+    }
+    .chart-card, .phase {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+    .chart-card {
+      padding: 16px 18px 10px;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+    .chart-card h2 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(16px, 1.6vw, 20px);
+      color: var(--navy);
+      font-weight: 700;
+    }
+    .chart-wrap {
+      flex: 1;
+      min-height: 0;
+      position: relative;
+    }
+    svg { width: 100%; height: 100%; display: block; }
+    .phases {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .phase {
+      padding: 12px 14px 14px;
+      flex: 1;
+    }
+    .phase.highlight {
+      background: var(--light-teal);
+      border-color: var(--teal);
+    }
+    .phase h3 {
+      margin: 0 0 4px;
+      font-size: clamp(12px, 1.05vw, 14px);
+      color: var(--navy);
+      font-weight: 700;
+    }
+    .phase .metric-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .phase .metric {
+      font-size: clamp(20px, 2vw, 26px);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .phase.highlight .metric { color: var(--teal); }
+    .phase .metric-lbl {
+      color: var(--muted);
+      font-size: clamp(10px, 0.95vw, 12px);
+    }
+    .phase p {
+      margin: 0;
+      font-size: clamp(11px, 1vw, 12.5px);
+      line-height: 1.4;
+      color: var(--slate);
+    }
+    @media (max-width: 820px) {
+      .slide { aspect-ratio: auto; height: auto; }
+      .kpis { grid-template-columns: 1fr 1fr; }
+      .main { grid-template-columns: 1fr; }
+      .chart-wrap { height: 280px; }
+    }
+  </style>
+</head>
+<body>
+  <article class="slide" aria-label="Data Co-Pilot usage summary slide">
+    <header>
+      <h1>Data Co-Pilot</h1>
+      <p class="sub">Usage summary · Q2 2026 · Source: Data Copilot Usage Report 2026-07-15</p>
+    </header>
+
+    <section class="kpis" aria-label="Key metrics">
+      <div class="kpi"><div class="val c-teal">21,410</div><div class="lbl">Q2 Total Queries</div></div>
+      <div class="kpi"><div class="val c-sage">3,876</div><div class="lbl">Q2 Unique Users</div></div>
+      <div class="kpi"><div class="val c-blue">885</div><div class="lbl">Peak WAU (Post-GA)</div></div>
+      <div class="kpi"><div class="val c-gold">3,220</div><div class="lbl">Unique Accounts</div></div>
+    </section>
+
+    <section class="main">
+      <div class="chart-card">
+        <h2>Weekly Active Users</h2>
+        <div class="chart-wrap">
+          <!-- WAU weeks 1–13: pre-GA low → GA spike → post-GA plateau → week-13 dip -->
+          <svg viewBox="0 0 760 360" role="img" aria-label="Weekly active users line chart from week 1 to 13">
+            <defs>
+              <pattern id="grid" width="58" height="32" patternUnits="userSpaceOnUse">
+                <path d="M 58 0 L 0 0 0 32" fill="none" stroke="#ece7df" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <!-- plot area -->
+            <rect x="52" y="10" width="686" height="300" fill="url(#grid)" stroke="#d6d0c8" stroke-width="1"/>
+            <!-- y labels 0–1000 -->
+            <g fill="#64748b" font-size="11" font-family="Calibri, sans-serif" text-anchor="end">
+              <text x="46" y="314">0</text>
+              <text x="46" y="282">100</text>
+              <text x="46" y="250">200</text>
+              <text x="46" y="218">300</text>
+              <text x="46" y="186">400</text>
+              <text x="46" y="154">500</text>
+              <text x="46" y="122">600</text>
+              <text x="46" y="90">700</text>
+              <text x="46" y="58">800</text>
+              <text x="46" y="26">900</text>
+            </g>
+            <!-- x labels 1–13 -->
+            <g fill="#64748b" font-size="12" font-family="Calibri, sans-serif" text-anchor="middle">
+              <text x="78" y="334">1</text>
+              <text x="131" y="334">2</text>
+              <text x="184" y="334">3</text>
+              <text x="237" y="334">4</text>
+              <text x="290" y="334">5</text>
+              <text x="343" y="334">6</text>
+              <text x="396" y="334">7</text>
+              <text x="449" y="334">8</text>
+              <text x="502" y="334">9</text>
+              <text x="555" y="334">10</text>
+              <text x="608" y="334">11</text>
+              <text x="661" y="334">12</text>
+              <text x="714" y="334">13</text>
+            </g>
+            <!-- line: y = 310 - value*0.3 ; x starts 78 step 53 -->
+            <!-- values: 48,55,62,70,74,88,796,812,745,868,885,778,486 -->
+            <polyline
+              fill="none" stroke="#0d9b8a" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"
+              points="
+                78,295.6
+                131,293.5
+                184,291.4
+                237,289.0
+                290,287.8
+                343,283.6
+                396,71.2
+                449,66.4
+                502,86.5
+                555,49.6
+                608,44.5
+                661,76.6
+                714,164.2
+              "/>
+            <g fill="#0d9b8a" stroke="#fff" stroke-width="1.5">
+              <circle cx="78" cy="295.6" r="4.5"/>
+              <circle cx="131" cy="293.5" r="4.5"/>
+              <circle cx="184" cy="291.4" r="4.5"/>
+              <circle cx="237" cy="289.0" r="4.5"/>
+              <circle cx="290" cy="287.8" r="4.5"/>
+              <circle cx="343" cy="283.6" r="4.5"/>
+              <circle cx="396" cy="71.2" r="4.5"/>
+              <circle cx="449" cy="66.4" r="4.5"/>
+              <circle cx="502" cy="86.5" r="4.5"/>
+              <circle cx="555" cy="49.6" r="4.5"/>
+              <circle cx="608" cy="44.5" r="4.5"/>
+              <circle cx="661" cy="76.6" r="4.5"/>
+              <circle cx="714" cy="164.2" r="4.5"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="phases" aria-label="Launch phases">
+        <div class="phase">
+          <h3>Pre-GA (Apr 1 – May 17)</h3>
+          <div class="metric-row">
+            <span class="metric">67</span>
+            <span class="metric-lbl">avg WAU</span>
+          </div>
+          <p>1,862 total queries · max 88 WAU in the final pre-GA week.</p>
+        </div>
+        <div class="phase highlight">
+          <h3>GA Launch (May 18)</h3>
+          <div class="metric-row">
+            <span class="metric">796</span>
+            <span class="metric-lbl">WAU (launch week)</span>
+          </div>
+          <p>11x surge (88 → 796) · 5,176 queries in 7 days — a record.</p>
+        </div>
+        <div class="phase">
+          <h3>Post-GA (May 22 – Jun 26)</h3>
+          <div class="metric-row">
+            <span class="metric">885</span>
+            <span class="metric-lbl">peak WAU</span>
+          </div>
+          <p>Avg 767 · 730–885 across 5 of 6 weeks · Jun 26 dipped to 486.</p>
+        </div>
+      </div>
+    </section>
+  </article>
+</body>
+</html>
