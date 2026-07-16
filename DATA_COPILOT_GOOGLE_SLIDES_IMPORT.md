@@ -1,6 +1,6 @@
 # Data Co-Pilot — Usage Summary (One Slide)
 
-One-slide executive summary of the shared **Data Copilot Usage Report 2026-07-15** canvas.
+One-slide executive summary from **Data Copilot Usage Report 2026-07-15**.
 
 ## Files
 
@@ -11,25 +11,24 @@ One-slide executive summary of the shared **Data Copilot Usage Report 2026-07-15
 | `exports/data-copilot-usage-summary.html` | Browser preview |
 | `DATA_COPILOT_GOOGLE_SLIDES_IMPORT.md` | Import instructions |
 
+## Source metrics (2026-07-15)
+
+| KPI | Value |
+|-----|-------|
+| Queries (3mo) | 26,082 |
+| Unique users | 4,583 |
+| Latest WAU (Jul 8) | 718 |
+| June MAU | 2,592 |
+
+WAU milestones: GA week May 13 → peak **945** (May 20) → June soft patch **627** → July ~700+.
+
+Displacement: Co-Pilot users are ~6% of report-page users (232 vs 3,847 in 30d) — do not pitch “replaces reports” yet.
+
 ## Open as Google Slides
 
 1. Download `Data_Copilot_Usage_Summary.pptx`
 2. Upload to [Google Drive](https://drive.google.com)
 3. Right-click → **Open with → Google Slides**
-4. Optional: **File → Save as Google Slides** for a native shareable link
-
-### Import into an existing deck
-
-1. Open a Google Slides presentation
-2. **File → Import slides**
-3. Upload the `.pptx`
-4. Select the slide → **Import**
-
-## What’s on the slide
-
-- **4 KPIs:** Q2 Total Queries (21,410), Unique Users (3,876), Peak WAU (885), Unique Accounts (3,220)
-- **Weekly Active Users** line chart (weeks 1–13) showing pre-GA baseline → GA launch spike → post-GA plateau → week-13 dip
-- **Phase cards:** Pre-GA, GA Launch (highlighted), Post-GA
 
 ## Regenerate
 
