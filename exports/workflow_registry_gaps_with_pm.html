@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workflow Registry Gaps + PM</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card: #171a21;
+      --border: #2a2f3a;
+      --text: #e8eaed;
+      --muted: #9aa3b2;
+      --danger: #f87171;
+      --warn: #fbbf24;
+      --ok: #34d399;
+      --accent: #60a5fa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Calibri, system-ui, sans-serif;
+      padding: 28px 24px 48px;
+    }
+    h1 { margin: 0 0 6px; font-size: 28px; font-weight: 700; }
+    .sub { color: var(--muted); margin: 0 0 22px; font-size: 13px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .stat .v { font-size: 28px; font-weight: 700; }
+    .stat .l { color: var(--muted); font-size: 12px; margin-top: 4px; }
+    .critical {
+      background: #2a1518;
+      border: 1px solid #7f1d1d;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    th { color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+    tr:last-child td { border-bottom: none; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .g3 { background: #3f1515; color: var(--danger); }
+    .g2 { background: #3a2a10; color: var(--warn); }
+    .g1 { background: #15253f; color: var(--accent); }
+    .ok { background: #123528; color: var(--ok); }
+    .bad { background: #3f1515; color: var(--danger); }
+    .warn { background: #3a2a10; color: var(--warn); }
+    .pm { font-weight: 600; }
+    .note { margin-top: 16px; color: var(--muted); font-size: 12px; line-height: 1.45; }
+    @media (max-width: 900px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Workflow Registry Gaps + PM</h1>
+  <p class="sub">Gap matrix from canvas-9wakIoT1VAVW5-WtNx2NpHEv · PM column from Agent Hub ownership</p>
+
+  <div class="stats">
+    <div class="stat"><div class="v">16</div><div class="l">Workflows with gaps</div></div>
+    <div class="stat"><div class="v">3</div><div class="l">Missing evals</div></div>
+    <div class="stat"><div class="v">10</div><div class="l">Empty attention criteria</div></div>
+    <div class="stat"><div class="v">14</div><div class="l">Missing resource_declarations</div></div>
+  </div>
+
+  <div class="critical">
+    <strong>Critical (all 3 missing):</strong>
+    owner-health → Gil Sheffi · reservation-readiness-surfacer → Yarin Lerer
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Workflow</th>
+        <th>Gaps</th>
+        <th>evals</th>
+        <th>attention criteria</th>
+        <th>resource_declarations</th>
+        <th>PM</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>owner-health</code></td><td><span class="pill g3">3</span></td><td><span class="pill bad">absent</span></td><td><span class="pill warn">criteria_prompt empty</span></td><td><span class="pill bad">absent</span></td><td class="pm">Gil Sheffi</td></tr>
+      <tr><td><code>reservation-readiness-surfacer</code></td><td><span class="pill g3">3</span></td><td><span class="pill bad">empty list</span></td><td><span class="pill warn">criteria_prompt empty</span></td><td><span class="pill bad">absent</span></td><td class="pm">Yarin Lerer</td></tr>
+      <tr><td><code>bookingcom-collect-deposit</code></td><td><span class="pill g2">2</span></td><td><span class="pill ok">OK</span></td><td><span class="pill warn">criteria_prompt empty</span></td><td><span class="pill bad">absent</span></td><td class="pm">Eliana Ferdman</td></tr>
+      <tr><td><code>channel-collect-deposit</code></td><td><span class="pill g2">2</span></td><td><span class="pill ok">OK</span></td><td><span class="pill warn">criteria_prompt empty</span></td><td><span class="pill bad">absent</span></td><td class="pm">Eliana Ferdman</td></tr>
+      <tr><td><code>checkout-balance-collection</code></td><td><span class="pill g2">2</span></td><td><span class="pill ok">OK</span></td><td><span class="pill warn">criteria_prompt empty</span></td><td><span class="pill bad">absent</span></td><td class="pm">Dina Kats</td></tr>
+      <tr><td><code>daily-task-coverage-board</code></td><td><span class="pill g2">2</span></td><td><span class="pill ok">OK</span></td><td><span class="pill warn">criteria_prompt empty</span></td><td><span class="pill bad">absent</span></td><td class="pm">Yarin Lerer</td></tr>
+      <tr><td><code>expedia-collect-deposit</code></td><td><span class="pill g2">2</span></td><td><span class="pill ok">OK</span></td><td><span class="pill warn">criteria_prompt empty</span></td><td><span class="pill bad">absent</span></td><td class="pm">Eliana Ferdman</td></tr>
+      <tr><td><code>saved-replies-review</code></td><td><span class="pill g2">2</span></td><td><span class="pill ok">OK</span></td><td><span class="pill warn">criteria_prompt empty</span></td><td><span class="pill bad">absent</span></td><td class="pm">Lital Herman</td></tr>
+      <tr><td><code>weekly-operations-brief</code></td><td><span class="pill g2">2</span></td><td><span class="pill ok">OK</span></td><td><span class="pill warn">criteria_prompt empty</span></td><td><span class="pill bad">absent</span></td><td class="pm">Gur Geron</td></tr>
+      <tr><td><code>advanced-deposit-clearance</code></td><td><span class="pill g1">1</span></td><td><span class="pill ok">OK</span></td><td><span class="pill ok">OK</span></td><td><span class="pill bad">absent</span></td><td class="pm">Rotem Meir</td></tr>
+      <tr><td><code>airbnb-listing-quality-audit</code></td><td><span class="pill g1">1</span></td><td><span class="pill ok">OK</span></td><td><span class="pill ok">OK</span></td><td><span class="pill bad">absent</span></td><td class="pm">Javier Ibarz</td></tr>
+      <tr><td><code>calendar-block-monitor</code></td><td><span class="pill g1">1</span></td><td><span class="pill ok">OK</span></td><td><span class="pill ok">OK</span></td><td><span class="pill bad">absent</span></td><td class="pm">Yarin Lerer</td></tr>
+      <tr><td><code>checkin-readiness</code></td><td><span class="pill g1">1</span></td><td><span class="pill bad">empty list</span></td><td><span class="pill ok">OK</span></td><td><span class="pill ok">OK</span></td><td class="pm">Gil Sheffi</td></tr>
+      <tr><td><code>city-tax-config-audit</code></td><td><span class="pill g1">1</span></td><td><span class="pill ok">OK</span></td><td><span class="pill ok">OK</span></td><td><span class="pill bad">absent</span></td><td class="pm">Alex Fischer Birnbaum</td></tr>
+      <tr><td><code>cleaning-schedule-conflict-detector</code></td><td><span class="pill g1">1</span></td><td><span class="pill ok">OK</span></td><td><span class="pill ok">OK</span></td><td><span class="pill bad">absent</span></td><td class="pm">Yarin Lerer</td></tr>
+      <tr><td><code>stay-status-reconciler</code></td><td><span class="pill g1">1</span></td><td><span class="pill ok">OK</span></td><td><span class="pill warn">criteria_prompt empty</span></td><td><span class="pill ok">OK</span></td><td class="pm">Yarin Lerer</td></tr>
+    </tbody>
+  </table>
+
+  <p class="note">
+    Notes: <code>channel-collect-deposit</code> mapped to Eliana Ferdman (Airbnb/channel collect-deposit alongside bookingcom + expedia).
+    <code>airbnb-listing-quality-audit</code> owned by Javier Ibarz (Distribution).
+    Ownership sourced from #agent-hub-june-20-agents and related threads.
+  </p>
+</body>
+</html>
