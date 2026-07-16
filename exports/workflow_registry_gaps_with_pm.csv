@@ -1,0 +1,17 @@
+Workflow,Gaps,evals,attention_criteria,resource_declarations,PM
+owner-health,3,absent,criteria_prompt empty,absent,Gil Sheffi
+reservation-readiness-surfacer,3,empty list,criteria_prompt empty,absent,Yarin Lerer
+bookingcom-collect-deposit,2,OK,criteria_prompt empty,absent,Eliana Ferdman
+channel-collect-deposit,2,OK,criteria_prompt empty,absent,Eliana Ferdman
+checkout-balance-collection,2,OK,criteria_prompt empty,absent,Dina Kats
+daily-task-coverage-board,2,OK,criteria_prompt empty,absent,Yarin Lerer
+expedia-collect-deposit,2,OK,criteria_prompt empty,absent,Eliana Ferdman
+saved-replies-review,2,OK,criteria_prompt empty,absent,Lital Herman
+weekly-operations-brief,2,OK,criteria_prompt empty,absent,Gur Geron
+advanced-deposit-clearance,1,OK,OK,absent,Rotem Meir
+airbnb-listing-quality-audit,1,OK,OK,absent,Javier Ibarz
+calendar-block-monitor,1,OK,OK,absent,Yarin Lerer
+checkin-readiness,1,empty list,OK,OK,Gil Sheffi
+city-tax-config-audit,1,OK,OK,absent,Alex Fischer Birnbaum
+cleaning-schedule-conflict-detector,1,OK,OK,absent,Yarin Lerer
+stay-status-reconciler,1,OK,criteria_prompt empty,OK,Yarin Lerer
