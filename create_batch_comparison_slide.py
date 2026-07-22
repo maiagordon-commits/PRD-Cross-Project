@@ -22,6 +22,7 @@ COLOR_BG = RGBColor(245, 240, 232)
 COLOR_TEXT = RGBColor(30, 41, 59)
 COLOR_MAY = RGBColor(45, 75, 30)
 COLOR_JUNE = RGBColor(209, 226, 245)
+COLOR_JULY = RGBColor(180, 83, 9)
 COLOR_HEADER = RGBColor(45, 75, 30)
 COLOR_WHITE = RGBColor(255, 255, 255)
 COLOR_MID = RGBColor(100, 116, 139)
@@ -75,15 +76,15 @@ def build_data_slide(slide):
                 "Edit values below, then regenerate the chart if needed.",
                 size=11, color=COLOR_MID, italic=True, align=PP_ALIGN.CENTER)
 
-    headers = ["Domain", "May Batch Count", "June Batch Count", "Total"]
+    headers = ["Domain", "May Batch Count", "June Batch Count", "July", "May+Jun Total"]
     rows = []
     for domain, may, june in zip(DOMAINS, MAY_BATCH, JUNE_BATCH):
-        rows.append([domain, str(may), str(june), str(may + june)])
+        rows.append([domain, str(may), str(june), "GA (all)", str(may + june)])
 
     table_shape = slide.shapes.add_table(
-        len(rows) + 1, len(headers), Inches(1.2), Inches(1.6), Inches(10.9), Inches(4.8))
+        len(rows) + 1, len(headers), Inches(0.7), Inches(1.5), Inches(11.9), Inches(4.6))
     table = table_shape.table
-    col_widths = [Inches(2.4), Inches(2.6), Inches(2.6), Inches(1.8)]
+    col_widths = [Inches(2.2), Inches(2.4), Inches(2.4), Inches(2.2), Inches(2.2)]
     for i, w in enumerate(col_widths):
         table.columns[i].width = w
 
@@ -97,8 +98,9 @@ def build_data_slide(slide):
             _style_cell(table.cell(ri, ci), val, bold=bold)
 
     # Legend note
-    add_textbox(slide, Inches(1.2), Inches(6.55), Inches(5), Inches(0.3),
-                "■ May Batch Count (dark green)    ■ June Batch Count (light blue)",
+    add_textbox(slide, Inches(0.7), Inches(6.35), Inches(12), Inches(0.45),
+                "■ May Batch Count (dark green)    ■ June Batch Count (light blue)    "
+                "■ July — GA for all accounts (amber; no per-domain count)",
                 size=10, color=COLOR_TEXT)
 
 
