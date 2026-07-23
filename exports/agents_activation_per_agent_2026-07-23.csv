@@ -1,0 +1,37 @@
+Rank,Agent,Category,Accounts activated,% of 373
+1,Negative review challenger,COMMUNICATIONS,222,59.5
+2,Unpaid reservation tracker,FINANCE,170,45.6
+3,Review response master,COMMUNICATIONS,166,44.5
+4,Risky reservation detector,OPERATIONS,166,44.5
+5,Saved replies optimizer,COMMUNICATIONS,162,43.4
+6,Commitment keeper,OPERATIONS,161,43.2
+7,Weekly Operation Brief,OPERATIONS,156,41.8
+8,Calendar conflict detector,OPERATIONS,148,39.7
+9,Inquiry expiry manager,OPERATIONS,126,33.8
+10,Check-in readiness,OPERATIONS,120,32.2
+11,Review to task dispatcher,OPERATIONS,103,27.6
+12,Amenity gap detector,OPERATIONS,99,26.5
+13,Reservation handoff brief,OPERATIONS,93,24.9
+14,Airbnb quality detector,DISTRIBUTION,92,24.7
+15,Maintenance tracker,OPERATIONS,92,24.7
+16,Reservation duplicate detector,OPERATIONS,92,24.7
+17,Tax Configuration Audit,FINANCE,87,23.3
+18,Daily task coverage board,OPERATIONS,81,21.7
+19,Calendar block monitor,OPERATIONS,80,21.4
+20,Advance deposit checker,ACCOUNTING,77,20.6
+21,Monthly cancelled reservations,ACCOUNTING,73,19.6
+22,Fee configuration detector,FINANCE,71,19.0
+23,Team access review,OPERATIONS,71,19.0
+24,Translation gap filler,OPERATIONS,60,16.1
+25,Stay status reconciler,OPERATIONS,59,15.8
+26,Owner payment details collector,OWNER_RELATIONS,43,11.5
+27,Vacancy task detector,OPERATIONS,41,11.0
+28,Security deposit extender,FINANCE,38,10.2
+29,Cleaning conflict detector,OPERATIONS,25,6.7
+30,Listing Ownership Gap Finder,OWNER_RELATIONS,16,4.3
+31,Maintenance block agent,OPERATIONS,13,3.5
+32,Checkout balance collection,FINANCE,6,1.6
+33,Realization window auditor,ACCOUNTING,6,1.6
+34,Multi-unit fee detector,FINANCE,5,1.3
+35,Negative owner revenue detector,ACCOUNTING,5,1.3
+36,Reservation readiness surfacer,OPERATIONS,5,1.3
