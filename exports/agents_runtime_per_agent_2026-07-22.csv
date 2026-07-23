@@ -1,0 +1,27 @@
+Agent,Category,Runs,DONE,FAILED,Success %,Accounts
+Calendar conflict detector,OPERATIONS,111,98,13,88.3,48
+Review response master,COMMUNICATIONS,107,44,63,41.1,50
+Inquiry expiry manager,OPERATIONS,90,78,12,86.7,40
+Risky reservation detector,OPERATIONS,44,40,4,90.9,44
+Maintenance block agent,OPERATIONS,37,37,0,100.0,5
+Check-in readiness,OPERATIONS,35,24,11,68.6,35
+Stay status reconciler,OPERATIONS,15,12,3,80.0,14
+Negative review challenger,COMMUNICATIONS,11,8,3,72.7,11
+Saved replies optimizer,COMMUNICATIONS,11,8,3,72.7,10
+Unpaid reservation tracker,FINANCE,11,8,3,72.7,10
+Commitment keeper,OPERATIONS,9,9,0,100.0,9
+Calendar block monitor,OPERATIONS,6,6,0,100.0,6
+Maintenance tracker,OPERATIONS,6,6,0,100.0,6
+Tax Configuration Audit,FINANCE,6,6,0,100.0,6
+Advance deposit checker,ACCOUNTING,6,5,1,83.3,6
+Review to task dispatcher,OPERATIONS,6,5,1,83.3,6
+Daily task coverage board,OPERATIONS,4,4,0,100.0,3
+Security deposit extender,FINANCE,3,3,0,100.0,3
+Vacancy task detector,OPERATIONS,3,3,0,100.0,3
+Weekly Operation Brief,OPERATIONS,3,3,0,100.0,3
+Reservation handoff brief,OPERATIONS,2,2,0,100.0,2
+Airbnb quality detector,DISTRIBUTION,1,1,0,100.0,1
+Cleaning conflict detector,OPERATIONS,1,1,0,100.0,1
+Monthly cancelled reservations,ACCOUNTING,1,1,0,100.0,1
+Reservation duplicate detector,OPERATIONS,1,1,0,100.0,1
+Team access review,OPERATIONS,1,1,0,100.0,1
