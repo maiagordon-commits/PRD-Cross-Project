@@ -15,7 +15,7 @@ body {
     radial-gradient(700px 360px at 100% 0%, #FEE2E2 0%, transparent 45%),
     var(--bg);
 }
-.wrap { max-width:1120px; margin:0 auto; padding:36px 22px 72px; }
+.wrap { max-width:1180px; margin:0 auto; padding:36px 22px 72px; }
 h1 { font-family:"Fraunces",Georgia,serif; font-size:clamp(1.7rem,3vw,2.35rem); margin:0 0 6px; letter-spacing:-0.02em; }
 .sub { color:var(--muted); margin:0 0 22px; max-width:60ch; }
 .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:22px; }
@@ -24,23 +24,37 @@ h1 { font-family:"Fraunces",Georgia,serif; font-size:clamp(1.7rem,3vw,2.35rem); 
 .kpi strong { font-size:1.55rem; font-variant-numeric:tabular-nums; }
 .kpi.ok strong { color:var(--ok); }
 .kpi.bad strong { color:var(--fail); }
-.grid2 { display:grid; grid-template-columns:1.2fr 0.8fr; gap:14px; margin-bottom:14px; }
+.grid2 { display:grid; grid-template-columns:1.35fr 0.75fr; gap:14px; margin-bottom:14px; }
 .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 18px 12px; }
 .card h2 { margin:0 0 14px; font-size:1.05rem; }
+.legend { color:var(--muted); font-weight:500; font-size:0.85rem; }
 .ccard { display:flex; gap:12px; padding:10px 0; border-top:1px solid #F1F5F9; }
 .cdot { width:12px; height:12px; border-radius:50%; margin-top:4px; flex:0 0 auto; }
 .ccard p { margin:2px 0 6px; color:var(--muted); font-size:0.85rem; }
 .mini { height:8px; background:#F1F5F9; border-radius:99px; overflow:hidden; }
 .mini div { height:100%; }
 .ok { color:var(--ok); } .fail { color:var(--fail); }
-.arow { display:grid; grid-template-columns:210px 1fr 110px; gap:10px; align-items:center; padding:8px 0; border-top:1px solid #F1F5F9; }
-.aname { font-size:0.9rem; }
+.arow {
+  display:grid; grid-template-columns:200px minmax(120px,1fr) 170px; gap:14px;
+  align-items:center; padding:10px 0; border-top:1px solid #F1F5F9;
+}
+.aname { font-size:0.92rem; }
 .aname small { display:block; color:var(--muted); font-size:0.75rem; margin-top:2px; }
-.atrack { display:flex; height:14px; background:#F1F5F9; border-radius:99px; overflow:hidden; }
+.atrack { display:flex; height:16px; background:#F1F5F9; border-radius:99px; overflow:hidden; }
 .adone { background:var(--ok); height:100%; }
 .afail { background:var(--fail); height:100%; }
-.astats { text-align:right; font-variant-numeric:tabular-nums; font-size:0.88rem; }
-.astats em { display:block; font-style:normal; color:var(--muted); font-size:0.75rem; }
+.astats {
+  display:grid; grid-template-columns:1fr auto; grid-template-rows:auto auto;
+  column-gap:10px; row-gap:2px; align-items:center; justify-items:end;
+  font-variant-numeric:tabular-nums; min-width:170px;
+}
+.astats .nums { font-size:1rem; font-weight:700; }
+.astats .sep { color:var(--muted); margin:0 3px; font-weight:500; }
+.astats .total { color:var(--muted); font-size:0.78rem; grid-column:1; }
+.astats .pct {
+  grid-row:1 / span 2; grid-column:2; font-size:1.15rem; font-weight:700; color:var(--ink);
+  background:#F8FAFC; border:1px solid var(--line); border-radius:10px; padding:8px 10px;
+}
 .hours { display:flex; align-items:flex-end; gap:3px; height:80px; margin-top:8px; }
 .hbar { flex:1; background:var(--ok); border-radius:3px 3px 0 0; opacity:0.85; min-width:4px; }
 table { width:100%; border-collapse:collapse; font-size:0.9rem; margin-top:8px; }
@@ -48,12 +62,11 @@ th, td { padding:8px 10px; text-align:left; border-bottom:1px solid var(--line);
 th { background:#0F172A; color:#fff; }
 td:nth-child(n+2) { font-variant-numeric:tabular-nums; }
 footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
-@media (max-width:860px) {
-  .kpis, .grid2 { grid-template-columns:1fr 1fr; }
-  .arow { grid-template-columns:1fr; gap:4px; }
-  .astats { text-align:left; }
+@media (max-width:900px) {
+  .kpis, .grid2 { grid-template-columns:1fr; }
+  .arow { grid-template-columns:1fr; gap:6px; }
+  .astats { justify-items:start; grid-template-columns:auto auto; }
 }
-@media (max-width:520px) { .kpis { grid-template-columns:1fr; } .grid2 { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -64,13 +77,13 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
   <div class="kpis">
     <div class="kpi"><span>Total runs</span><strong>531</strong></div>
     <div class="kpi"><span>Accounts</span><strong>111</strong></div>
-    <div class="kpi ok"><span>DONE</span><strong>414</strong></div>
-    <div class="kpi bad"><span>FAILED</span><strong>117</strong></div>
+    <div class="kpi ok"><span>DONE</span><strong>414 <small style="font-size:0.9rem;color:var(--muted)">(78%)</small></strong></div>
+    <div class="kpi bad"><span>FAILED</span><strong>117 <small style="font-size:0.9rem;color:var(--muted)">(22%)</small></strong></div>
   </div>
 
   <div class="grid2">
     <div class="card">
-      <h2>Runs per agent <span style="color:var(--muted);font-weight:500;font-size:0.85rem">green = DONE · red = FAILED</span></h2>
+      <h2>Runs per agent <span class="legend">· green = DONE · red = FAILED · right column = exact values</span></h2>
       
     <div class="arow">
       <div class="aname">Calendar conflict detector<small>Operations · 48 accounts</small></div>
@@ -78,7 +91,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:88.3%"></div>
         <div class="afail" style="width:11.7%"></div>
       </div>
-      <div class="astats"><b>98</b> / <span class="fail">13</span><em>88%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">98</span><span class="sep">/</span><span class="fail">13</span></div>
+        <div class="total">111 runs</div>
+        <div class="pct">88%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Review response master<small>Communications · 50 accounts</small></div>
@@ -86,7 +103,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:39.6%"></div>
         <div class="afail" style="width:56.8%"></div>
       </div>
-      <div class="astats"><b>44</b> / <span class="fail">63</span><em>41%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">44</span><span class="sep">/</span><span class="fail">63</span></div>
+        <div class="total">107 runs</div>
+        <div class="pct">41%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Inquiry expiry manager<small>Operations · 40 accounts</small></div>
@@ -94,7 +115,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:70.3%"></div>
         <div class="afail" style="width:10.8%"></div>
       </div>
-      <div class="astats"><b>78</b> / <span class="fail">12</span><em>87%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">78</span><span class="sep">/</span><span class="fail">12</span></div>
+        <div class="total">90 runs</div>
+        <div class="pct">87%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Risky reservation detector<small>Operations · 44 accounts</small></div>
@@ -102,7 +127,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:36.0%"></div>
         <div class="afail" style="width:3.6%"></div>
       </div>
-      <div class="astats"><b>40</b> / <span class="fail">4</span><em>91%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">40</span><span class="sep">/</span><span class="fail">4</span></div>
+        <div class="total">44 runs</div>
+        <div class="pct">91%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Maintenance block agent<small>Operations · 5 accounts</small></div>
@@ -110,7 +139,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:33.3%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>37</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">37</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">37 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Check-in readiness<small>Operations · 35 accounts</small></div>
@@ -118,7 +151,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:21.6%"></div>
         <div class="afail" style="width:9.9%"></div>
       </div>
-      <div class="astats"><b>24</b> / <span class="fail">11</span><em>69%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">24</span><span class="sep">/</span><span class="fail">11</span></div>
+        <div class="total">35 runs</div>
+        <div class="pct">69%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Stay status reconciler<small>Operations · 14 accounts</small></div>
@@ -126,7 +163,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:10.8%"></div>
         <div class="afail" style="width:2.7%"></div>
       </div>
-      <div class="astats"><b>12</b> / <span class="fail">3</span><em>80%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">12</span><span class="sep">/</span><span class="fail">3</span></div>
+        <div class="total">15 runs</div>
+        <div class="pct">80%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Negative review challenger<small>Communications · 11 accounts</small></div>
@@ -134,7 +175,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:7.2%"></div>
         <div class="afail" style="width:2.7%"></div>
       </div>
-      <div class="astats"><b>8</b> / <span class="fail">3</span><em>73%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">8</span><span class="sep">/</span><span class="fail">3</span></div>
+        <div class="total">11 runs</div>
+        <div class="pct">73%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Saved replies optimizer<small>Communications · 10 accounts</small></div>
@@ -142,7 +187,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:7.2%"></div>
         <div class="afail" style="width:2.7%"></div>
       </div>
-      <div class="astats"><b>8</b> / <span class="fail">3</span><em>73%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">8</span><span class="sep">/</span><span class="fail">3</span></div>
+        <div class="total">11 runs</div>
+        <div class="pct">73%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Unpaid reservation tracker<small>Finance · 10 accounts</small></div>
@@ -150,7 +199,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:7.2%"></div>
         <div class="afail" style="width:2.7%"></div>
       </div>
-      <div class="astats"><b>8</b> / <span class="fail">3</span><em>73%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">8</span><span class="sep">/</span><span class="fail">3</span></div>
+        <div class="total">11 runs</div>
+        <div class="pct">73%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Commitment keeper<small>Operations · 9 accounts</small></div>
@@ -158,7 +211,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:8.1%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>9</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">9</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">9 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Calendar block monitor<small>Operations · 6 accounts</small></div>
@@ -166,7 +223,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:5.4%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>6</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">6</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">6 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Maintenance tracker<small>Operations · 6 accounts</small></div>
@@ -174,7 +235,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:5.4%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>6</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">6</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">6 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Tax Configuration Audit<small>Finance · 6 accounts</small></div>
@@ -182,7 +247,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:5.4%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>6</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">6</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">6 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Advance deposit checker<small>Accounting · 6 accounts</small></div>
@@ -190,7 +259,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:4.5%"></div>
         <div class="afail" style="width:0.9%"></div>
       </div>
-      <div class="astats"><b>5</b> / <span class="fail">1</span><em>83%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">5</span><span class="sep">/</span><span class="fail">1</span></div>
+        <div class="total">6 runs</div>
+        <div class="pct">83%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Review to task dispatcher<small>Operations · 6 accounts</small></div>
@@ -198,7 +271,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:4.5%"></div>
         <div class="afail" style="width:0.9%"></div>
       </div>
-      <div class="astats"><b>5</b> / <span class="fail">1</span><em>83%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">5</span><span class="sep">/</span><span class="fail">1</span></div>
+        <div class="total">6 runs</div>
+        <div class="pct">83%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Daily task coverage board<small>Operations · 3 accounts</small></div>
@@ -206,7 +283,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:3.6%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>4</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">4</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">4 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Security deposit extender<small>Finance · 3 accounts</small></div>
@@ -214,7 +295,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:2.7%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>3</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">3</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">3 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Vacancy task detector<small>Operations · 3 accounts</small></div>
@@ -222,7 +307,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:2.7%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>3</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">3</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">3 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Weekly Operation Brief<small>Operations · 3 accounts</small></div>
@@ -230,7 +319,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:2.7%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>3</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">3</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">3 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Reservation handoff brief<small>Operations · 2 accounts</small></div>
@@ -238,7 +331,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:1.8%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>2</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">2</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">2 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Airbnb quality detector<small>Distribution · 1 accounts</small></div>
@@ -246,7 +343,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:0.9%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>1</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">1</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">1 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Cleaning conflict detector<small>Operations · 1 accounts</small></div>
@@ -254,7 +355,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:0.9%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>1</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">1</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">1 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Monthly cancelled reservations<small>Accounting · 1 accounts</small></div>
@@ -262,7 +367,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:0.9%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>1</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">1</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">1 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Reservation duplicate detector<small>Operations · 1 accounts</small></div>
@@ -270,7 +379,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:0.9%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>1</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">1</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">1 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     <div class="arow">
       <div class="aname">Team access review<small>Operations · 1 accounts</small></div>
@@ -278,7 +391,11 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
         <div class="adone" style="width:0.9%"></div>
         <div class="afail" style="width:0.0%"></div>
       </div>
-      <div class="astats"><b>1</b> / <span class="fail">0</span><em>100%</em></div>
+      <div class="astats">
+        <div class="nums"><span class="ok">1</span><span class="sep">/</span><span class="fail">0</span></div>
+        <div class="total">1 runs</div>
+        <div class="pct">100%</div>
+      </div>
     </div>
     </div>
     <div>
@@ -289,7 +406,7 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
       <div class="cdot" style="background:#0F766E"></div>
       <div>
         <strong>Operations</strong>
-        <p>374 runs · <span class="ok">330 done</span> · <span class="fail">44 failed</span></p>
+        <p>374 runs · <span class="ok">330 done</span> · <span class="fail">44 failed</span> · 88%</p>
         <div class="mini"><div style="width:88.2%;background:#0F766E"></div></div>
       </div>
     </div>
@@ -297,7 +414,7 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
       <div class="cdot" style="background:#0369A1"></div>
       <div>
         <strong>Communications</strong>
-        <p>129 runs · <span class="ok">60 done</span> · <span class="fail">69 failed</span></p>
+        <p>129 runs · <span class="ok">60 done</span> · <span class="fail">69 failed</span> · 47%</p>
         <div class="mini"><div style="width:46.5%;background:#0369A1"></div></div>
       </div>
     </div>
@@ -305,7 +422,7 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
       <div class="cdot" style="background:#B45309"></div>
       <div>
         <strong>Finance</strong>
-        <p>20 runs · <span class="ok">17 done</span> · <span class="fail">3 failed</span></p>
+        <p>20 runs · <span class="ok">17 done</span> · <span class="fail">3 failed</span> · 85%</p>
         <div class="mini"><div style="width:85.0%;background:#B45309"></div></div>
       </div>
     </div>
@@ -313,7 +430,7 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
       <div class="cdot" style="background:#7C2D12"></div>
       <div>
         <strong>Accounting</strong>
-        <p>7 runs · <span class="ok">6 done</span> · <span class="fail">1 failed</span></p>
+        <p>7 runs · <span class="ok">6 done</span> · <span class="fail">1 failed</span> · 86%</p>
         <div class="mini"><div style="width:85.7%;background:#7C2D12"></div></div>
       </div>
     </div>
@@ -321,7 +438,7 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
       <div class="cdot" style="background:#1D4ED8"></div>
       <div>
         <strong>Distribution</strong>
-        <p>1 runs · <span class="ok">1 done</span> · <span class="fail">0 failed</span></p>
+        <p>1 runs · <span class="ok">1 done</span> · <span class="fail">0 failed</span> · 100%</p>
         <div class="mini"><div style="width:100.0%;background:#1D4ED8"></div></div>
       </div>
     </div>
@@ -352,7 +469,7 @@ footer { margin-top:24px; color:var(--muted); font-size:0.82rem; }
     <h2>Full agent ranking</h2>
     <table>
       <thead><tr><th>#</th><th>Agent</th><th>Category</th><th>Runs</th><th>DONE</th><th>FAILED</th><th>Success</th><th>Accounts</th></tr></thead>
-      <tbody><tr><td>1</td><td>Calendar conflict detector</td><td>Operations</td><td>111</td><td>98</td><td>13</td><td>88%</td><td>48</td></tr><tr><td>2</td><td>Review response master</td><td>Communications</td><td>107</td><td>44</td><td>63</td><td>41%</td><td>50</td></tr><tr><td>3</td><td>Inquiry expiry manager</td><td>Operations</td><td>90</td><td>78</td><td>12</td><td>87%</td><td>40</td></tr><tr><td>4</td><td>Risky reservation detector</td><td>Operations</td><td>44</td><td>40</td><td>4</td><td>91%</td><td>44</td></tr><tr><td>5</td><td>Maintenance block agent</td><td>Operations</td><td>37</td><td>37</td><td>0</td><td>100%</td><td>5</td></tr><tr><td>6</td><td>Check-in readiness</td><td>Operations</td><td>35</td><td>24</td><td>11</td><td>69%</td><td>35</td></tr><tr><td>7</td><td>Stay status reconciler</td><td>Operations</td><td>15</td><td>12</td><td>3</td><td>80%</td><td>14</td></tr><tr><td>8</td><td>Negative review challenger</td><td>Communications</td><td>11</td><td>8</td><td>3</td><td>73%</td><td>11</td></tr><tr><td>9</td><td>Saved replies optimizer</td><td>Communications</td><td>11</td><td>8</td><td>3</td><td>73%</td><td>10</td></tr><tr><td>10</td><td>Unpaid reservation tracker</td><td>Finance</td><td>11</td><td>8</td><td>3</td><td>73%</td><td>10</td></tr><tr><td>11</td><td>Commitment keeper</td><td>Operations</td><td>9</td><td>9</td><td>0</td><td>100%</td><td>9</td></tr><tr><td>12</td><td>Calendar block monitor</td><td>Operations</td><td>6</td><td>6</td><td>0</td><td>100%</td><td>6</td></tr><tr><td>13</td><td>Maintenance tracker</td><td>Operations</td><td>6</td><td>6</td><td>0</td><td>100%</td><td>6</td></tr><tr><td>14</td><td>Tax Configuration Audit</td><td>Finance</td><td>6</td><td>6</td><td>0</td><td>100%</td><td>6</td></tr><tr><td>15</td><td>Advance deposit checker</td><td>Accounting</td><td>6</td><td>5</td><td>1</td><td>83%</td><td>6</td></tr><tr><td>16</td><td>Review to task dispatcher</td><td>Operations</td><td>6</td><td>5</td><td>1</td><td>83%</td><td>6</td></tr><tr><td>17</td><td>Daily task coverage board</td><td>Operations</td><td>4</td><td>4</td><td>0</td><td>100%</td><td>3</td></tr><tr><td>18</td><td>Security deposit extender</td><td>Finance</td><td>3</td><td>3</td><td>0</td><td>100%</td><td>3</td></tr><tr><td>19</td><td>Vacancy task detector</td><td>Operations</td><td>3</td><td>3</td><td>0</td><td>100%</td><td>3</td></tr><tr><td>20</td><td>Weekly Operation Brief</td><td>Operations</td><td>3</td><td>3</td><td>0</td><td>100%</td><td>3</td></tr><tr><td>21</td><td>Reservation handoff brief</td><td>Operations</td><td>2</td><td>2</td><td>0</td><td>100%</td><td>2</td></tr><tr><td>22</td><td>Airbnb quality detector</td><td>Distribution</td><td>1</td><td>1</td><td>0</td><td>100%</td><td>1</td></tr><tr><td>23</td><td>Cleaning conflict detector</td><td>Operations</td><td>1</td><td>1</td><td>0</td><td>100%</td><td>1</td></tr><tr><td>24</td><td>Monthly cancelled reservations</td><td>Accounting</td><td>1</td><td>1</td><td>0</td><td>100%</td><td>1</td></tr><tr><td>25</td><td>Reservation duplicate detector</td><td>Operations</td><td>1</td><td>1</td><td>0</td><td>100%</td><td>1</td></tr><tr><td>26</td><td>Team access review</td><td>Operations</td><td>1</td><td>1</td><td>0</td><td>100%</td><td>1</td></tr></tbody>
+      <tbody><tr><td>1</td><td>Calendar conflict detector</td><td>Operations</td><td>111</td><td>98</td><td>13</td><td><strong>88%</strong></td><td>48</td></tr><tr><td>2</td><td>Review response master</td><td>Communications</td><td>107</td><td>44</td><td>63</td><td><strong>41%</strong></td><td>50</td></tr><tr><td>3</td><td>Inquiry expiry manager</td><td>Operations</td><td>90</td><td>78</td><td>12</td><td><strong>87%</strong></td><td>40</td></tr><tr><td>4</td><td>Risky reservation detector</td><td>Operations</td><td>44</td><td>40</td><td>4</td><td><strong>91%</strong></td><td>44</td></tr><tr><td>5</td><td>Maintenance block agent</td><td>Operations</td><td>37</td><td>37</td><td>0</td><td><strong>100%</strong></td><td>5</td></tr><tr><td>6</td><td>Check-in readiness</td><td>Operations</td><td>35</td><td>24</td><td>11</td><td><strong>69%</strong></td><td>35</td></tr><tr><td>7</td><td>Stay status reconciler</td><td>Operations</td><td>15</td><td>12</td><td>3</td><td><strong>80%</strong></td><td>14</td></tr><tr><td>8</td><td>Negative review challenger</td><td>Communications</td><td>11</td><td>8</td><td>3</td><td><strong>73%</strong></td><td>11</td></tr><tr><td>9</td><td>Saved replies optimizer</td><td>Communications</td><td>11</td><td>8</td><td>3</td><td><strong>73%</strong></td><td>10</td></tr><tr><td>10</td><td>Unpaid reservation tracker</td><td>Finance</td><td>11</td><td>8</td><td>3</td><td><strong>73%</strong></td><td>10</td></tr><tr><td>11</td><td>Commitment keeper</td><td>Operations</td><td>9</td><td>9</td><td>0</td><td><strong>100%</strong></td><td>9</td></tr><tr><td>12</td><td>Calendar block monitor</td><td>Operations</td><td>6</td><td>6</td><td>0</td><td><strong>100%</strong></td><td>6</td></tr><tr><td>13</td><td>Maintenance tracker</td><td>Operations</td><td>6</td><td>6</td><td>0</td><td><strong>100%</strong></td><td>6</td></tr><tr><td>14</td><td>Tax Configuration Audit</td><td>Finance</td><td>6</td><td>6</td><td>0</td><td><strong>100%</strong></td><td>6</td></tr><tr><td>15</td><td>Advance deposit checker</td><td>Accounting</td><td>6</td><td>5</td><td>1</td><td><strong>83%</strong></td><td>6</td></tr><tr><td>16</td><td>Review to task dispatcher</td><td>Operations</td><td>6</td><td>5</td><td>1</td><td><strong>83%</strong></td><td>6</td></tr><tr><td>17</td><td>Daily task coverage board</td><td>Operations</td><td>4</td><td>4</td><td>0</td><td><strong>100%</strong></td><td>3</td></tr><tr><td>18</td><td>Security deposit extender</td><td>Finance</td><td>3</td><td>3</td><td>0</td><td><strong>100%</strong></td><td>3</td></tr><tr><td>19</td><td>Vacancy task detector</td><td>Operations</td><td>3</td><td>3</td><td>0</td><td><strong>100%</strong></td><td>3</td></tr><tr><td>20</td><td>Weekly Operation Brief</td><td>Operations</td><td>3</td><td>3</td><td>0</td><td><strong>100%</strong></td><td>3</td></tr><tr><td>21</td><td>Reservation handoff brief</td><td>Operations</td><td>2</td><td>2</td><td>0</td><td><strong>100%</strong></td><td>2</td></tr><tr><td>22</td><td>Airbnb quality detector</td><td>Distribution</td><td>1</td><td>1</td><td>0</td><td><strong>100%</strong></td><td>1</td></tr><tr><td>23</td><td>Cleaning conflict detector</td><td>Operations</td><td>1</td><td>1</td><td>0</td><td><strong>100%</strong></td><td>1</td></tr><tr><td>24</td><td>Monthly cancelled reservations</td><td>Accounting</td><td>1</td><td>1</td><td>0</td><td><strong>100%</strong></td><td>1</td></tr><tr><td>25</td><td>Reservation duplicate detector</td><td>Operations</td><td>1</td><td>1</td><td>0</td><td><strong>100%</strong></td><td>1</td></tr><tr><td>26</td><td>Team access review</td><td>Operations</td><td>1</td><td>1</td><td>0</td><td><strong>100%</strong></td><td>1</td></tr></tbody>
     </table>
   </div>
 
