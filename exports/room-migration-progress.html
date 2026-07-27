@@ -1,113 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Room Migration Progress</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  <style>
-    :root { --bg: #F5F1E9; --navy: #1B3A5F; --card: #D9EAF7; --muted: #6B7C93; --border: #D0D5DD; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      background: #ddd6c8; color: var(--navy); min-height: 100vh; padding: 1.5rem;
-      display: flex; flex-direction: column; align-items: center; gap: 1.25rem;
-    }
-    .slide {
-      width: min(1280px, 100%); aspect-ratio: 16 / 9; background: var(--bg);
-      border-radius: 8px; box-shadow: 0 12px 40px rgba(27,58,95,.12);
-      padding: 1.75rem 2rem 1.25rem; display: grid; grid-template-rows: auto auto 1fr; gap: .85rem;
-    }
-    .panel {
-      width: min(1280px, 100%); background: var(--bg); border-radius: 8px;
-      box-shadow: 0 12px 40px rgba(27,58,95,.12); padding: 1.25rem 1.75rem 1.75rem;
-    }
-    .header { display: grid; grid-template-columns: 1fr auto; gap: 1rem; }
-    h1 { font-size: clamp(1.5rem, 2.3vw, 2rem); font-weight: 700; }
-    .date-pill { display:inline-block; margin-top:.55rem; background:#E4E7EC; border-radius:10px; padding:.35rem .85rem; }
-    .total-card, .tier-card {
-      background: var(--card); border-radius: 14px; text-align: center; padding: .75rem .85rem;
-      box-shadow: 0 2px 8px rgba(27,58,95,.08);
-    }
-    .tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; }
-    .label { font-size: .88rem; }
-    .value { font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; }
-    .sub { font-size: .72rem; color: var(--muted); margin-top: .2rem; }
-    .chart-panel { background:#fff; border:1px solid var(--border); border-radius:10px; padding:.75rem 1rem .4rem; display:flex; flex-direction:column; min-height:0; }
-    .chart-title { color: var(--muted); font-size: .92rem; }
-    .chart-wrap { flex:1; position:relative; min-height:210px; }
-    table { width:100%; border-collapse: collapse; margin-top: .75rem; }
-    th, td { text-align:left; padding:.65rem .75rem; border-bottom:1px solid #e5e7eb; }
-    th { color: var(--muted); font-size:.78rem; text-transform:uppercase; }
-    .note { color: var(--muted); font-size: .9rem; margin-top: .4rem; }
-    @media (max-width: 900px) { .slide { aspect-ratio:auto; } .header, .tiers { grid-template-columns:1fr; } }
-  </style>
-</head>
-<body>
-  <div class="slide">
-    <div class="header">
-      <div>
-        <h1>Room Migration Progress</h1>
-        <div class="date-pill">July 13 - July 27</div>
-      </div>
-      <div class="total-card">
-        <div class="label">Total Accounts Created</div>
-        <div class="value">2,876</div>
-      </div>
-    </div>
-    <div class="tiers"><div class="tier-card">
-          <div class="label">SMB</div>
-          <div class="value">161</div>
-          
-        </div><div class="tier-card">
-          <div class="label">Mid-Market</div>
-          <div class="value">0</div>
-          
-        </div><div class="tier-card">
-          <div class="label">SME</div>
-          <div class="value">0</div>
-          
-        </div><div class="tier-card">
-          <div class="label">Unknown</div>
-          <div class="value">2,715</div>
-          <div class='sub'>161 from Room CSV</div>
-        </div></div>
-    <div class="chart-panel">
-      <div class="chart-title">Cumulative Trends by Segment</div>
-      <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
-    </div>
+<html lang="en"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Room Migration Progress</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root { --bg:#F5F1E9; --navy:#1B3A5F; --card:#D9EAF7; --muted:#6B7C93; --border:#D0D5DD; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; background:#ddd6c8; color:var(--navy);
+  min-height:100vh; padding:1.5rem; display:flex; align-items:center; justify-content:center; }
+.slide { width:min(1280px,100%); aspect-ratio:16/9; background:var(--bg); border-radius:8px;
+  box-shadow:0 12px 40px rgba(27,58,95,.12); padding:1.75rem 2rem 1.25rem;
+  display:grid; grid-template-rows:auto auto 1fr; gap:.9rem; }
+.header { display:grid; grid-template-columns:1fr auto; gap:1rem; }
+h1 { font-size:clamp(1.5rem,2.3vw,2rem); font-weight:700; }
+.date-pill { display:inline-block; margin-top:.55rem; background:#E4E7EC; border-radius:10px; padding:.35rem .85rem; }
+.total-card,.tier-card { background:var(--card); border-radius:14px; text-align:center; padding:.85rem 1rem;
+  box-shadow:0 2px 8px rgba(27,58,95,.08); }
+.tiers { display:grid; grid-template-columns:1fr 1fr; gap:1rem; max-width:720px; margin:0 auto; width:100%; }
+.label { font-size:.95rem; } .value { font-size:clamp(1.6rem,2.8vw,2.2rem); font-weight:700; }
+.chart-panel { background:#fff; border:1px solid var(--border); border-radius:10px; padding:.75rem 1rem .4rem;
+  display:flex; flex-direction:column; min-height:0; }
+.chart-title { color:var(--muted); font-size:.95rem; }
+.chart-wrap { flex:1; position:relative; min-height:220px; }
+@media (max-width:900px) { .slide { aspect-ratio:auto; } .header,.tiers { grid-template-columns:1fr; } }
+</style></head><body>
+<div class="slide">
+  <div class="header">
+    <div><h1>Room Migration Progress</h1><div class="date-pill">July 13 - July 27</div></div>
+    <div class="total-card"><div class="label">Total Accounts Created</div><div class="value">2,876</div></div>
   </div>
-  <div class="panel">
-    <h2>Accounts + Segment column</h2>
-    <p class="note">
-      Every created account gets a <strong>Segment</strong> column from the Room Accounts Overview when the Account ID matches.
-      If the ID is not in that file, Segment = <em>Unknown</em>.
-      Current match rate: 161 / 2,876.
-    </p>
-    <table>
-      <thead><tr><th>Segment</th><th>Accounts</th></tr></thead>
-      <tbody>
-        <tr><td>SMB</td><td>161</td></tr><tr><td>Mid-Market</td><td>0</td></tr><tr><td>SME</td><td>0</td></tr><tr><td>Unknown</td><td>2,715</td></tr>
-        <tr><td><strong>TOTAL</strong></td><td><strong>2,876</strong></td></tr>
-      </tbody>
-    </table>
+  <div class="tiers">
+    <div class="tier-card"><div class="label">SMB</div><div class="value">161</div></div>
+    <div class="tier-card"><div class="label">Lite</div><div class="value">2,715</div></div>
   </div>
-  <script>
-    new Chart(document.getElementById("trendChart"), {
-      type: "bar",
-      data: { labels: ["7/13/2026", "7/20/2026", "7/27/2026"], datasets: [{"label": "SMB", "data": [95, 161, 161], "backgroundColor": "#4A8FD4", "stack": "segments"}, {"label": "Mid-Market", "data": [0, 0, 0], "backgroundColor": "#E35D5B", "stack": "segments"}, {"label": "SME", "data": [0, 0, 0], "backgroundColor": "#F0C04A", "stack": "segments"}, {"label": "Unknown", "data": [1240, 2617, 2715], "backgroundColor": "#9AA5B5", "stack": "segments"}] },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { position: "top", labels: { boxWidth: 12, color: "#6B7C93" } } },
-        scales: {
-          x: { stacked: true, title: { display: true, text: "Week starting", color: "#6B7C93" },
-                ticks: { maxRotation: 45, minRotation: 45, color: "#6B7C93" }, grid: { display: false } },
-          y: { stacked: true, beginAtZero: true, suggestedMax: Math.ceil(2876 * 1.12),
-                title: { display: true, text: "Count", color: "#6B7C93" },
-                ticks: { color: "#6B7C93", precision: 0 }, grid: { color: "#E6EAF0" } }
-        }
-      }
-    });
-  </script>
-</body>
-</html>
+  <div class="chart-panel">
+    <div class="chart-title">Cumulative Trends by Segment</div>
+    <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+  </div>
+</div>
+<script>
+new Chart(document.getElementById("trendChart"), {
+  type: "bar",
+  data: {
+    labels: ["7/13/2026", "7/20/2026", "7/27/2026"],
+    datasets: [
+      { label: "SMB", data: [95, 161, 161], backgroundColor: "#4A8FD4", stack: "s" },
+      { label: "Lite", data: [1240, 2617, 2715], backgroundColor: "#E35D5B", stack: "s" }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: "top", labels: { boxWidth: 12, color: "#6B7C93" } } },
+    scales: {
+      x: { stacked: true, title: { display: true, text: "Week starting", color: "#6B7C93" },
+            ticks: { maxRotation: 45, minRotation: 45, color: "#6B7C93" }, grid: { display: false } },
+      y: { stacked: true, beginAtZero: true, suggestedMax: Math.ceil(2876 * 1.12),
+            title: { display: true, text: "Count", color: "#6B7C93" },
+            ticks: { color: "#6B7C93", precision: 0 }, grid: { color: "#E6EAF0" } }
+    }
+  }
+});
+</script></body></html>
