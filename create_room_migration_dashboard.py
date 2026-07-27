@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-Room Migration Progress chart: Total / SMB / Lite.
+Room Migration Progress chart: Total / Pro / Lite.
 
 Rules (from product request):
   - Total = all accounts created after July 13 (unchanged)
-  - SMB  = matched Room Overview accounts (161)
-  - Lite = Total - SMB
+  - Pro  = matched Room Overview accounts (161)
+  - Lite = Total - Pro
 
 Source CSVs:
   - data/accounts_created_after_2026-07-13.csv
-  - data/room_migration_accounts.csv  (only to identify the 161 SMB IDs)
+  - data/room_migration_accounts.csv  (only to identify the 161 Pro IDs)
 """
 
 from __future__ import annotations
@@ -43,7 +43,7 @@ CHART_BG = "#FFFFFF"
 CHART_BORDER = "#D0D5DD"
 MUTED = "#6B7C93"
 GRID = "#E6EAF0"
-SMB_COLOR = "#4A8FD4"
+PRO_COLOR = "#4A8FD4"
 LITE_COLOR = "#E35D5B"
 
 
@@ -65,20 +65,20 @@ def load_data() -> dict:
     with open(ROOM_CSV, newline="", encoding="utf-8-sig") as f:
         room_ids = {(r.get("Account ID") or "").strip() for r in csv.DictReader(f)}
 
-    weekly_new = defaultdict(lambda: {"SMB": 0, "Lite": 0})
-    smb = 0
+    weekly_new = defaultdict(lambda: {"Pro": 0, "Lite": 0})
+    pro = 0
     for row in created:
         account_id = (row.get("accountId") or "").strip()
         created_at = parse_date(row["createdAt"])
         week = monday_of(created_at)
         if account_id in room_ids:
-            smb += 1
-            weekly_new[week]["SMB"] += 1
+            pro += 1
+            weekly_new[week]["Pro"] += 1
         else:
             weekly_new[week]["Lite"] += 1
 
     total = len(created)
-    lite = total - smb
+    lite = total - pro
     earliest = min(parse_date(r["createdAt"]) for r in created)
     latest = max(parse_date(r["createdAt"]) for r in created)
     start = monday_of(earliest)
@@ -90,20 +90,20 @@ def load_data() -> dict:
         weeks.append(cursor)
         cursor += timedelta(days=7)
 
-    cum_smb, cum_lite = [], []
-    run_smb = run_lite = 0
+    cum_pro, cum_lite = [], []
+    run_pro = run_lite = 0
     for week in weeks:
-        run_smb += weekly_new[week]["SMB"]
+        run_pro += weekly_new[week]["Pro"]
         run_lite += weekly_new[week]["Lite"]
-        cum_smb.append(run_smb)
+        cum_pro.append(run_pro)
         cum_lite.append(run_lite)
 
     return {
         "total": total,
-        "smb": smb,
+        "pro": pro,
         "lite": lite,
         "weeks": weeks,
-        "cum_smb": cum_smb,
+        "cum_pro": cum_pro,
         "cum_lite": cum_lite,
         "week_label": f"{earliest.strftime('%B %-d')} - {latest.strftime('%B %-d')}",
     }
@@ -135,7 +135,7 @@ def draw_dashboard(data: dict, out_path: Path) -> None:
         ax.text(0.5, 0.32, value, ha="center", va="center", fontsize=28, fontweight="bold", color=NAVY)
 
     metric_card([0.38, 0.78, 0.28, 0.12], "Total Accounts Created", fmt_int(data["total"]))
-    metric_card([0.18, 0.62, 0.28, 0.12], "SMB", fmt_int(data["smb"]))
+    metric_card([0.18, 0.62, 0.28, 0.12], "Pro", fmt_int(data["pro"]))
     metric_card([0.54, 0.62, 0.28, 0.12], "Lite", fmt_int(data["lite"]))
 
     ax = fig.add_axes([0.08, 0.10, 0.86, 0.46])
@@ -146,8 +146,8 @@ def draw_dashboard(data: dict, out_path: Path) -> None:
 
     x = list(range(len(data["weeks"])))
     width = 0.55
-    ax.bar(x, data["cum_smb"], width=width, color=SMB_COLOR, label="SMB", zorder=3)
-    ax.bar(x, data["cum_lite"], width=width, bottom=data["cum_smb"], color=LITE_COLOR, label="Lite", zorder=3)
+    ax.bar(x, data["cum_pro"], width=width, color=PRO_COLOR, label="Pro", zorder=3)
+    ax.bar(x, data["cum_lite"], width=width, bottom=data["cum_pro"], color=LITE_COLOR, label="Lite", zorder=3)
 
     ax.set_ylabel("Count", color=MUTED, fontsize=10)
     ax.set_xlabel("Week starting", color=MUTED, fontsize=10)
@@ -168,8 +168,8 @@ def draw_chart_only(data: dict, out_path: Path) -> None:
     fig, ax = plt.subplots(figsize=(12.2, 4.0), dpi=150, facecolor=CHART_BG)
     ax.set_facecolor(CHART_BG)
     x = list(range(len(data["weeks"])))
-    ax.bar(x, data["cum_smb"], width=0.55, color=SMB_COLOR, label="SMB", zorder=3)
-    ax.bar(x, data["cum_lite"], width=0.55, bottom=data["cum_smb"], color=LITE_COLOR, label="Lite", zorder=3)
+    ax.bar(x, data["cum_pro"], width=0.55, color=PRO_COLOR, label="Pro", zorder=3)
+    ax.bar(x, data["cum_lite"], width=0.55, bottom=data["cum_pro"], color=LITE_COLOR, label="Lite", zorder=3)
     ax.set_title("Cumulative Trends by Segment", loc="left", fontsize=12, color=MUTED, pad=12)
     ax.set_ylabel("Count", color=MUTED, fontsize=10)
     ax.set_xlabel("Week starting", color=MUTED, fontsize=10)
@@ -257,7 +257,7 @@ def build_pptx(data: dict, chart_path: Path, out_path: Path) -> None:
     set_run(run, size=12)
 
     add_metric_card(slide, Inches(4.6), Inches(0.3), Inches(4.0), Inches(1.0), "Total Accounts Created", fmt_int(data["total"]))
-    add_metric_card(slide, Inches(2.5), Inches(1.55), Inches(3.6), Inches(1.05), "SMB", fmt_int(data["smb"]))
+    add_metric_card(slide, Inches(2.5), Inches(1.55), Inches(3.6), Inches(1.05), "Pro", fmt_int(data["pro"]))
     add_metric_card(slide, Inches(7.0), Inches(1.55), Inches(3.6), Inches(1.05), "Lite", fmt_int(data["lite"]))
 
     if chart_path.exists():
@@ -301,7 +301,7 @@ h1 {{ font-size:clamp(1.5rem,2.3vw,2rem); font-weight:700; }}
     <div class="total-card"><div class="label">Total Accounts Created</div><div class="value">{fmt_int(data["total"])}</div></div>
   </div>
   <div class="tiers">
-    <div class="tier-card"><div class="label">SMB</div><div class="value">{fmt_int(data["smb"])}</div></div>
+    <div class="tier-card"><div class="label">Pro</div><div class="value">{fmt_int(data["pro"])}</div></div>
     <div class="tier-card"><div class="label">Lite</div><div class="value">{fmt_int(data["lite"])}</div></div>
   </div>
   <div class="chart-panel">
@@ -315,7 +315,7 @@ new Chart(document.getElementById("trendChart"), {{
   data: {{
     labels: {json.dumps(weeks)},
     datasets: [
-      {{ label: "SMB", data: {json.dumps(data["cum_smb"])}, backgroundColor: "{SMB_COLOR}", stack: "s" }},
+      {{ label: "Pro", data: {json.dumps(data["cum_pro"])}, backgroundColor: "{PRO_COLOR}", stack: "s" }},
       {{ label: "Lite", data: {json.dumps(data["cum_lite"])}, backgroundColor: "{LITE_COLOR}", stack: "s" }}
     ]
   }},
@@ -342,13 +342,13 @@ def write_summary(data: dict, path: Path) -> None:
         w = csv.writer(f)
         w.writerow(["Metric", "Value"])
         w.writerow(["Total Accounts Created", data["total"]])
-        w.writerow(["SMB", data["smb"]])
-        w.writerow(["Lite (Total - SMB)", data["lite"]])
+        w.writerow(["Pro", data["pro"]])
+        w.writerow(["Lite (Total - Pro)", data["lite"]])
 
 
 def main() -> None:
     data = load_data()
-    assert data["lite"] == data["total"] - data["smb"]
+    assert data["lite"] == data["total"] - data["pro"]
 
     chart_path = ROOT / "exports" / "room-migration-chart.png"
     full_png = ROOT / "exports" / "room-migration-progress.png"
@@ -363,8 +363,8 @@ def main() -> None:
     write_summary(data, summary_path)
 
     print(f"Total: {data['total']}")
-    print(f"SMB:   {data['smb']}")
-    print(f"Lite:  {data['lite']}  (= Total - SMB)")
+    print(f"Pro:   {data['pro']}")
+    print(f"Lite:  {data['lite']}  (= Total - Pro)")
     print(f"Week:  {data['week_label']}")
     print(f"Wrote {full_png}")
     print(f"Wrote {html_path}")
