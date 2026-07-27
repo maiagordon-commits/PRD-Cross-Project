@@ -1,39 +1,46 @@
 # Room Migration Progress (weekly)
 
-Editable weekly slide matching the Room Migration Progress dashboard.
+Editable weekly slide built by crossing **new accounts created after July 13** with the **Reservations Room Accounts Overview** export.
+
+## Logic
+
+1. Load `data/accounts_created_after_2026-07-13.csv` (`accountId`, `createdAt`)
+2. Load `data/room_migration_accounts.csv` (Package, Segment, etc.)
+3. Keep only rows whose Account ID appears in both files
+4. Break down by **Package** (Lite / Pro / Enterprise) for the progress chart
+5. Break down by **Segment** (from the room CSV) in a second slide / CSV
 
 ## Deliverables
 
 | File | Purpose |
 |------|---------|
-| `Room_Migration_Progress.pptx` | PowerPoint / Google Slides import |
-| `exports/room-migration-progress.html` | Browser preview (live Chart.js) |
+| `Room_Migration_Progress.pptx` | Slide 1: progress chart · Slide 2: segment breakdown |
+| `exports/room-migration-progress.html` | Browser preview |
 | `exports/room-migration-progress.png` | Full-slide PNG snapshot |
+| `exports/room-accounts-created-after-july-13.csv` | Consolidated matched accounts |
+| `exports/room-accounts-segment-breakdown.csv` | Segment × plan summary |
 | `create_room_migration_dashboard.py` | Regenerator |
-| `data/room_migration_accounts.csv` | Source export (replace weekly) |
-| `room_migration_config.json` | Title, chart start, optional week label |
+
+## Current numbers (from attached exports)
+
+- Created after July 13: **2,876**
+- Room accounts overview: **527**
+- Matched: **161** (Lite 156 · Pro 5 · Enterprise 0)
+- Segment: **SMB 161**
 
 ## Weekly update
 
-1. Export the latest **Reservations Room Accounts Overview** CSV.
-2. Replace `data/room_migration_accounts.csv` with that file.
-3. Optional: set `report_week_label` in `room_migration_config.json` (e.g. `"July 20 - July 24"`). Leave `null` to auto-label from the latest migration week.
+1. Replace `data/accounts_created_after_2026-07-13.csv` with the latest created-accounts export
+2. Replace `data/room_migration_accounts.csv` with the latest Room Accounts Overview export
+3. Optional: set `report_week_label` in `room_migration_config.json`
 4. Run:
 
 ```bash
-pip install python-pptx matplotlib
+pip install -r requirements-room-migration.txt
 python3 create_room_migration_dashboard.py
 ```
 
-5. Open `Room_Migration_Progress.pptx` (or upload to Google Drive → Open with Google Slides).
-
-## How metrics are calculated
-
-Rows where **Room Migrated?** is true and **Migration Completed At** is a valid date:
-
-- **Total / Lite / Pro / Enterprise** — counts by `Package`
-- **Pro Mid Market** — Pro rows whose `Segment` is Mid-Market
-- **Cumulative Trends by Plan** — stacked weekly cumulative counts by Monday week-start of `Migration Completed At`, from `chart_start` (default `2026-04-13`) through the latest migration week
+5. Open `Room_Migration_Progress.pptx` (or upload to Google Drive → Open with Google Slides)
 
 ## Open in Google Slides
 
