@@ -21,4 +21,4 @@ Professional Guesty WIP slides and weekly dashboards for Google Slides / PowerPo
 3. Right-click → **Open with → Google Slides**
 4. **File → Save as Google Slides** for a native shareable link
 
-For Room Migration, replace `data/room_migration_accounts.csv` each week and re-run `python3 create_room_migration_dashboard.py` — see `ROOM_MIGRATION_README.md`.
+For Room Migration, replace both CSVs under `data/` each week (created-accounts + room overview), then re-run `python3 create_room_migration_dashboard.py` — see `ROOM_MIGRATION_README.md`.
