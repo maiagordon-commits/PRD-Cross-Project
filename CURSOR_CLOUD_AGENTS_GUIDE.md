@@ -18,6 +18,21 @@ This guide walks you through everything you need to know to create and configure
 10. [Best Practices](#best-practices)
 11. [Troubleshooting](#troubleshooting)
 
+**Appendix: Guesty Agent-Hub Development**
+- [A1. Where Things Live](#a1-where-things-live-important---changed-mid-flight)
+- [A2. Environment Prerequisites](#a2-environment-prerequisites-one-time-setup)
+- [A3. Author the Use Case](#a3-author-the-use-case)
+- [A4. The 3 Mandatory Capabilities](#a4-the-3-mandatory-capabilities-no-prod-without-these)
+- [A5. Validate + Run Locally](#a5-validate--run-locally-staging13-default-account)
+- [A6. validation.json](#a6-validationjson-quality-gate)
+- [A7. PR to the Registry](#a7-pr-to-the-registry)
+- [A8. Deploy + Backoffice + Status](#a8-deploy--backoffice--status)
+- [A9. Known Blockers & Fixes](#a9-known-blockers--fixes)
+- [A10. Content, Copy & Help Center](#a10-content-copy--help-center-product-facing--dont-skip)
+- [A11. Monitoring & Rollout](#a11-monitoring--rollout)
+- [A12. Agent Design Pitfalls](#a12-agent-design-pitfalls-from-the-channel)
+- [A13. Reference Links](#a13-reference-links)
+
 ---
 
 ## What Are Cloud Agents?
@@ -425,6 +440,235 @@ Use multi-repo environments when your agent needs to work across multiple reposi
 - [Cloud Agent Security](https://cursor.com/docs/cloud-agent/security-network.md)
 - [Slack Integration](https://cursor.com/docs/integrations/slack)
 - [Cloud Agent API](https://cursor.com/docs/cloud-agent/api/endpoints.md)
+
+---
+
+## Appendix: Guesty Agent-Hub Development Workflow
+
+This section covers the internal workflow for building Guesty Agent-Hub agents end-to-end.
+
+> **Golden path:** author from master → add the 3 mandatory capabilities → validate + run on staging13 → PR to `agent-workflow-registry` → copy + HC article → deploy + set status → monitor → roll out in stages.
+
+---
+
+### A1. Where Things Live (Important - Changed Mid-Flight)
+
+- **Use-cases (workflows) no longer live in `1000-agents-hub-workflows`.** Source of truth is the separate repo **`guestyorg/agent-workflow-registry`**.
+- Workflows live under **`workflows/<slug>/`** — **no numeric `NN-` prefix** (e.g. `21-stay-status-reconciler` → `workflows/stay-status-reconciler/`).
+- **Do NOT** open PRs under `specs/core/use-cases/` in `1000-agents-hub-workflows` anymore. New/updated use-cases → PR in `agent-workflow-registry`.
+- The **`use-case-authoring` skill still lives in `1000-agents-hub-workflows`** and still drives everything.
+- **Always create new use cases off `master`** — it has the most recent planner.
+
+**Repo Cheat Sheet:**
+
+| Repo | Path | Purpose |
+|------|------|---------|
+| Engine/skills/scripts | `~/code/1000-agents-hub-workflows` | Core tooling |
+| Registry | `.agent-workflow-registry/` (or `$AGENT_WORKFLOW_REGISTRY_PATH`) | Auto-cloned, gitignored |
+| Corpus | `.corpus/api-exposure-inventory/` | Endpoint validation |
+
+---
+
+### A2. Environment Prerequisites (One-Time Setup)
+
+| Requirement | How to Set Up | Notes |
+|-------------|---------------|-------|
+| Python 3.13 + `uv` | Project venv; run everything with `uv run --quiet python …` | Bare `python3` misses deps |
+| AWS SSO — `pm` profile | `aws sso login --profile pm` (use `--no-browser` to get the code) | Covers CodeArtifact (uv), Bedrock, Vault-creds read |
+| Corpus | `bash .cursor/skills/use-case-authoring/scripts/ensure-corpus.sh` | Never author endpoints from memory — corpus is SSOT |
+| Knowledge repos + api-sdk (MCP index) | `bash .cursor/skills/use-case-authoring/scripts/ensure-knowledge-repos.sh` | Needs **pnpm** + **CodeArtifact npm** access |
+| Registry env | The ensure script writes `.registry.env`; `source .registry.env` | Sets `AGENT_WORKFLOW_REGISTRY_PATH` |
+
+**Session Start:** Run the env doctor and clear every run-blocking ✗ before any local run:
+```bash
+uv run --quiet python scripts/pipeline/check_env.py --uc <slug> --env staging
+```
+
+Mint a fresh Guesty token if the cache is stale (`python scripts/local/authn.py`), TTL > 60s.
+
+---
+
+### A3. Author the Use Case
+
+1. Ensure corpus is up (step above). Author **from master**.
+2. Invoke the **`use-case-authoring`** skill (a.k.a. `/use-case-authoring`). It runs the PM guided intake and generates: `workflow.yaml`, `use-case.md`, `uc.toml`, `decisions.md`, `configs/agentcore-identity.json`, `runs/`.
+3. It outputs into the registry (`workflows/<slug>/`). Slug is kebab-case, no NN prefix.
+4. Keep it **lean-first**: read/evaluate only, minimum viable DAG, then add complexity. Every workflow ends in a `WORKFLOW_OUTPUT` node.
+5. Resolve every `CALL_OAS` against the corpus by METHOD + PATH (never invent endpoints).
+
+**Structural gate:**
+```bash
+uv run --quiet python scripts/pipeline/validate_uc_schema.py <path-to-uc>
+```
+
+---
+
+### A4. The 3 MANDATORY Capabilities (No Prod Without These)
+
+> **Gil's rule:** *"No one is allowed to put his new agent live on prod if he did not add: **Evals, Links (resources declaration), Status (attention criteria)**."*
+
+Run the 3 prompts below one by one with the skill. Target line: `Staging: staging13. Use the default GUESTY_ACCOUNT_ID.`
+
+#### A4a. Evals
+
+**Prompt:**
+> I want to check the quality of use case {{your use case}}. I want to reinforce or create if it does not exist the specific guidelines to evaluate the workflow. You can check in staging grafana or in prod if you can see existing runs/findings/score that would be relevant to specify specific guidelines.
+> `/eval-grafana-dashboard`  `/eval-authoring`
+
+- In `workflow.yaml`: an `end_to_end` `llm_judge` eval with `judge_criteria` derived from the workflow's success conditions (or documented opt-out in `uc.toml [evals] none=true`).
+
+#### A4b. Status (Attention Criteria)
+
+**Prompt:**
+> I want to create attention criteria for the {{your use case}} using `/use-case-authoring`
+
+- The updated schema **requires** a top-level `attention_gate` (Gate Floor G8) with the structured format:
+
+```yaml
+attention_gate:
+  criteria_prompt: |
+    ## Attention criteria
+    <one sentence: when a completed run needs PM attention>
+    ### Criteria:
+    | Criteria name | Relevant fields | Logic / Rules | Severity |
+    |---|---|---|---|
+    | <name> | <output fields from runOutput> | <condition> | HIGH/MODERATE/LOW |
+  read_from: runOutput   # MUST equal workflow.output_key
+```
+
+#### A4c. Links (Resource Declarations)
+
+**Prompt:** *"Use the use-case-authoring skill to backfill resource declarations on an existing use case."*
+
+**8-Step Task:**
+1. In each `WORKFLOW_OUTPUT` node's `system_prompt`, collect every entity type named in the summary (owners, reservations, guests, listings…).
+2. Resolve each `url_template` via the **MCP index** (`index.lookup_by_method_path` / `lookup_by_operation_id` on the CALL_OAS that fetches it → `operation.url_template`). Normalize placeholders to `{id}`. **If `url_template` is None → omit** that entity (no frontend page). Never invent one.
+3. Add to the WORKFLOW_OUTPUT node:
+   ```yaml
+   resource_declarations:
+     - domain: properties
+       resource: listing
+       url_params:
+         id: "$.<jsonpath in extracted_values to entity _id>"
+       name_source: "$.<jsonpath to display name>"
+       url_template: "/properties/{id}"
+   ```
+4. Validate → run locally → confirm the `"resources"` key is present in the response and each has a real `id` + filled URL → regenerate `validation.json` until `resource_links_declared` **and** `resource_links_coverage` = pass.
+
+> **Gotcha:** The JSONPaths point into `extracted_values`. If you clear bulky state to keep the LLM echo small, you delete the arrays the links need — so keep a **slim `[{id,name}]` array** (e.g. `listingLinks`) in state and point the declaration at that.
+
+---
+
+### A5. Validate + Run Locally (staging13, default account)
+
+Local executor server is async — **invoke, then poll**:
+```bash
+bash scripts/start-executor-local.sh                    # boots server on :8080 (builds venv first time)
+bash scripts/invoke-executor-local.sh --uc <slug> --env staging
+# then poll:
+curl -s -X POST localhost:8080/invocations -H "Content-Type: application/json" -d '{"action":"poll"}'
+```
+
+- First call returns `{status:"running", run_id}`. Poll with `{"action":"poll"}` until `status` != running.
+- The gateway requires the `x-sub-token` header — the invoke script builds it; a hand-rolled curl without it gets `400 Missing x-sub-token`.
+- After the run: `uv run python -m scripts.pipeline.generate_localrun_md --log <server-log> --variant default --uc-dir <path>`.
+- Confirm `resources` present, IDs match the run log, URLs filled.
+
+---
+
+### A6. validation.json (Quality Gate)
+
+```bash
+AWS_PROFILE=pm uv run --quiet python -m scripts.pipeline.build_validation_manifest --uc <path>
+```
+
+- **Not CI-blocking by design, but get all checks green.**
+- The `use-case-authoring` skill should handle it. If stuck, paste this prompt: **"Please LMK why and which steps fail and what we should do in order to fix them."**
+- Needs the api-sdk MCP index → see §A8 if it 404s.
+
+---
+
+### A7. PR to the Registry
+
+- Branch off registry `master`, put the UC under `workflows/<slug>/`, commit, push, open PR on **`guestyorg/agent-workflow-registry`**.
+- Title format: `SYN-XXXX | feat(<slug>): …` (link the Jira).
+- **Code-owner review required** — `guestyorg/okta-cortex` and/or `team_ai_platform` (a.k.a. Cortex team) must approve to merge. Ping them.
+- Registry checks: `workflow_compile_check` must PASS; if there was deterministic PYTHON_CALL logic, add `validation-cases.yaml` and run `workflow_logic_cases`.
+
+---
+
+### A8. Deploy + Backoffice + Status
+
+1. **Promote the prompt** (creates the Bedrock **PROMPT ARN**). The ARN is a required field when creating the agent in the backoffice.
+2. **Create/enable the agent in the backoffice**; set status correctly: **ACTIVE** or **DEV** only — **"coming soon" is not really supported and still shows in the UI.**
+3. Test in prod on a QA account.
+
+---
+
+### A9. Known Blockers & Fixes
+
+| Issue | Solution |
+|-------|----------|
+| **api-sdk build 404 (`@guestyci/rafiki … Not Found`)** | The MCP index/validation manifest needs Guesty's **private npm registry** via **CodeArtifact** (`mgmt`/`pm`), and **pnpm**. Install pnpm to a user prefix (`npm config set prefix ~/.npm-global && npm i -g pnpm`), then you still need a CodeArtifact npm login for `@guestyci`. |
+| **Staging Vault migration (infra-blocked)** | Both `agentcore/staging1/vault_creds` and `agentcore/staging13/vault_creds` now resolve to `vault.staging-aux.gue5ty.com`, where `secret/agents_auth/1000_agents` returns **no data**. Needs the **platform team** to populate/repoint that secret. |
+| **Executor server needs `ENVIRONMENT_NAME`** | Set (e.g. `staging13`) — matches the `credential_provider_arn` suffix `1000-agents-<env>`; missing it → `KeyError: ENVIRONMENT_NAME` at boot. |
+| **`.env.staging` placeholders break `source`** | Unfilled `<...>` values contain shell redirection chars; fill from Vault or blank them. |
+| **"Input too long" at WORKFLOW_OUTPUT** | The LLM echo serializes `extracted_values`; the FOR_EACH `collect_results_key` is stored there too and each entry embeds a full state copy (~O(n²)). Clear bulky arrays in the final PYTHON_CALL before the output node. |
+| **Rate limiting (429) on large accounts** | Per-listing GETs get throttled; master now has CALL_OAS retry/backoff. For huge accounts the un-truncated list can exceed the output token cap (~650–700 items) — summarize the bulk list. |
+| **Orchestrator vs local server** | The deterministic orchestrator's single-POST run stage sees `{status:running}` (async), so its assess may read "no-run" even when the workflow runs fine. Prove execution via poll. |
+| **Cursor token limit** | You may hit it mid-build; ask Gil/Sapir for more. |
+
+---
+
+### A10. Content, Copy & Help Center (Product-Facing — Don't Skip)
+
+- **Copy MUST be reviewed** — go over the **"what it does"** and the backoffice description with **Toby** (or at least **Atlas**); keep it **concise** (no essays). Use shipped UCs 1–11 as reference.
+- Validate the **bullet-point description in the drawer** when the agent is selected.
+- Use **Toby's copy guide** (in the shared "Evaluations/guide" Google doc) for descriptions, titles, marketing video copy.
+- **Every new agent needs a Help Center (HC) article** — "an important part, like any other feature."
+- Category: agents can be relevant to multiple domains (multi-select was requested; check current UI).
+
+---
+
+### A11. Monitoring & Rollout
+
+- **Acknowledge you are monitoring.** Use the **monitoring guide** (Google doc), the **Grafana dashboard** (staging + prod runs/error rates), and the **Hub dashboard** (DataStudio, agent-table level).
+- Watch error rates per agent; PMs own their agents' failures (take issues to your TL / `#contact-1000-agents`).
+
+**Rollout Stages:**
+
+| Stage | Criteria |
+|-------|----------|
+| **Dev** | Initial development |
+| **Pilot** | Accounts < 400 listings |
+| **Beta** | 400–600 listings |
+| **GA** | Full rollout |
+
+Confirm confidence before expanding to large / ENT accounts. Pilot uses a feature-flag/FT name — ask Gil for the current one to add to a test account.
+
+---
+
+### A12. Agent Design Pitfalls (From the Channel)
+
+- **Channel policy rules** — e.g. inquiry-expiry / auto-decline agents must **exclude VRBO** reservations (violates VRBO policy). Check each OTA's rules before acting on their reservations.
+- **Don't spam the tasks infra** — Reviews Response / Reservation Risk Spotter / Double Booking Resolver flagged for high task-creation risk. Gate task creation tightly.
+- **Re-run UX** — no indication when an agent is already running, and re-click returns a misleading "failed" instead of "already running." Don't design around instant re-runs.
+- **Properties/large-account timeouts** — a known `Workflow execution timeout` on property-heavy accounts; present the use case to your TL (Aram) for the recommended mitigation.
+- **Test accounts that fail** — Casago / Avari accounts have had recurring failures (esp. accounting agents); test against representative accounts, not just the default.
+- **Only active + listed** entities where relevant — filter out inactive/unlisted.
+
+---
+
+### A13. Reference Links
+
+| Resource | Location |
+|----------|----------|
+| Registry repo | `github.com/guestyorg/agent-workflow-registry` |
+| Engine/skills repo | `github.com/guestyorg/1000-agents-hub-workflows` |
+| Gil's walkthrough | Loom `be7c1ca153aa41ebb275bec0bd8f0500` (audio broken — use the 3 prompts instead) |
+| Monitoring + copy guide (Toby) | Google doc `1Awe6zZsNyOXAaPtXhbWfgvZ0yHW2JbT7ZROtE4GrseI` |
+| Activation tracker | Sheet `1c4kssJx8b0-LXwoDRheIM8NwmWd7hwMa3YvZgIxvHwE` |
+| Help/TLs | `#contact-1000-agents` |
 
 ---
 
