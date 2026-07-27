@@ -7,56 +7,56 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
     :root {
-      --bg: #F5F1E9; --navy: #1B3A5F; --card: #D9EAF7; --muted: #6B7C93;
-      --lite: #4A8FD4; --pro: #E35D5B; --enterprise: #F0C04A; --border: #D0D5DD;
+      --bg: #F5F1E9; --navy: #1B3A5F; --card: #D9EAF7; --muted: #6B7C93; --border: #D0D5DD;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      background: #ddd6c8; color: var(--navy);
-      min-height: 100vh; padding: 1.5rem;
+      background: #ddd6c8; color: var(--navy); min-height: 100vh; padding: 1.5rem;
       display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
     }
     .slide {
       width: min(1280px, 100%); aspect-ratio: 16 / 9; background: var(--bg);
       border-radius: 8px; box-shadow: 0 12px 40px rgba(27,58,95,.12);
-      padding: 2rem 2.25rem 1.5rem; display: grid; grid-template-rows: auto auto 1fr; gap: 1rem;
+      padding: 1.75rem 2rem 1.25rem; display: grid; grid-template-rows: auto auto 1fr; gap: .85rem;
     }
     .panel {
       width: min(1280px, 100%); background: var(--bg); border-radius: 8px;
       box-shadow: 0 12px 40px rgba(27,58,95,.12); padding: 1.5rem 2rem 2rem;
     }
     .header { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; }
-    h1 { font-size: clamp(1.6rem, 2.4vw, 2.1rem); font-weight: 700; letter-spacing: -.02em; }
-    h2 { font-size: 1.35rem; margin-bottom: .75rem; }
+    h1 { font-size: clamp(1.5rem, 2.3vw, 2rem); font-weight: 700; }
+    h2 { font-size: 1.3rem; margin-bottom: .5rem; }
     .date-pill {
-      display: inline-block; margin-top: .65rem; background: #E4E7EC; color: var(--navy);
-      border-radius: 10px; padding: .4rem .9rem; font-size: .95rem;
+      display: inline-block; margin-top: .55rem; background: #E4E7EC; border-radius: 10px;
+      padding: .35rem .85rem; font-size: .92rem;
     }
     .total-card, .tier-card {
       background: var(--card); border-radius: 14px; box-shadow: 0 2px 8px rgba(27,58,95,.08);
-      text-align: center; padding: .85rem 1rem;
+      text-align: center; padding: .75rem .85rem;
     }
-    .total-card { min-width: 280px; }
-    .label { font-size: .95rem; margin-bottom: .15rem; }
-    .value { font-size: clamp(1.8rem, 3vw, 2.35rem); font-weight: 700; line-height: 1.1; }
-    .sub { font-size: .8rem; color: var(--muted); margin-top: .25rem; }
-    .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 920px; margin: 0 auto; width: 100%; }
+    .total-card { min-width: 260px; }
+    .label { font-size: .88rem; margin-bottom: .1rem; }
+    .value { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 700; line-height: 1.1; }
+    .sub { font-size: .75rem; color: var(--muted); margin-top: .2rem; }
+    .tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; width: 100%; }
     .chart-panel {
       background: #fff; border: 1px solid var(--border); border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(27,58,95,.06); padding: .85rem 1rem .5rem;
-      min-height: 0; display: flex; flex-direction: column;
+      padding: .75rem 1rem .4rem; min-height: 0; display: flex; flex-direction: column;
     }
-    .chart-title { color: var(--muted); font-size: .95rem; margin-bottom: .25rem; }
-    .chart-wrap { flex: 1; position: relative; min-height: 220px; }
-    table { width: 100%; border-collapse: collapse; margin-top: .5rem; }
-    th, td { text-align: left; padding: .7rem .8rem; border-bottom: 1px solid #e5e7eb; }
-    th { color: var(--muted); font-size: .8rem; text-transform: uppercase; }
-    .note { margin-top: 1rem; color: var(--muted); font-size: .85rem; }
-    @media (max-width: 800px) {
-      .slide { aspect-ratio: auto; height: auto; }
-      .header { grid-template-columns: 1fr; }
-      .total-card { min-width: 0; }
+    .chart-title { color: var(--muted); font-size: .92rem; }
+    .chart-wrap { flex: 1; position: relative; min-height: 210px; }
+    table { width: 100%; border-collapse: collapse; margin-top: .75rem; }
+    th, td { text-align: left; padding: .65rem .75rem; border-bottom: 1px solid #e5e7eb; }
+    th { color: var(--muted); font-size: .78rem; text-transform: uppercase; }
+    .note { color: var(--muted); font-size: .88rem; margin-top: .35rem; }
+    .callout {
+      margin-top: 1rem; background: #fff; border-left: 4px solid #4A8FD4; padding: .85rem 1rem;
+      border-radius: 6px; font-size: .9rem; color: var(--navy);
+    }
+    @media (max-width: 900px) {
+      .slide { aspect-ratio: auto; }
+      .header, .tiers { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -65,11 +65,11 @@
     <div class="header">
       <div>
         <h1>Room Migration Progress</h1>
-        <div class="date-pill">July 13 - July 26</div>
+        <div class="date-pill">July 13 - July 27</div>
       </div>
       <div class="total-card">
         <div class="label">Total Accounts Created</div>
-        <div class="value">161</div>
+        <div class="value">2,876</div>
       </div>
     </div>
     <div class="tiers">
@@ -79,6 +79,11 @@
         <div class="sub">Out of them 0 Mid Market</div>
       </div>
       <div class="tier-card"><div class="label">Enterprise</div><div class="value">0</div></div>
+      <div class="tier-card">
+        <div class="label">Not in Room Overview</div>
+        <div class="value">2,715</div>
+        <div class="sub">161 matched in Room CSV</div>
+      </div>
     </div>
     <div class="chart-panel">
       <div class="chart-title">Cumulative Trends by Plan</div>
@@ -87,20 +92,30 @@
   </div>
 
   <div class="panel">
-    <h2>Segment breakdown (joined room accounts)</h2>
-    <p class="note">Accounts created after July 13 crossed with Reservations Room Accounts Overview by Account ID.</p>
+    <h2>Why Package/Segment is only on some rows</h2>
+    <div class="callout">
+      The created-accounts export has <strong>2,876</strong> rows.
+      The Room Accounts Overview export has Package/Segment for only
+      <strong>161</strong> of those IDs
+      (Room file itself has far fewer rows than created accounts).
+      The remaining <strong>2,715</strong> stay in
+      <em>Not in Room Overview</em> until they appear in a fuller Room export.
+    </div>
+    <h2 style="margin-top:1.25rem">Segment breakdown</h2>
+    <p class="note">Segment comes from the Room Accounts Overview when the Account ID matches.</p>
     <table>
       <thead>
-        <tr><th>Segment</th><th>Total</th><th>Lite</th><th>Pro</th><th>Enterprise</th></tr>
+        <tr><th>Segment</th><th>Total</th><th>Lite</th><th>Pro</th><th>Enterprise</th><th>Not in Room Overview</th></tr>
       </thead>
       <tbody>
-        <tr><td>SMB</td><td>161</td><td>156</td><td>5</td><td>0</td></tr>
+        <tr><td>Not in Room Overview</td><td>2,715</td><td>0</td><td>0</td><td>0</td><td>2,715</td></tr><tr><td>SMB</td><td>161</td><td>156</td><td>5</td><td>0</td><td>0</td></tr>
         <tr>
           <td><strong>TOTAL</strong></td>
-          <td><strong>161</strong></td>
+          <td><strong>2,876</strong></td>
           <td><strong>156</strong></td>
           <td><strong>5</strong></td>
           <td><strong>0</strong></td>
+          <td><strong>2,715</strong></td>
         </tr>
       </tbody>
     </table>
@@ -110,12 +125,8 @@
     new Chart(document.getElementById("trendChart"), {
       type: "bar",
       data: {
-        labels: ["7/13/2026", "7/20/2026"],
-        datasets: [
-          { label: "Lite", data: [91, 156], backgroundColor: "#4A8FD4", stack: "plans" },
-          { label: "Pro", data: [4, 5], backgroundColor: "#E35D5B", stack: "plans" },
-          { label: "Enterprise", data: [0, 0], backgroundColor: "#F0C04A", stack: "plans" }
-        ]
+        labels: ["7/13/2026", "7/20/2026", "7/27/2026"],
+        datasets: [{"label": "Lite", "data": [91, 156, 156], "backgroundColor": "#4A8FD4", "stack": "plans"}, {"label": "Pro", "data": [4, 5, 5], "backgroundColor": "#E35D5B", "stack": "plans"}, {"label": "Enterprise", "data": [0, 0, 0], "backgroundColor": "#F0C04A", "stack": "plans"}, {"label": "Not in Room Overview", "data": [1240, 2617, 2715], "backgroundColor": "#9AA5B5", "stack": "plans"}]
       },
       options: {
         responsive: true,
@@ -131,7 +142,7 @@
           y: {
             stacked: true,
             beginAtZero: true,
-            suggestedMax: Math.max(10, Math.ceil(161 * 1.15) || 10),
+            suggestedMax: Math.ceil(2876 * 1.12),
             title: { display: true, text: "Count", color: "#6B7C93" },
             ticks: { color: "#6B7C93", precision: 0 },
             grid: { color: "#E6EAF0" }

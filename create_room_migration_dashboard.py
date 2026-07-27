@@ -2,11 +2,9 @@
 """
 Build a weekly-editable Room Migration Progress slide.
 
-Logic:
-  1. Load accounts created after the cutoff (accountId, createdAt)
-  2. Cross account IDs with the Reservations Room Accounts Overview CSV
-  3. Use Package / Segment from the room file for KPI + chart breakdowns
-  4. Build cumulative weekly trends from createdAt
+Primary universe = ALL accounts created after the cutoff.
+Room Accounts Overview is LEFT-JOINED by Account ID to attach Package / Segment
+when available (most new accounts will not yet appear in the Room overview).
 
 Weekly update:
   1. Replace data/accounts_created_after_2026-07-13.csv
@@ -47,6 +45,7 @@ CHART_BORDER = "#D0D5DD"
 LITE = "#4A8FD4"
 PRO = "#E35D5B"
 ENTERPRISE = "#F0C04A"
+UNCLASSIFIED = "#9AA5B5"
 MUTED = "#6B7C93"
 GRID = "#E6EAF0"
 
@@ -57,7 +56,20 @@ PACKAGE_ALIASES = {
     "ent": "enterprise",
 }
 
-PACKAGE_ORDER = ("lite", "pro", "enterprise")
+# Chart / KPI series — unclassified = created accounts with no Room Overview row
+PACKAGE_ORDER = ("lite", "pro", "enterprise", "unclassified")
+PACKAGE_COLORS = {
+    "lite": LITE,
+    "pro": PRO,
+    "enterprise": ENTERPRISE,
+    "unclassified": UNCLASSIFIED,
+}
+PACKAGE_LABELS = {
+    "lite": "Lite",
+    "pro": "Pro",
+    "enterprise": "Enterprise",
+    "unclassified": "Not in Room Overview",
+}
 
 
 def load_config() -> dict:
@@ -69,7 +81,6 @@ def parse_date(value: str) -> datetime | None:
     if not value or value.strip().lower() in {"null", "none", "nan", ""}:
         return None
     value = value.strip()
-    # Prefer full ISO timestamps (e.g. 2026-07-13T09:00:46.212Z) before date-only parses.
     if "T" in value or value.endswith("Z"):
         try:
             return datetime.fromisoformat(value.replace("Z", "+00:00")).replace(tzinfo=None)
@@ -90,13 +101,19 @@ def monday_of(dt: datetime) -> datetime:
     return (dt - timedelta(days=dt.weekday())).replace(hour=0, minute=0, second=0, microsecond=0)
 
 
-def normalize_package(raw: str) -> str:
-    key = (raw or "").strip().lower()
-    return PACKAGE_ALIASES.get(key, "other")
+def normalize_package(raw: str | None) -> str:
+    if raw is None:
+        return "unclassified"
+    key = raw.strip().lower()
+    if not key or key in {"null", "none", "nan"}:
+        return "unclassified"
+    return PACKAGE_ALIASES.get(key, "unclassified")
 
 
-def normalize_segment(raw: str) -> str:
-    value = (raw or "").strip()
+def normalize_segment(raw: str | None) -> str:
+    if raw is None:
+        return "Not in Room Overview"
+    value = raw.strip()
     if not value or value.lower() in {"null", "none", "nan"}:
         return "Unknown"
     return value
@@ -108,9 +125,8 @@ def is_mid_market(segment: str) -> bool:
 
 def load_created_accounts(path: Path) -> dict[str, datetime]:
     with open(path, newline="", encoding="utf-8-sig") as f:
-        reader = csv.DictReader(f)
         out: dict[str, datetime] = {}
-        for row in reader:
+        for row in csv.DictReader(f):
             account_id = (row.get("accountId") or row.get("Account ID") or "").strip()
             created = parse_date(row.get("createdAt") or row.get("Created At") or "")
             if account_id and created:
@@ -120,36 +136,58 @@ def load_created_accounts(path: Path) -> dict[str, datetime]:
 
 def load_room_accounts(path: Path) -> dict[str, dict]:
     with open(path, newline="", encoding="utf-8-sig") as f:
-        reader = csv.DictReader(f)
         return {
             (row.get("Account ID") or "").strip(): row
-            for row in reader
+            for row in csv.DictReader(f)
             if (row.get("Account ID") or "").strip()
         }
 
 
-def join_accounts(created: dict[str, datetime], room: dict[str, dict]) -> list[dict]:
+def join_accounts(created: dict[str, datetime], room: dict[str, dict], join_mode: str = "left") -> list[dict]:
+    """
+    join_mode:
+      - left: keep ALL created accounts; attach room Package/Segment when ID matches
+      - inner: only created accounts that also appear in the Room Overview
+    """
     joined = []
     for account_id, created_at in created.items():
         room_row = room.get(account_id)
-        if not room_row:
+        if room_row is None and join_mode == "inner":
             continue
-        package = normalize_package(room_row.get("Package", ""))
-        segment = normalize_segment(room_row.get("Segment", ""))
-        joined.append(
-            {
-                "Account ID": account_id,
+        if room_row is None:
+            package = "unclassified"
+            segment = "Not in Room Overview"
+            meta = {
+                "Account Name": "",
+                "CSM": "",
+                "Active?": "",
+                "Paying?": "",
+                "account_status": "",
+                "Room Migrated?": "",
+                "Migration Completed At": "",
+                "In Room Overview": "false",
+            }
+        else:
+            package = normalize_package(room_row.get("Package"))
+            segment = normalize_segment(room_row.get("Segment"))
+            meta = {
                 "Account Name": room_row.get("Account Name", ""),
-                "Package": package,
-                "Segment": segment,
                 "CSM": room_row.get("CSM", ""),
                 "Active?": room_row.get("Active?", ""),
                 "Paying?": room_row.get("Paying?", ""),
                 "account_status": room_row.get("account_status", ""),
                 "Room Migrated?": room_row.get("Room Migrated?", ""),
                 "Migration Completed At": room_row.get("Migration Completed At", ""),
+                "In Room Overview": "true",
+            }
+        joined.append(
+            {
+                "Account ID": account_id,
+                "Package": package,
+                "Segment": segment,
                 "Created At": created_at,
                 "Created At ISO": created_at.strftime("%Y-%m-%dT%H:%M:%S"),
+                **meta,
             }
         )
     joined.sort(key=lambda r: r["Created At"])
@@ -162,21 +200,19 @@ def aggregate(joined: list[dict], chart_start: datetime) -> dict:
     segment_counts: Counter[str] = Counter()
     segment_by_package: dict[str, Counter[str]] = defaultdict(Counter)
     weekly_new = defaultdict(lambda: {pkg: 0 for pkg in PACKAGE_ORDER})
+    matched = 0
 
     for row in joined:
-        pkg = row["Package"]
-        if pkg in totals:
-            totals[pkg] += 1
-        else:
-            # Keep unknown packages out of Lite/Pro/Enterprise cards but still count in total via joined len
-            pass
+        pkg = row["Package"] if row["Package"] in totals else "unclassified"
+        totals[pkg] += 1
         segment_counts[row["Segment"]] += 1
-        segment_by_package[row["Segment"]][pkg if pkg in totals else "other"] += 1
+        segment_by_package[row["Segment"]][pkg] += 1
+        if row["In Room Overview"] == "true":
+            matched += 1
         if pkg == "pro" and is_mid_market(row["Segment"]):
             pro_mid_market += 1
         week = monday_of(row["Created At"])
-        if pkg in weekly_new[week]:
-            weekly_new[week][pkg] += 1
+        weekly_new[week][pkg] += 1
 
     if joined:
         end = monday_of(max(r["Created At"] for r in joined))
@@ -204,21 +240,19 @@ def aggregate(joined: list[dict], chart_start: datetime) -> dict:
             running[pkg] += weekly_new[week][pkg]
             cumulative[pkg].append(running[pkg])
 
-    plan_total = sum(totals.values())
-    auto_week_label = f"{earliest.strftime('%B %-d')} - {latest.strftime('%B %-d')}"
-
     return {
         "totals": totals,
-        "total": plan_total,
-        "matched": len(joined),
+        "total": len(joined),
+        "matched": matched,
+        "unmatched": totals["unclassified"],
         "pro_mid_market": pro_mid_market,
         "segment_counts": segment_counts,
         "segment_by_package": segment_by_package,
         "weeks": weeks,
         "cumulative": cumulative,
-        "auto_week_label": auto_week_label,
-        "earliest": earliest,
-        "latest": latest,
+        "auto_week_label": f"{earliest.strftime('%B %-d')} - {latest.strftime('%B %-d')}",
+        "created_file_count": len(joined),
+        "room_match_count": matched,
     }
 
 
@@ -234,6 +268,7 @@ def write_consolidated_csv(joined: list[dict], path: Path) -> None:
         "Package",
         "Segment",
         "Created At ISO",
+        "In Room Overview",
         "CSM",
         "Active?",
         "Paying?",
@@ -252,7 +287,7 @@ def write_segment_summary(agg: dict, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
-        writer.writerow(["Segment", "Total", "Lite", "Pro", "Enterprise", "Other"])
+        writer.writerow(["Segment", "Total", "Lite", "Pro", "Enterprise", "Not in Room Overview"])
         for segment, total in sorted(agg["segment_counts"].items(), key=lambda x: (-x[1], x[0])):
             by_pkg = agg["segment_by_package"][segment]
             writer.writerow(
@@ -262,11 +297,24 @@ def write_segment_summary(agg: dict, path: Path) -> None:
                     by_pkg.get("lite", 0),
                     by_pkg.get("pro", 0),
                     by_pkg.get("enterprise", 0),
-                    by_pkg.get("other", 0),
+                    by_pkg.get("unclassified", 0),
                 ]
             )
         writer.writerow([])
-        writer.writerow(["TOTAL", agg["matched"], agg["totals"]["lite"], agg["totals"]["pro"], agg["totals"]["enterprise"], ""])
+        writer.writerow(
+            [
+                "TOTAL",
+                agg["total"],
+                agg["totals"]["lite"],
+                agg["totals"]["pro"],
+                agg["totals"]["enterprise"],
+                agg["totals"]["unclassified"],
+            ]
+        )
+
+
+def _stacked_series(agg: dict):
+    return [agg["cumulative"][pkg] for pkg in PACKAGE_ORDER]
 
 
 def draw_dashboard_image(agg: dict, week_label: str, title: str, total_label: str, out_path: Path) -> None:
@@ -279,72 +327,56 @@ def draw_dashboard_image(agg: dict, week_label: str, title: str, total_label: st
     ax_date.set_ylim(0, 1)
     ax_date.axis("off")
     ax_date.add_patch(
-        FancyBboxPatch(
-            (0.0, 0.05),
-            0.98,
-            0.85,
-            boxstyle="round,pad=0.02,rounding_size=0.2",
-            linewidth=0,
-            facecolor="#E4E7EC",
-        )
+        FancyBboxPatch((0.0, 0.05), 0.98, 0.85, boxstyle="round,pad=0.02,rounding_size=0.2", linewidth=0, facecolor="#E4E7EC")
     )
     ax_date.text(0.5, 0.48, week_label, ha="center", va="center", fontsize=11, color=NAVY)
 
     totals = agg["totals"]
 
-    def metric_card(bounds, label, value, sub=None):
+    def metric_card(bounds, label, value, sub=None, value_size=28):
         ax = fig.add_axes(bounds)
         ax.set_xlim(0, 1)
         ax.set_ylim(0, 1)
         ax.axis("off")
         ax.add_patch(
-            FancyBboxPatch(
-                (0.02, 0.08),
-                0.96,
-                0.84,
-                boxstyle="round,pad=0.02,rounding_size=0.15",
-                linewidth=0,
-                facecolor=CARD,
-            )
+            FancyBboxPatch((0.02, 0.08), 0.96, 0.84, boxstyle="round,pad=0.02,rounding_size=0.15", linewidth=0, facecolor=CARD)
         )
-        ax.text(0.5, 0.72, label, ha="center", va="center", fontsize=11, color=NAVY)
-        ax.text(
-            0.5,
-            0.38 if sub else 0.35,
-            value,
-            ha="center",
-            va="center",
-            fontsize=28,
-            fontweight="bold",
-            color=NAVY,
-        )
+        ax.text(0.5, 0.72, label, ha="center", va="center", fontsize=10, color=NAVY)
+        ax.text(0.5, 0.38 if sub else 0.35, value, ha="center", va="center", fontsize=value_size, fontweight="bold", color=NAVY)
         if sub:
-            ax.text(0.5, 0.14, sub, ha="center", va="center", fontsize=9, color=MUTED)
+            ax.text(0.5, 0.14, sub, ha="center", va="center", fontsize=8, color=MUTED)
 
     metric_card([0.35, 0.78, 0.30, 0.12], total_label, fmt_int(agg["total"]))
-    metric_card([0.12, 0.62, 0.24, 0.12], "Lite", fmt_int(totals["lite"]))
-    pro_sub = f"Out of them {fmt_int(agg['pro_mid_market'])} Mid Market"
-    metric_card([0.38, 0.62, 0.24, 0.12], "Pro", fmt_int(totals["pro"]), sub=pro_sub)
-    metric_card([0.64, 0.62, 0.24, 0.12], "Enterprise", fmt_int(totals["enterprise"]))
+    metric_card([0.05, 0.62, 0.21, 0.12], "Lite", fmt_int(totals["lite"]))
+    metric_card(
+        [0.28, 0.62, 0.21, 0.12],
+        "Pro",
+        fmt_int(totals["pro"]),
+        sub=f"Out of them {fmt_int(agg['pro_mid_market'])} Mid Market",
+    )
+    metric_card([0.51, 0.62, 0.21, 0.12], "Enterprise", fmt_int(totals["enterprise"]))
+    metric_card(
+        [0.74, 0.62, 0.21, 0.12],
+        "Not in Room Overview",
+        fmt_int(totals["unclassified"]),
+        sub=f"{fmt_int(agg['matched'])} matched in Room CSV",
+        value_size=24,
+    )
 
     ax = fig.add_axes([0.08, 0.10, 0.86, 0.46])
     for spine in ax.spines.values():
         spine.set_color(CHART_BORDER)
-        spine.set_linewidth(1)
     ax.set_facecolor(CHART_BG)
     ax.set_title("Cumulative Trends by Plan", loc="left", fontsize=12, color=MUTED, pad=10)
 
     weeks = agg["weeks"]
     x = list(range(len(weeks)))
-    lite = agg["cumulative"]["lite"]
-    pro = agg["cumulative"]["pro"]
-    ent = agg["cumulative"]["enterprise"]
     width = 0.55 if len(weeks) > 8 else 0.65
-
-    ax.bar(x, lite, width=width, color=LITE, label="Lite", zorder=3)
-    ax.bar(x, pro, width=width, bottom=lite, color=PRO, label="Pro", zorder=3)
-    bottom2 = [a + b for a, b in zip(lite, pro)]
-    ax.bar(x, ent, width=width, bottom=bottom2, color=ENTERPRISE, label="Enterprise", zorder=3)
+    bottom = [0] * len(weeks)
+    for pkg in PACKAGE_ORDER:
+        vals = agg["cumulative"][pkg]
+        ax.bar(x, vals, width=width, bottom=bottom, color=PACKAGE_COLORS[pkg], label=PACKAGE_LABELS[pkg], zorder=3)
+        bottom = [b + v for b, v in zip(bottom, vals)]
 
     ax.set_ylabel("Count", color=MUTED, fontsize=10)
     ax.set_xlabel("Week starting", color=MUTED, fontsize=10)
@@ -353,17 +385,8 @@ def draw_dashboard_image(agg: dict, week_label: str, title: str, total_label: st
     ax.tick_params(axis="y", colors=MUTED, labelsize=9)
     ax.yaxis.grid(True, color=GRID, linewidth=0.8, zorder=0)
     ax.set_axisbelow(True)
-    ymax = max(agg["total"], 1)
-    ax.set_ylim(0, max(10, int(ymax * 1.15)))
-    ax.legend(
-        loc="upper center",
-        bbox_to_anchor=(0.55, 1.02),
-        ncol=3,
-        frameon=False,
-        fontsize=9,
-        handlelength=1.2,
-        columnspacing=1.2,
-    )
+    ax.set_ylim(0, max(10, int(agg["total"] * 1.12)))
+    ax.legend(loc="upper center", bbox_to_anchor=(0.55, 1.02), ncol=4, frameon=False, fontsize=8)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_path, facecolor=fig.get_facecolor(), bbox_inches="tight", pad_inches=0.25)
@@ -375,14 +398,12 @@ def draw_chart_only(agg: dict, out_path: Path) -> None:
     ax.set_facecolor(CHART_BG)
     weeks = agg["weeks"]
     x = list(range(len(weeks)))
-    lite = agg["cumulative"]["lite"]
-    pro = agg["cumulative"]["pro"]
-    ent = agg["cumulative"]["enterprise"]
     width = 0.55 if len(weeks) > 8 else 0.65
-    ax.bar(x, lite, width=width, color=LITE, label="Lite", zorder=3)
-    ax.bar(x, pro, width=width, bottom=lite, color=PRO, label="Pro", zorder=3)
-    bottom2 = [a + b for a, b in zip(lite, pro)]
-    ax.bar(x, ent, width=width, bottom=bottom2, color=ENTERPRISE, label="Enterprise", zorder=3)
+    bottom = [0] * len(weeks)
+    for pkg in PACKAGE_ORDER:
+        vals = agg["cumulative"][pkg]
+        ax.bar(x, vals, width=width, bottom=bottom, color=PACKAGE_COLORS[pkg], label=PACKAGE_LABELS[pkg], zorder=3)
+        bottom = [b + v for b, v in zip(bottom, vals)]
     ax.set_title("Cumulative Trends by Plan", loc="left", fontsize=12, color=MUTED, pad=12)
     ax.set_ylabel("Count", color=MUTED, fontsize=10)
     ax.set_xlabel("Week starting", color=MUTED, fontsize=10)
@@ -393,9 +414,8 @@ def draw_chart_only(agg: dict, out_path: Path) -> None:
     ax.set_axisbelow(True)
     for spine in ax.spines.values():
         spine.set_color(CHART_BORDER)
-    ymax = max(agg["total"], 1)
-    ax.set_ylim(0, max(10, int(ymax * 1.15)))
-    ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.02), ncol=3, frameon=False, fontsize=9)
+    ax.set_ylim(0, max(10, int(agg["total"] * 1.12)))
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.02), ncol=4, frameon=False, fontsize=8)
     fig.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_path, facecolor=CHART_BG, bbox_inches="tight", pad_inches=0.15)
@@ -433,7 +453,7 @@ def add_rounded_rect(slide, left, top, width, height, fill: RGBColor):
     return shape
 
 
-def add_metric_card(slide, left, top, width, height, label, value, sub=None):
+def add_metric_card(slide, left, top, width, height, label, value, sub=None, value_size=26):
     card = add_rounded_rect(slide, left, top, width, height, RGBColor(0xD9, 0xEA, 0xF7))
     tf = card.text_frame
     tf.word_wrap = True
@@ -441,20 +461,20 @@ def add_metric_card(slide, left, top, width, height, label, value, sub=None):
     p.alignment = PP_ALIGN.CENTER
     run = p.add_run()
     run.text = label
-    set_run(run, size=12, bold=False)
+    set_run(run, size=11, bold=False)
 
     p2 = tf.add_paragraph()
     p2.alignment = PP_ALIGN.CENTER
     run2 = p2.add_run()
     run2.text = value
-    set_run(run2, size=28, bold=True)
+    set_run(run2, size=value_size, bold=True)
 
     if sub:
         p3 = tf.add_paragraph()
         p3.alignment = PP_ALIGN.CENTER
         run3 = p3.add_run()
         run3.text = sub
-        set_run(run3, size=10, bold=False, color=RGBColor(0x6B, 0x7C, 0x93))
+        set_run(run3, size=9, bold=False, color=RGBColor(0x6B, 0x7C, 0x93))
     return card
 
 
@@ -462,50 +482,52 @@ def build_pptx(agg: dict, week_label: str, title: str, total_label: str, chart_p
     prs = Presentation()
     prs.slide_width = Inches(13.333)
     prs.slide_height = Inches(7.5)
-    slide = prs.slides.add_slide(prs.slide_layouts[6])
 
+    slide = prs.slides.add_slide(prs.slide_layouts[6])
     bg = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, prs.slide_width, prs.slide_height)
     bg.fill.solid()
     bg.fill.fore_color.rgb = RGBColor(0xF5, 0xF1, 0xE9)
     bg.line.fill.background()
 
     add_textbox(slide, Inches(0.55), Inches(0.28), Inches(6), Inches(0.55), title, size=30, bold=True)
-
     date_box = add_rounded_rect(slide, Inches(0.55), Inches(0.9), Inches(2.8), Inches(0.38), RGBColor(0xE4, 0xE7, 0xEC))
     tf = date_box.text_frame
     p = tf.paragraphs[0]
     p.alignment = PP_ALIGN.CENTER
     run = p.add_run()
     run.text = week_label
-    set_run(run, size=12, bold=False)
+    set_run(run, size=12)
 
     totals = agg["totals"]
-    add_metric_card(slide, Inches(4.5), Inches(0.35), Inches(4.2), Inches(1.05), total_label, fmt_int(agg["total"]))
-    add_metric_card(slide, Inches(1.5), Inches(1.55), Inches(3.2), Inches(1.1), "Lite", fmt_int(totals["lite"]))
+    add_metric_card(slide, Inches(4.5), Inches(0.3), Inches(4.2), Inches(1.0), total_label, fmt_int(agg["total"]))
+    add_metric_card(slide, Inches(0.55), Inches(1.5), Inches(2.9), Inches(1.05), "Lite", fmt_int(totals["lite"]))
     add_metric_card(
         slide,
-        Inches(5.05),
-        Inches(1.55),
-        Inches(3.2),
-        Inches(1.1),
+        Inches(3.65),
+        Inches(1.5),
+        Inches(2.9),
+        Inches(1.05),
         "Pro",
         fmt_int(totals["pro"]),
         sub=f"Out of them {fmt_int(agg['pro_mid_market'])} Mid Market",
     )
+    add_metric_card(slide, Inches(6.75), Inches(1.5), Inches(2.9), Inches(1.05), "Enterprise", fmt_int(totals["enterprise"]))
     add_metric_card(
         slide,
-        Inches(8.6),
-        Inches(1.55),
-        Inches(3.2),
-        Inches(1.1),
-        "Enterprise",
-        fmt_int(totals["enterprise"]),
+        Inches(9.85),
+        Inches(1.5),
+        Inches(2.9),
+        Inches(1.05),
+        "Not in Room Overview",
+        fmt_int(totals["unclassified"]),
+        sub=f"{fmt_int(agg['matched'])} matched",
+        value_size=22,
     )
 
     if chart_path.exists():
-        slide.shapes.add_picture(str(chart_path), Inches(0.55), Inches(2.9), width=Inches(12.2))
+        slide.shapes.add_picture(str(chart_path), Inches(0.55), Inches(2.85), width=Inches(12.2))
 
-    # Segment breakdown slide
+    # Segment slide
     slide2 = prs.slides.add_slide(prs.slide_layouts[6])
     bg2 = slide2.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, prs.slide_width, prs.slide_height)
     bg2.fill.solid()
@@ -526,44 +548,37 @@ def build_pptx(agg: dict, week_label: str, title: str, total_label: str, chart_p
         Inches(0.55),
         Inches(0.95),
         Inches(12),
-        Inches(0.4),
-        f"Matched room accounts: {fmt_int(agg['matched'])}  ·  {week_label}",
-        size=14,
+        Inches(0.45),
+        (
+            f"All created accounts: {fmt_int(agg['total'])}  ·  "
+            f"Found in Room Overview (Package/Segment available): {fmt_int(agg['matched'])}  ·  "
+            f"Not in Room Overview: {fmt_int(agg['unmatched'])}"
+        ),
+        size=13,
         color=RGBColor(0x6B, 0x7C, 0x93),
     )
 
     y = 1.6
     add_rounded_rect(slide2, Inches(0.55), Inches(y), Inches(12.2), Inches(0.5), RGBColor(0xD9, 0xEA, 0xF7))
-    add_textbox(slide2, Inches(0.7), Inches(y + 0.08), Inches(3), Inches(0.35), "Segment", size=14, bold=True)
-    add_textbox(slide2, Inches(4.2), Inches(y + 0.08), Inches(1.5), Inches(0.35), "Total", size=14, bold=True)
-    add_textbox(slide2, Inches(6.0), Inches(y + 0.08), Inches(1.5), Inches(0.35), "Lite", size=14, bold=True)
-    add_textbox(slide2, Inches(7.8), Inches(y + 0.08), Inches(1.5), Inches(0.35), "Pro", size=14, bold=True)
-    add_textbox(slide2, Inches(9.6), Inches(y + 0.08), Inches(1.8), Inches(0.35), "Enterprise", size=14, bold=True)
+    headers = [("Segment", 0.7), ("Total", 4.0), ("Lite", 5.8), ("Pro", 7.5), ("Enterprise", 9.0), ("Not in Room", 10.7)]
+    for text, left in headers:
+        add_textbox(slide2, Inches(left), Inches(y + 0.08), Inches(1.8), Inches(0.35), text, size=13, bold=True)
 
     y = 2.25
     for segment, total in sorted(agg["segment_counts"].items(), key=lambda x: (-x[1], x[0])):
         by_pkg = agg["segment_by_package"][segment]
-        add_textbox(slide2, Inches(0.7), Inches(y), Inches(3), Inches(0.35), segment, size=14)
-        add_textbox(slide2, Inches(4.2), Inches(y), Inches(1.5), Inches(0.35), fmt_int(total), size=14, bold=True)
-        add_textbox(slide2, Inches(6.0), Inches(y), Inches(1.5), Inches(0.35), fmt_int(by_pkg.get("lite", 0)), size=14)
-        add_textbox(slide2, Inches(7.8), Inches(y), Inches(1.5), Inches(0.35), fmt_int(by_pkg.get("pro", 0)), size=14)
-        add_textbox(slide2, Inches(9.6), Inches(y), Inches(1.8), Inches(0.35), fmt_int(by_pkg.get("enterprise", 0)), size=14)
-        y += 0.45
+        add_textbox(slide2, Inches(0.7), Inches(y), Inches(3.2), Inches(0.35), segment, size=13)
+        add_textbox(slide2, Inches(4.0), Inches(y), Inches(1.5), Inches(0.35), fmt_int(total), size=13, bold=True)
+        add_textbox(slide2, Inches(5.8), Inches(y), Inches(1.4), Inches(0.35), fmt_int(by_pkg.get("lite", 0)), size=13)
+        add_textbox(slide2, Inches(7.5), Inches(y), Inches(1.4), Inches(0.35), fmt_int(by_pkg.get("pro", 0)), size=13)
+        add_textbox(slide2, Inches(9.0), Inches(y), Inches(1.4), Inches(0.35), fmt_int(by_pkg.get("enterprise", 0)), size=13)
+        add_textbox(slide2, Inches(10.7), Inches(y), Inches(1.6), Inches(0.35), fmt_int(by_pkg.get("unclassified", 0)), size=13)
+        y += 0.42
+        if y > 6.6:
+            break
 
-    add_textbox(
-        slide2,
-        Inches(0.7),
-        Inches(y + 0.2),
-        Inches(3),
-        Inches(0.35),
-        "TOTAL",
-        size=14,
-        bold=True,
-    )
-    add_textbox(slide2, Inches(4.2), Inches(y + 0.2), Inches(1.5), Inches(0.35), fmt_int(agg["matched"]), size=14, bold=True)
-    add_textbox(slide2, Inches(6.0), Inches(y + 0.2), Inches(1.5), Inches(0.35), fmt_int(agg["totals"]["lite"]), size=14, bold=True)
-    add_textbox(slide2, Inches(7.8), Inches(y + 0.2), Inches(1.5), Inches(0.35), fmt_int(agg["totals"]["pro"]), size=14, bold=True)
-    add_textbox(slide2, Inches(9.6), Inches(y + 0.2), Inches(1.8), Inches(0.35), fmt_int(agg["totals"]["enterprise"]), size=14, bold=True)
+    add_textbox(slide2, Inches(0.7), Inches(min(y + 0.15, 6.8)), Inches(3.2), Inches(0.35), "TOTAL", size=13, bold=True)
+    add_textbox(slide2, Inches(4.0), Inches(min(y + 0.15, 6.8)), Inches(1.5), Inches(0.35), fmt_int(agg["total"]), size=13, bold=True)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     prs.save(out_path)
@@ -571,15 +586,22 @@ def build_pptx(agg: dict, week_label: str, title: str, total_label: str, chart_p
 
 def build_html(agg: dict, week_label: str, title: str, total_label: str, out_path: Path) -> None:
     weeks = [w.strftime("%-m/%d/%Y") for w in agg["weeks"]]
-    lite = agg["cumulative"]["lite"]
-    pro = agg["cumulative"]["pro"]
-    ent = agg["cumulative"]["enterprise"]
     totals = agg["totals"]
+    datasets = [
+        {
+            "label": PACKAGE_LABELS[pkg],
+            "data": agg["cumulative"][pkg],
+            "backgroundColor": PACKAGE_COLORS[pkg],
+            "stack": "plans",
+        }
+        for pkg in PACKAGE_ORDER
+    ]
     segment_rows = "".join(
         f"<tr><td>{seg}</td><td>{fmt_int(total)}</td>"
         f"<td>{fmt_int(agg['segment_by_package'][seg].get('lite', 0))}</td>"
         f"<td>{fmt_int(agg['segment_by_package'][seg].get('pro', 0))}</td>"
-        f"<td>{fmt_int(agg['segment_by_package'][seg].get('enterprise', 0))}</td></tr>"
+        f"<td>{fmt_int(agg['segment_by_package'][seg].get('enterprise', 0))}</td>"
+        f"<td>{fmt_int(agg['segment_by_package'][seg].get('unclassified', 0))}</td></tr>"
         for seg, total in sorted(agg["segment_counts"].items(), key=lambda x: (-x[1], x[0]))
     )
 
@@ -592,56 +614,56 @@ def build_html(agg: dict, week_label: str, title: str, total_label: str, out_pat
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
     :root {{
-      --bg: {BG}; --navy: {NAVY}; --card: {CARD}; --muted: {MUTED};
-      --lite: {LITE}; --pro: {PRO}; --enterprise: {ENTERPRISE}; --border: {CHART_BORDER};
+      --bg: {BG}; --navy: {NAVY}; --card: {CARD}; --muted: {MUTED}; --border: {CHART_BORDER};
     }}
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
     body {{
       font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      background: #ddd6c8; color: var(--navy);
-      min-height: 100vh; padding: 1.5rem;
+      background: #ddd6c8; color: var(--navy); min-height: 100vh; padding: 1.5rem;
       display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
     }}
     .slide {{
       width: min(1280px, 100%); aspect-ratio: 16 / 9; background: var(--bg);
       border-radius: 8px; box-shadow: 0 12px 40px rgba(27,58,95,.12);
-      padding: 2rem 2.25rem 1.5rem; display: grid; grid-template-rows: auto auto 1fr; gap: 1rem;
+      padding: 1.75rem 2rem 1.25rem; display: grid; grid-template-rows: auto auto 1fr; gap: .85rem;
     }}
     .panel {{
       width: min(1280px, 100%); background: var(--bg); border-radius: 8px;
       box-shadow: 0 12px 40px rgba(27,58,95,.12); padding: 1.5rem 2rem 2rem;
     }}
     .header {{ display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; }}
-    h1 {{ font-size: clamp(1.6rem, 2.4vw, 2.1rem); font-weight: 700; letter-spacing: -.02em; }}
-    h2 {{ font-size: 1.35rem; margin-bottom: .75rem; }}
+    h1 {{ font-size: clamp(1.5rem, 2.3vw, 2rem); font-weight: 700; }}
+    h2 {{ font-size: 1.3rem; margin-bottom: .5rem; }}
     .date-pill {{
-      display: inline-block; margin-top: .65rem; background: #E4E7EC; color: var(--navy);
-      border-radius: 10px; padding: .4rem .9rem; font-size: .95rem;
+      display: inline-block; margin-top: .55rem; background: #E4E7EC; border-radius: 10px;
+      padding: .35rem .85rem; font-size: .92rem;
     }}
     .total-card, .tier-card {{
       background: var(--card); border-radius: 14px; box-shadow: 0 2px 8px rgba(27,58,95,.08);
-      text-align: center; padding: .85rem 1rem;
+      text-align: center; padding: .75rem .85rem;
     }}
-    .total-card {{ min-width: 280px; }}
-    .label {{ font-size: .95rem; margin-bottom: .15rem; }}
-    .value {{ font-size: clamp(1.8rem, 3vw, 2.35rem); font-weight: 700; line-height: 1.1; }}
-    .sub {{ font-size: .8rem; color: var(--muted); margin-top: .25rem; }}
-    .tiers {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 920px; margin: 0 auto; width: 100%; }}
+    .total-card {{ min-width: 260px; }}
+    .label {{ font-size: .88rem; margin-bottom: .1rem; }}
+    .value {{ font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 700; line-height: 1.1; }}
+    .sub {{ font-size: .75rem; color: var(--muted); margin-top: .2rem; }}
+    .tiers {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; width: 100%; }}
     .chart-panel {{
       background: #fff; border: 1px solid var(--border); border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(27,58,95,.06); padding: .85rem 1rem .5rem;
-      min-height: 0; display: flex; flex-direction: column;
+      padding: .75rem 1rem .4rem; min-height: 0; display: flex; flex-direction: column;
     }}
-    .chart-title {{ color: var(--muted); font-size: .95rem; margin-bottom: .25rem; }}
-    .chart-wrap {{ flex: 1; position: relative; min-height: 220px; }}
-    table {{ width: 100%; border-collapse: collapse; margin-top: .5rem; }}
-    th, td {{ text-align: left; padding: .7rem .8rem; border-bottom: 1px solid #e5e7eb; }}
-    th {{ color: var(--muted); font-size: .8rem; text-transform: uppercase; }}
-    .note {{ margin-top: 1rem; color: var(--muted); font-size: .85rem; }}
-    @media (max-width: 800px) {{
-      .slide {{ aspect-ratio: auto; height: auto; }}
-      .header {{ grid-template-columns: 1fr; }}
-      .total-card {{ min-width: 0; }}
+    .chart-title {{ color: var(--muted); font-size: .92rem; }}
+    .chart-wrap {{ flex: 1; position: relative; min-height: 210px; }}
+    table {{ width: 100%; border-collapse: collapse; margin-top: .75rem; }}
+    th, td {{ text-align: left; padding: .65rem .75rem; border-bottom: 1px solid #e5e7eb; }}
+    th {{ color: var(--muted); font-size: .78rem; text-transform: uppercase; }}
+    .note {{ color: var(--muted); font-size: .88rem; margin-top: .35rem; }}
+    .callout {{
+      margin-top: 1rem; background: #fff; border-left: 4px solid {LITE}; padding: .85rem 1rem;
+      border-radius: 6px; font-size: .9rem; color: var(--navy);
+    }}
+    @media (max-width: 900px) {{
+      .slide {{ aspect-ratio: auto; }}
+      .header, .tiers {{ grid-template-columns: 1fr; }}
     }}
   </style>
 </head>
@@ -664,6 +686,11 @@ def build_html(agg: dict, week_label: str, title: str, total_label: str, out_pat
         <div class="sub">Out of them {fmt_int(agg["pro_mid_market"])} Mid Market</div>
       </div>
       <div class="tier-card"><div class="label">Enterprise</div><div class="value">{fmt_int(totals["enterprise"])}</div></div>
+      <div class="tier-card">
+        <div class="label">Not in Room Overview</div>
+        <div class="value">{fmt_int(totals["unclassified"])}</div>
+        <div class="sub">{fmt_int(agg["matched"])} matched in Room CSV</div>
+      </div>
     </div>
     <div class="chart-panel">
       <div class="chart-title">Cumulative Trends by Plan</div>
@@ -672,20 +699,30 @@ def build_html(agg: dict, week_label: str, title: str, total_label: str, out_pat
   </div>
 
   <div class="panel">
-    <h2>Segment breakdown (joined room accounts)</h2>
-    <p class="note">Accounts created after July 13 crossed with Reservations Room Accounts Overview by Account ID.</p>
+    <h2>Why Package/Segment is only on some rows</h2>
+    <div class="callout">
+      The created-accounts export has <strong>{fmt_int(agg["total"])}</strong> rows.
+      The Room Accounts Overview export has Package/Segment for only
+      <strong>{fmt_int(agg["matched"])}</strong> of those IDs
+      (Room file itself has far fewer rows than created accounts).
+      The remaining <strong>{fmt_int(agg["unmatched"])}</strong> stay in
+      <em>Not in Room Overview</em> until they appear in a fuller Room export.
+    </div>
+    <h2 style="margin-top:1.25rem">Segment breakdown</h2>
+    <p class="note">Segment comes from the Room Accounts Overview when the Account ID matches.</p>
     <table>
       <thead>
-        <tr><th>Segment</th><th>Total</th><th>Lite</th><th>Pro</th><th>Enterprise</th></tr>
+        <tr><th>Segment</th><th>Total</th><th>Lite</th><th>Pro</th><th>Enterprise</th><th>Not in Room Overview</th></tr>
       </thead>
       <tbody>
         {segment_rows}
         <tr>
           <td><strong>TOTAL</strong></td>
-          <td><strong>{fmt_int(agg["matched"])}</strong></td>
+          <td><strong>{fmt_int(agg["total"])}</strong></td>
           <td><strong>{fmt_int(totals["lite"])}</strong></td>
           <td><strong>{fmt_int(totals["pro"])}</strong></td>
           <td><strong>{fmt_int(totals["enterprise"])}</strong></td>
+          <td><strong>{fmt_int(totals["unclassified"])}</strong></td>
         </tr>
       </tbody>
     </table>
@@ -696,11 +733,7 @@ def build_html(agg: dict, week_label: str, title: str, total_label: str, out_pat
       type: "bar",
       data: {{
         labels: {json.dumps(weeks)},
-        datasets: [
-          {{ label: "Lite", data: {json.dumps(lite)}, backgroundColor: "{LITE}", stack: "plans" }},
-          {{ label: "Pro", data: {json.dumps(pro)}, backgroundColor: "{PRO}", stack: "plans" }},
-          {{ label: "Enterprise", data: {json.dumps(ent)}, backgroundColor: "{ENTERPRISE}", stack: "plans" }}
-        ]
+        datasets: {json.dumps(datasets)}
       }},
       options: {{
         responsive: true,
@@ -716,7 +749,7 @@ def build_html(agg: dict, week_label: str, title: str, total_label: str, out_pat
           y: {{
             stacked: true,
             beginAtZero: true,
-            suggestedMax: Math.max(10, Math.ceil({agg["total"]} * 1.15) || 10),
+            suggestedMax: Math.ceil({agg["total"]} * 1.12),
             title: {{ display: true, text: "Count", color: "{MUTED}" }},
             ticks: {{ color: "{MUTED}", precision: 0 }},
             grid: {{ color: "{GRID}" }}
@@ -734,17 +767,14 @@ def build_html(agg: dict, week_label: str, title: str, total_label: str, out_pat
 
 def main() -> None:
     cfg = load_config()
-    created_path = ROOT / cfg["created_accounts_csv"]
-    room_path = ROOT / cfg["room_accounts_csv"]
-    chart_start = datetime.strptime(cfg["chart_start"], "%Y-%m-%d")
+    created = load_created_accounts(ROOT / cfg["created_accounts_csv"])
+    room = load_room_accounts(ROOT / cfg["room_accounts_csv"])
+    join_mode = cfg.get("join_mode", "left")
+    joined = join_accounts(created, room, join_mode=join_mode)
+    agg = aggregate(joined, datetime.strptime(cfg["chart_start"], "%Y-%m-%d"))
+    week_label = cfg.get("report_week_label") or agg["auto_week_label"]
     title = cfg.get("title", "Room Migration Progress")
     total_label = cfg.get("total_label", "Total Accounts Created")
-
-    created = load_created_accounts(created_path)
-    room = load_room_accounts(room_path)
-    joined = join_accounts(created, room)
-    agg = aggregate(joined, chart_start)
-    week_label = cfg.get("report_week_label") or agg["auto_week_label"]
 
     chart_path = ROOT / cfg["output_chart"]
     html_path = ROOT / cfg["output_html"]
@@ -760,12 +790,15 @@ def main() -> None:
     build_html(agg, week_label, title, total_label, html_path)
     build_pptx(agg, week_label, title, total_label, chart_path, pptx_path)
 
-    print(f"Created accounts file: {len(created)}")
-    print(f"Room accounts file: {len(room)}")
-    print(f"Matched (created ∩ room): {agg['matched']}")
+    print(f"Created accounts: {len(created)}")
+    print(f"Room overview rows: {len(room)}")
+    print(f"Join mode: {join_mode}")
+    print(f"Total in chart: {agg['total']}")
     print(f"  Lite: {agg['totals']['lite']}")
     print(f"  Pro: {agg['totals']['pro']} (Mid Market: {agg['pro_mid_market']})")
     print(f"  Enterprise: {agg['totals']['enterprise']}")
+    print(f"  Not in Room Overview: {agg['totals']['unclassified']}")
+    print(f"  Matched with Package/Segment: {agg['matched']}")
     print("Segment breakdown:")
     for seg, n in sorted(agg["segment_counts"].items(), key=lambda x: (-x[1], x[0])):
         print(f"  {seg}: {n}")
@@ -775,7 +808,6 @@ def main() -> None:
     print(f"Wrote {html_path}")
     print(f"Wrote {pptx_path}")
     print(f"Wrote {full_slide_png}")
-    print(f"Wrote {chart_path}")
 
 
 if __name__ == "__main__":

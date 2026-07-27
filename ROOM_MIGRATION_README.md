@@ -1,14 +1,29 @@
 # Room Migration Progress (weekly)
 
-Editable weekly slide built by crossing **new accounts created after July 13** with the **Reservations Room Accounts Overview** export.
+Editable weekly slide for accounts **created after July 13**, enriched with Package / Segment from the Reservations Room Accounts Overview when the Account ID matches.
 
-## Logic
+## Why totals were 161 before
 
-1. Load `data/accounts_created_after_2026-07-13.csv` (`accountId`, `createdAt`)
-2. Load `data/room_migration_accounts.csv` (Package, Segment, etc.)
-3. Keep only rows whose Account ID appears in both files
-4. Break down by **Package** (Lite / Pro / Enterprise) for the progress chart
-5. Break down by **Segment** (from the room CSV) in a second slide / CSV
+| File | Rows |
+|------|------|
+| Accounts created after July 13 | **~2,876** |
+| Room Accounts Overview | **527** |
+| IDs in **both** | **161** |
+
+The first version used an **inner join**, so it dropped the ~2,715 created accounts that are not in the Room Overview export. That export only has Package/Segment for accounts already in it — most brand-new accounts are not there yet.
+
+## Current logic (left join)
+
+1. Start from **all** created accounts (`accountId`, `createdAt`)
+2. Left-join Room Accounts Overview by Account ID
+3. If matched → use Package (Lite / Pro / Enterprise) and Segment
+4. If not matched → count as **Not in Room Overview**
+
+So:
+
+- **Total Accounts Created** = full created-accounts file (~2,876)
+- Lite / Pro / Enterprise = only the IDs found in the Room Overview
+- Remaining IDs = Not in Room Overview (no Package/Segment available yet)
 
 ## Deliverables
 
@@ -16,35 +31,14 @@ Editable weekly slide built by crossing **new accounts created after July 13** w
 |------|---------|
 | `Room_Migration_Progress.pptx` | Slide 1: progress chart · Slide 2: segment breakdown |
 | `exports/room-migration-progress.html` | Browser preview |
-| `exports/room-migration-progress.png` | Full-slide PNG snapshot |
-| `exports/room-accounts-created-after-july-13.csv` | Consolidated matched accounts |
+| `exports/room-migration-progress.png` | Snapshot |
+| `exports/room-accounts-created-after-july-13.csv` | All created accounts + room fields when matched |
 | `exports/room-accounts-segment-breakdown.csv` | Segment × plan summary |
-| `create_room_migration_dashboard.py` | Regenerator |
-
-## Current numbers (from attached exports)
-
-- Created after July 13: **2,876**
-- Room accounts overview: **527**
-- Matched: **161** (Lite 156 · Pro 5 · Enterprise 0)
-- Segment: **SMB 161**
 
 ## Weekly update
 
-1. Replace `data/accounts_created_after_2026-07-13.csv` with the latest created-accounts export
-2. Replace `data/room_migration_accounts.csv` with the latest Room Accounts Overview export
-3. Optional: set `report_week_label` in `room_migration_config.json`
-4. Run:
+1. Replace `data/accounts_created_after_2026-07-13.csv`
+2. Replace `data/room_migration_accounts.csv` (ideally a fuller Room Overview if you want more Package/Segment coverage)
+3. Run `python3 create_room_migration_dashboard.py`
 
-```bash
-pip install -r requirements-room-migration.txt
-python3 create_room_migration_dashboard.py
-```
-
-5. Open `Room_Migration_Progress.pptx` (or upload to Google Drive → Open with Google Slides)
-
-## Open in Google Slides
-
-1. Download `Room_Migration_Progress.pptx`
-2. Upload to [Google Drive](https://drive.google.com)
-3. Right-click → **Open with → Google Slides**
-4. **File → Save as Google Slides**
+Optional: set `"join_mode": "inner"` in `room_migration_config.json` to restrict again to matched IDs only.
