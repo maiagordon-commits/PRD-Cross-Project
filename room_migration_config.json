@@ -5,10 +5,9 @@
   "chart_start": "2026-07-13",
   "title": "Room Migration Progress",
   "total_label": "Total Accounts Created",
-  "join_mode": "left",
   "output_pptx": "Room_Migration_Progress.pptx",
   "output_html": "exports/room-migration-progress.html",
   "output_chart": "exports/room-migration-chart.png",
-  "output_consolidated_csv": "exports/room-accounts-created-after-july-13.csv",
-  "output_segment_summary": "exports/room-accounts-segment-breakdown.csv"
+  "output_consolidated_csv": "exports/accounts_created_with_segment.csv",
+  "output_segment_summary": "exports/segment-breakdown.csv"
 }
