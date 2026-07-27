@@ -453,11 +453,12 @@ This section covers the internal workflow for building Guesty Agent-Hub agents e
 
 ### A1. Where Things Live (Important - Changed Mid-Flight)
 
-- **Use-cases (workflows) no longer live in `1000-agents-hub-workflows`.** Source of truth is the separate repo **`guestyorg/agent-workflow-registry`**.
+- **Use-cases (workflows) no longer live in `1000-agents-hub-workflows`.** Source of truth is the separate repo **`guestyorg/agent-workflow-registry`**. *(Gil Tabak, Jul 15)*
 - Workflows live under **`workflows/<slug>/`** — **no numeric `NN-` prefix** (e.g. `21-stay-status-reconciler` → `workflows/stay-status-reconciler/`).
 - **Do NOT** open PRs under `specs/core/use-cases/` in `1000-agents-hub-workflows` anymore. New/updated use-cases → PR in `agent-workflow-registry`.
-- The **`use-case-authoring` skill still lives in `1000-agents-hub-workflows`** and still drives everything.
-- **Always create new use cases off `master`** — it has the most recent planner.
+- The **`use-case-authoring` skill still lives in `1000-agents-hub-workflows`** and still drives everything — run it there; it puts output in the right place. Same for build/deploy skills.
+- Have an open branch that still touches `specs/core/use-cases/`? Use **Gil Tabak's migration prompt** (pinned in his message) to move it into the registry automatically. *(We did exactly this for UC-12.)*
+- **Always create new use cases off `master`** — it has the most recent planner. *(Gil Sheffi, Jul 13)*
 
 **Repo Cheat Sheet:**
 
@@ -474,9 +475,9 @@ This section covers the internal workflow for building Guesty Agent-Hub agents e
 | Requirement | How to Set Up | Notes |
 |-------------|---------------|-------|
 | Python 3.13 + `uv` | Project venv; run everything with `uv run --quiet python …` | Bare `python3` misses deps |
-| AWS SSO — `pm` profile | `aws sso login --profile pm` (use `--no-browser` to get the code) | Covers CodeArtifact (uv), Bedrock, Vault-creds read |
+| AWS SSO — `pm` profile | `aws sso login --profile pm` (use `--no-browser` to get the code) | Covers CodeArtifact (uv), Bedrock, Vault-creds read. The single staging credential. |
 | Corpus | `bash .cursor/skills/use-case-authoring/scripts/ensure-corpus.sh` | Never author endpoints from memory — corpus is SSOT |
-| Knowledge repos + api-sdk (MCP index) | `bash .cursor/skills/use-case-authoring/scripts/ensure-knowledge-repos.sh` | Needs **pnpm** + **CodeArtifact npm** access |
+| Knowledge repos + api-sdk (MCP index) | `bash .cursor/skills/use-case-authoring/scripts/ensure-knowledge-repos.sh` | Needs **pnpm** + **CodeArtifact npm** access — see §A9 Blockers |
 | Registry env | The ensure script writes `.registry.env`; `source .registry.env` | Sets `AGENT_WORKFLOW_REGISTRY_PATH` |
 
 **Session Start:** Run the env doctor and clear every run-blocking ✗ before any local run:
@@ -484,7 +485,7 @@ This section covers the internal workflow for building Guesty Agent-Hub agents e
 uv run --quiet python scripts/pipeline/check_env.py --uc <slug> --env staging
 ```
 
-Mint a fresh Guesty token if the cache is stale (`python scripts/local/authn.py`), TTL > 60s.
+Mint a fresh Guesty token if the cache is stale (`python scripts/local/authn.py`), TTL > 60s. Token must have at least 60 seconds remaining.
 
 ---
 
@@ -505,7 +506,7 @@ uv run --quiet python scripts/pipeline/validate_uc_schema.py <path-to-uc>
 
 ### A4. The 3 MANDATORY Capabilities (No Prod Without These)
 
-> **Gil's rule:** *"No one is allowed to put his new agent live on prod if he did not add: **Evals, Links (resources declaration), Status (attention criteria)**."*
+> **Gil's siren (Jul 16):** *"No one is allowed to put his new agent live on prod if he did not add: **Evals, Links (resources declaration), Status (attention criteria)**."*
 
 Run the 3 prompts below one by one with the skill. Target line: `Staging: staging13. Use the default GUESTY_ACCOUNT_ID.`
 
@@ -555,7 +556,7 @@ attention_gate:
    ```
 4. Validate → run locally → confirm the `"resources"` key is present in the response and each has a real `id` + filled URL → regenerate `validation.json` until `resource_links_declared` **and** `resource_links_coverage` = pass.
 
-> **Gotcha:** The JSONPaths point into `extracted_values`. If you clear bulky state to keep the LLM echo small, you delete the arrays the links need — so keep a **slim `[{id,name}]` array** (e.g. `listingLinks`) in state and point the declaration at that.
+> **Gotcha (UC-12):** The JSONPaths point into `extracted_values`. If you clear bulky state to keep the LLM echo small, you delete the arrays the links need — so keep a **slim `[{id,name}]` array** (e.g. `listingLinks`) in state and point the declaration at that. The coverage check is an LLM that predicts entity types from the WORKFLOW_OUTPUT prompt; every predicted type must have a declaration, so don't enumerate un-linkable entity types (fees, channels) in a way that makes it predict them.
 
 ---
 
@@ -582,9 +583,9 @@ curl -s -X POST localhost:8080/invocations -H "Content-Type: application/json" -
 AWS_PROFILE=pm uv run --quiet python -m scripts.pipeline.build_validation_manifest --uc <path>
 ```
 
-- **Not CI-blocking by design, but get all checks green.**
-- The `use-case-authoring` skill should handle it. If stuck, paste this prompt: **"Please LMK why and which steps fail and what we should do in order to fix them."**
-- Needs the api-sdk MCP index → see §A8 if it 404s.
+- **Not CI-blocking by design, but get all checks green.** *(Gal Carmi, Jul 14)*
+- The `use-case-authoring` skill should handle it. If stuck, paste this prompt: **"Please LMK why and which steps fail and what we should do in order to fix them."** *(Gal Carmi — this unblocked Rinat.)*
+- Needs the api-sdk MCP index → see §A9 if it 404s.
 
 ---
 
@@ -593,14 +594,14 @@ AWS_PROFILE=pm uv run --quiet python -m scripts.pipeline.build_validation_manife
 - Branch off registry `master`, put the UC under `workflows/<slug>/`, commit, push, open PR on **`guestyorg/agent-workflow-registry`**.
 - Title format: `SYN-XXXX | feat(<slug>): …` (link the Jira).
 - **Code-owner review required** — `guestyorg/okta-cortex` and/or `team_ai_platform` (a.k.a. Cortex team) must approve to merge. Ping them.
-- Registry checks: `workflow_compile_check` must PASS; if there was deterministic PYTHON_CALL logic, add `validation-cases.yaml` and run `workflow_logic_cases`.
+- Registry checks: `workflow_compile_check` must PASS; if there was deterministic PYTHON_CALL logic, add `validation-cases.yaml` and run `workflow_logic_cases` (replaces old `test_uc*.py`).
 
 ---
 
 ### A8. Deploy + Backoffice + Status
 
 1. **Promote the prompt** (creates the Bedrock **PROMPT ARN**). The ARN is a required field when creating the agent in the backoffice.
-2. **Create/enable the agent in the backoffice**; set status correctly: **ACTIVE** or **DEV** only — **"coming soon" is not really supported and still shows in the UI.**
+2. **Create/enable the agent in the backoffice**; set status correctly: **ACTIVE** or **DEV** only — **"coming soon" is not really supported and still shows in the UI.** *(Gil, Jul 6)*
 3. Test in prod on a QA account.
 
 ---
@@ -609,8 +610,8 @@ AWS_PROFILE=pm uv run --quiet python -m scripts.pipeline.build_validation_manife
 
 | Issue | Solution |
 |-------|----------|
-| **api-sdk build 404 (`@guestyci/rafiki … Not Found`)** | The MCP index/validation manifest needs Guesty's **private npm registry** via **CodeArtifact** (`mgmt`/`pm`), and **pnpm**. Install pnpm to a user prefix (`npm config set prefix ~/.npm-global && npm i -g pnpm`), then you still need a CodeArtifact npm login for `@guestyci`. |
-| **Staging Vault migration (infra-blocked)** | Both `agentcore/staging1/vault_creds` and `agentcore/staging13/vault_creds` now resolve to `vault.staging-aux.gue5ty.com`, where `secret/agents_auth/1000_agents` returns **no data**. Needs the **platform team** to populate/repoint that secret. |
+| **api-sdk build 404 (`@guestyci/rafiki … Not Found`)** | The MCP index/validation manifest needs Guesty's **private npm registry** via **CodeArtifact** (`mgmt`/`pm`), and **pnpm**. Install pnpm to a user prefix (`npm config set prefix ~/.npm-global && npm i -g pnpm`), then you still need a CodeArtifact npm login for `@guestyci`. Without it, `resource_links_declared` + `resource_links_coverage` can still be run directly (declared is structural; coverage only needs Bedrock via `pm`). |
+| **Staging Vault migration (infra-blocked)** | Both `agentcore/staging1/vault_creds` and `agentcore/staging13/vault_creds` now resolve to `vault.staging-aux.gue5ty.com`, where `secret/agents_auth/1000_agents` (the OAuth client) returns **no data**, so the executor can't bootstrap. Needs the **platform team** to populate/repoint that secret. (Affects local live runs on staging.) |
 | **Executor server needs `ENVIRONMENT_NAME`** | Set (e.g. `staging13`) — matches the `credential_provider_arn` suffix `1000-agents-<env>`; missing it → `KeyError: ENVIRONMENT_NAME` at boot. |
 | **`.env.staging` placeholders break `source`** | Unfilled `<...>` values contain shell redirection chars; fill from Vault or blank them. |
 | **"Input too long" at WORKFLOW_OUTPUT** | The LLM echo serializes `extracted_values`; the FOR_EACH `collect_results_key` is stored there too and each entry embeds a full state copy (~O(n²)). Clear bulky arrays in the final PYTHON_CALL before the output node. |
@@ -622,10 +623,9 @@ AWS_PROFILE=pm uv run --quiet python -m scripts.pipeline.build_validation_manife
 
 ### A10. Content, Copy & Help Center (Product-Facing — Don't Skip)
 
-- **Copy MUST be reviewed** — go over the **"what it does"** and the backoffice description with **Toby** (or at least **Atlas**); keep it **concise** (no essays). Use shipped UCs 1–11 as reference.
-- Validate the **bullet-point description in the drawer** when the agent is selected.
-- Use **Toby's copy guide** (in the shared "Evaluations/guide" Google doc) for descriptions, titles, marketing video copy.
-- **Every new agent needs a Help Center (HC) article** — "an important part, like any other feature."
+- **Copy MUST be reviewed** — go over the **"what it does"** and the backoffice description with **Toby** (or at least **Atlas**); keep it **concise** (no essays). Use shipped UCs 1–11 as reference. Also validate the **bullet-point description in the drawer** when the agent is selected. *(Gil, repeatedly — he threatened to turn off agents with "embarrassing text".)*
+- Use **Toby's copy guide** (in the shared "Evaluations/guide" Google doc) for descriptions, titles, marketing video copy — fill these early to avoid PMM↔UX back-and-forth.
+- **Every new agent needs a Help Center (HC) article** — "an important part, like any other feature." *(Gil, Jul 22)*
 - Category: agents can be relevant to multiple domains (multi-select was requested; check current UI).
 
 ---
@@ -634,6 +634,7 @@ AWS_PROFILE=pm uv run --quiet python -m scripts.pipeline.build_validation_manife
 
 - **Acknowledge you are monitoring.** Use the **monitoring guide** (Google doc), the **Grafana dashboard** (staging + prod runs/error rates), and the **Hub dashboard** (DataStudio, agent-table level).
 - Watch error rates per agent; PMs own their agents' failures (take issues to your TL / `#contact-1000-agents`).
+- **Daily activation tracker** (Maia's sheet) shows per-agent activation; use live accounts' outputs to improve prompts.
 
 **Rollout Stages:**
 
@@ -655,7 +656,7 @@ Confirm confidence before expanding to large / ENT accounts. Pilot uses a featur
 - **Re-run UX** — no indication when an agent is already running, and re-click returns a misleading "failed" instead of "already running." Don't design around instant re-runs.
 - **Properties/large-account timeouts** — a known `Workflow execution timeout` on property-heavy accounts; present the use case to your TL (Aram) for the recommended mitigation.
 - **Test accounts that fail** — Casago / Avari accounts have had recurring failures (esp. accounting agents); test against representative accounts, not just the default.
-- **Only active + listed** entities where relevant — filter out inactive/unlisted.
+- **Only active + listed** entities where relevant — filter out inactive/unlisted (review feedback we got on UC-12).
 
 ---
 
