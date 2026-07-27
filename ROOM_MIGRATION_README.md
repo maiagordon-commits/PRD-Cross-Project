@@ -43,14 +43,33 @@ python3 enrich_segments_from_guesty.py
 python3 create_room_migration_dashboard.py
 ```
 
-### Option B — Guesty HQ API auth
+### Option B — Guesty HQ API auth (preferred)
 
-Add one secret to the Cloud Agent environment:
+Add **one** secret to this Cloud Agent environment:
 
-- `GUESTY_HQ_TOKEN` — Bearer token, **or**
-- `GUESTY_HQ_COOKIE` — browser session cookie from an authenticated HQ session
+[Environment settings](https://cursor.com/dashboard/cloud-agents/environments/e/906dc84c-9fbf-41fd-8858-c3a52d470de8)
 
-Then run the same two commands. Lookups are cached in `data/segment_lookup_cache.json`.
+| Secret name | Value |
+|-------------|--------|
+| `GUESTY_HQ_COOKIE` | Full `Cookie` header from an authenticated [hq.guesty.com](https://hq.guesty.com) browser session |
+| **or** `GUESTY_HQ_TOKEN` | Bearer token if you have one |
+
+**How to copy the cookie (Chrome/Edge):**
+1. Log into [https://hq.guesty.com](https://hq.guesty.com)
+2. Open DevTools → **Network**
+3. Click any `hq.guesty.com/api/...` request
+4. Under Request Headers, copy the full **`cookie:`** value
+5. Paste it as secret `GUESTY_HQ_COOKIE` (no `Cookie:` prefix needed — just the value)
+6. Save the environment, then tell the agent to continue (or re-run)
+
+Then:
+
+```bash
+python3 enrich_segments_from_guesty.py
+python3 create_room_migration_dashboard.py
+```
+
+Lookups are cached in `data/segment_lookup_cache.json` so re-runs are faster.
 
 ## Outputs after enrichment
 
