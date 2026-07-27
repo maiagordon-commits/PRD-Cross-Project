@@ -1,0 +1,9 @@
+{
+  "csv_path": "data/room_migration_accounts.csv",
+  "report_week_label": null,
+  "chart_start": "2026-04-13",
+  "title": "Room Migration Progress",
+  "output_pptx": "Room_Migration_Progress.pptx",
+  "output_html": "exports/room-migration-progress.html",
+  "output_chart": "exports/room-migration-chart.png"
+}
