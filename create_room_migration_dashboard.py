@@ -109,7 +109,23 @@ def load_data() -> dict:
     }
 
 
-def draw_dashboard(data: dict, out_path: Path) -> None:
+def chart_data_excluding_week(data: dict, exclude_monday: datetime) -> dict:
+    """Keep KPI totals, but drop a week from the chart series."""
+    weeks, cum_pro, cum_lite = [], [], []
+    for week, p, l in zip(data["weeks"], data["cum_pro"], data["cum_lite"]):
+        if week.date() == exclude_monday.date():
+            continue
+        weeks.append(week)
+        cum_pro.append(p)
+        cum_lite.append(l)
+    out = dict(data)
+    out["weeks"] = weeks
+    out["cum_pro"] = cum_pro
+    out["cum_lite"] = cum_lite
+    return out
+
+
+def draw_dashboard(data: dict, out_path: Path, *, clean: bool = False) -> None:
     fig = plt.figure(figsize=(13.333, 7.5), dpi=150, facecolor=BG)
     fig.subplots_adjust(left=0.05, right=0.97, top=0.92, bottom=0.08)
     fig.text(0.05, 0.92, "Room Migration Progress", fontsize=28, fontweight="bold", color=NAVY, ha="left", va="top")
@@ -139,10 +155,15 @@ def draw_dashboard(data: dict, out_path: Path) -> None:
     metric_card([0.54, 0.62, 0.28, 0.12], "Lite", fmt_int(data["lite"]))
 
     ax = fig.add_axes([0.08, 0.10, 0.86, 0.46])
-    for spine in ax.spines.values():
-        spine.set_color(CHART_BORDER)
-    ax.set_facecolor(CHART_BG)
-    ax.set_title("Cumulative Trends by Segment", loc="left", fontsize=12, color=MUTED, pad=10)
+    chart_face = BG if clean else CHART_BG
+    ax.set_facecolor(chart_face)
+    if clean:
+        for spine in ax.spines.values():
+            spine.set_visible(False)
+    else:
+        for spine in ax.spines.values():
+            spine.set_color(CHART_BORDER)
+        ax.set_title("Cumulative Trends by Segment", loc="left", fontsize=12, color=MUTED, pad=10)
 
     x = list(range(len(data["weeks"])))
     width = 0.55
@@ -150,7 +171,8 @@ def draw_dashboard(data: dict, out_path: Path) -> None:
     ax.bar(x, data["cum_lite"], width=width, bottom=data["cum_pro"], color=LITE_COLOR, label="Lite", zorder=3)
 
     ax.set_ylabel("Count", color=MUTED, fontsize=10)
-    ax.set_xlabel("Week starting", color=MUTED, fontsize=10)
+    if not clean:
+        ax.set_xlabel("Week starting", color=MUTED, fontsize=10)
     ax.set_xticks(x)
     ax.set_xticklabels([w.strftime("%-m/%d/%Y") for w in data["weeks"]], rotation=45, ha="right", fontsize=9, color=MUTED)
     ax.tick_params(axis="y", colors=MUTED, labelsize=9)
@@ -164,27 +186,32 @@ def draw_dashboard(data: dict, out_path: Path) -> None:
     plt.close(fig)
 
 
-def draw_chart_only(data: dict, out_path: Path) -> None:
-    fig, ax = plt.subplots(figsize=(12.2, 4.0), dpi=150, facecolor=CHART_BG)
-    ax.set_facecolor(CHART_BG)
+def draw_chart_only(data: dict, out_path: Path, *, clean: bool = False) -> None:
+    face = BG if clean else CHART_BG
+    fig, ax = plt.subplots(figsize=(12.2, 4.0), dpi=150, facecolor=face)
+    ax.set_facecolor(face)
     x = list(range(len(data["weeks"])))
     ax.bar(x, data["cum_pro"], width=0.55, color=PRO_COLOR, label="Pro", zorder=3)
     ax.bar(x, data["cum_lite"], width=0.55, bottom=data["cum_pro"], color=LITE_COLOR, label="Lite", zorder=3)
-    ax.set_title("Cumulative Trends by Segment", loc="left", fontsize=12, color=MUTED, pad=12)
+    if not clean:
+        ax.set_title("Cumulative Trends by Segment", loc="left", fontsize=12, color=MUTED, pad=12)
+        ax.set_xlabel("Week starting", color=MUTED, fontsize=10)
+        for spine in ax.spines.values():
+            spine.set_color(CHART_BORDER)
+    else:
+        for spine in ax.spines.values():
+            spine.set_visible(False)
     ax.set_ylabel("Count", color=MUTED, fontsize=10)
-    ax.set_xlabel("Week starting", color=MUTED, fontsize=10)
     ax.set_xticks(x)
     ax.set_xticklabels([w.strftime("%-m/%d/%Y") for w in data["weeks"]], rotation=45, ha="right", fontsize=9, color=MUTED)
     ax.tick_params(axis="y", colors=MUTED, labelsize=9)
     ax.yaxis.grid(True, color=GRID, linewidth=0.8, zorder=0)
     ax.set_axisbelow(True)
-    for spine in ax.spines.values():
-        spine.set_color(CHART_BORDER)
     ax.set_ylim(0, max(10, int(data["total"] * 1.12)))
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.02), ncol=2, frameon=False, fontsize=10)
     fig.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(out_path, facecolor=CHART_BG, bbox_inches="tight", pad_inches=0.15)
+    fig.savefig(out_path, facecolor=face, bbox_inches="tight", pad_inches=0.15)
     plt.close(fig)
 
 
@@ -267,8 +294,12 @@ def build_pptx(data: dict, chart_path: Path, out_path: Path) -> None:
     prs.save(out_path)
 
 
-def build_html(data: dict, out_path: Path) -> None:
+def build_html(data: dict, out_path: Path, *, clean: bool = False) -> None:
     weeks = [w.strftime("%-m/%d/%Y") for w in data["weeks"]]
+    chart_bg = BG if clean else "#fff"
+    chart_border = "none" if clean else f"1px solid {CHART_BORDER}"
+    title_html = "" if clean else '<div class="chart-title">Cumulative Trends by Segment</div>'
+    x_title = "false" if clean else "true"
     html = f"""<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -289,7 +320,7 @@ h1 {{ font-size:clamp(1.5rem,2.3vw,2rem); font-weight:700; }}
   box-shadow:0 2px 8px rgba(27,58,95,.08); }}
 .tiers {{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; max-width:720px; margin:0 auto; width:100%; }}
 .label {{ font-size:.95rem; }} .value {{ font-size:clamp(1.6rem,2.8vw,2.2rem); font-weight:700; }}
-.chart-panel {{ background:#fff; border:1px solid var(--border); border-radius:10px; padding:.75rem 1rem .4rem;
+.chart-panel {{ background:{chart_bg}; border:{chart_border}; border-radius:10px; padding:.75rem 1rem .4rem;
   display:flex; flex-direction:column; min-height:0; }}
 .chart-title {{ color:var(--muted); font-size:.95rem; }}
 .chart-wrap {{ flex:1; position:relative; min-height:220px; }}
@@ -305,7 +336,7 @@ h1 {{ font-size:clamp(1.5rem,2.3vw,2rem); font-weight:700; }}
     <div class="tier-card"><div class="label">Lite</div><div class="value">{fmt_int(data["lite"])}</div></div>
   </div>
   <div class="chart-panel">
-    <div class="chart-title">Cumulative Trends by Segment</div>
+    {title_html}
     <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
   </div>
 </div>
@@ -323,7 +354,7 @@ new Chart(document.getElementById("trendChart"), {{
     responsive: true, maintainAspectRatio: false,
     plugins: {{ legend: {{ position: "top", labels: {{ boxWidth: 12, color: "{MUTED}" }} }} }},
     scales: {{
-      x: {{ stacked: true, title: {{ display: true, text: "Week starting", color: "{MUTED}" }},
+      x: {{ stacked: true, title: {{ display: {x_title}, text: "Week starting", color: "{MUTED}" }},
             ticks: {{ maxRotation: 45, minRotation: 45, color: "{MUTED}" }}, grid: {{ display: false }} }},
       y: {{ stacked: true, beginAtZero: true, suggestedMax: Math.ceil({data["total"]} * 1.12),
             title: {{ display: true, text: "Count", color: "{MUTED}" }},
@@ -350,6 +381,7 @@ def main() -> None:
     data = load_data()
     assert data["lite"] == data["total"] - data["pro"]
 
+    # Original version
     chart_path = ROOT / "exports" / "room-migration-chart.png"
     full_png = ROOT / "exports" / "room-migration-progress.png"
     html_path = ROOT / "exports" / "room-migration-progress.html"
@@ -362,6 +394,18 @@ def main() -> None:
     build_pptx(data, chart_path, pptx_path)
     write_summary(data, summary_path)
 
+    # Clean version: no 7/27 bar, no white chart panel, no title / "Week starting"
+    clean = chart_data_excluding_week(data, datetime(2026, 7, 27))
+    clean_chart = ROOT / "exports" / "room-migration-chart-clean.png"
+    clean_png = ROOT / "exports" / "room-migration-progress-clean.png"
+    clean_html = ROOT / "exports" / "room-migration-progress-clean.html"
+    clean_pptx = ROOT / "Room_Migration_Progress_Clean.pptx"
+
+    draw_chart_only(clean, clean_chart, clean=True)
+    draw_dashboard(clean, clean_png, clean=True)
+    build_html(clean, clean_html, clean=True)
+    build_pptx(clean, clean_chart, clean_pptx)
+
     print(f"Total: {data['total']}")
     print(f"Pro:   {data['pro']}")
     print(f"Lite:  {data['lite']}  (= Total - Pro)")
@@ -369,6 +413,11 @@ def main() -> None:
     print(f"Wrote {full_png}")
     print(f"Wrote {html_path}")
     print(f"Wrote {pptx_path}")
+    print(f"Wrote clean chart (no 7/27, no white panel, no title/Week starting):")
+    print(f"  {clean_png}")
+    print(f"  {clean_html}")
+    print(f"  {clean_pptx}")
+    print(f"  Chart weeks: {[w.strftime('%Y-%m-%d') for w in clean['weeks']]}")
 
 
 if __name__ == "__main__":

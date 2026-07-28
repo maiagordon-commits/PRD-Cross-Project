@@ -18,7 +18,7 @@ h1 { font-size:clamp(1.5rem,2.3vw,2rem); font-weight:700; }
   box-shadow:0 2px 8px rgba(27,58,95,.08); }
 .tiers { display:grid; grid-template-columns:1fr 1fr; gap:1rem; max-width:720px; margin:0 auto; width:100%; }
 .label { font-size:.95rem; } .value { font-size:clamp(1.6rem,2.8vw,2.2rem); font-weight:700; }
-.chart-panel { background:#fff; border:1px solid #D0D5DD; border-radius:10px; padding:.75rem 1rem .4rem;
+.chart-panel { background:#F5F1E9; border:none; border-radius:10px; padding:.75rem 1rem .4rem;
   display:flex; flex-direction:column; min-height:0; }
 .chart-title { color:var(--muted); font-size:.95rem; }
 .chart-wrap { flex:1; position:relative; min-height:220px; }
@@ -34,7 +34,7 @@ h1 { font-size:clamp(1.5rem,2.3vw,2rem); font-weight:700; }
     <div class="tier-card"><div class="label">Lite</div><div class="value">2,715</div></div>
   </div>
   <div class="chart-panel">
-    <div class="chart-title">Cumulative Trends by Segment</div>
+    
     <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
   </div>
 </div>
@@ -42,17 +42,17 @@ h1 { font-size:clamp(1.5rem,2.3vw,2rem); font-weight:700; }
 new Chart(document.getElementById("trendChart"), {
   type: "bar",
   data: {
-    labels: ["7/13/2026", "7/20/2026", "7/27/2026"],
+    labels: ["7/13/2026", "7/20/2026"],
     datasets: [
-      { label: "Pro", data: [95, 161, 161], backgroundColor: "#4A8FD4", stack: "s" },
-      { label: "Lite", data: [1240, 2617, 2715], backgroundColor: "#E35D5B", stack: "s" }
+      { label: "Pro", data: [95, 161], backgroundColor: "#4A8FD4", stack: "s" },
+      { label: "Lite", data: [1240, 2617], backgroundColor: "#E35D5B", stack: "s" }
     ]
   },
   options: {
     responsive: true, maintainAspectRatio: false,
     plugins: { legend: { position: "top", labels: { boxWidth: 12, color: "#6B7C93" } } },
     scales: {
-      x: { stacked: true, title: { display: true, text: "Week starting", color: "#6B7C93" },
+      x: { stacked: true, title: { display: false, text: "Week starting", color: "#6B7C93" },
             ticks: { maxRotation: 45, minRotation: 45, color: "#6B7C93" }, grid: { display: false } },
       y: { stacked: true, beginAtZero: true, suggestedMax: Math.ceil(2876 * 1.12),
             title: { display: true, text: "Count", color: "#6B7C93" },
