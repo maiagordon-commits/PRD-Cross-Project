@@ -1,0 +1,1747 @@
+Repo,Owners,Rule Type,Severity,Message,Matched Files
+AutoMessagesWidget,@guestyorg/team_journey,Detect files,Error,Forbidden files detected in the project,.github/workflows/translate.yml
+AutoMessagesWidget,@guestyorg/team_journey,Detect files,Warning,Jest is forbidden. Please migrate to Vitest,jest.config.js
+AutoMessagesWidget,@guestyorg/team_journey,Detect files,Warning,Babel is not recommended. Please migrate to Orbis,.babelrc.js
+AutoMessagesWidget,@guestyorg/team_journey,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+AutoMessagesWidget,@guestyorg/team_journey,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+AutoMessagesWidget,@guestyorg/team_journey,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+AutoMessagesWidget,@guestyorg/team_journey,Require files,Warning,pnpm-lock.yaml is missing,
+AutoMessagesWidget,@guestyorg/team_journey,Require files,Warning,pnpm-workspace.yaml is missing,
+AutoMessagesWidget,@guestyorg/team_journey,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+abnb-distribution-page,@guestyorg/okta-airbook,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+abnb-distribution-page,@guestyorg/okta-airbook,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+abnb-distribution-page,@guestyorg/okta-airbook,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+abnb-distribution-page,@guestyorg/okta-airbook,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+abnb-distribution-page,@guestyorg/okta-airbook,Require files,Warning,pnpm-lock.yaml is missing,
+abnb-distribution-page,@guestyorg/okta-airbook,Require files,Warning,pnpm-workspace.yaml is missing,
+abnb-distribution-page,@guestyorg/okta-airbook,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+abnb-distribution-page,@guestyorg/okta-airbook,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+abnb-distribution-page,@guestyorg/okta-airbook,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+account-settings-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+account-settings-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,"cypress/.eslintrc, .eslintrc.json, .eslintignore"
+account-settings-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+account-settings-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+account-settings-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-lock.yaml is missing,
+account-settings-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-workspace.yaml is missing,
+account-settings-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+account-settings-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+account-settings-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+accounting-folio,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+accounting-folio,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+accounting-folio,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+accounting-folio,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+accounting-folio,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+accounting-folio,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+accounting-folio,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+accounting-folio,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+accounting-folio,@guestyorg/biz-enterprise,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+accounting-settings-page,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+accounting-settings-page,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+accounting-settings-page,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+accounting-settings-page,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+accounting-settings-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+accounting-settings-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+accounting-settings-page,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+accounting-settings-page,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+accounting-settings-page,@guestyorg/biz-enterprise,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+ach-payouts-page,@guestyorg/okta-payments,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+ach-payouts-page,@guestyorg/okta-payments,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+ach-payouts-page,@guestyorg/okta-payments,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+ach-payouts-page,@guestyorg/okta-payments,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+ach-payouts-page,@guestyorg/okta-payments,Require files,Warning,pnpm-lock.yaml is missing,
+ach-payouts-page,@guestyorg/okta-payments,Require files,Warning,pnpm-workspace.yaml is missing,
+ach-payouts-page,@guestyorg/okta-payments,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+ach-payouts-page,@guestyorg/okta-payments,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+ach-payouts-page,@guestyorg/okta-payments,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+activity-report-page,@guestyorg/airbook,Detect files,Error,Forbidden files detected in the project,.github/workflows/upload-translations.yml
+activity-report-page,@guestyorg/airbook,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+activity-report-page,@guestyorg/airbook,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+activity-report-page,@guestyorg/airbook,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+activity-report-page,@guestyorg/airbook,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+activity-report-page,@guestyorg/airbook,Require files,Warning,pnpm-lock.yaml is missing,
+activity-report-page,@guestyorg/airbook,Require files,Warning,pnpm-workspace.yaml is missing,
+activity-report-page,@guestyorg/airbook,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+activity-report-page,@guestyorg/airbook,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+activity-report-page,@guestyorg/airbook,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+add-new-property-page,@guestyorg/okta-airbook,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+add-new-property-page,@guestyorg/okta-airbook,Require files,Warning,pnpm-lock.yaml is missing,
+add-new-property-page,@guestyorg/okta-airbook,Require files,Warning,pnpm-workspace.yaml is missing,
+add-new-property-page,@guestyorg/okta-airbook,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+add-ons-center-page,"@guestyorg/biz-enterprise
+@guestyorg/discovery
+@guestyorg/okta-communication
+@guestyorg/okta-jarvis
+@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+add-ons-center-page,"@guestyorg/biz-enterprise
+@guestyorg/discovery
+@guestyorg/okta-communication
+@guestyorg/okta-jarvis
+@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+add-ons-center-page,"@guestyorg/biz-enterprise
+@guestyorg/discovery
+@guestyorg/okta-communication
+@guestyorg/okta-jarvis
+@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+add-ons-center-page,"@guestyorg/biz-enterprise
+@guestyorg/discovery
+@guestyorg/okta-communication
+@guestyorg/okta-jarvis
+@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+add-ons-center-page,"@guestyorg/biz-enterprise
+@guestyorg/discovery
+@guestyorg/okta-communication
+@guestyorg/okta-jarvis
+@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+add-ons-center-page,"@guestyorg/biz-enterprise
+@guestyorg/discovery
+@guestyorg/okta-communication
+@guestyorg/okta-jarvis
+@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+add-ons-center-page,"@guestyorg/biz-enterprise
+@guestyorg/discovery
+@guestyorg/okta-communication
+@guestyorg/okta-jarvis
+@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+add-ons-center-page,"@guestyorg/biz-enterprise
+@guestyorg/discovery
+@guestyorg/okta-communication
+@guestyorg/okta-jarvis
+@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+admin-hq-page,@guestyorg/okta-groot,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+admin-layout-page,@guestyorg/okta-pop,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+admin-layout-page,@guestyorg/okta-pop,Require files,Warning,pnpm-lock.yaml is missing,
+admin-layout-page,@guestyorg/okta-pop,Require files,Warning,pnpm-workspace.yaml is missing,
+agent-management-backoffice-page,"@arambse
+@guestyorg/okta-cortex
+@sergey-guesty",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+agent-management-backoffice-page,"@arambse
+@guestyorg/okta-cortex
+@sergey-guesty",Require files,Warning,pnpm-lock.yaml is missing,
+agent-management-backoffice-page,"@arambse
+@guestyorg/okta-cortex
+@sergey-guesty",Require files,Warning,pnpm-workspace.yaml is missing,
+agent-management-backoffice-page,"@arambse
+@guestyorg/okta-cortex
+@sergey-guesty",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+agents-center-page,@guestyorg/okta-groot,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+agents-center-page,@guestyorg/okta-groot,Require files,Warning,pnpm-lock.yaml is missing,
+agents-center-page,@guestyorg/okta-groot,Require files,Warning,pnpm-workspace.yaml is missing,
+agents-center-page,@guestyorg/okta-groot,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+ai-revenue-center-page,@guestyorg/jarvis,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+ai-revenue-center-page,@guestyorg/jarvis,Require files,Warning,pnpm-lock.yaml is missing,
+ai-revenue-center-page,@guestyorg/jarvis,Require files,Warning,pnpm-workspace.yaml is missing,
+ai-revenue-center-page,@guestyorg/jarvis,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+analytics-dashboard-page,@guestyorg/okta-pop,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+analytics-dashboard-page,@guestyorg/okta-pop,Require files,Warning,pnpm-lock.yaml is missing,
+analytics-dashboard-page,@guestyorg/okta-pop,Require files,Warning,pnpm-workspace.yaml is missing,
+analytics-dashboard-page,@guestyorg/okta-pop,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+analytics-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+analytics-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+analytics-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+analytics-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+analytics-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-lock.yaml is missing,
+analytics-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-workspace.yaml is missing,
+analytics-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+auth-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+auth-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+auth-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+auth-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+auth-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-lock.yaml is missing,
+auth-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-workspace.yaml is missing,
+auth-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+authority-report-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+authority-report-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+authority-report-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+authority-report-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+auto-response-page,@guestyorg/okta-communication,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+auto-response-page,@guestyorg/okta-communication,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+auto-response-page,@guestyorg/okta-communication,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+auto-response-page,@guestyorg/okta-communication,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+auto-response-page,@guestyorg/okta-communication,Require files,Warning,pnpm-lock.yaml is missing,
+auto-response-page,@guestyorg/okta-communication,Require files,Warning,pnpm-workspace.yaml is missing,
+auto-response-page,@guestyorg/okta-communication,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+auto-response-page,@guestyorg/okta-communication,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+auto-response-page,@guestyorg/okta-communication,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+automation-page,@guestyorg/unicorn,Detect files,Error,Forbidden files detected in the project,".github/workflows/translate.yml, .github/workflows/upload-translations.yml"
+automation-page,@guestyorg/unicorn,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+automation-page,@guestyorg/unicorn,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+automation-page,@guestyorg/unicorn,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+automation-page,@guestyorg/unicorn,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+automation-page,@guestyorg/unicorn,Require files,Warning,pnpm-lock.yaml is missing,
+automation-page,@guestyorg/unicorn,Require files,Warning,pnpm-workspace.yaml is missing,
+automation-page,@guestyorg/unicorn,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+bcom-glite-page,@guestyorg/sketch,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+bcom-glite-page,@guestyorg/sketch,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+bcom-glite-page,@guestyorg/sketch,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+bcom-glite-page,@guestyorg/sketch,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+bcom-glite-page,@guestyorg/sketch,Require files,Warning,pnpm-lock.yaml is missing,
+bcom-glite-page,@guestyorg/sketch,Require files,Warning,pnpm-workspace.yaml is missing,
+bcom-glite-page,@guestyorg/sketch,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+bcom-glite-page,@guestyorg/sketch,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+bcom-hub-page,"@guestyorg/odyssey
+@guestyorg/sketch",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+bcom-hub-page,"@guestyorg/odyssey
+@guestyorg/sketch",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+bcom-hub-page,"@guestyorg/odyssey
+@guestyorg/sketch",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+bcom-hub-page,"@guestyorg/odyssey
+@guestyorg/sketch",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+bcom-hub-page,"@guestyorg/odyssey
+@guestyorg/sketch",Require files,Warning,pnpm-lock.yaml is missing,
+bcom-hub-page,"@guestyorg/odyssey
+@guestyorg/sketch",Require files,Warning,pnpm-workspace.yaml is missing,
+bcom-hub-page,"@guestyorg/odyssey
+@guestyorg/sketch",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+bcom-hub-page,"@guestyorg/odyssey
+@guestyorg/sketch",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+bcom-hub-page,"@guestyorg/odyssey
+@guestyorg/sketch",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+beast-page,"@guestyorg/biz
+@guestyorg/okta-developers
+@guestyorg/okta-sketch",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+beast-page,"@guestyorg/biz
+@guestyorg/okta-developers
+@guestyorg/okta-sketch",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+beast-page,"@guestyorg/biz
+@guestyorg/okta-developers
+@guestyorg/okta-sketch",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+beast-page,"@guestyorg/biz
+@guestyorg/okta-developers
+@guestyorg/okta-sketch",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+beast-page,"@guestyorg/biz
+@guestyorg/okta-developers
+@guestyorg/okta-sketch",Require files,Warning,pnpm-lock.yaml is missing,
+beast-page,"@guestyorg/biz
+@guestyorg/okta-developers
+@guestyorg/okta-sketch",Require files,Warning,pnpm-workspace.yaml is missing,
+beast-page,"@guestyorg/biz
+@guestyorg/okta-developers
+@guestyorg/okta-sketch",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+beast-page,"@guestyorg/biz
+@guestyorg/okta-developers
+@guestyorg/okta-sketch",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+beast-page,"@guestyorg/biz
+@guestyorg/okta-developers
+@guestyorg/okta-sketch",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+billing-page,@guestyorg/okta-payments,Detect files,Warning,Babel is not recommended. Please migrate to Orbis,babel.config.json
+billing-page,@guestyorg/okta-payments,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+billing-page,@guestyorg/okta-payments,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, cypress/.eslintrc.json, .eslintignore"
+billing-page,@guestyorg/okta-payments,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+billing-page,@guestyorg/okta-payments,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+billing-page,@guestyorg/okta-payments,Require files,Warning,pnpm-lock.yaml is missing,
+billing-page,@guestyorg/okta-payments,Require files,Warning,pnpm-workspace.yaml is missing,
+billing-page,@guestyorg/okta-payments,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+billing-page,@guestyorg/okta-payments,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+block-logs-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+block-logs-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+block-logs-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+block-logs-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+block-logs-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Require files,Warning,pnpm-lock.yaml is missing,
+block-logs-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Require files,Warning,pnpm-workspace.yaml is missing,
+block-logs-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+block-logs-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+block-logs-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+brands-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,cypress/.eslintrc
+business-models-page,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+business-models-page,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+business-models-page,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+business-models-page,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+business-models-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+business-models-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+business-models-page,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+business-models-page,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+business-models-page,@guestyorg/biz-enterprise,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+business-models-v2-page,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+business-models-v2-page,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+business-models-v2-page,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+business-models-v2-page,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+business-models-v2-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+business-models-v2-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+business-models-v2-page,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+business-models-v2-page,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+business-models-v2-page,@guestyorg/biz-enterprise,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+calendar-actions-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,Jest is forbidden. Please migrate to Vitest,jest.config.js
+calendar-actions-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,Babel is not recommended. Please migrate to Orbis,.babelrc.js
+calendar-actions-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+calendar-actions-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+calendar-actions-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+calendar-actions-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Require files,Warning,pnpm-lock.yaml is missing,
+calendar-actions-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Require files,Warning,pnpm-workspace.yaml is missing,
+calendar-actions-widget,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+calendar-settings,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+calendar-settings,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+calendar-settings,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+calendar-settings,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+calendar-settings,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Require files,Warning,pnpm-lock.yaml is missing,
+calendar-settings,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Require files,Warning,pnpm-workspace.yaml is missing,
+calendar-settings,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+calendar-settings,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+call-center-page,@guestyorg/okta-communication,Detect files,Error,Forbidden files detected in the project,.github/workflows/translate.yml
+call-center-page,@guestyorg/okta-communication,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+call-center-page,@guestyorg/okta-communication,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+call-center-page,@guestyorg/okta-communication,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+call-center-page,@guestyorg/okta-communication,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+call-center-page,@guestyorg/okta-communication,Require files,Warning,pnpm-lock.yaml is missing,
+call-center-page,@guestyorg/okta-communication,Require files,Warning,pnpm-workspace.yaml is missing,
+call-center-page,@guestyorg/okta-communication,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+call-center-page,@guestyorg/okta-communication,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+call-center-page,@guestyorg/okta-communication,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+cancellation-policies-page,@guestyorg/jarvis,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+cancellation-policies-page,@guestyorg/jarvis,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+cancellation-policies-page,@guestyorg/jarvis,Require files,Warning,pnpm-lock.yaml is missing,
+cancellation-policies-page,@guestyorg/jarvis,Require files,Warning,pnpm-workspace.yaml is missing,
+cancellation-policies-page,@guestyorg/jarvis,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+channel-manager-page,@guestyorg/odyssey,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+channel-manager-page,@guestyorg/odyssey,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+channel-manager-page,@guestyorg/odyssey,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+channel-manager-page,@guestyorg/odyssey,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+channel-manager-page,@guestyorg/odyssey,Require files,Warning,pnpm-lock.yaml is missing,
+channel-manager-page,@guestyorg/odyssey,Require files,Warning,pnpm-workspace.yaml is missing,
+channel-manager-page,@guestyorg/odyssey,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+channel-manager-page,@guestyorg/odyssey,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+channel-manager-page,@guestyorg/odyssey,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+checkin-guest-form,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc
+checkin-guest-form,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,.eslintrc.json
+checkin-guest-form,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+checkin-guest-form,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+checkin-guest-form,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+checkin-guest-form,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+checkin-guest-form,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+company-info,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,.eslintignore
+company-info,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+company-info,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-lock.yaml is missing,
+company-info,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-workspace.yaml is missing,
+company-info,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+coupons-fe,"@guestyorg/adventure
+@guestyorg/jarvis",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+coupons-fe,"@guestyorg/adventure
+@guestyorg/jarvis",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+coupons-fe,"@guestyorg/adventure
+@guestyorg/jarvis",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+coupons-fe,"@guestyorg/adventure
+@guestyorg/jarvis",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+coupons-fe,"@guestyorg/adventure
+@guestyorg/jarvis",Require files,Warning,pnpm-lock.yaml is missing,
+coupons-fe,"@guestyorg/adventure
+@guestyorg/jarvis",Require files,Warning,pnpm-workspace.yaml is missing,
+coupons-fe,"@guestyorg/adventure
+@guestyorg/jarvis",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+coupons-fe,"@guestyorg/adventure
+@guestyorg/jarvis",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+coupons-fe,"@guestyorg/adventure
+@guestyorg/jarvis",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+create-reservation-widget,"@guestyorg/jarvis
+@guestyorg/okta-reservo
+@guestyorg/okta-unicorn
+@guestyorg/oxp",Detect files,Warning,Babel is not recommended. Please migrate to Orbis,.babelrc.js
+create-reservation-widget,"@guestyorg/jarvis
+@guestyorg/okta-reservo
+@guestyorg/okta-unicorn
+@guestyorg/oxp",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc
+create-reservation-widget,"@guestyorg/jarvis
+@guestyorg/okta-reservo
+@guestyorg/okta-unicorn
+@guestyorg/oxp",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+create-reservation-widget,"@guestyorg/jarvis
+@guestyorg/okta-reservo
+@guestyorg/okta-unicorn
+@guestyorg/oxp",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+create-reservation-widget,"@guestyorg/jarvis
+@guestyorg/okta-reservo
+@guestyorg/okta-unicorn
+@guestyorg/oxp",Require files,Error,.nvmrc is missing,
+create-reservation-widget,"@guestyorg/jarvis
+@guestyorg/okta-reservo
+@guestyorg/okta-unicorn
+@guestyorg/oxp",Require files,Warning,pnpm-lock.yaml is missing,
+create-reservation-widget,"@guestyorg/jarvis
+@guestyorg/okta-reservo
+@guestyorg/okta-unicorn
+@guestyorg/oxp",Require files,Warning,pnpm-workspace.yaml is missing,
+create-reservation-widget,"@guestyorg/jarvis
+@guestyorg/okta-reservo
+@guestyorg/okta-unicorn
+@guestyorg/oxp",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+create-reservation-widget,"@guestyorg/jarvis
+@guestyorg/okta-reservo
+@guestyorg/okta-unicorn
+@guestyorg/oxp",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+distribution-page,@guestyorg/sketch,Detect files,Error,Forbidden files detected in the project,.github/workflows/upload-translations.yml
+distribution-page,@guestyorg/sketch,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+distribution-page,@guestyorg/sketch,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+distribution-page,@guestyorg/sketch,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+distribution-page,@guestyorg/sketch,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+distribution-page,@guestyorg/sketch,Require files,Warning,pnpm-lock.yaml is missing,
+distribution-page,@guestyorg/sketch,Require files,Warning,pnpm-workspace.yaml is missing,
+distribution-page,@guestyorg/sketch,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+distribution-page,@guestyorg/sketch,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+document-management,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc
+document-management,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+document-management,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+document-management,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+document-management,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+document-management,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+document-management,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+document-management,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+dynamic-pricing-page,@guestyorg/jarvis,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+dynamic-pricing-page,@guestyorg/jarvis,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, cypress/.eslintrc.js, .eslintignore"
+dynamic-pricing-page,@guestyorg/jarvis,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+dynamic-pricing-page,@guestyorg/jarvis,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+dynamic-pricing-page,@guestyorg/jarvis,Require files,Warning,pnpm-lock.yaml is missing,
+dynamic-pricing-page,@guestyorg/jarvis,Require files,Warning,pnpm-workspace.yaml is missing,
+dynamic-pricing-page,@guestyorg/jarvis,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+dynamic-pricing-page,@guestyorg/jarvis,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+embeddable-search-widget,"@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Error,Forbidden files detected in the project,.circleci/config.yml
+embeddable-search-widget,"@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,Babel is not recommended. Please migrate to Orbis,.babelrc
+embeddable-search-widget,"@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,.eslintignore
+embeddable-search-widget,"@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+embeddable-search-widget,"@guestyorg/discovery
+@guestyorg/odyssey",Require files,Warning,pnpm-lock.yaml is missing,
+embeddable-search-widget,"@guestyorg/discovery
+@guestyorg/odyssey",Require files,Warning,pnpm-workspace.yaml is missing,
+embeddable-search-widget,"@guestyorg/discovery
+@guestyorg/odyssey",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+embeddable-search-widget,"@guestyorg/discovery
+@guestyorg/odyssey",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+empty-state-widget,@guestyorg/okta-starlite,Detect files,Error,Forbidden files detected in the project,.github/workflows/translate.yml
+empty-state-widget,@guestyorg/okta-starlite,Detect files,Warning,Jest is forbidden. Please migrate to Vitest,jest.config.js
+empty-state-widget,@guestyorg/okta-starlite,Detect files,Warning,Babel is not recommended. Please migrate to Orbis,.babelrc.js
+empty-state-widget,@guestyorg/okta-starlite,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+empty-state-widget,@guestyorg/okta-starlite,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+empty-state-widget,@guestyorg/okta-starlite,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+empty-state-widget,@guestyorg/okta-starlite,Require files,Warning,pnpm-lock.yaml is missing,
+empty-state-widget,@guestyorg/okta-starlite,Require files,Warning,pnpm-workspace.yaml is missing,
+empty-state-widget,@guestyorg/okta-starlite,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+expenses-page,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+expenses-page,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+expenses-page,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+expenses-page,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+expenses-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+expenses-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+expenses-page,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+expenses-page,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+expenses-page,@guestyorg/biz-enterprise,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+feature-toggle-admin-page,@guestyorg/okta-pop,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+feature-toggle-admin-page,@guestyorg/okta-pop,Require files,Warning,pnpm-lock.yaml is missing,
+feature-toggle-admin-page,@guestyorg/okta-pop,Require files,Warning,pnpm-workspace.yaml is missing,
+financial-settings-page,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+financial-settings-page,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+financial-settings-page,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+financial-settings-page,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+financial-settings-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+financial-settings-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+financial-settings-page,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+financial-settings-page,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+financial-settings-page,@guestyorg/biz-enterprise,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+gcm-partners-admin-page,@guestyorg/odyssey,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+gcm-partners-admin-page,@guestyorg/odyssey,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+gcm-partners-admin-page,@guestyorg/odyssey,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+gcm-partners-admin-page,@guestyorg/odyssey,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+gcm-partners-admin-page,@guestyorg/odyssey,Require files,Error,.nvmrc is missing,
+gcm-partners-admin-page,@guestyorg/odyssey,Require files,Warning,pnpm-lock.yaml is missing,
+gcm-partners-admin-page,@guestyorg/odyssey,Require files,Warning,pnpm-workspace.yaml is missing,
+gcm-partners-admin-page,@guestyorg/odyssey,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+gcm-partners-admin-page,@guestyorg/odyssey,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+gcm-partners-admin-page,@guestyorg/odyssey,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+gfh-admin-page,@guestyorg/okta-the-club,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+gfh-admin-page,@guestyorg/okta-the-club,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,"cypress/.eslintrc, .eslintrc.json, .eslintignore"
+gfh-admin-page,@guestyorg/okta-the-club,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+gfh-admin-page,@guestyorg/okta-the-club,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+gfh-admin-page,@guestyorg/okta-the-club,Require files,Error,.nvmrc is missing,
+gfh-admin-page,@guestyorg/okta-the-club,Require files,Warning,pnpm-lock.yaml is missing,
+gfh-admin-page,@guestyorg/okta-the-club,Require files,Warning,pnpm-workspace.yaml is missing,
+gfh-admin-page,@guestyorg/okta-the-club,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+gfh-admin-page,@guestyorg/okta-the-club,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+gfh-airbnb-onboarding-page,@guestyorg/sasquatch,Detect files,Error,Forbidden files detected in the project,.github/workflows/translate.yml
+gfh-airbnb-onboarding-page,@guestyorg/sasquatch,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+gfh-airbnb-onboarding-page,@guestyorg/sasquatch,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+gfh-airbnb-onboarding-page,@guestyorg/sasquatch,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+gfh-airbnb-onboarding-page,@guestyorg/sasquatch,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+gfh-airbnb-onboarding-page,@guestyorg/sasquatch,Require files,Warning,pnpm-lock.yaml is missing,
+gfh-airbnb-onboarding-page,@guestyorg/sasquatch,Require files,Warning,pnpm-workspace.yaml is missing,
+gfh-airbnb-onboarding-page,@guestyorg/sasquatch,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+gfh-airbnb-onboarding-page,@guestyorg/sasquatch,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+gfh-desktop-layout-page,@guestyorg/yourporter,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+gfh-desktop-layout-page,@guestyorg/yourporter,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,"cypress/.eslintrc, .eslintrc.json, .eslintignore"
+gfh-desktop-layout-page,@guestyorg/yourporter,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+gfh-desktop-layout-page,@guestyorg/yourporter,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+gfh-desktop-layout-page,@guestyorg/yourporter,Require files,Warning,pnpm-lock.yaml is missing,
+gfh-desktop-layout-page,@guestyorg/yourporter,Require files,Warning,pnpm-workspace.yaml is missing,
+gfh-desktop-layout-page,@guestyorg/yourporter,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+gfh-desktop-layout-page,@guestyorg/yourporter,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+gfh-dynamic-pricing-page,@guestyorg/yourporter,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+gfh-dynamic-pricing-page,@guestyorg/yourporter,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+gfh-dynamic-pricing-page,@guestyorg/yourporter,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+gfh-dynamic-pricing-page,@guestyorg/yourporter,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+gfh-dynamic-pricing-page,@guestyorg/yourporter,Require files,Error,.nvmrc is missing,
+gfh-dynamic-pricing-page,@guestyorg/yourporter,Require files,Warning,pnpm-lock.yaml is missing,
+gfh-dynamic-pricing-page,@guestyorg/yourporter,Require files,Warning,pnpm-workspace.yaml is missing,
+gfh-dynamic-pricing-page,@guestyorg/yourporter,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+gfh-dynamic-pricing-page,@guestyorg/yourporter,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+gfh-dynamic-pricing-page,@guestyorg/yourporter,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+gfh-shield-page,"@guestyorg/okta-starlite
+@guestyorg/unicorn",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+gfh-shield-page,"@guestyorg/okta-starlite
+@guestyorg/unicorn",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,"cypress/.eslintrc, .eslintrc.json, .eslintignore"
+gfh-shield-page,"@guestyorg/okta-starlite
+@guestyorg/unicorn",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+gfh-shield-page,"@guestyorg/okta-starlite
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+gfh-shield-page,"@guestyorg/okta-starlite
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+gfh-shield-page,"@guestyorg/okta-starlite
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+gfh-shield-page,"@guestyorg/okta-starlite
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+gfh-shield-page,"@guestyorg/okta-starlite
+@guestyorg/unicorn",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+gfh-vrbo-integration,@guestyorg/yourporter,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+gfh-vrbo-integration,@guestyorg/yourporter,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+gfh-vrbo-integration,@guestyorg/yourporter,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+gfh-vrbo-integration,@guestyorg/yourporter,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+gfh-vrbo-integration,@guestyorg/yourporter,Require files,Error,.nvmrc is missing,
+gfh-vrbo-integration,@guestyorg/yourporter,Require files,Warning,pnpm-lock.yaml is missing,
+gfh-vrbo-integration,@guestyorg/yourporter,Require files,Warning,pnpm-workspace.yaml is missing,
+gfh-vrbo-integration,@guestyorg/yourporter,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+gfh-vrbo-integration,@guestyorg/yourporter,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+gl-automations,@guestyorg/okta-communication,Detect files,Error,Forbidden files detected in the project,.github/workflows/upload-translations.yml
+gl-automations,@guestyorg/okta-communication,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+gl-automations,@guestyorg/okta-communication,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, cypress/.eslintrc.json, .eslintignore"
+gl-automations,@guestyorg/okta-communication,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+gl-automations,@guestyorg/okta-communication,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+gl-automations,@guestyorg/okta-communication,Require files,Error,.nvmrc is missing,
+gl-automations,@guestyorg/okta-communication,Require files,Warning,pnpm-lock.yaml is missing,
+gl-automations,@guestyorg/okta-communication,Require files,Warning,pnpm-workspace.yaml is missing,
+gl-automations,@guestyorg/okta-communication,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+gl-automations,@guestyorg/okta-communication,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+gl-automations,@guestyorg/okta-communication,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+glite-trial-dialog,@guestyorg/okta-starlite,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,eslint.config.mjs
+glite-trial-dialog,@guestyorg/okta-starlite,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+glite-trial-dialog,@guestyorg/okta-starlite,Require files,Warning,pnpm-lock.yaml is missing,
+glite-trial-dialog,@guestyorg/okta-starlite,Require files,Warning,pnpm-workspace.yaml is missing,
+glite-trial-dialog,@guestyorg/okta-starlite,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+glite-trial-dialog,@guestyorg/okta-starlite,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+group-and-quote-reservations-page,@guestyorg/team_journey,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+group-and-quote-reservations-page,@guestyorg/team_journey,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+group-and-quote-reservations-page,@guestyorg/team_journey,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+group-and-quote-reservations-page,@guestyorg/team_journey,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+group-and-quote-reservations-page,@guestyorg/team_journey,Require files,Warning,pnpm-lock.yaml is missing,
+group-and-quote-reservations-page,@guestyorg/team_journey,Require files,Warning,pnpm-workspace.yaml is missing,
+group-and-quote-reservations-page,@guestyorg/team_journey,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+group-and-quote-reservations-page,@guestyorg/team_journey,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+group-and-quote-reservations-page,@guestyorg/team_journey,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+group-deposits-page,"@guestyorg/biz-enterprise
+@guestyorg/biz-payments",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+group-deposits-page,"@guestyorg/biz-enterprise
+@guestyorg/biz-payments",Require files,Warning,pnpm-lock.yaml is missing,
+group-deposits-page,"@guestyorg/biz-enterprise
+@guestyorg/biz-payments",Require files,Warning,pnpm-workspace.yaml is missing,
+group-deposits-page,"@guestyorg/biz-enterprise
+@guestyorg/biz-payments",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+guest-agreements,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,".prettierrc, .prettierrc.json"
+guest-agreements,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+guest-agreements,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+guest-agreements,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+guest-agreements,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+guest-agreements,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+guest-app-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+guest-app-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+guest-app-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+guest-app-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+guest-app-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+guest-app-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+guest-app-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+guest-app-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+guest-app-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+guest-folio,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+guest-folio,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+guest-folio,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+guest-folio,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+guest-folio,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+guest-folio,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+guest-folio,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+guest-folio,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+guest-folio,@guestyorg/biz-enterprise,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+guest-invoice,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Detect files,Error,Forbidden files detected in the project,"firebase.json, .firebaserc"
+guest-invoice,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+guest-invoice,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+guest-invoice,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+guest-invoice,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+guest-invoice,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Require files,Warning,pnpm-lock.yaml is missing,
+guest-invoice,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Require files,Warning,pnpm-workspace.yaml is missing,
+guest-invoice,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+guest-invoice,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+guest-invoice,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+guest-screening-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+guest-screening-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+guest-screening-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+guest-screening-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+guest-screening-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+guests-marketing-integrations-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+guests-marketing-integrations-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+guests-marketing-integrations-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+guests-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+guests-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+guests-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+guests-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+guests-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+guests-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+guests-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+guests-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+guests-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Babel is not recommended. Please migrate to Orbis,.babelrc.js
+guests-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+guests-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+guests-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+guests-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+guests-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+guests-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+guests-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+guesty-admin,@guestyorg/maximmovchan1,Detect files,Error,Forbidden files detected in the project,firebase.json
+guesty-admin,@guestyorg/maximmovchan1,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+guesty-admin,@guestyorg/maximmovchan1,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,.eslintrc.json
+guesty-admin,@guestyorg/maximmovchan1,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+guesty-admin,@guestyorg/maximmovchan1,Require files,Warning,pnpm-lock.yaml is missing,
+guesty-admin,@guestyorg/maximmovchan1,Require files,Warning,pnpm-workspace.yaml is missing,
+guesty-card-page,@guestyorg/okta-gx,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,.eslintignore
+guesty-card-page,@guestyorg/okta-gx,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+guesty-card-page,@guestyorg/okta-gx,Require files,Warning,pnpm-lock.yaml is missing,
+guesty-card-page,@guestyorg/okta-gx,Require files,Warning,pnpm-workspace.yaml is missing,
+guesty-card-page,@guestyorg/okta-gx,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+guesty-card-page,@guestyorg/okta-gx,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+guesty-pay-protect-page,@guestyorg/okta-payments,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+guesty-pay-protect-page,@guestyorg/okta-payments,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+guesty-pay-protect-page,@guestyorg/okta-payments,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+guesty-pay-protect-page,@guestyorg/okta-payments,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+guesty-pay-protect-page,@guestyorg/okta-payments,Require files,Warning,pnpm-lock.yaml is missing,
+guesty-pay-protect-page,@guestyorg/okta-payments,Require files,Warning,pnpm-workspace.yaml is missing,
+guesty-pay-protect-page,@guestyorg/okta-payments,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+guesty-pay-protect-page,@guestyorg/okta-payments,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+guesty-pay-protect-page,@guestyorg/okta-payments,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+guesty-pay,@guestyorg/okta-payments,Detect files,Warning,Babel is not recommended. Please migrate to Orbis,.babelrc.js
+guesty-pay,@guestyorg/okta-payments,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+guesty-pay,@guestyorg/okta-payments,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+guesty-pay,@guestyorg/okta-payments,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+guesty-pay,@guestyorg/okta-payments,Require files,Warning,pnpm-lock.yaml is missing,
+guesty-pay,@guestyorg/okta-payments,Require files,Warning,pnpm-workspace.yaml is missing,
+guesty-pay,@guestyorg/okta-payments,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+guesty-pay,@guestyorg/okta-payments,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+hq-instance-page,@guestyorg/okta-nexus,Detect files,Error,Forbidden files detected in the project,.github/workflows/upload-translations.yml
+hq-instance-page,@guestyorg/okta-nexus,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+hq-instance-page,@guestyorg/okta-nexus,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+hq-instance-page,@guestyorg/okta-nexus,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+hq-instance-page,@guestyorg/okta-nexus,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+hq-instance-page,@guestyorg/okta-nexus,Require files,Error,.nvmrc is missing,
+hq-instance-page,@guestyorg/okta-nexus,Require files,Warning,pnpm-lock.yaml is missing,
+hq-instance-page,@guestyorg/okta-nexus,Require files,Warning,pnpm-workspace.yaml is missing,
+hq-instance-page,@guestyorg/okta-nexus,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+hq-instance-page,@guestyorg/okta-nexus,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+hq-instances-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+hq-instances-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+hq-instances-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+hq-instances-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+hq-instances-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+hq-user-management-page,@guestyorg/okta-cross,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+hq-user-management-page,@guestyorg/okta-cross,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+hq-user-management-page,@guestyorg/okta-cross,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+hq-user-management-page,@guestyorg/okta-cross,Require files,Warning,pnpm-lock.yaml is missing,
+hq-user-management-page,@guestyorg/okta-cross,Require files,Warning,pnpm-workspace.yaml is missing,
+hq-user-management-page,@guestyorg/okta-cross,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+hq-user-management-page,@guestyorg/okta-cross,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+hq-user-management-page,@guestyorg/okta-cross,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+inbox-page,@guestyorg/team_journey,Detect files,Warning,Babel is not recommended. Please migrate to Orbis,"libs/shared/routing/.babelrc, libs/modules/thread/.babelrc, libs/modules/inboxes/.babelrc"
+inbox-page,@guestyorg/team_journey,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+inbox-page,@guestyorg/team_journey,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, libs/shared/routing/.eslintrc.json, libs/modules/thread/.eslintrc.json, libs/modules/inboxes/.eslintrc.json, libs/modules/feed/.eslintrc.json, apps/inbox-page-hq/.eslintrc.json, apps/inbox-page/.eslintrc.json, .eslintignore"
+inbox-page,@guestyorg/team_journey,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+inbox-page,@guestyorg/team_journey,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+inbox-page,@guestyorg/team_journey,Require files,Warning,pnpm-lock.yaml is missing,
+inbox-page,@guestyorg/team_journey,Require files,Warning,pnpm-workspace.yaml is missing,
+inbox-page,@guestyorg/team_journey,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+inbox-page,@guestyorg/team_journey,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+inbox-replyai-settings-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+inbox-replyai-settings-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+inbox-replyai-settings-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+inbox-replyai-settings-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+inbox-replyai-settings-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+inbox-replyai-settings-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+inbox-replyai-settings-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+inbox-replyai-settings-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+inbox-replyai-settings-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+inbox-v2,@guestyorg/okta-communication,Detect files,Error,Forbidden files detected in the project,"firebase.json, .firebaserc"
+inbox-v2,@guestyorg/okta-communication,Detect files,Warning,Babel is not recommended. Please migrate to Orbis,babel.config.js
+inbox-v2,@guestyorg/okta-communication,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc
+inbox-v2,@guestyorg/okta-communication,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, cypress/.eslintrc.json, .eslintignore"
+inbox-v2,@guestyorg/okta-communication,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+inbox-v2,@guestyorg/okta-communication,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+inbox-v2,@guestyorg/okta-communication,Require files,Warning,pnpm-lock.yaml is missing,
+inbox-v2,@guestyorg/okta-communication,Require files,Warning,pnpm-workspace.yaml is missing,
+inbox-v2,@guestyorg/okta-communication,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+inbox-whatsapp-connection-page,@guestyorg/okta-communication,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+inbox-whatsapp-connection-page,@guestyorg/okta-communication,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+inbox-whatsapp-connection-page,@guestyorg/okta-communication,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+inbox-whatsapp-connection-page,@guestyorg/okta-communication,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+inbox-whatsapp-connection-page,@guestyorg/okta-communication,Require files,Warning,pnpm-lock.yaml is missing,
+inbox-whatsapp-connection-page,@guestyorg/okta-communication,Require files,Warning,pnpm-workspace.yaml is missing,
+inbox-whatsapp-connection-page,@guestyorg/okta-communication,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+inbox-whatsapp-connection-page,@guestyorg/okta-communication,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+inbox-whatsapp-connection-page,@guestyorg/okta-communication,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+journal-entries-report-page,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+journal-entries-report-page,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+journal-entries-report-page,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+journal-entries-report-page,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+journal-entries-report-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+journal-entries-report-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+journal-entries-report-page,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+journal-entries-report-page,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+liability-insurance-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+liability-insurance-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+liability-insurance-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+liability-insurance-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+liability-insurance-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+lite-airbnb-onboarding-page,"@guestyorg/okta-airbook
+@guestyorg/okta-starlite",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+lite-airbnb-onboarding-page,"@guestyorg/okta-airbook
+@guestyorg/okta-starlite",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+lite-airbnb-onboarding-page,"@guestyorg/okta-airbook
+@guestyorg/okta-starlite",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+lite-airbnb-onboarding-page,"@guestyorg/okta-airbook
+@guestyorg/okta-starlite",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+lite-airbnb-onboarding-page,"@guestyorg/okta-airbook
+@guestyorg/okta-starlite",Require files,Warning,pnpm-lock.yaml is missing,
+lite-airbnb-onboarding-page,"@guestyorg/okta-airbook
+@guestyorg/okta-starlite",Require files,Warning,pnpm-workspace.yaml is missing,
+lite-airbnb-onboarding-page,"@guestyorg/okta-airbook
+@guestyorg/okta-starlite",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+lite-airbnb-onboarding-page,"@guestyorg/okta-airbook
+@guestyorg/okta-starlite",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+lite-airbnb-onboarding-page,"@guestyorg/okta-airbook
+@guestyorg/okta-starlite",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+lite-airbnb-page,@guestyorg/okta-airbook,Detect files,Error,Forbidden files detected in the project,.github/workflows/upload-translations.yml
+lite-airbnb-page,@guestyorg/okta-airbook,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+lite-airbnb-page,@guestyorg/okta-airbook,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+lite-airbnb-page,@guestyorg/okta-airbook,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+lite-airbnb-page,@guestyorg/okta-airbook,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+lite-airbnb-page,@guestyorg/okta-airbook,Require files,Warning,pnpm-lock.yaml is missing,
+lite-airbnb-page,@guestyorg/okta-airbook,Require files,Warning,pnpm-workspace.yaml is missing,
+lite-airbnb-page,@guestyorg/okta-airbook,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+lite-airbnb-page,@guestyorg/okta-airbook,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+lite-listings-page,@guestyorg/okta-airbook,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+lite-listings-page,@guestyorg/okta-airbook,Require files,Warning,pnpm-lock.yaml is missing,
+lite-listings-page,@guestyorg/okta-airbook,Require files,Warning,pnpm-workspace.yaml is missing,
+lite-listings-page,@guestyorg/okta-airbook,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+lite-registration-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,cypress/.eslintrc
+lite-registration-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+lite-registration-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-lock.yaml is missing,
+lite-registration-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-workspace.yaml is missing,
+lite-registration-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+lite-subscription-page,@guestyorg/okta-starlite,Detect files,Error,Forbidden files detected in the project,.github/workflows/upload-translations.yml
+lite-subscription-page,@guestyorg/okta-starlite,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+lite-subscription-page,@guestyorg/okta-starlite,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+lite-subscription-page,@guestyorg/okta-starlite,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+lite-subscription-page,@guestyorg/okta-starlite,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+lite-subscription-page,@guestyorg/okta-starlite,Require files,Warning,pnpm-lock.yaml is missing,
+lite-subscription-page,@guestyorg/okta-starlite,Require files,Warning,pnpm-workspace.yaml is missing,
+lite-subscription-page,@guestyorg/okta-starlite,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+lite-subscription-page,@guestyorg/okta-starlite,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+lite-subscription-page,@guestyorg/okta-starlite,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+los-rules-ui,@guestyorg/jarvis,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+los-rules-ui,@guestyorg/jarvis,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, cypress/.eslintrc.js, .eslintignore"
+los-rules-ui,@guestyorg/jarvis,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+los-rules-ui,@guestyorg/jarvis,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+los-rules-ui,@guestyorg/jarvis,Require files,Warning,pnpm-lock.yaml is missing,
+los-rules-ui,@guestyorg/jarvis,Require files,Warning,pnpm-workspace.yaml is missing,
+los-rules-ui,@guestyorg/jarvis,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+los-rules-ui,@guestyorg/jarvis,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+los-rules-ui,@guestyorg/jarvis,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+mobile-reservation-form-page,@guestyorg/okta-reservo,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+mobile-reservation-form-page,@guestyorg/okta-reservo,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+mobile-reservation-form-page,@guestyorg/okta-reservo,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+mobile-reservation-form-page,@guestyorg/okta-reservo,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+mobile-reservation-form-page,@guestyorg/okta-reservo,Require files,Warning,pnpm-lock.yaml is missing,
+mobile-reservation-form-page,@guestyorg/okta-reservo,Require files,Warning,pnpm-workspace.yaml is missing,
+mobile-reservation-form-page,@guestyorg/okta-reservo,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+mobile-reservation-form-page,@guestyorg/okta-reservo,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+mobile-reservation-form-page,@guestyorg/okta-reservo,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+monthly-calendar-page,@guestyorg/okta-chronos,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+monthly-calendar-page,@guestyorg/okta-chronos,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+monthly-calendar-page,@guestyorg/okta-chronos,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+monthly-calendar-page,@guestyorg/okta-chronos,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+monthly-calendar-page,@guestyorg/okta-chronos,Require files,Warning,pnpm-lock.yaml is missing,
+monthly-calendar-page,@guestyorg/okta-chronos,Require files,Warning,pnpm-workspace.yaml is missing,
+monthly-calendar-page,@guestyorg/okta-chronos,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+monthly-calendar-page,@guestyorg/okta-chronos,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+monthly-calendar-page,@guestyorg/okta-chronos,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+multi-calendar-v3,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+multi-calendar-v3,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+multi-calendar-v3,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+multi-calendar-v3,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+multi-calendar-v3,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Require files,Warning,pnpm-lock.yaml is missing,
+multi-calendar-v3,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Require files,Warning,pnpm-workspace.yaml is missing,
+multi-calendar-v3,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+multi-calendar-v3,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+multi-calendar-v3,"@guestyorg/jarvis
+@guestyorg/okta-chronos",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+notifications-widget,@guestyorg/okta-groot,Detect files,Warning,Babel is not recommended. Please migrate to Orbis,.babelrc.js
+notifications-widget,@guestyorg/okta-groot,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+notifications-widget,@guestyorg/okta-groot,Require files,Warning,pnpm-lock.yaml is missing,
+notifications-widget,@guestyorg/okta-groot,Require files,Warning,pnpm-workspace.yaml is missing,
+notifications-widget,@guestyorg/okta-groot,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+oauth-apps-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+oauth-apps-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-lock.yaml is missing,
+oauth-apps-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-workspace.yaml is missing,
+onboarding-page,@guestyorg/groot,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+onboarding-page,@guestyorg/groot,Require files,Warning,pnpm-lock.yaml is missing,
+onboarding-page,@guestyorg/groot,Require files,Warning,pnpm-workspace.yaml is missing,
+onboarding-page,@guestyorg/groot,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+online-booking-solutions-landing-widget,"@guestyorg/biz-payments
+@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Error,Forbidden files detected in the project,".circleci/config.yml, .github/workflows/translate.yml"
+online-booking-solutions-landing-widget,"@guestyorg/biz-payments
+@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+online-booking-solutions-landing-widget,"@guestyorg/biz-payments
+@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+online-booking-solutions-landing-widget,"@guestyorg/biz-payments
+@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+online-booking-solutions-landing-widget,"@guestyorg/biz-payments
+@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+online-booking-solutions-landing-widget,"@guestyorg/biz-payments
+@guestyorg/discovery
+@guestyorg/odyssey",Require files,Warning,pnpm-lock.yaml is missing,
+online-booking-solutions-landing-widget,"@guestyorg/biz-payments
+@guestyorg/discovery
+@guestyorg/odyssey",Require files,Warning,pnpm-workspace.yaml is missing,
+online-booking-solutions-landing-widget,"@guestyorg/biz-payments
+@guestyorg/discovery
+@guestyorg/odyssey",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+online-booking-solutions-landing-widget,"@guestyorg/biz-payments
+@guestyorg/discovery
+@guestyorg/odyssey",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+online-booking-solutions-page,"@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+online-booking-solutions-page,"@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+online-booking-solutions-page,"@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+online-booking-solutions-page,"@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+online-booking-solutions-page,"@guestyorg/discovery
+@guestyorg/odyssey",Require files,Warning,pnpm-lock.yaml is missing,
+online-booking-solutions-page,"@guestyorg/discovery
+@guestyorg/odyssey",Require files,Warning,pnpm-workspace.yaml is missing,
+online-booking-solutions-page,"@guestyorg/discovery
+@guestyorg/odyssey",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+online-booking-solutions-page,"@guestyorg/discovery
+@guestyorg/odyssey",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+online-booking-solutions-page,"@guestyorg/discovery
+@guestyorg/odyssey",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+operations-widget,@guestyorg/okta-pop,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+operations-widget,@guestyorg/okta-pop,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+operations-widget,@guestyorg/okta-pop,Require files,Warning,pnpm-lock.yaml is missing,
+operations-widget,@guestyorg/okta-pop,Require files,Warning,pnpm-workspace.yaml is missing,
+operations-widget,@guestyorg/okta-pop,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+operations-widget,@guestyorg/okta-pop,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+opportunities-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+opportunities-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+opportunities-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+opportunities-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+opportunities-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+opportunities-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+opportunities-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+opportunities-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+owner-1099-misc-page,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+owner-1099-misc-page,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, cypress/.eslintrc.ts, .eslintignore"
+owner-1099-misc-page,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+owner-1099-misc-page,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+owner-1099-misc-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+owner-1099-misc-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+owner-1099-misc-page,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+owner-1099-misc-page,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+owner-detail-page,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+owner-detail-page,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, cypress/.eslintrc.ts, .eslintignore"
+owner-detail-page,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+owner-detail-page,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+owner-detail-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+owner-detail-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+owner-detail-page,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+owner-detail-page,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+owner-portal-page,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+owner-portal-page,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, cypress/.eslintrc.ts, .eslintignore"
+owner-portal-page,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+owner-portal-page,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+owner-portal-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+owner-portal-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+owner-portal-page,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+owner-portal-page,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+owner-reservation-services-widget,@guestyorg/biz-enterprise,Detect files,Error,Forbidden files detected in the project,.github/workflows/translate.yml
+owner-reservation-services-widget,@guestyorg/biz-enterprise,Detect files,Warning,Babel is not recommended. Please migrate to Orbis,.babelrc.js
+owner-reservation-services-widget,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc
+owner-reservation-services-widget,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+owner-reservation-services-widget,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+owner-reservation-services-widget,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+owner-reservation-services-widget,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+owner-reservation-services-widget,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+owner-statements-page,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+owner-statements-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+owner-statements-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+owner-statements-page,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+owners-page,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+owners-page,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, cypress/.eslintrc.ts, .eslintignore"
+owners-page,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+owners-page,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+owners-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+owners-page,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+owners-page,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+owners-page,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+owners-rate-page,@guestyorg/jarvis,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+owners-rate-page,@guestyorg/jarvis,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, cypress/.eslintrc.js, .eslintignore"
+owners-rate-page,@guestyorg/jarvis,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+owners-rate-page,@guestyorg/jarvis,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+owners-rate-page,@guestyorg/jarvis,Require files,Warning,pnpm-lock.yaml is missing,
+owners-rate-page,@guestyorg/jarvis,Require files,Warning,pnpm-workspace.yaml is missing,
+owners-rate-page,@guestyorg/jarvis,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+owners-rate-page,@guestyorg/jarvis,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+owners-rate-page,@guestyorg/jarvis,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+owners-reports,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+owners-reports,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+owners-reports,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+owners-reports,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+owners-reports,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+owners-reports,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+owners-reports,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+owners-reports,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+ownersportal,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+ownersportal,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+ownersportal,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+ownersportal,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+ownersportal,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+ownersportal,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+ownersportal,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+ownersportal,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+partners,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,.eslintignore
+partners,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+partners,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-lock.yaml is missing,
+partners,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-workspace.yaml is missing,
+payment-auth-page,@guestyorg/okta-payday,Detect files,Error,Forbidden files detected in the project,.github/workflows/upload-translations.yml
+payment-auth-page,@guestyorg/okta-payday,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+payment-auth-page,@guestyorg/okta-payday,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+payment-auth-page,@guestyorg/okta-payday,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+payment-auth-page,@guestyorg/okta-payday,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+payment-auth-page,@guestyorg/okta-payday,Require files,Warning,pnpm-lock.yaml is missing,
+payment-auth-page,@guestyorg/okta-payday,Require files,Warning,pnpm-workspace.yaml is missing,
+payment-auth-page,@guestyorg/okta-payday,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+payment-auth-page,@guestyorg/okta-payday,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+payment-automations-page,@guestyorg/okta-payments,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+payment-automations-page,@guestyorg/okta-payments,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+payment-automations-page,@guestyorg/okta-payments,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+payment-automations-page,@guestyorg/okta-payments,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+payment-automations-page,@guestyorg/okta-payments,Require files,Warning,pnpm-lock.yaml is missing,
+payment-automations-page,@guestyorg/okta-payments,Require files,Warning,pnpm-workspace.yaml is missing,
+payment-automations-page,@guestyorg/okta-payments,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+payment-automations-page,@guestyorg/okta-payments,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+payment-automations-page,@guestyorg/okta-payments,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+payment-link-page,@guestyorg/okta-payments,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+payment-link-page,@guestyorg/okta-payments,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+payment-link-page,@guestyorg/okta-payments,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+payment-link-page,@guestyorg/okta-payments,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+payment-link-page,@guestyorg/okta-payments,Require files,Warning,pnpm-lock.yaml is missing,
+payment-link-page,@guestyorg/okta-payments,Require files,Warning,pnpm-workspace.yaml is missing,
+payment-link-page,@guestyorg/okta-payments,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+payment-link-page,@guestyorg/okta-payments,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+payment-link-page,@guestyorg/okta-payments,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+payment-processors-page,@guestyorg/okta-payments,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+payment-processors-page,@guestyorg/okta-payments,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, cypress/.eslintrc.json, .eslintignore"
+payment-processors-page,@guestyorg/okta-payments,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+payment-processors-page,@guestyorg/okta-payments,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+payment-processors-page,@guestyorg/okta-payments,Require files,Warning,pnpm-lock.yaml is missing,
+payment-processors-page,@guestyorg/okta-payments,Require files,Warning,pnpm-workspace.yaml is missing,
+payment-processors-page,@guestyorg/okta-payments,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+payment-processors-page,@guestyorg/okta-payments,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+payment-processors-page,@guestyorg/okta-payments,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+payment-reports-page,@guestyorg/okta-payments,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+payment-reports-page,@guestyorg/okta-payments,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+payment-reports-page,@guestyorg/okta-payments,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+payment-reports-page,@guestyorg/okta-payments,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+payment-reports-page,@guestyorg/okta-payments,Require files,Warning,pnpm-lock.yaml is missing,
+payment-reports-page,@guestyorg/okta-payments,Require files,Warning,pnpm-workspace.yaml is missing,
+payment-reports-page,@guestyorg/okta-payments,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+payment-reports-page,@guestyorg/okta-payments,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+permissions-back-office-page,@guestyorg/okta-groot,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+permissions-back-office-page,@guestyorg/okta-groot,Require files,Warning,pnpm-lock.yaml is missing,
+permissions-back-office-page,@guestyorg/okta-groot,Require files,Warning,pnpm-workspace.yaml is missing,
+phonebook-page,@guestyorg/okta-groot,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+phonebook-page,@guestyorg/okta-groot,Require files,Warning,pnpm-lock.yaml is missing,
+phonebook-page,@guestyorg/okta-groot,Require files,Warning,pnpm-workspace.yaml is missing,
+profile-page-v2,@guestyorg/okta-groot,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,cypress/.eslintrc
+promotions-v2,@guestyorg/okta-jarvis,Detect files,Warning,Jest is forbidden. Please migrate to Vitest,jest.config.js
+promotions-v2,@guestyorg/okta-jarvis,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+promotions-v2,@guestyorg/okta-jarvis,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+promotions-v2,@guestyorg/okta-jarvis,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+promotions-v2,@guestyorg/okta-jarvis,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+promotions-v2,@guestyorg/okta-jarvis,Require files,Warning,pnpm-lock.yaml is missing,
+promotions-v2,@guestyorg/okta-jarvis,Require files,Warning,pnpm-workspace.yaml is missing,
+promotions-v2,@guestyorg/okta-jarvis,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+promotions-v2,@guestyorg/okta-jarvis,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+promotions-v2,@guestyorg/okta-jarvis,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+property-page,"@guestyorg/biz-enterprise
+@guestyorg/jarvis
+@guestyorg/okta-airbook
+@guestyorg/okta-chronos
+@guestyorg/okta-communication
+@guestyorg/oxp
+@guestyorg/sketch",Detect files,Warning,Jest is forbidden. Please migrate to Vitest,jest.config.js
+property-page,"@guestyorg/biz-enterprise
+@guestyorg/jarvis
+@guestyorg/okta-airbook
+@guestyorg/okta-chronos
+@guestyorg/okta-communication
+@guestyorg/oxp
+@guestyorg/sketch",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.js
+property-page,"@guestyorg/biz-enterprise
+@guestyorg/jarvis
+@guestyorg/okta-airbook
+@guestyorg/okta-chronos
+@guestyorg/okta-communication
+@guestyorg/oxp
+@guestyorg/sketch",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,"cypress/.eslintrc, .eslintrc.js, .eslintignore"
+property-page,"@guestyorg/biz-enterprise
+@guestyorg/jarvis
+@guestyorg/okta-airbook
+@guestyorg/okta-chronos
+@guestyorg/okta-communication
+@guestyorg/oxp
+@guestyorg/sketch",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+property-page,"@guestyorg/biz-enterprise
+@guestyorg/jarvis
+@guestyorg/okta-airbook
+@guestyorg/okta-chronos
+@guestyorg/okta-communication
+@guestyorg/oxp
+@guestyorg/sketch",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+property-page,"@guestyorg/biz-enterprise
+@guestyorg/jarvis
+@guestyorg/okta-airbook
+@guestyorg/okta-chronos
+@guestyorg/okta-communication
+@guestyorg/oxp
+@guestyorg/sketch",Require files,Warning,pnpm-lock.yaml is missing,
+property-page,"@guestyorg/biz-enterprise
+@guestyorg/jarvis
+@guestyorg/okta-airbook
+@guestyorg/okta-chronos
+@guestyorg/okta-communication
+@guestyorg/oxp
+@guestyorg/sketch",Require files,Warning,pnpm-workspace.yaml is missing,
+property-page,"@guestyorg/biz-enterprise
+@guestyorg/jarvis
+@guestyorg/okta-airbook
+@guestyorg/okta-chronos
+@guestyorg/okta-communication
+@guestyorg/oxp
+@guestyorg/sketch",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+property-page,"@guestyorg/biz-enterprise
+@guestyorg/jarvis
+@guestyorg/okta-airbook
+@guestyorg/okta-chronos
+@guestyorg/okta-communication
+@guestyorg/oxp
+@guestyorg/sketch",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+property-page,"@guestyorg/biz-enterprise
+@guestyorg/jarvis
+@guestyorg/okta-airbook
+@guestyorg/okta-chronos
+@guestyorg/okta-communication
+@guestyorg/oxp
+@guestyorg/sketch",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+property-reports-page,@guestyorg/property-team,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+property-reports-page,@guestyorg/property-team,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+property-reports-page,@guestyorg/property-team,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+property-reports-page,@guestyorg/property-team,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+property-reports-page,@guestyorg/property-team,Require files,Warning,pnpm-lock.yaml is missing,
+property-reports-page,@guestyorg/property-team,Require files,Warning,pnpm-workspace.yaml is missing,
+property-reports-page,@guestyorg/property-team,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+property-reports-page,@guestyorg/property-team,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+property-reports-page,@guestyorg/property-team,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+rate-plans-ui,@guestyorg/okta-jarvis,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+rate-plans-ui,@guestyorg/okta-jarvis,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+rate-plans-ui,@guestyorg/okta-jarvis,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+rate-plans-ui,@guestyorg/okta-jarvis,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+rate-plans-ui,@guestyorg/okta-jarvis,Require files,Warning,pnpm-lock.yaml is missing,
+rate-plans-ui,@guestyorg/okta-jarvis,Require files,Warning,pnpm-workspace.yaml is missing,
+rate-plans-ui,@guestyorg/okta-jarvis,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+rate-plans-ui,@guestyorg/okta-jarvis,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+rate-plans-ui,@guestyorg/okta-jarvis,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+recommendations-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+recommendations-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+recommendations-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+recommendations-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+recommendations-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+registration-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+registration-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+registration-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+registration-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+registration-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-lock.yaml is missing,
+registration-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-workspace.yaml is missing,
+registration-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+registration-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+registration-page,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+reports-agent-widget,@guestyorg/okta-cortex,Detect files,Warning,Jest is forbidden. Please migrate to Vitest,jest.config.js
+reports-agent-widget,@guestyorg/okta-cortex,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+reports-agent-widget,@guestyorg/okta-cortex,Require files,Warning,pnpm-lock.yaml is missing,
+reports-agent-widget,@guestyorg/okta-cortex,Require files,Warning,pnpm-workspace.yaml is missing,
+reservation-page-financials,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+reservation-page-financials,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+reservation-page-financials,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+reservation-page-financials,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+reservation-page-financials,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+reservation-page-financials,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+reservation-page-financials,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+reservation-page-financials,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+reservation-page-financials,@guestyorg/biz-enterprise,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+reservation-page-v2,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments
+@guestyorg/team_journey",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+reservation-page-v2,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments
+@guestyorg/team_journey",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+reservation-page-v2,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments
+@guestyorg/team_journey",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+reservation-page-v2,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments
+@guestyorg/team_journey",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+reservation-page-v2,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments
+@guestyorg/team_journey",Require files,Warning,pnpm-lock.yaml is missing,
+reservation-page-v2,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments
+@guestyorg/team_journey",Require files,Warning,pnpm-workspace.yaml is missing,
+reservation-page-v2,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments
+@guestyorg/team_journey",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+reservation-page-v2,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments
+@guestyorg/team_journey",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+reservation-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/blitz
+@guestyorg/okta-reservo
+@guestyorg/okta-starlite
+@guestyorg/oxp
+@guestyorg/sketch",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+reservation-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/blitz
+@guestyorg/okta-reservo
+@guestyorg/okta-starlite
+@guestyorg/oxp
+@guestyorg/sketch",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+reservation-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/blitz
+@guestyorg/okta-reservo
+@guestyorg/okta-starlite
+@guestyorg/oxp
+@guestyorg/sketch",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+reservation-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/blitz
+@guestyorg/okta-reservo
+@guestyorg/okta-starlite
+@guestyorg/oxp
+@guestyorg/sketch",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+reservation-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/blitz
+@guestyorg/okta-reservo
+@guestyorg/okta-starlite
+@guestyorg/oxp
+@guestyorg/sketch",Require files,Warning,pnpm-lock.yaml is missing,
+reservation-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/blitz
+@guestyorg/okta-reservo
+@guestyorg/okta-starlite
+@guestyorg/oxp
+@guestyorg/sketch",Require files,Warning,pnpm-workspace.yaml is missing,
+reservation-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/blitz
+@guestyorg/okta-reservo
+@guestyorg/okta-starlite
+@guestyorg/oxp
+@guestyorg/sketch",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+reservation-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/blitz
+@guestyorg/okta-reservo
+@guestyorg/okta-starlite
+@guestyorg/oxp
+@guestyorg/sketch",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+reservation-payments-page,@guestyorg/okta-payments,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+reservation-payments-page,@guestyorg/okta-payments,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+reservation-payments-page,@guestyorg/okta-payments,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+reservation-payments-page,@guestyorg/okta-payments,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+reservation-payments-page,@guestyorg/okta-payments,Require files,Warning,pnpm-lock.yaml is missing,
+reservation-payments-page,@guestyorg/okta-payments,Require files,Warning,pnpm-workspace.yaml is missing,
+reservation-payments-page,@guestyorg/okta-payments,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+reservation-payments-page,@guestyorg/okta-payments,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+reservation-report-page-v2,@guestyorg/okta-reservo,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+reservation-report-page-v2,@guestyorg/okta-reservo,Require files,Warning,pnpm-lock.yaml is missing,
+reservation-report-page-v2,@guestyorg/okta-reservo,Require files,Warning,pnpm-workspace.yaml is missing,
+reservation-report-page-v2,@guestyorg/okta-reservo,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+reservation-report-page,@guestyorg/okta-reservo,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+reservation-report-page,@guestyorg/okta-reservo,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+reservation-report-page,@guestyorg/okta-reservo,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+reservation-report-page,@guestyorg/okta-reservo,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+reservation-report-page,@guestyorg/okta-reservo,Require files,Warning,pnpm-lock.yaml is missing,
+reservation-report-page,@guestyorg/okta-reservo,Require files,Warning,pnpm-workspace.yaml is missing,
+reservation-report-page,@guestyorg/okta-reservo,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+reservation-report-page,@guestyorg/okta-reservo,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+reservation-report-page,@guestyorg/okta-reservo,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+reservation-widget,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-airbook
+@guestyorg/okta-sketch
+@guestyorg/okta-unicorn
+@guestyorg/oxp
+@guestyorg/team_journey
+@guestyorg/unicorn",Detect files,Warning,Babel is not recommended. Please migrate to Orbis,.babelrc.js
+reservation-widget,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-airbook
+@guestyorg/okta-sketch
+@guestyorg/okta-unicorn
+@guestyorg/oxp
+@guestyorg/team_journey
+@guestyorg/unicorn",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc
+reservation-widget,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-airbook
+@guestyorg/okta-sketch
+@guestyorg/okta-unicorn
+@guestyorg/oxp
+@guestyorg/team_journey
+@guestyorg/unicorn",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+reservation-widget,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-airbook
+@guestyorg/okta-sketch
+@guestyorg/okta-unicorn
+@guestyorg/oxp
+@guestyorg/team_journey
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+reservation-widget,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-airbook
+@guestyorg/okta-sketch
+@guestyorg/okta-unicorn
+@guestyorg/oxp
+@guestyorg/team_journey
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+reservation-widget,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-airbook
+@guestyorg/okta-sketch
+@guestyorg/okta-unicorn
+@guestyorg/oxp
+@guestyorg/team_journey
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+reservation-widget,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-airbook
+@guestyorg/okta-sketch
+@guestyorg/okta-unicorn
+@guestyorg/oxp
+@guestyorg/team_journey
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+reservation-widget,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-airbook
+@guestyorg/okta-sketch
+@guestyorg/okta-unicorn
+@guestyorg/oxp
+@guestyorg/team_journey
+@guestyorg/unicorn",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+reservation-widget,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-airbook
+@guestyorg/okta-sketch
+@guestyorg/okta-unicorn
+@guestyorg/oxp
+@guestyorg/team_journey
+@guestyorg/unicorn",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+saved-replies-page,@guestyorg/okta-communication,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+saved-replies-page,@guestyorg/okta-communication,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+saved-replies-page,@guestyorg/okta-communication,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+saved-replies-page,@guestyorg/okta-communication,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+saved-replies-page,@guestyorg/okta-communication,Require files,Warning,pnpm-lock.yaml is missing,
+saved-replies-page,@guestyorg/okta-communication,Require files,Warning,pnpm-workspace.yaml is missing,
+saved-replies-page,@guestyorg/okta-communication,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+saved-replies-page,@guestyorg/okta-communication,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+saved-replies-page,@guestyorg/okta-communication,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+send-quotes,"@guestyorg/biz-payments
+@guestyorg/okta-reservo",Detect files,Error,Forbidden files detected in the project,.github/workflows/upload-translations.yml
+send-quotes,"@guestyorg/biz-payments
+@guestyorg/okta-reservo",Detect files,Warning,Jest is forbidden. Please migrate to Vitest,jest.config.js
+send-quotes,"@guestyorg/biz-payments
+@guestyorg/okta-reservo",Detect files,Warning,Babel is not recommended. Please migrate to Orbis,babel.config.js
+send-quotes,"@guestyorg/biz-payments
+@guestyorg/okta-reservo",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+send-quotes,"@guestyorg/biz-payments
+@guestyorg/okta-reservo",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+send-quotes,"@guestyorg/biz-payments
+@guestyorg/okta-reservo",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+send-quotes,"@guestyorg/biz-payments
+@guestyorg/okta-reservo",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+send-quotes,"@guestyorg/biz-payments
+@guestyorg/okta-reservo",Require files,Error,.nvmrc is missing,
+send-quotes,"@guestyorg/biz-payments
+@guestyorg/okta-reservo",Require files,Warning,pnpm-lock.yaml is missing,
+send-quotes,"@guestyorg/biz-payments
+@guestyorg/okta-reservo",Require files,Warning,pnpm-workspace.yaml is missing,
+send-quotes,"@guestyorg/biz-payments
+@guestyorg/okta-reservo",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+share-invoice-settings,@guestyorg/biz-enterprise,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc
+share-invoice-settings,@guestyorg/biz-enterprise,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,.eslintrc.json
+share-invoice-settings,@guestyorg/biz-enterprise,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+share-invoice-settings,@guestyorg/biz-enterprise,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+share-invoice-settings,@guestyorg/biz-enterprise,Require files,Warning,pnpm-lock.yaml is missing,
+share-invoice-settings,@guestyorg/biz-enterprise,Require files,Warning,pnpm-workspace.yaml is missing,
+share-invoice-settings,@guestyorg/biz-enterprise,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+share-invoice-settings,@guestyorg/biz-enterprise,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+share-invoice-settings,@guestyorg/biz-enterprise,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+shared-reservations-report,@guestyorg/okta-reservo,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+shared-reservations-report,@guestyorg/okta-reservo,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+shared-reservations-report,@guestyorg/okta-reservo,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+shared-reservations-report,@guestyorg/okta-reservo,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+shared-reservations-report,@guestyorg/okta-reservo,Require files,Warning,pnpm-lock.yaml is missing,
+shared-reservations-report,@guestyorg/okta-reservo,Require files,Warning,pnpm-workspace.yaml is missing,
+shared-reservations-report,@guestyorg/okta-reservo,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+shared-reservations-report,@guestyorg/okta-reservo,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+shared-reservations-report,@guestyorg/okta-reservo,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+shield-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,cypress/.eslintrc.js
+shield-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+shield-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+shield-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+shield-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+shield-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+shield-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+shield-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+shield-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+smart-calendar-rules,@guestyorg/demand-tlv,Detect files,Error,Forbidden files detected in the project,.github/workflows/upload-translations.yml
+smart-calendar-rules,@guestyorg/demand-tlv,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+smart-calendar-rules,@guestyorg/demand-tlv,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+smart-calendar-rules,@guestyorg/demand-tlv,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+smart-calendar-rules,@guestyorg/demand-tlv,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+smart-calendar-rules,@guestyorg/demand-tlv,Require files,Error,.nvmrc is missing,
+smart-calendar-rules,@guestyorg/demand-tlv,Require files,Warning,pnpm-lock.yaml is missing,
+smart-calendar-rules,@guestyorg/demand-tlv,Require files,Warning,pnpm-workspace.yaml is missing,
+smart-calendar-rules,@guestyorg/demand-tlv,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+smart-calendar-rules,@guestyorg/demand-tlv,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+smart-locks-admin-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+smart-locks-admin-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, cypress/.eslintrc.js, .eslintignore"
+smart-locks-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+smart-locks-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, cypress/.eslintrc.js, .eslintignore"
+smart-locks-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+smart-locks-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+smart-locks-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+smart-locks-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+smart-locks-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+smart-locks-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+smart-locks-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+support-widget,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,.eslintignore
+support-widget,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+support-widget,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-lock.yaml is missing,
+support-widget,"@guestyorg/okta-cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-workspace.yaml is missing,
+task-templates-page,@guestyorg/okta-pop,Detect files,Error,Forbidden files detected in the project,".github/workflows/translate.yml, .github/workflows/upload-translations.yml"
+task-templates-page,@guestyorg/okta-pop,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+task-templates-page,@guestyorg/okta-pop,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+task-templates-page,@guestyorg/okta-pop,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+task-templates-page,@guestyorg/okta-pop,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+task-templates-page,@guestyorg/okta-pop,Require files,Warning,pnpm-lock.yaml is missing,
+task-templates-page,@guestyorg/okta-pop,Require files,Warning,pnpm-workspace.yaml is missing,
+task-templates-page,@guestyorg/okta-pop,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+task-templates-page,@guestyorg/okta-pop,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+tasks-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-pop",Detect files,Error,Forbidden files detected in the project,.github/workflows/translate.yml
+tasks-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-pop",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+tasks-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-pop",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc, .eslintignore"
+tasks-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-pop",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+tasks-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-pop",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+tasks-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-pop",Require files,Warning,pnpm-lock.yaml is missing,
+tasks-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-pop",Require files,Warning,pnpm-workspace.yaml is missing,
+tasks-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-pop",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+tasks-page,"@guestyorg/biz-admins
+@guestyorg/biz-enterprise
+@guestyorg/okta-pop",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+tasks-smartviews-page,@guestyorg/team_journey,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+tasks-smartviews-page,@guestyorg/team_journey,Require files,Warning,pnpm-lock.yaml is missing,
+tasks-smartviews-page,@guestyorg/team_journey,Require files,Warning,pnpm-workspace.yaml is missing,
+tasks-smartviews-page,@guestyorg/team_journey,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+travel-insurance-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,"cypress/.eslintrc.js, .eslintignore"
+travel-insurance-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+travel-insurance-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+travel-insurance-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+travel-insurance-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+trial-onboarding-widget,@guestyorg/okta-starlite,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+trial-onboarding-widget,@guestyorg/okta-starlite,Require files,Warning,pnpm-lock.yaml is missing,
+trial-onboarding-widget,@guestyorg/okta-starlite,Require files,Warning,pnpm-workspace.yaml is missing,
+trial-onboarding-widget,@guestyorg/okta-starlite,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+upload-reservations,@guestyorg/okta-reservo,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+upload-reservations,@guestyorg/okta-reservo,Require files,Warning,pnpm-lock.yaml is missing,
+upload-reservations,@guestyorg/okta-reservo,Require files,Warning,pnpm-workspace.yaml is missing,
+upload-reservations,@guestyorg/okta-reservo,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+upsells-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc
+upsells-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+upsells-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+upsells-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+upsells-page,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+upsells-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+upsells-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-lock.yaml is missing,
+upsells-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Require files,Warning,pnpm-workspace.yaml is missing,
+upsells-widget,"@guestyorg/okta-unicorn
+@guestyorg/unicorn",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+use-mobile-app-page,@guestyorg/okta-starlite,Detect files,Error,Forbidden files detected in the project,.github/workflows/upload-translations.yml
+use-mobile-app-page,@guestyorg/okta-starlite,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+use-mobile-app-page,@guestyorg/okta-starlite,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+use-mobile-app-page,@guestyorg/okta-starlite,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+use-mobile-app-page,@guestyorg/okta-starlite,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+use-mobile-app-page,@guestyorg/okta-starlite,Require files,Warning,pnpm-lock.yaml is missing,
+use-mobile-app-page,@guestyorg/okta-starlite,Require files,Warning,pnpm-workspace.yaml is missing,
+use-mobile-app-page,@guestyorg/okta-starlite,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+use-mobile-app-page,@guestyorg/okta-starlite,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+use-mobile-app-page,@guestyorg/okta-starlite,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+user-activity-heartbeat,@guestyorg/okta-communication,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+user-activity-heartbeat,@guestyorg/okta-communication,Require files,Warning,pnpm-lock.yaml is missing,
+user-activity-heartbeat,@guestyorg/okta-communication,Require files,Warning,pnpm-workspace.yaml is missing,
+users-list-page,"@guestyorg/cross
+@guestyorg/okta-groot",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,cypress/.eslintrc
+users-list-page,"@guestyorg/cross
+@guestyorg/okta-groot",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,src/react-app-env.d.ts
+users-list-page,"@guestyorg/cross
+@guestyorg/okta-groot",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+users-list-page,"@guestyorg/cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-lock.yaml is missing,
+users-list-page,"@guestyorg/cross
+@guestyorg/okta-groot",Require files,Warning,pnpm-workspace.yaml is missing,
+users-list-page,"@guestyorg/cross
+@guestyorg/okta-groot",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+vendors-list,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+vendors-list,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc, .eslintignore"
+vendors-list,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+vendors-list,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+vendors-list,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Require files,Warning,pnpm-lock.yaml is missing,
+vendors-list,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Require files,Warning,pnpm-workspace.yaml is missing,
+vendors-list,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+vendors-list,"@guestyorg/biz-enterprise
+@guestyorg/okta-payments",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+vrbo-lite-page,"@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Error,Forbidden files detected in the project,.github/workflows/translate.yml
+vrbo-lite-page,"@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+vrbo-lite-page,"@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+vrbo-lite-page,"@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,"config-overrides.js, src/react-app-env.d.ts"
+vrbo-lite-page,"@guestyorg/discovery
+@guestyorg/odyssey",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+vrbo-lite-page,"@guestyorg/discovery
+@guestyorg/odyssey",Require files,Warning,pnpm-lock.yaml is missing,
+vrbo-lite-page,"@guestyorg/discovery
+@guestyorg/odyssey",Require files,Warning,pnpm-workspace.yaml is missing,
+vrbo-lite-page,"@guestyorg/discovery
+@guestyorg/odyssey",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+vrbo-lite-page,"@guestyorg/discovery
+@guestyorg/odyssey",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+vrbo-page,@guestyorg/okta-discovery,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+vrbo-page,@guestyorg/okta-discovery,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+vrbo-page,@guestyorg/okta-discovery,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+vrbo-page,@guestyorg/okta-discovery,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+vrbo-page,@guestyorg/okta-discovery,Require files,Warning,pnpm-lock.yaml is missing,
+vrbo-page,@guestyorg/okta-discovery,Require files,Warning,pnpm-workspace.yaml is missing,
+vrbo-page,@guestyorg/okta-discovery,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+vrbo-page,@guestyorg/okta-discovery,Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+vrbo-page,@guestyorg/okta-discovery,Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+workflows-page,"@guestyorg/okta-payments
+@guestyorg/team_journey",Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc
+workflows-page,"@guestyorg/okta-payments
+@guestyorg/team_journey",Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc, .eslintignore"
+workflows-page,"@guestyorg/okta-payments
+@guestyorg/team_journey",Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+workflows-page,"@guestyorg/okta-payments
+@guestyorg/team_journey",Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+workflows-page,"@guestyorg/okta-payments
+@guestyorg/team_journey",Require files,Warning,pnpm-lock.yaml is missing,
+workflows-page,"@guestyorg/okta-payments
+@guestyorg/team_journey",Require files,Warning,pnpm-workspace.yaml is missing,
+workflows-page,"@guestyorg/okta-payments
+@guestyorg/team_journey",Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
+workflows-page,"@guestyorg/okta-payments
+@guestyorg/team_journey",Package fields,Warning,Jest detected in package json. Please remove it and migrate to Vitest,
+workflows-page,"@guestyorg/okta-payments
+@guestyorg/team_journey",Package fields,Warning,eslintConfig detected in package json. Please remove it and migrate to Orbis,
+yield-management,@guestyorg/okta-jarvis,Detect files,Error,Forbidden files detected in the project,"firebase.json, .firebaserc"
+yield-management,@guestyorg/okta-jarvis,Detect files,Warning,Prettier is not recommended. Please migrate to Orbis,.prettierrc.json
+yield-management,@guestyorg/okta-jarvis,Detect files,Warning,Eslint is not recommended. Please migrate to Orbis,".eslintrc.json, .eslintignore"
+yield-management,@guestyorg/okta-jarvis,Detect files,Warning,CRA and react-app-rewired is not recommended. Please migrate to Orbis,config-overrides.js
+yield-management,@guestyorg/okta-jarvis,Detect files,Warning,yarn lockfile detected. Please migrate to pnpm,yarn.lock
+yield-management,@guestyorg/okta-jarvis,Require files,Warning,pnpm-lock.yaml is missing,
+yield-management,@guestyorg/okta-jarvis,Require files,Warning,pnpm-workspace.yaml is missing,
+yield-management,@guestyorg/okta-jarvis,Package fields,Warning,Yarn dependency override present. You can avoid this by using pnpm and minReleaseAge most of the time,
