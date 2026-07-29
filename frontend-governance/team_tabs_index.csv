@@ -1,27 +1,25 @@
 Team Name,GitHub Owner(s),Repos,Violations,Errors,Warnings
-Enterprise,@guestyorg/biz-enterprise,27,223,3,220
+Biz,"@guestyorg/biz, @guestyorg/biz-enterprise",28,232,3,229
 Unicorn,"@guestyorg/okta-unicorn, @guestyorg/unicorn",25,161,2,159
 Payments,"@guestyorg/biz-payments, @guestyorg/okta-payments",16,137,4,133
 Jarvis,"@guestyorg/jarvis, @guestyorg/okta-jarvis",16,132,2,130
 Groot,"@guestyorg/groot, @guestyorg/okta-groot",19,86,0,86
-Communication,@guestyorg/okta-communication,9,78,4,74
+Odyssey,"@guestyorg/discovery, @guestyorg/odyssey, @guestyorg/okta-discovery",9,80,4,76
+Comms,@guestyorg/okta-communication,9,78,4,74
 Cross,"@guestyorg/cross, @guestyorg/okta-cross",13,73,0,73
 Airbook,"@guestyorg/airbook, @guestyorg/okta-airbook",8,64,2,62
 Starlite,@guestyorg/okta-starlite,8,64,3,61
-Odyssey,@guestyorg/odyssey,7,63,4,59
 Reservo,@guestyorg/okta-reservo,8,63,3,60
 Sketch,"@guestyorg/okta-sketch, @guestyorg/sketch",7,62,1,61
 Journey,@guestyorg/team_journey,7,57,1,56
 Chronos,@guestyorg/okta-chronos,6,53,0,53
-Discovery,"@guestyorg/discovery, @guestyorg/okta-discovery",6,52,3,49
 OXP,@guestyorg/oxp,4,36,1,35
 Pop,@guestyorg/okta-pop,6,34,2,32
 YourPorter,@guestyorg/yourporter,3,27,2,25
-Admins,@guestyorg/biz-admins,3,26,1,25
+Biz Admins,@guestyorg/biz-admins,3,26,1,25
 Demand TLV,@guestyorg/demand-tlv,1,10,2,8
 Nexus,@guestyorg/okta-nexus,1,10,2,8
 Adventure,@guestyorg/adventure,1,9,0,9
-Biz,@guestyorg/biz,1,9,0,9
 Developers,@guestyorg/okta-developers,1,9,0,9
 Payday,@guestyorg/okta-payday,1,9,1,8
 Property,@guestyorg/property-team,1,9,0,9
