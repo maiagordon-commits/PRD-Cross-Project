@@ -26,12 +26,12 @@ h1 { font-size:clamp(1.5rem,2.3vw,2rem); font-weight:700; }
 </style></head><body>
 <div class="slide">
   <div class="header">
-    <div><h1>Room Migration Progress</h1><div class="date-pill">July 13 - July 27</div></div>
-    <div class="total-card"><div class="label">Total Accounts Created</div><div class="value">2,876</div></div>
+    <div><h1>Room Migration Progress</h1><div class="date-pill">July 13 - August 3</div></div>
+    <div class="total-card"><div class="label">Total Accounts Created</div><div class="value">4,395</div></div>
   </div>
   <div class="tiers">
-    <div class="tier-card"><div class="label">Pro</div><div class="value">161</div></div>
-    <div class="tier-card"><div class="label">Lite</div><div class="value">2,715</div></div>
+    <div class="tier-card"><div class="label">Pro</div><div class="value">214</div></div>
+    <div class="tier-card"><div class="label">Lite</div><div class="value">4,181</div></div>
   </div>
   <div class="chart-panel">
     <div class="chart-title">Cumulative Trends by Segment</div>
@@ -42,10 +42,10 @@ h1 { font-size:clamp(1.5rem,2.3vw,2rem); font-weight:700; }
 new Chart(document.getElementById("trendChart"), {
   type: "bar",
   data: {
-    labels: ["7/13/2026", "7/20/2026", "7/27/2026"],
+    labels: ["7/13/2026", "7/20/2026", "7/27/2026", "8/03/2026"],
     datasets: [
-      { label: "Pro", data: [95, 161, 161], backgroundColor: "#4A8FD4", stack: "s" },
-      { label: "Lite", data: [1240, 2617, 2715], backgroundColor: "#E35D5B", stack: "s" }
+      { label: "Pro", data: [96, 165, 214, 214], backgroundColor: "#4A8FD4", stack: "s" },
+      { label: "Lite", data: [1239, 2613, 4129, 4181], backgroundColor: "#E35D5B", stack: "s" }
     ]
   },
   options: {
@@ -54,7 +54,7 @@ new Chart(document.getElementById("trendChart"), {
     scales: {
       x: { stacked: true, title: { display: true, text: "Week starting", color: "#6B7C93" },
             ticks: { maxRotation: 45, minRotation: 45, color: "#6B7C93" }, grid: { display: false } },
-      y: { stacked: true, beginAtZero: true, suggestedMax: Math.ceil(2876 * 1.12),
+      y: { stacked: true, beginAtZero: true, suggestedMax: Math.ceil(4395 * 1.12),
             title: { display: true, text: "Count", color: "#6B7C93" },
             ticks: { color: "#6B7C93", precision: 0 }, grid: { color: "#E6EAF0" } }
     }

@@ -394,8 +394,9 @@ def main() -> None:
     build_pptx(data, chart_path, pptx_path)
     write_summary(data, summary_path)
 
-    # Clean version: no 7/27 bar, no white chart panel, no title / "Week starting"
-    clean = chart_data_excluding_week(data, datetime(2026, 7, 27))
+    # Clean version: no white chart panel, no title / "Week starting";
+    # drop the incomplete current week (week starting 2026-08-03).
+    clean = chart_data_excluding_week(data, datetime(2026, 8, 3))
     clean_chart = ROOT / "exports" / "room-migration-chart-clean.png"
     clean_png = ROOT / "exports" / "room-migration-progress-clean.png"
     clean_html = ROOT / "exports" / "room-migration-progress-clean.html"
@@ -413,11 +414,12 @@ def main() -> None:
     print(f"Wrote {full_png}")
     print(f"Wrote {html_path}")
     print(f"Wrote {pptx_path}")
-    print(f"Wrote clean chart (no 7/27, no white panel, no title/Week starting):")
+    print(f"Wrote clean chart (no incomplete current week, no white panel, no title/Week starting):")
     print(f"  {clean_png}")
     print(f"  {clean_html}")
     print(f"  {clean_pptx}")
     print(f"  Chart weeks: {[w.strftime('%Y-%m-%d') for w in clean['weeks']]}")
+    print(f"  Full chart weeks: {[w.strftime('%Y-%m-%d') for w in data['weeks']]}")
 
 
 if __name__ == "__main__":
