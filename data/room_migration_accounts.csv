@@ -1,0 +1,582 @@
+Account ID,Account Name,Package,Segment,CSM,Active?,Paying?,Lite - Trial?,HQ-related?,Room Migrated?,account_status,Migration Completed At,"Overall Reservations Channels ",Future Reservations Channels,Integrated Channels,Active Listings,# Reservations,# Future Res
+6a47c4bd6839a0417a71458b,iTrip - Vacations Siesta Key (Sarasota-Venice),pro,SME,Daniela Collazo,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,167,1168,92
+6a44cf246839a0417a71444c,EPIC LIVERPOOL LIMITED,pro,Mid-Market,Joaquin Benitez,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,141,698,108
+6a4b72873be7d462fd31e83b,Marquer,pro,SME,Remi Cannessant,true,true,null,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",137,2016,134
+6a458a446839a0417a7144c4,gouppers.com,pro,SME,Pablo Paez,true,false,null,false,false,active,null,"airbnb2,bookingCom,homeaway2","airbnb2,bookingCom","Airbnb_official,Booking_Com,Home_Away,livily",116,3426,148
+6a486f6f6839a0417a7145c0,SeaBreeze Vacation,pro,Mid-Market,Michelle Kim,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,114,549,131
+6a52a3c36da1490f93b640e4,B&B Hosting,pro,SME,Francine Boateng,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,96,2489,103
+6a4d137cf3ae5ad168869491,VEEVO HOME LTD,pro,Mid-Market,Joaquin Benitez,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,86,2138,157
+6a4b60ef8e27d1843d4a3bec,Steadfast Collection,pro,Mid-Market,Rafael Merchán,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,61,2158,499
+6a4ec9bf479e8846160c3073,Francisco Yair Reynoso Contreras,pro,SMB,Elizabeth Mills,true,false,null,false,false,active,null,bookingCom,bookingCom,Booking_Com,50,25,19
+6a4e5ab9479e8846160c3041,onapartments.pt,pro,Mid-Market,Rafael Merchán,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,48,678,34
+6a45378c6156d8efbeda5f61,Studio SuperHost,pro,SMB,Guesty Support,true,true,null,true,false,active,null,airbnb2,airbnb2,Airbnb_official,47,3343,174
+6a4fc318479e8846160c30cc,Masplayamex.com,pro,Mid-Market,Juan Viana,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,40,30,23
+6a510c466da1490f93b64056,Jesouth Limited,pro,Mid-Market,Carla Scimia,true,false,null,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com,Home_Away",34,576,54
+6a453abc6839a0417a714497,Carpediem Homes TA,pro,SMB,none,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,31,171,5
+6a454c2a6839a0417a7144a9,Bee My Guest,pro,SMB,Giorgia Ruocci,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,29,771,222
+6a453ccb6839a0417a714498,Wonderful Stay,pro,SMB,Daniel Sanchez,true,false,null,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",28,1850,41
+6a4fa3c84ed0abce9f2ad6b6,delia fututa,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,25,27,14
+6a51599e4ed0abce9f2ad758,Control Stays,pro,Mid-Market,Juan Viana,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,23,746,201
+6a44a78a6839a0417a714433,Stay Awhile Cohosting,pro,Mid-Market,Tove May,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,22,1358,140
+6a4e326c4ed0abce9f2ad616,Ashish Padiyar,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,21,2,0
+6a4cdded8e27d1843d4a3c7b,Seek a stay,pro,Mid-Market,Rafael Merchán,true,false,null,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com,Home_Away",20,92,12
+6a4b6ca511e310c57f271d81,Franchise Tignes - Val d'isère,pro,SMB,Guesty Support,true,true,null,true,false,active,null,"airbnb2,bookingCom",airbnb2,"Airbnb_official,Booking_Com",20,382,68
+6a45a68651a9cc0a45fe2998,Sofía Ayelén Orieta,lite,SMB,Chilipiper Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,19,1517,113
+6a477c5a51a9cc0a45fe2a41,Executive Portfolio,pro,Mid-Market,William Moal,true,true,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,18,229,36
+6a4d59a053ac528337bf3da5,Skyline Homes Egypt,pro,SMB,Daniel Sanchez,true,false,null,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",16,343,60
+6a4ceb753be7d462fd31e8ca,jorge andres,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,13,1,0
+6a5141b46da1490f93b64075,Atomic Vacation Rentals,pro,SMB,Austen Bernhardt,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,11,171,29
+6a45913251a9cc0a45fe2995,shinesuites.com,pro,SMB,Carlos Noriega,true,false,null,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com,Home_Away",11,1014,175
+6a4c05423be7d462fd31e88c,Santex Property,pro,SMB,Daniel Sanchez,true,false,null,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com,Home_Away",10,419,62
+6a4cf3ac8e27d1843d4a3c82,Azeem Butt,pro,SMB,Giorgia Ruocci,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,10,40,6
+6a677f1204b99bae22a92e71,Joao Farias,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,10,5,0
+6a4bd9f08e27d1843d4a3c1b,The Hamilton House Inn,pro,SMB,Ramiro Peña‌,true,false,null,false,false,active,null,"agoda,bookingCom,homeaway2","agoda,bookingCom,homeaway2","Agoda,Airbnb_official,Booking_Com,Home_Away",10,10,10
+6a456d476839a0417a7144b5,MM SUITES,pro,SMB,Ander Vicente,true,false,null,false,false,active,null,"airbnb2,bookingCom,homeaway2","airbnb2,bookingCom,homeaway2","Airbnb_official,Booking_Com,Home_Away",8,158,36
+6a561e79fd3689604eedcb73,Adam Munder,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,8,2,2
+6a54016842bd9b3495811d31,"FWB - Hospedagem ",pro,SMB,Ramiro Peña‌,true,false,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",8,144,17
+6a4cdbd33be7d462fd31e8c5,Alberto Burlacchini,pro,SMB,Giorgia Ruocci,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,8,252,44
+6a45367851a9cc0a45fe2979,Trevor Stuber,pro,SMB,Ramiro Peña‌,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,7,104,17
+6a5537c1ad4888fb08ff0658,Spyros Darzentas,pro,SMB,Daniel Sanchez,true,false,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,7,3,2
+6a555fe390356182c371ee16,Hrodric Estate,pro,SMB,Ramiro Peña‌,true,false,null,false,false,active,null,"airbnb2,bluegroundNestpick","airbnb2,bluegroundNestpick","Airbnb_official,Booking_Com,Home_Away,bluegroundNestpick,homeToGo,hopper,travelStaytion,tripCom,wander,whimstay",7,5,3
+6a4d337ae82b0b99148b7b29,HOSTPANDA Management Services INC,pro,SMB,Carlos Noriega,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,7,225,42
+6a4bab3a3be7d462fd31e864,Roomvi Ltd.,pro,SMB,Ander Vicente,true,false,null,false,false,active,null,"airbnb2,bookingCom,expedia","airbnb2,bookingCom,expedia","Airbnb_official,Booking_Com,expedia",7,63,27
+6a4540446839a0417a71449a,Casalta Management LLC,pro,SMB,Guesty Support,true,false,null,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Home_Away",6,429,144
+6a4de2a8b366e9fc3801d673,Matthieu Chung,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,6,2,0
+6a551eafad4888fb08ff0650,Jennifer FitzGerald,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",6,8,5
+6a47cd016839a0417a71458f,AB Property Manager,pro,SMB,Giorgia Ruocci,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,6,127,24
+6a5be3a14a4c267b3be2d3e8,Howard Hinestroza,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,5,38,1
+6a4530d851a9cc0a45fe2978,Alberto Saeta Blanco,pro,SMB,Daniel Sanchez,true,false,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,5,710,67
+6a5b474b31bd42c1e64067c9,Catherine mbaeyi,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,Airbnb_official,5,2,0
+6a5070d6479e8846160c310f,Yuliia Holland-Talalai,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,5,118,25
+6a5a36df4a4c267b3be2d358,Mohamed Sajjad Thaika,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,5,5,2
+6a4be5853be7d462fd31e880,Luminova Holiday Homes,pro,SMB,Daniel Sanchez,true,false,null,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",5,114,73
+6a50e2b24ed0abce9f2ad727,Happy Host London,pro,SMB,Dari Ashurova,true,true,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,4,61,13
+6a49495151a9cc0a45fe2ad2,3L Properties,pro,SMB,Guesty Support,true,true,null,false,false,active,null,"airbnb2,homeaway2","airbnb2,homeaway2","Airbnb_official,Booking_Com,Home_Away",4,77,29
+6a53d3a3822d5ec0aa899bfa,Michael Ye,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,4,90,23
+6a468dbb51a9cc0a45fe29ec,Cyprus Holiday Club,pro,SMB,Guesty Support,true,false,null,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",4,91,32
+6a4e6e36479e8846160c3050,Daniel Beck Rentals,pro,SMB,Ramiro Peña‌,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,4,287,72
+6a4db353b366e9fc3801d65a,"YAK Asset Management Co., Ltd",pro,SMB,Katherine Ting,true,true,null,false,false,active,null,airbnb2,airbnb2,null,4,6,3
+6a5c519331bd42c1e6406816,Rodolfo Guzmán Bastías,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,4,6,0
+6a4d755753ac528337bf3daa,Hamsa Priya Gnanasundar,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom,vrboLite","airbnb2,bookingCom,vrboLite","Airbnb_official,Booking_Com,vrboLite",4,181,150
+6a4eb6cb479e8846160c306f,Hacienda Serena PR LLC,pro,SMB,Guesty Support,true,true,null,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com,Home_Away",4,173,8
+6a5188f14ed0abce9f2ad767,Braden Wallake,lite,SMB,none,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,4,23,0
+6a549f6f42bd9b3495811d5a,Aramar Palafitos,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,4,16,1
+6a4d554253ac528337bf3da2,Cade Whitcomb,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,4,50,24
+6a63426f06ddcf692526dbd5,Marie Thomassey,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,4,1,1
+6a54f598fd3689604eedcb13,Angel Zhou,lite,SMB,Nicholas Nasrollahi,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,4,1,1
+6a4f9a5c4ed0abce9f2ad6a6,Eric Shively,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,googleVacationRentals,vrboLite",4,264,26
+6a4c15e13be7d462fd31e891,Coralux,pro,SMB,Carlos Noriega,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,4,246,48
+6a4a9b043be7d462fd31e7f6,Dolsie Harding,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,4,2,1
+6a549afd822d5ec0aa899c36,Ginena Perez,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,4,13,0
+6a54632842bd9b3495811d43,Roberto Quiroz,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",4,140,7
+6a5120bf4ed0abce9f2ad743,"Jeremiah  Alabi ",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,3,10,0
+6a4c62053be7d462fd31e89b,Eric Watley,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,3,64,18
+6a5256326da1490f93b640ca,Sindy Anderson,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,3,42,0
+6a5b796e31bd42c1e64067d7,Kari Terrana,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,3,9,0
+6a4f74a74ed0abce9f2ad695,"Mame Diarra Bertaud ",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,vrboLite,3,11,2
+6a564a4bfd3689604eedcb8a,Stephen Thompson,lite,SMB,Arianna Manni,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,Booking_Com,vrboLite",3,13,9
+6a4d1068f3ae5ad168869490,Ankur Sharma,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,3,150,5
+6a5959cd31bd42c1e6406746,Keletso  Gaongalelwe,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,3,3,0
+6a522a366da1490f93b640bd,"Ingrid  Nardone ",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,3,15,3
+6a5e43a46bb84309655a6fae,samrat kasim shetty,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,3,17,0
+6a55881d876bc7321918640a,jim Selner,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",3,7,7
+6a55611490356182c371ee17,William Ramos,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,3,20,0
+6a50fedb4ed0abce9f2ad737,Victoria Nidoy,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,3,20,0
+6a47d33b6839a0417a714595,Yohana Baisch,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",3,22,13
+6a4fc08a479e8846160c30c9,Mathews Banda,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,null,"Airbnb_official,googleVacationRentals,vrboLite",3,7,0
+6a579816fd3689604eedcc03,Steven Smith,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",3,157,4
+6a67800104b99bae22a92e72,Richard Hood,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,3,25,2
+6a5ebcab6525952ba1209443,Donald gissy,lite,SMB,Millie Ishack,true,false,true,false,false,active,null,airbnb2,airbnb2,null,3,26,1
+6a5dea636bb84309655a6f82,Terrell Davis,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,3,97,34
+6a5e773b6525952ba1209426,Camila de los Santos Speed,lite,SMB,Airflow Integration,true,false,true,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",3,1,1
+6a46a30251a9cc0a45fe29f8,Aniefiok Ebeute,lite,null,none,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,3,29,0
+6a52df1d6da1490f93b640ed,Matt Roy,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,3,331,57
+6a6a7d7fe74af7870f6d0631,Tammy  N,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,Airbnb_official,3,31,0
+6a64fe0204b99bae22a92d93,Beatrice Vassy,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,3,3,1
+6a4869fa51a9cc0a45fe2a88,Lance Taylor,lite,SMB,Millie Ishack,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,3,35,0
+6a47022651a9cc0a45fe2a16,Kiran Aryan,pro,SMB,Sophia Fitzgerald,true,false,null,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",3,35,30
+6a49845b6839a0417a714617,Dr Eric Clarke,lite,SMB,HubSpot Integration,true,false,false,false,false,active,null,airbnb2,airbnb2,null,3,93,77
+6a50ed654ed0abce9f2ad72a,Joseph Felt,pro,SMB,Chase Nackenson,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,3,329,28
+6a566422fd3689604eedcb96,"Eric Van Grootheest ",lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,null,Airbnb_official,3,6,0
+6a590fd031bd42c1e6406722,Gerson Rocha,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,3,6,1
+6a69659ce74af7870f6d05ac,RHANDALL STEWART,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,3,39,0
+6a4c10ad3be7d462fd31e88f,Carlos Grunewald,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",null,3,89,3
+6a4f12ba479e8846160c3081,Bambuk Bio,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom,vrboLite","airbnb2,bookingCom","Airbnb_official,Booking_Com,vrboLite",3,270,25
+6a56b78e5c9a91d8b820e8a7,Justin Tremblay,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,3,10,0
+6a4f8909479e8846160c30ab,"ARWELLE  GEORGE ",lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,3,45,5
+6a49413551a9cc0a45fe2acf,bo  darde,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,3,54,1
+6a5496ae822d5ec0aa899c35,Fotis Prasinis,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,3,5,0
+6a4d9947e82b0b99148b7b49,Brandon Guzman-Siars,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",3,55,9
+6a52e2434ed0abce9f2ad7c7,Marie  Kernizan Pierre,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,3,62,21
+6a45b1ba6839a0417a7144cb,LEI XIAO,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom",null,3,67,39
+6a5140ea4ed0abce9f2ad751,Alexa Rau,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",null,2,138,29
+6a4e723f4ed0abce9f2ad641,موسى عبداي,lite,SMB,none,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,148,3
+6a5ab8864a4c267b3be2d388,"Anabel Aliferis ",lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,2,67,9
+6a4b515e3be7d462fd31e82a,Ahmad  Rashid,pro,SMB,Gabrielle Biondi,true,true,false,false,false,active,null,airbnb2,airbnb2,"Agoda,Airbnb_official",2,4,2
+6a5a0d4a4a4c267b3be2d349,"Maiia Ragimova ",lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,2,66,7
+6a63e36206ddcf692526dc11,Ami Bah,lite,SMB,Millie Ishack,true,false,true,false,false,active,null,airbnb2,null,null,2,4,0
+6a4e8bef4ed0abce9f2ad651,Michelle Ngo,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,64,8
+6a518c3b6da1490f93b64091,garrett watters,lite,SMB,Airflow Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",2,229,42
+6a45f2e951a9cc0a45fe29b2,Géraldine DIVAIS,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite",vrboLite,null,2,4,1
+6a65af9a04b99bae22a92dc3,Dawid Dul,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,2,63,3
+6a539cc742bd9b3495811d07,Marlon Cruz,lite,SMB,Millie Ishack,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,74,14
+6a5bfb8431bd42c1e6406809,Maximilian Kunstwadl,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,2,2,0
+6a51482a6da1490f93b6407a,Alex Gomes,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",null,2,258,33
+6a5024544ed0abce9f2ad6eb,Jennifer Alber,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,59,5
+6a594be031bd42c1e6406743,Jana Pittman,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",2,58,19
+6a4d25f7e82b0b99148b7b1c,Corey Hoffman,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com",2,270,15
+6a4e6706479e8846160c304c,Antonio Gocaj,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",2,222,37
+6a4d673053ac528337bf3da7,sam green,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",2,214,11
+6a53a7ce42bd9b3495811d0c,Melinda  Martin,lite,SMB,Elizabeth Mills,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,2,55,8
+6a526c934ed0abce9f2ad7a4,REYNA TORRES,lite,SMB,Barak Rosner,true,true,false,false,false,active,null,"airbnb2,bookingCom,vrboLite","bookingCom,vrboLite","Airbnb_official,Booking_Com,googleVacationRentals,vrboLite",2,79,2
+6a5436f5822d5ec0aa899c1a,Susan Segarra,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,bookingCom,vrboLite","airbnb2,bookingCom,vrboLite","Booking_Com,vrboLite",2,53,28
+6a54528342bd9b3495811d40,Deion Montana-Graham,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite",airbnb2,"Airbnb_official,vrboLite",2,52,7
+6a5c43b131bd42c1e6406815,Ed Glaude,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite",null,2,51,2
+6a5ffeb86525952ba12094c3,Abdul Mukati,lite,SMB,Jessi Petrusich,true,false,true,false,false,active,null,airbnb2,airbnb2,null,2,51,2
+6a6467be04b99bae22a92d57,hayk sargsyan,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",2,1,1
+6a45cf1c6839a0417a7144d0,Chyrisse  Wilkins,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,49,5
+6a48707951a9cc0a45fe2a8a,Sana Ismail,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,2,48,2
+6a47f8596839a0417a7145a8,Nicolas Goubet,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,bookingCom",airbnb2,null,2,46,11
+6a4fed024ed0abce9f2ad6da,Allee Clendennen,lite,SMB,Millie Ishack,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite",airbnb2,null,2,79,23
+6a5843cefd3689604eedcc2d,John  Antar,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",null,2,42,7
+6a595d9b4a4c267b3be2d315,Adriane Blackburn,lite,SMB,Millie Ishack,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,5,3
+6a5e72bb6525952ba1209425,Andrea Hess,pro,SMB,Guesty Support,true,false,true,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",2,83,11
+6a54f966fd3689604eedcb17,Raquelle  Crear,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,88,5
+6a4f7d994ed0abce9f2ad696,Chelsee Patresia,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",2,41,24
+6a63c6d306ddcf692526dc07,Lily Nguyen,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,"airbnb2,vrboLite",vrboLite,"Airbnb_official,Booking_Com,vrboLite",2,5,3
+6a5f55bf6525952ba1209471,Nathan Bartlett,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",null,2,5,3
+6a4eb0f2479e8846160c306d,"Alexander  Holt ",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,310,40
+6a623ae504b99bae22a92ca1,Ruman Amin,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,2,2,1
+6a4fa49e4ed0abce9f2ad6b7,Avram Thomson,lite,SMB,none,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,bookingCom","airbnb2,bookingCom",Booking_Com,2,208,90
+6a51ff7c6da1490f93b640ab,Steven Mennell,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,199,3
+6a44910451a9cc0a45fe2922,Jana Seekins,lite,SMB,Airflow Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,2,319,24
+6a4a6de18e27d1843d4a3ba5,bruk mengesha,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite",airbnb2,"Airbnb_official,Booking_Com,vrboLite",2,37,1
+6a46d6cc51a9cc0a45fe2a0d,Ryan Perera,lite,SMB,HubSpot Integration,true,true,false,false,true,active,"Jul 15, 2026","airbnb2,vrboLite",airbnb2,"Airbnb_official,vrboLite",2,3,1
+6a4b114b8e27d1843d4a3bd9,Samantha Dorsey,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",Airbnb_official,2,35,10
+6a47ddcb6839a0417a714599,Mohammad Shirazi,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,2,93,24
+6a4e766f4ed0abce9f2ad645,Carlos Schmitt,lite,SMB,Airflow Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom",null,2,93,32
+6a4fbfce479e8846160c30c8,ALAIN RAMOS,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,32,4
+6a4a3c296839a0417a714648,Kingston Sun,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",2,93,31
+6a4a241051a9cc0a45fe2b05,Tsvetomir Tsvetanov,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,94,3
+6a5ab78f31bd42c1e64067a5,Gabriele  Mantovani,lite,SMB,Millie Ishack,true,false,true,false,false,active,null,vrboLite,null,vrboLite,2,1,0
+6a4dadb1b366e9fc3801d659,Felix Frewel,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,bookingCom",null,Booking_Com,2,29,0
+6a69b4a5e74af7870f6d05c8,Quadra srl,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com",2,94,12
+6a5e37df6bb84309655a6fa8,Carter Hartley,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",2,28,7
+6a4ebf3f4ed0abce9f2ad665,Esteban Maldonado,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,bookingCom",bookingCom,Booking_Com,2,182,5
+6a5293a94ed0abce9f2ad7b4,Shelly Best,lite,SMB,Millie Ishack,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,26,2
+6a4ea787479e8846160c3069,Weronika B,lite,SMB,Millie Ishack,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,26,2
+6a4e0e48479e8846160c3012,Helen Garvey Garvey,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,99,26
+6a4a7b2b8e27d1843d4a3baa,Jacqueline Yarbrough,lite,SMB,HubSpot Integration,true,true,false,false,true,active,"Jul 30, 2026",vrboLite,vrboLite,"Airbnb_official,Booking_Com,vrboLite",2,1,1
+6a44614251a9cc0a45fe291c,Don Wiser,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,99,11
+6a491b0b6839a0417a714600,Kosington,pro,SMB,Guesty Support,true,false,null,false,false,active,null,airbnb2,airbnb2,Airbnb_official,2,3,2
+6a52545e6da1490f93b640c9,Hoa Zahedi,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,7,2
+6a5adc5d4a4c267b3be2d38e,Steve Trowbridge,lite,SMB,none,true,false,true,false,false,active,null,airbnb2,airbnb2,null,2,24,6
+6a53ce2b42bd9b3495811d1d,"Celia  Umsted ",lite,SMB,Millie Ishack,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,2,24,0
+6a49716651a9cc0a45fe2adb,Jose Barraza,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",null,2,399,25
+6a4fca59479e8846160c30d2,Sarah Dupree,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,104,10
+6a5358ea42bd9b3495811cef,Sarah Cox,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,22,3
+6a4fbf5c479e8846160c30c7,Shawn Laser,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,2,21,7
+6a6586d7e74af7870f6d0415,"Sarah  Messiah ",lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,2,7,1
+6a686de4e74af7870f6d0528,Henning Strand,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,2,21,1
+6a463b176839a0417a7144fe,"Bianca  Rautenbach ",lite,SMB,Airflow Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",2,20,17
+6a4bf5713be7d462fd31e885,Aaron McCann,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,null,"Booking_Com,vrboLite",2,153,0
+6a4a2b3e51a9cc0a45fe2b07,Nick  Smith,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,20,6
+6a5656c0fd3689604eedcb92,Hans Hormann,lite,SMB,none,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite",null,null,2,7,0
+6a4c9c758e27d1843d4a3c5f,Gi Eusebio,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,118,2
+6a63c07304b99bae22a92d22,Shyamali Mishra,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,2,2,0
+6a5e122c6bb84309655a6f94,Alfonso hinojosa,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Booking_Com,2,20,2
+6a4b249e8e27d1843d4a3bdd,Elle Tkalec,lite,SMB,Airflow Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",2,19,6
+6a6881b204b99bae22a92edd,Patrick Odasso,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,2,19,1
+6a69e956e74af7870f6d05e7,Carlos Yeung,lite,SMB,none,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,2,18,1
+6a68b1afe74af7870f6d0554,Carlos Garcia,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,bookingCom,bookingCom,Airbnb_official,2,1,1
+6a469cac51a9cc0a45fe29f6,"Dylan Gabrys ",lite,SMB,none,true,false,true,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,37,1
+6a688735e74af7870f6d0538,Bastien Bernard,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,2,17,6
+6a46c0846839a0417a714540,Michael Mesey,pro,SMB,Salome Alvarez,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,2,119,14
+6a4f81a2fec08ded08148246,Downtown Apartments Spain,pro,SMB,Guesty Support,true,true,null,true,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com,Home_Away",2,16,6
+6a54d60fad4888fb08ff062a,"Eddy  Alvarez Almirón ",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,1,1
+6a540b8b822d5ec0aa899c0c,CF Shellnut,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,2,123,38
+6a6924b4e74af7870f6d059a,Donnay Stevens,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,2,14,5
+6a5c41514a4c267b3be2d3f8,Zachary Reinhart,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,2,1,0
+6a46a17a51a9cc0a45fe29f7,Guillaume Lalin,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,135,3
+6a6543bde74af7870f6d0403,Beatriz Ortega,lite,SMB,Millie Ishack,true,false,true,false,false,active,null,airbnb2,null,null,2,13,0
+6a4f522f479e8846160c3093,will SMITH,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,2,9,0
+6a6370ff04b99bae22a92d0b,"Raif  Badawi ",lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,2,1,0
+6a6a4efce74af7870f6d0627,Jhasmine Nicely,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,2,9,1
+6a57b4f75c9a91d8b820e905,Jamal Jawhar,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,2,13,0
+6a4bbd723be7d462fd31e868,Gina Bell,lite,SMB,Arianna Manni,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,2,12,6
+6a44e99851a9cc0a45fe2953,Lloyd Brown,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,2,12,0
+6a5b86d64a4c267b3be2d3c5,Emma Larsson,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,Airbnb_official,2,3,0
+6a6a5b6804b99bae22a92fbd,Kylie VanDyke,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,"Airbnb_official,Booking_Com,vrboLite",2,11,0
+6a4db772e82b0b99148b7b4e,Cindy Wines,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,2,11,0
+6a4f17554ed0abce9f2ad675,noor nagra,lite,SMB,Millie Ishack,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,bookingCom","airbnb2,bookingCom",null,2,138,18
+6a515e954ed0abce9f2ad75c,"Jennifer  Blomfield ",lite,SMB,none,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,2,11,0
+6a47a7b06839a0417a714580,Vivian Busse,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,2,10,1
+6a5486aa42bd9b3495811d4b,Matthew kirkland,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,2,79,11
+6a6635b304b99bae22a92df5,Hoang Viet Pham,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,vrboLite,2,69,17
+6a4fb93e4ed0abce9f2ad6bd,Natalia Lopez Mazadiego,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",1,17,4
+6a66017104b99bae22a92dd9,AMANDA KNIGHT,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,"airbnb2,vrboLite",vrboLite,Booking_Com,1,9,7
+6a49a10c6839a0417a71461d,Mark Scribner,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite",airbnb2,"Airbnb_official,Booking_Com,vrboLite",1,9,6
+6a4559be51a9cc0a45fe2988,Angel Pereira,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,10,1
+6a4bf8bd8e27d1843d4a3c2c,Linda Acha,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,10,2
+6a4c812a3be7d462fd31e8a0,Carla Hightower,lite,SMB,Casey Waisman,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,10,6
+6a5ed40d6525952ba1209447,William Okruch,lite,SMB,none,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,10,1
+6a69228904b99bae22a92f49,William Da Silva,lite,SMB,none,true,false,true,false,false,active,null,"airbnb2,vrboLite",vrboLite,"Airbnb_official,vrboLite",1,9,4
+6a4b4be63be7d462fd31e828,Michelle Moore,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,10,3
+6a5cd5d06bb84309655a6f34,Nilay saha,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,1,10,0
+6a5bf2064a4c267b3be2d3ea,Travis McNabb,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,9,7
+6a4f1630479e8846160c3083,"Shaun Sammut ",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,10,3
+6a4f6be2479e8846160c309f,Hakima Habibi,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,bookingCom",bookingCom,"Airbnb_official,Booking_Com",1,10,4
+6a4f56f8479e8846160c3095,Beverly Brehm,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite",airbnb2,null,1,10,2
+6a54feb6fd3689604eedcb1a,NAMIT GUPTA,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite",vrboLite,"Airbnb_official,Booking_Com,googleVacationRentals,vrboLite",1,10,4
+6a4fda0b4ed0abce9f2ad6d0,Jen Rayman,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",vrboLite,1,10,5
+6a4878bb6839a0417a7145c3,Raymond Marrero Jr,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,10,8
+6a62bba106ddcf692526dbad,"Olubusola  Adewole ",lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,Airbnb_official,1,9,0
+6a5ae9124a4c267b3be2d391,Jesse McCann,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,1,11,0
+6a4f949a479e8846160c30b3,Andrea Barrera,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,11,2
+6a6c0e1f04b99bae22a9305f,Sarai Hernandez,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com",1,9,2
+6a4d8bf453ac528337bf3daf,Franklyn Roberts,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,9,2
+6a480b826839a0417a7145ae,Danielle Harrison,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,9,7
+6a5da5cf6bb84309655a6f67,Gabriel Martinez,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,"airbnb2,vrboLite",vrboLite,"Airbnb_official,vrboLite",1,11,4
+6a5bb29831bd42c1e64067f0,Kathryn Signore,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,Booking_Com,vrboLite",1,11,4
+6a4da5e3e82b0b99148b7b4a,Mark Elsner,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",1,11,6
+6a5115324ed0abce9f2ad73e,Farris Massoudi,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,vrboLite,1,12,3
+6a542d8942bd9b3495811d3a,Brian Nolan,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,12,6
+6a49fc5651a9cc0a45fe2af4,Imraz Iqbal,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,googleVacationRentals,vrboLite",1,9,8
+6a5228ca4ed0abce9f2ad790,Tepora Koyamaibole,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,9,3
+6a4fa28e4ed0abce9f2ad6b4,Irina Bondar,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,1,12,0
+6a51a6636da1490f93b64098,Stacey Cossey,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,12,7
+6a51a7c26da1490f93b64099,Raj Kripal,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com,vrboLite",1,12,12
+6a53939742bd9b3495811d03,Margaret Hamilton,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",1,12,7
+6a4e75bd479e8846160c3051,philippe banh,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom",bookingCom,"Airbnb_official,Booking_Com,vrboLite",1,12,2
+6a4d6293e82b0b99148b7b37,William Helsby,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com,vrboLite",1,12,9
+6a4c24a88e27d1843d4a3c40,Rodney McCrea,lite,SMB,Bobby Hilzen,true,true,false,false,false,active,null,"airbnb2,bookingCom,vrboLite","airbnb2,bookingCom,vrboLite","Airbnb_official,Booking_Com,vrboLite",1,12,6
+6a5162d46da1490f93b64083,Cinnamon Phillips,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,12,6
+6a44b41c6839a0417a71443a,Carlo Escario,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite",airbnb2,"Airbnb_official,vrboLite",1,12,5
+6a46a6816839a0417a714537,Shelby Cole,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,13,5
+6a4c720b8e27d1843d4a3c52,Aj Barlow,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,13,8
+6a6a54ce04b99bae22a92fb8,Ana&Charlie Brown,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,9,3
+6a53bec9822d5ec0aa899bf0,John Lee,lite,SMB,none,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,13,9
+6a4b26823be7d462fd31e816,Matin Majedi,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,1,13,0
+6a6649d1e74af7870f6d045c,Jake Gould-Rowe,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,13,7
+6a4f4aef479e8846160c3091,Omid Behzadnia,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,9,1
+6a4fd6c24ed0abce9f2ad6ce,Teri JacksonSattler,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,9,2
+6a4d4143e82b0b99148b7b2e,Ifetolani Oyedepo-Omooye,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",1,13,5
+6a46e4ed6839a0417a714550,Tom  Lowell,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,9,6
+6a4e89e2479e8846160c305e,Lindsey Rosenberg,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,googleVacationRentals,vrboLite",1,13,5
+6a555124ad4888fb08ff0664,mohammad alam,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,14,2
+6a4b51cb3be7d462fd31e82b,David Ginges,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,14,13
+6a510edd4ed0abce9f2ad73c,Irene Young,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,14,2
+6a5172594ed0abce9f2ad761,Amber Brannon,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,8,4
+6a64e3cae74af7870f6d03d9,YIANIS THEMELIS,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,14,5
+6a45d2b56839a0417a7144d2,Katina Murray,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com,vrboLite",1,14,3
+6a53a3af42bd9b3495811d0b,Chris hale,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,14,4
+6a64e792e74af7870f6d03da,John Stuart,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",1,14,14
+6a4bca658e27d1843d4a3c17,Roger Samuel,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,15,2
+6a46d6b86839a0417a714549,Michelle Muscolo,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,8,8
+6a546a2b42bd9b3495811d44,Naomi Carlyle,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,15,2
+6a52bb0a6da1490f93b640e6,"Quentin Boissiere ",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,15,8
+6a68fa9904b99bae22a92f2d,James Page,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,15,2
+6a5cc126e656d0d9852c9932,Cal Aycock,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,15,3
+6a5812a1fd3689604eedcc24,Shrikar Somayajula,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,1,1,0
+6a62998806ddcf692526dba1,Yan Katz,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,Airbnb_official,1,15,0
+6a52ec4b4ed0abce9f2ad7cb,Brittany Hinkle,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,16,3
+6a543945324dded28b29a075,Rest Escapes,pro,SMB,Guesty Support,true,true,null,true,false,active,null,airbnb2,airbnb2,null,1,16,4
+6a5a83f54a4c267b3be2d37b,Dairon Lay,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com",1,16,5
+6a58091a5c9a91d8b820e929,Tracy Lightsey,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,8,2
+6a4a618c3be7d462fd31e7e0,Billy Herrera,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com,vrboLite",1,8,7
+6a553645fd3689604eedcb2a,Michael Oladepo,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,1,1,0
+6a52ec606da1490f93b640f0,Holly Seagraves,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,vrboLite,1,8,0
+6a58be3e31bd42c1e64066e7,Oran Nahman,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com",1,8,1
+6a4f612a4ed0abce9f2ad68a,Mark Asadon,lite,SMB,none,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,17,8
+6a5f44ce6bb84309655a7012,Lindsey Rodriguez,lite,SMB,Guesty Marketing,true,false,true,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,8,6
+6a6a829204b99bae22a92fcb,Blake Nisius,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,8,6
+6a4d30c7e82b0b99148b7b21,"Yinette Batista ",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,18,4
+6a4b6c918e27d1843d4a3bef,Shay Stays,pro,SMB,Antonello Cammisa,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,8,2
+6a5a2b644a4c267b3be2d354,David Odey,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,18,3
+6a63ec6704b99bae22a92d32,Stamatina  Hapsis,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,Airbnb_official,1,18,0
+6a5f6e546525952ba120947d,Kathryn Teague,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,18,3
+6a652d62e74af7870f6d03fb,Jeremy Newman,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,1,19,0
+6a529c8e4ed0abce9f2ad7b8,Mark Deaton,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com,vrboLite",1,8,4
+6a57bbf95c9a91d8b820e908,Sean Rich,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,1,1
+6a6cc2c404b99bae22a930a2,Roberta Baban,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,Airbnb_official,1,8,0
+6a641e2504b99bae22a92d3e,Diane Andrew,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,19,1
+6a5ec3ea6525952ba1209445,Nathan  Roth,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,19,4
+6a58508efd3689604eedcc31,Tim Caro,lite,SMB,none,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,19,1
+6a53c0b8822d5ec0aa899bf1,Ray K,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com,vrboLite",1,19,14
+6a53f12f822d5ec0aa899c03,James Clervil,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,8,2
+6a4472086839a0417a714425,Sheril Stern,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,20,1
+6a4f8d124ed0abce9f2ad69a,Kathleen kerin,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,bookingCom,bookingCom,null,1,7,1
+6a51f53a6da1490f93b640a9,Francisco Jose perez morales,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,1,20,0
+6a455b7951a9cc0a45fe2989,Allan MIlloy,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom,vrboLite","airbnb2,bookingCom,vrboLite","Airbnb_official,Booking_Com,vrboLite",1,7,3
+6a4f8776479e8846160c30aa,"Marilin  Fernandez ",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,20,1
+6a6beae104b99bae22a93056,Natali Mejia,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,20,2
+6a4fa1484ed0abce9f2ad6b2,tabarretti consulting,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,20,1
+6a5545aead4888fb08ff065f,Ditron Corker,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,20,2
+6a5351414ed0abce9f2ad7dd,Tammy Wilkinson,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,null,1,1,1
+6a468a4251a9cc0a45fe29eb,Henrique Folster Martins,lite,SMB,Airflow Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom",airbnb2,"Airbnb_official,Booking_Com",1,7,2
+6a46d7d551a9cc0a45fe2a0e,Grayson Haman,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,21,11
+6a4ee0f74ed0abce9f2ad66d,Jeffrey Quinton,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,21,1
+6a4d9d2053ac528337bf3db5,Alex Wied,lite,SMB,Millie Ishack,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,bookingCom",null,Booking_Com,1,7,0
+6a485d9f51a9cc0a45fe2a86,Jayne Graham,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,7,6
+6a4b5f063be7d462fd31e832,Eduardo Morales,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,bookingCom","airbnb2,bookingCom",Booking_Com,1,21,8
+6a4c3d523be7d462fd31e896,BILQIS KALILA,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom,vrboLite","airbnb2,vrboLite","Airbnb_official,Booking_Com,vrboLite",1,21,13
+6a5863125c9a91d8b820e936,Gustavo Silveira,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,7,4
+6a4c604a8e27d1843d4a3c4f,james taylor,pro,SMB,Sophia Fitzgerald,true,false,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com,Home_Away",1,22,2
+6a5cbd34e656d0d9852c9930,Francisco Cruz,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,7,1
+6a45c08751a9cc0a45fe299c,Lindsey Ronne,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite",airbnb2,Airbnb_official,1,22,9
+6a66fed6e74af7870f6d048c,Bryan Brioux,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,Airbnb_official,1,23,0
+6a4d712953ac528337bf3da8,Flyn costello,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,1,23,0
+6a4650bc6839a0417a714506,marco pontone,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,23,6
+6a4cc70d8e27d1843d4a3c75,VIRGINIA BOSCH URDANIBIA,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,7,2
+6a50ff0d6da1490f93b64052,Danna Coapland,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,23,6
+6a56d22d5c9a91d8b820e8b0,Michael  ash,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,24,11
+6a5357a342bd9b3495811ced,Seechu Maharjan,lite,SMB,Millie Ishack,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,24,7
+6a4fea6e4ed0abce9f2ad6d8,Joel Ram,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,7,4
+6a4f7b3c479e8846160c30a3,Daniel Capon,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,7,7
+6a65665ae74af7870f6d040d,Nick Fassbender,lite,SMB,HubSpot Integration,true,false,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com,vrboLite",1,24,3
+6a50e41c479e8846160c313d,Bradley Taylor,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,24,13
+6a6a7ad2e74af7870f6d0630,Jacqueline Lurie,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,7,4
+6a50921a479e8846160c311f,Aling Yao,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,1,25,0
+6a5308346da1490f93b640fa,Candis Marrett,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,25,3
+6a4d6a13e82b0b99148b7b3a,Azensa,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,25,16
+6a61799706ddcf692526db37,Jeff Lewis,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",1,6,6
+6a5cdae26bb84309655a6f35,Christiane Bazin,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,26,7
+6a4951a86839a0417a714610,Kedar Hall,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite",airbnb2,null,1,6,1
+6a6858dae74af7870f6d0524,Kosta Mellos,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite",vrboLite,1,6,3
+6a4ea94a479e8846160c306a,Faith Vargas,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,26,7
+6a53f162822d5ec0aa899c04,Sidharth Routray,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,null,1,26,3
+6a47043551a9cc0a45fe2a17,KILIAN PETERDY,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,6,3
+6a46cfd251a9cc0a45fe2a09,Riddhi Vyas,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,Booking_Com,vrboLite",1,26,5
+6a5e59566525952ba120941e,Arx Realty,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite",vrboLite,1,26,4
+6a6c92e104b99bae22a93081,Gabriela pestana,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",1,6,5
+6a58d4c55c9a91d8b820e96a,AMBER MERTES,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,27,4
+6a4c0f538e27d1843d4a3c35,Rob Lunn,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",Airbnb_official,1,27,2
+6a6c2e39e74af7870f6d06d4,Aleks Rakic,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,28,5
+6a6abccb04b99bae22a92fd5,Danny Sun,lite,SMB,Airflow Integration,true,false,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,28,2
+6a5e20a26525952ba12093ff,Kathleen Strickland,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,1,1
+6a46788851a9cc0a45fe29e5,AGATA MARISSOL MARTINEZ NASCIMENTO,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",1,28,12
+6a48242c6839a0417a7145b6,Jake Schaeffer,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,6,1
+6a4d366953ac528337bf3d95,Becky Horn,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite",airbnb2,null,1,28,2
+6a5541e1ad4888fb08ff065e,Keyla Cavalcante,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,29,10
+6a553b37fd3689604eedcb2d,"Christian  Joly ",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,6,1
+6a5084d44ed0abce9f2ad701,Justin Bickham,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,29,18
+6a4ff5de479e8846160c30ea,Renae Wallace,lite,SMB,Airflow Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com",1,6,6
+6a451e9e6839a0417a71448a,"334 Roscoe, LLC SBA The River House ",lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,Booking_Com,googleVacationRentals,vrboLite",1,29,6
+6a557f02fd3689604eedcb3c,Grethel  Espinoza,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,1,30,0
+6a479e776839a0417a71457b,enriqueta moreno leiros,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,6,1
+6a4cfe6811e310c57f271d83,Havencrest Living,pro,SMB,Guesty Support,true,true,null,true,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom",null,1,30,15
+6a69fabbe74af7870f6d05f1,Sean Thompson,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com",1,31,3
+6a6156cb06ddcf692526db2c,Alan Horna,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,Airbnb_official,1,6,0
+6a4beae43be7d462fd31e881,Tracy Riley,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,1,31,0
+6a4b3a473be7d462fd31e825,Stephanie Conner,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,googleVacationRentals,vrboLite",1,31,11
+6a52c1274ed0abce9f2ad7c1,Jimia Cherenfant,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,32,18
+6a553949ad4888fb08ff0659,daniel lumb,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,6,4
+6a6d28c004b99bae22a930ca,Randy Hussey,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,32,13
+6a4e6a174ed0abce9f2ad63e,Thinooach Puspanathan,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom",Airbnb_official,1,32,23
+6a52f8344ed0abce9f2ad7d2,William  Overla,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,33,2
+6a4c5da48e27d1843d4a3c4e,Raimonda Mema,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,33,12
+6a598eb131bd42c1e6406752,Shane McGuffin,lite,SMB,none,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,34,9
+6a52a9734ed0abce9f2ad7bc,First Investment  Home Llc,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,vrboLite,1,34,25
+6a46f18251a9cc0a45fe2a15,Nera sakthikumar,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,34,18
+6a510e546da1490f93b64059,Eduardo  Rios,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,34,3
+6a4b55f13be7d462fd31e82e,Khaled Shahbar,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",1,34,6
+6a5021d4479e8846160c30f9,Elizabeth Canales,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom,vrboLite","airbnb2,bookingCom,vrboLite","Airbnb_official,Booking_Com,vrboLite",1,34,22
+6a5161416da1490f93b64081,sweetstay escapes,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,34,23
+6a5374df42bd9b3495811cf6,Ayan Hayat,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,35,7
+6a4bed183be7d462fd31e882,Bryan Greene,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,35,5
+6a502155479e8846160c30f8,Renate Halleen,lite,SMB,Millie Ishack,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,1,6,0
+6a506b98479e8846160c310e,Jason Howerton,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,6,1
+6a4c05d43be7d462fd31e88d,Karina Robbins,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",null,1,35,15
+6a504c1a479e8846160c3106,Christina Newman,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,6,1
+6a4946e26839a0417a71460f,Michael  Frazier,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,vrboLite,1,36,21
+6a48c3d46839a0417a7145d7,Hope Vines,lite,SMB,Airflow Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com,vrboLite",1,36,25
+6a46df3151a9cc0a45fe2a13,Mahlet Boyd,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,37,18
+6a4bffcb3be7d462fd31e889,Zain Alabdin Fahad,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,1,37,0
+6a64ccfce74af7870f6d03d0,"Lisa Hewett ",lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,37,5
+6a4f39fc4ed0abce9f2ad683,Gagan Singla,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,vrboLite,1,6,2
+6a53b962822d5ec0aa899bec,Pinto Property Management,lite,SMB,Dari Ashurova,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",vrboLite,1,37,14
+6a464dbe51a9cc0a45fe29d0,Vitaliy Novytskiy,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,6,3
+6a47bc0d6839a0417a71458a,Gilad Talmi,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",1,38,11
+6a6b3236e74af7870f6d066a,Mark Proestel,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,1,39,0
+6a64c37ee74af7870f6d03ca,Nguyễn Phát,lite,SMB,none,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,39,3
+6a69483fe74af7870f6d05a4,"Shane  Jakobi ",lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,39,5
+6a6b587704b99bae22a93018,Thiti Thanachaipornsakun,lite,SMB,none,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,6,6
+6a4d1a5a079a43ea4415536a,Tyrique wilson,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,39,27
+6a4afe353be7d462fd31e80f,"Beach, Bach and Beyond Limited",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,bookingCom,bookingCom,"Airbnb_official,Booking_Com",1,5,5
+6a53d4b5822d5ec0aa899bfb,Tricia Chipolo,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,vrboLite,1,41,3
+6a4f761b479e8846160c30a0,marko baka,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,41,6
+6a500a5a4ed0abce9f2ad6e0,florine boileux,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,bookingCom","airbnb2,bookingCom",null,1,5,2
+6a67f361e74af7870f6d0502,José Martínez,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com,vrboLite",1,5,4
+6a6701ee04b99bae22a92e34,Steve Ward,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,42,6
+6a4bd2c83be7d462fd31e871,Kristi Maluchnik,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,42,5
+6a4be4713be7d462fd31e87f,Kathleen Vazquez,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,5,1
+6a4ff4f54ed0abce9f2ad6dd,Idalmis  Mesolella,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,43,3
+6a4f7e59479e8846160c30a6,"marta gomez sanchez ",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,43,6
+6a539e9a42bd9b3495811d08,Yilenys Vichot,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,43,1
+6a5504daad4888fb08ff0645,Alex Owens,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,1,1,0
+6a4c4ae68e27d1843d4a3c4b,Snorri Gislason,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,45,33
+6a4edb87479e8846160c3079,felipe angelo,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom",vrboLite,1,45,4
+6a4ffa96479e8846160c30ed,Ayesha Arshad,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite",airbnb2,"Airbnb_official,vrboLite",1,45,9
+6a4a79c93be7d462fd31e7e5,Jesse Clinton,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,46,37
+6a5004bb4ed0abce9f2ad6df,Alan & Elaine Hardwick,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,46,11
+6a4961f851a9cc0a45fe2ad5,Neil Barnes,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,5,2
+6a63e4de04b99bae22a92d2f,Maddison David,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,5,2
+6a60fd2406ddcf692526db0c,Peggy Leftault,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,Airbnb_official,1,5,0
+6a5124a24ed0abce9f2ad745,Maureen Knotts,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,49,5
+6a46d04351a9cc0a45fe2a0a,Sergio Nava,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Booking_Com,1,5,1
+6a484b576839a0417a7145bd,Elijah Johnson,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,50,14
+6a668748e74af7870f6d0471,Patrick D'Brass,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,51,13
+6a6d1c94e74af7870f6d0743,Matt Summers,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com",1,5,3
+6a57ae085c9a91d8b820e8fe,Priyanshu kumar,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,"Airbnb_official,Booking_Com",1,1,0
+6a5f69526525952ba1209477,Allison Cacace,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,1,1,0
+6a5237e24ed0abce9f2ad792,Olivar Brandrup,lite,SMB,Airflow Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,52,15
+6a4ff3c34ed0abce9f2ad6db,Donnamarie  Kendall,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,5,1
+6a5f500c6bb84309655a7017,Malik Aït-Oukharraz,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,53,2
+6a4c75943be7d462fd31e89f,Abegail Amil,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,1,1,0
+6a452eed6839a0417a714494,Erin Hartter,lite,SMB,Airflow Integration,true,true,false,false,true,active,"Jul 13, 2026",airbnb2,airbnb2,"Airbnb_official,Booking_Com,vrboLite",1,5,5
+6a637eb406ddcf692526dbea,Brandee Corbett,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,"Airbnb_official,vrboLite",1,1,0
+6a4d40ca53ac528337bf3d9b,Kim West,lite,SMB,Millie Ishack,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,5,2
+6a4d66f6e82b0b99148b7b38,Paul Thomasson,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,5,5
+6a514c8c6da1490f93b6407c,Luis Aguirre,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,57,4
+6a5afd3b31bd42c1e64067ae,Joel Mickelwait,lite,SMB,none,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,57,1
+6a577f2ffd3689604eedcbea,Dee Wally,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,1,1,0
+6a6b007fe74af7870f6d064f,Mike Skoufis,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,5,3
+6a4d1a34079a43ea44155369,Webb and James Stays,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,59,11
+6a5fe40e6525952ba12094ba,Giovanni Bengalis,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite",null,1,59,23
+6a68ef1f04b99bae22a92f28,Alexandre Perras,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,60,13
+6a5b97be31bd42c1e64067e6,Audrey  Daniel,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,5,1
+6a52e3304ed0abce9f2ad7c8,Patricia Crew,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,61,20
+6a5e9d3a6bb84309655a6fdf,Mike Poupard,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",1,4,3
+6a467a1351a9cc0a45fe29e6,Manuel.Sanchez,pro,SMB,Guesty Support,true,false,null,false,false,active,null,bookingCom,bookingCom,Booking_Com,1,4,3
+6a4bf4f93be7d462fd31e884,"Sarah  Neumann ",lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,googleVacationRentals,vrboLite",1,63,11
+6a550073fd3689604eedcb1d,Brace Helgeson,lite,SMB,Guesty Marketing,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,4,2
+6a58f8f14a4c267b3be2d2e3,Josseline Pellerin,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,64,5
+6a4c34103be7d462fd31e894,Breckynn Wilson,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite",airbnb2,"Airbnb_official,Booking_Com,vrboLite",1,4,2
+6a4e8f78479e8846160c305f,James Holdt,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,64,11
+6a45580d6839a0417a7144af,Michele Calazans,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,bookingCom",bookingCom,Airbnb_official,1,4,1
+6a5c0a8431bd42c1e640680e,Colleen Stanley,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,1,1
+6a66760f04b99bae22a92e0f,Nicole Letren,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Booking_Com,1,66,7
+6a5693295c9a91d8b820e899,Rael Hadley,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,4,3
+6a471c0f51a9cc0a45fe2a1e,Laysha Brown,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite",airbnb2,"Airbnb_official,vrboLite",1,66,2
+6a5fd0576525952ba12094b5,Krystle Ivey,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,4,1
+6a6839f1e74af7870f6d0519,"Stephanie Pederson ",lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,4,3
+6a4beea18e27d1843d4a3c29,Lauren Hughes,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,68,9
+6a4d561de82b0b99148b7b36,Ryan Toelkes,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,1,4,0
+6a530c896da1490f93b640fb,Pam Ryan,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,70,22
+6a4f491b479e8846160c308f,Brookhampton Road Farm,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,72,17
+6a4a51058e27d1843d4a3b93,Arunas J,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,72,4
+6a4f873f479e8846160c30a9,Alexandra Guljas,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,72,4
+6a6c351504b99bae22a93068,Cr boyett III,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,74,11
+6a593e2c31bd42c1e640673e,Nicolas mounier,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,74,7
+6a540f72822d5ec0aa899c0d,"Elia  Village ",lite,SMB,none,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,4,2
+6a501ab04ed0abce9f2ad6e4,Mariah Byers,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,75,20
+6a4c14598e27d1843d4a3c38,Amy McMahon,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,76,4
+6a5b94524a4c267b3be2d3cb,DeAnna Vaughn,lite,SMB,none,true,false,true,false,false,active,null,airbnb2,null,Airbnb_official,1,4,0
+6a4c128568c81fb761678517,Meagan Poplawski,lite,SMB,Airflow Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,79,7
+6a49283b6839a0417a714603,Mateo Kolagji,lite,SMB,HubSpot Integration,false,false,false,false,true,inactive_cancelled_within_1yr,"Jul 13, 2026",airbnb2,airbnb2,Airbnb_official,1,4,2
+6a5315e94ed0abce9f2ad7d5,Jose  Rivas,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,vrboLite,1,4,0
+6a53bbf4822d5ec0aa899bed,Eljo Pleqi,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,1,1,0
+6a4599206839a0417a7144c8,Perroud Vincent,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,null,1,4,3
+6a4fc6a24ed0abce9f2ad6c4,"Nicole  Pricoli Amaro Hirakawa ",lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom","airbnb2,bookingCom","Airbnb_official,Booking_Com",1,80,21
+6a5084ba4ed0abce9f2ad700,William Bowden,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite",airbnb2,vrboLite,1,81,7
+6a5273ce4ed0abce9f2ad7a6,HARRY LALLI,lite,SMB,Dari Ashurova,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,4,4
+6a450ed251a9cc0a45fe295d,"Angella  Brink ",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,83,19
+6a4f50f74ed0abce9f2ad684,Cameron Holmes,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,83,17
+6a480c3d51a9cc0a45fe2a7a,Iosif  Nistor,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,bookingCom",airbnb2,null,1,86,8
+6a56a5cbfd3689604eedcbb2,Leanne  Bardell,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,4,1
+6a47b56d51a9cc0a45fe2a5d,Kristina Pahulu,lite,SMB,none,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,4,1
+6a5158fd4ed0abce9f2ad757,Kellen Shimizu,lite,SMB,Airflow Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,89,14
+6a6ca94704b99bae22a93095,Austin Fu,lite,SMB,none,true,false,true,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",1,3,3
+6a4e9416479e8846160c3061,Trevor Nelson,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",null,1,90,26
+6a4eaec0479e8846160c306c,brandi cantwell,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,91,7
+6a5ce1296bb84309655a6f38,Justin Fjeldos,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",1,3,3
+6a620b8a04b99bae22a92c7f,Allison Harker,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,vrboLite",1,3,3
+6a570c0b5c9a91d8b820e8c1,Priscilla Niemi,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",null,1,3,2
+6a47e6636839a0417a71459a,Luis Alejandro Hinojosa Correa,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite",airbnb2,Booking_Com,1,3,1
+6a4eaa6e479e8846160c306b,Erin Kim,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"googleVacationRentals,vrboLite",1,3,1
+6a6434d804b99bae22a92d43,Nawadir Ali,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,1,1,0
+6a5663e85c9a91d8b820e883,"India Blanding ",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,"Airbnb_official,vrboLite",1,3,0
+6a53acd9822d5ec0aa899be7,Lee Throckmorton,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,"Airbnb_official,vrboLite",1,3,0
+6a450a0a51a9cc0a45fe295b,"Clarisse  Yazid ",lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,94,6
+6a44aa756839a0417a714434,Kathryn Townson,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,95,11
+6a50c266479e8846160c3131,Paul Maziere,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,1,1
+6a44cdfc51a9cc0a45fe293f,Jokull Tomasson,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,3,3
+6a4d3b3ee82b0b99148b7b2d,Tiago Kasi,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,bookingCom,bookingCom,Booking_Com,1,97,59
+6a5a8d914a4c267b3be2d37c,Neeraj Wadhera,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",1,1,1
+6a5586f8876bc73219186409,Lynsey Champion,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,1,3,0
+6a4d592248b5ff85bd6052c9,Juls Properties,pro,SMB,Guesty Support,true,true,null,true,false,active,null,"airbnb2,homeaway2",airbnb2,"Airbnb_official,Booking_Com,Home_Away",1,101,10
+6a4b20753be7d462fd31e815,"Amelia  Servis ",lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,Booking_Com,vrboLite",1,101,15
+6a5021f54ed0abce9f2ad6ea,Nicolas Blangy,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,3,1
+6a6008e86bb84309655a7069,Imogen Kemp,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,1,3,0
+6a54084442bd9b3495811d32,Andrea DeBoard,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,106,21
+6a683c7e04b99bae22a92ec2,Tanatcha Srisangon,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,3,1
+6a67d98604b99bae22a92e9f,Justin Guy,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,3,1
+6a696aaee74af7870f6d05af,Stian Anderson,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,1,3,0
+6a68e80904b99bae22a92f24,Treina Puente,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,Airbnb_official,1,3,0
+6a6007306bb84309655a7067,Andrea Espinoza,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,3,2
+6a517b4c4ed0abce9f2ad764,Dalwin Matos,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,126,62
+6a4be3c43be7d462fd31e87d,Alyson Beasley,lite,SMB,none,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,1,3,0
+6a572466fd3689604eedcbcb,Andreen Raymond,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,3,1
+6a45811d6839a0417a7144bf,Ryan Navarre,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,"airbnb2,bookingCom,vrboLite","airbnb2,bookingCom,vrboLite","Airbnb_official,Booking_Com,vrboLite",1,137,27
+6a5d6e886525952ba12093cb,Sandra Stephenson,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",1,1,1
+6a6c975fe74af7870f6d0707,Leah Finley,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",1,2,2
+6a62f4af06ddcf692526dbbd,Andrew Haddock,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,vrboLite,null,"Airbnb_official,vrboLite",1,2,0
+6a5f557b6bb84309655a701c,Charlie Piffer,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,Booking_Com,vrboLite",1,2,1
+6a64212a04b99bae22a92d41,Tom Powers,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,146,15
+6a6118ee06ddcf692526db17,Kore Fisher,lite,SMB,HubSpot Integration,true,false,false,false,false,active,null,"airbnb2,vrboLite","airbnb2,vrboLite","Airbnb_official,Booking_Com,vrboLite",1,2,2
+6a54be1142bd9b3495811d6e,Dietrich Lasa,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,2,1
+6a6ccccae74af7870f6d0721,Paula Truax,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,151,43
+6a4bc6fa3be7d462fd31e86d,Mayca Mondejar,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,bookingCom,bookingCom,"Airbnb_official,Booking_Com",1,151,136
+6a57687afd3689604eedcbe2,Alicia  Burton,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,2,1
+6a54c83d324dded28b29a076,Stephen Kissous,pro,SMB,Guesty Support,true,true,null,true,false,active,null,airbnb2,airbnb2,"Airbnb_official,Home_Away",1,2,2
+6a623b4206ddcf692526db86,Jaime Rivetts,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,2,1
+6a501490479e8846160c30f5,Christian De Luca,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,1,168,22
+6a44e6776839a0417a71446d,Ernst Rost Onnes,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,1,2,1
+6a57186bfd3689604eedcbc9,Andrew Pereira,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,1,2,0
+6a53df2342bd9b3495811d23,Khalid Mohammed,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,1,2,0
+6a5ffd1c6bb84309655a7063,Eduardo Coelho,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,1,181,14
+6a4bc3ef3be7d462fd31e86a,Kim Batten,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,1,2,0
+6a6a3bdde74af7870f6d0617,Priscila Del Castillo,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,Airbnb_official,1,2,0
+6a5687f55c9a91d8b820e893,Matthew Walshe,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com,vrboLite",1,2,1
+6a64425d06ddcf692526dc20,Charles Pleasant,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,null,1,2,0
+6a57e59d5c9a91d8b820e921,Theodore Cook,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,1,2,0
+6a6b286a04b99bae22a93001,Alasdair Stephen,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,Airbnb_official,1,2,2
+6a501acc4ed0abce9f2ad6e5,fajr Alzahrani,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,Airbnb_official,1,2,0
+6a555c83fd3689604eedcb36,Apartment at Portales Punta Cana,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,Booking_Com,vrboLite",1,2,1
+6a6611c004b99bae22a92de6,Ingrid Kumar,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,"Airbnb_official,vrboLite",1,2,1
+6a5458df822d5ec0aa899c21,Michelle Ariotti,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite",airbnb2,null,1,232,13
+6a610f7206ddcf692526db13,Kaitlyn Thames,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",1,1,1
+6a67affde74af7870f6d04e8,Aries Welty,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,vrboLite,vrboLite,vrboLite,1,1,1
+6a56270dfd3689604eedcb78,Abderrahim et-tilemsany,lite,SMB,HubSpot Integration,true,false,false,false,false,active,null,airbnb2,null,"Airbnb_official,Booking_Com",1,2,0
+6a46d4b051a9cc0a45fe2a0c,ProPar Properties,lite,SMB,HubSpot Integration,false,false,false,false,true,inactive_cancelled_within_1yr,"Jul 13, 2026",airbnb2,null,Airbnb_official,1,2,0
+6a5bcccb31bd42c1e64067fd,Erin Kluzek,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",1,1,1
+6a5d122f6bb84309655a6f48,Tuong-Vi Le,lite,SMB,HubSpot Integration,true,false,false,false,false,active,null,vrboLite,null,"Airbnb_official,vrboLite",1,1,0
+6a559fa9876bc7321918640c,Reanna Bellini-Sarieh,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,vrboLite,null,null,1,1,0
+6a4bd4f13be7d462fd31e872,Antonia Mangiapane,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,bookingCom,bookingCom,"Airbnb_official,Booking_Com",1,305,281
+6a5d64b16525952ba12093c6,Franklyn Prescod,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,vrboLite,null,"Airbnb_official,Booking_Com,vrboLite",1,1,0
+6a5bdecd4a4c267b3be2d3e6,Donna Maxwell,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,vrboLite,vrboLite,"Airbnb_official,vrboLite",1,1,1
+6a44fa026839a0417a714475,Zuzanna Tarnowska,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,0,2,2
+6a44f8366839a0417a714474,Patrick Ruettimann,lite,SMB,Airflow Integration,false,false,false,false,true,inactive_cancelled_within_1yr,"Jul 30, 2026",airbnb2,null,null,0,2,0
+6a54e6d0fd3689604eedcb0c,brandy reese,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,vrboLite,null,vrboLite,0,1,0
+6a555fd090356182c371ee15,Ernest Persinger,lite,SMB,HubSpot Integration,true,true,false,false,false,active,null,vrboLite,null,null,0,2,0
+6a53ba9b42bd9b3495811d10,Edith Amadi,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,0,3,0
+6a501e714ed0abce9f2ad6e9,Kristina Ryan,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,0,97,19
+6a6b5683e74af7870f6d067e,Ezequiel Yunes Leites,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,Booking_Com,0,3,0
+6a4af65c3be7d462fd31e80d,Ankit Shah,lite,SMB,Millie Ishack,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",null,0,79,12
+6a557c60fd3689604eedcb3b,Jeff Warnick,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,0,65,3
+6a55e79afd3689604eedcb58,Kristian&Mariann Solaas,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,0,5,3
+6a53c6c9822d5ec0aa899bf2,Wendy Murry,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",null,0,54,11
+6a58c4335c9a91d8b820e963,Abdulhadi Alshamrani,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,null,null,0,5,0
+6a62e38004b99bae22a92ccc,Alfred Alexis Magno,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,null,Airbnb_official,0,5,0
+6a4b38d58e27d1843d4a3be1,Pierre Pailhas,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,bookingCom","airbnb2,bookingCom",null,0,51,17
+6a471d606839a0417a714555,Hamsa Priya Gnanasundar,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,0,5,1
+6a5ae99031bd42c1e64067ab,Enkel Myftaraj,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,vrboLite,0,28,2
+6a492ee46839a0417a714605,Yasser Gonzalez,lite,SMB,HubSpot Integration,false,false,false,false,true,inactive_cancelled_within_1yr,"Jul 23, 2026","airbnb2,bookingCom",airbnb2,null,0,7,3
+6a4da14753ac528337bf3db8,Tabatha  Ray,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,0,19,1
+6a4feb5a4ed0abce9f2ad6d9,Channing Martin,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite",airbnb2,vrboLite,0,16,5
+6a46bacd51a9cc0a45fe29fb,Eileen Kile,lite,SMB,HubSpot Integration,false,false,false,false,true,inactive_cancelled_within_1yr,"Jul 13, 2026",airbnb2,null,null,0,1,0
+6a64c40204b99bae22a92d7b,Rosemarie Kolodich,lite,SMB,HubSpot Integration,true,false,true,false,false,active,null,airbnb2,airbnb2,null,0,15,5
+6a544874822d5ec0aa899c20,Clint Griffin,lite,SMB,Millie Ishack,false,false,false,false,false,inactive_cancelled_within_1yr,null,"airbnb2,vrboLite","airbnb2,vrboLite",null,0,78,16
+6a4d404a53ac528337bf3d9a,Suzanne Biggs,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,Airbnb_official,0,18,2
+6a4c4f763be7d462fd31e899,Tracie Garcia,lite,null,none,true,false,true,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,0,2,2
+6a5fd2696bb84309655a7053,Marvin Feliciano,lite,SMB,HubSpot Integration,false,false,false,false,false,inactive_cancelled_within_1yr,null,airbnb2,airbnb2,null,0,217,13

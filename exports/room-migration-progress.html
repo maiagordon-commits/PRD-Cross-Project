@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Room Migration Progress</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root { --bg:#F5F1E9; --navy:#1B3A5F; --card:#D9EAF7; --muted:#6B7C93; --border:#D0D5DD; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; background:#ddd6c8; color:var(--navy);
+  min-height:100vh; padding:1.5rem; display:flex; align-items:center; justify-content:center; }
+.slide { width:min(1280px,100%); aspect-ratio:16/9; background:var(--bg); border-radius:8px;
+  box-shadow:0 12px 40px rgba(27,58,95,.12); padding:1.75rem 2rem 1.25rem;
+  display:grid; grid-template-rows:auto auto 1fr; gap:.9rem; }
+.header { display:grid; grid-template-columns:1fr auto; gap:1rem; }
+h1 { font-size:clamp(1.5rem,2.3vw,2rem); font-weight:700; }
+.date-pill { display:inline-block; margin-top:.55rem; background:#E4E7EC; border-radius:10px; padding:.35rem .85rem; }
+.total-card,.tier-card { background:var(--card); border-radius:14px; text-align:center; padding:.85rem 1rem;
+  box-shadow:0 2px 8px rgba(27,58,95,.08); }
+.tiers { display:grid; grid-template-columns:1fr 1fr; gap:1rem; max-width:720px; margin:0 auto; width:100%; }
+.label { font-size:.95rem; } .value { font-size:clamp(1.6rem,2.8vw,2.2rem); font-weight:700; }
+.chart-panel { background:#fff; border:1px solid #D0D5DD; border-radius:10px; padding:.75rem 1rem .4rem;
+  display:flex; flex-direction:column; min-height:0; }
+.chart-title { color:var(--muted); font-size:.95rem; }
+.chart-wrap { flex:1; position:relative; min-height:220px; }
+@media (max-width:900px) { .slide { aspect-ratio:auto; } .header,.tiers { grid-template-columns:1fr; } }
+</style></head><body>
+<div class="slide">
+  <div class="header">
+    <div><h1>Room Migration Progress</h1><div class="date-pill">July 13 - August 3</div></div>
+    <div class="total-card"><div class="label">Total Accounts Created</div><div class="value">4,395</div></div>
+  </div>
+  <div class="tiers">
+    <div class="tier-card"><div class="label">Pro</div><div class="value">214</div></div>
+    <div class="tier-card"><div class="label">Lite</div><div class="value">4,181</div></div>
+  </div>
+  <div class="chart-panel">
+    <div class="chart-title">Cumulative Trends by Segment</div>
+    <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+  </div>
+</div>
+<script>
+new Chart(document.getElementById("trendChart"), {
+  type: "bar",
+  data: {
+    labels: ["7/13/2026", "7/20/2026", "7/27/2026", "8/03/2026"],
+    datasets: [
+      { label: "Pro", data: [96, 165, 214, 214], backgroundColor: "#4A8FD4", stack: "s" },
+      { label: "Lite", data: [1239, 2613, 4129, 4181], backgroundColor: "#E35D5B", stack: "s" }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: "top", labels: { boxWidth: 12, color: "#6B7C93" } } },
+    scales: {
+      x: { stacked: true, title: { display: true, text: "Week starting", color: "#6B7C93" },
+            ticks: { maxRotation: 45, minRotation: 45, color: "#6B7C93" }, grid: { display: false } },
+      y: { stacked: true, beginAtZero: true, suggestedMax: Math.ceil(4395 * 1.12),
+            title: { display: true, text: "Count", color: "#6B7C93" },
+            ticks: { color: "#6B7C93", precision: 0 }, grid: { color: "#E6EAF0" } }
+    }
+  }
+});
+</script></body></html>

@@ -1,0 +1,6 @@
+Account ID,Segment
+# Replace this file with a Guesty HQ / Sisense export of Account ID + Segment
+# for accounts created after 2026-07-13.
+# Example:
+# 6a54a93c42bd9b3495811d5c,SMB
+# 6a54a99942bd9b3495811d5d,Mid-Market
