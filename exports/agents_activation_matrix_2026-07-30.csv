@@ -1,0 +1,629 @@
+Account ID,Account Name,Segment,Package,CSM,Interview Date,Active today,Amenity gap detector,Calendar block monitor,Calendar conflict detector,Check-in readiness command,Cleaning conflict detector,Daily task coverage board,Guest commitment tracker,Inquiry expiry manager,Maintenance block agent,Maintenance tracker,Reservation duplicate detector,Reservation handoff brief,Reservation readiness surfacer,Review to task dispatcher,Risky reservation detector,Stay status reconciler,Team access auditor,Translation gap filler,Vacancy task detector,Weekly operations brief,Negative review challenger,Review response drafter,Saved reply optimizer,Checkout balance collection,Fee configuration detector,Multi-unit fee detector,Security deposit extender,Tax configuration auditor,Unpaid reservation tracker,Advance deposit checker,Cancelled reservation reconciler,Negative owner revenue detector,Realization window auditor,Listing ownership gap finder,Owner payment details collector,Airbnb quality detector,# Active
+Accounts activated (of 627),,,,,,,116,172,211,136,51,122,248,197,24,132,137,151,4,163,267,90,115,65,92,264,381,269,260,6,140,17,63,137,274,106,129,19,21,25,78,127,4809
+626711695f65c40032a8c353,LetStay Rentals,SME,pro,Cameron Gray,,true,,,V,,,,V,,,,,,,V,,,,,,,,,,,,,,,,,,,,,,,3
+67fefda456bac59fb2d4a05c,Strategic Stays,SMB,pro,Nelson Sing,,true,,,,,,,V,,,,,,,,,,,,,V,V,V,,,V,,,,V,,,,,,,,6
+6954699888cba42d9e7a8fb0,Rainbow Rentals,Mid-Market,pro,Dana Evans,,true,,,,V,,V,V,V,,,,,,,V,V,,,V,V,V,V,V,,,,,V,,V,V,,,,V,,15
+5ef5508f4aeb9c002db8e7ee,Jennys Retreats,Mid-Market,pro,Zoe Jiang,,true,,,,,,,,,,,,,,,V,,,,,,,V,V,,,,,,,,,,,,,,3
+69eab390e6a377973f278ed2,Bernard Austin,SMB,pro,Guesty Support,,true,,,,,,,,,,,,,,,V,,,,,,V,V,,,,,V,,,,,,,,,,4
+68eea8309b696177c7547460,The Sterling,SMB,pro,Guesty Support,,true,,,V,,,,,,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,,3
+672284544199f06343c6ae01,Cozy Cabins Real Estate dba NM Homes & Land,SME,pro,Juan Viana,,true,,,,,,V,,V,,,,,,V,,,V,,V,,,,V,,,,,V,,,V,,,,,,8
+65524a7331899e05ee282773,Stay Lowcountry,Mid-Market,pro,Audrey Puylaert,,true,,V,V,V,V,V,V,V,,V,V,V,,V,V,V,V,,V,V,V,V,V,,V,,V,V,V,V,V,,,,,,25
+697517b3f85f713d696717ba,Loon’s Nest,SMB,pro,Guesty Support,,true,,,,,,,,V,,,,,,V,V,,,,,V,V,,V,,,,,V,,,,,,,,,7
+6667469f1269c78e4944aa4f,LegacyRnR,SME,pro,Tove May,,true,,,,,,,V,V,,,,,,,,,,,,V,V,V,V,,V,,,,V,,,,V,,,,9
+64f9cf1dff085db8edf4e64f,HASANI HOLDING AS,SMB,pro,Tove May,,true,,,,,,,,,,,,,,,,,,,,,V,,V,,,,,,,,,,,,,,2
+675c9a5aed37dd81125c18fb,PMI Gulf Shores,Mid-Market,pro,Lionel Glover,,true,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,1
+67ce4015e10824fc1571a7ef,Laura Hernandez,SMB,pro,Lionel Glover,,true,,,V,,,,,V,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,,4
+68c2ef959cb51e7f413f2ee7,Aloha Vacay,Mid-Market,pro,Audrey Puylaert,,true,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,V,,,,,,2
+69e2050784f30b81799ba70c,The Homestead Retreat LTD,SMB,pro,Daniel Sanchez,,true,,,,V,,,V,,,,V,,,V,,,,,V,V,,V,,,,,,,,,,,,,,,7
+687142f1ee9d3298fc2dc4dc,Cradel Haus,SMB,pro,Courtney Trow,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,1
+6949232ed9832ab7012f5134,Winnewald,SMB,pro,Guesty Support,,true,,,V,,,,,,,,,,,,V,,,,,,V,,,,V,,,,,,,,,,,,4
+664cd7b17ece3a46c68c5b09,Bee Cave Mgmt LLC,Mid-Market,pro,Francine Boateng,,true,V,V,V,V,V,V,V,V,V,V,V,V,,V,V,V,V,V,V,V,V,V,V,,V,,V,V,V,V,V,V,V,V,V,V,33
+65e28bce402c8274ef5e9c70,Natalie Searcy,SMB,pro,Oscar Rodriguez,,true,,,,,,,,V,,,,,,V,,,,,,,V,V,V,,V,,,V,,,,,,,,,7
+699f64a76de897de78fd366a,VueStay - Wisconsin,Enterprise,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,1
+699f650f6de897de78fd366c,VueStay - Virginia,Enterprise,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,1
+699f63d86de897de78fd3667,VueStay - North Carolina,Enterprise,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,1
+699f64dc6de897de78fd366b,VueStay - Michigan,Enterprise,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,1
+699f64756de897de78fd3669,VueStay - Massachusetts,Enterprise,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,1
+699f62c76de897de78fd3665,VueStay - Maryland,Enterprise,enterprise,Guesty Support,,true,,,V,V,,,V,,,,V,V,,,V,V,,,,V,,,,,,,,,V,V,,,,,V,,11
+699f64266de897de78fd3668,VueStay - Florida,Enterprise,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,1
+699f638f6de897de78fd3666,VueStay - Delaware,Enterprise,pro,Guesty Support,,true,,,,V,,,V,,,,V,V,,,V,V,,,,V,,,,,,,,,V,V,V,,,,V,,11
+68ade87dc3307ffd38a1c221,VACATIONS CABO,SMB,pro,Austen Bernhardt,,true,,,V,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2
+58a5d7f18687ec10007b02c4,The Penthouse Apartments at The Hague Tower,Mid-Market,pro,Carla Scimia,,true,,,,,,,V,,,,,,,,,,,,,,V,V,V,,,,,,,,,,,,,,4
+6749fb414205b64ae791da69,Steasy,SMB,pro,Daniel Sanchez,,true,,,,,,,,,,,,,,,V,,,,,V,V,,,,,,V,,,,,,,,,,4
+671693bf217e6427c3ae8cc5,DropeBnB,Mid-Market,pro,Carla Scimia,,true,,,,,,,,,,,,,,V,,,,,,,V,V,,,,,,,,,,,,,,,3
+6217dcfb41123400322fa00e,UNE Homes,SME,pro,Cameron Gray,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,1
+660ec21ce668bc86622c542b,CondoRental.com,Mid-Market,pro,Matthew Bonasera,,true,,V,V,,,,V,,,,V,,,,V,,V,,,V,V,V,V,,,,,,,,,,,,,,10
+630f97fd6aef4c0032b4ac3a,Zion's Tiny Getaway,Mid-Market,pro,Oscar Nomura,,true,,,,V,,,,,,V,,,,V,,,,,,,V,,,,,,,,,,V,,,,,,5
+5cd9b6db24a1ec001f44f091,Ronival Vacation Rentals,Mid-Market,pro,Juan Viana,,true,,V,,,,,V,V,,,,,,,V,,,,,V,V,V,V,,,,,,V,,,,,,,,9
+570f72c6bf2a540e00c54b14,Coral & Coco,SME,pro,Stacy Wesson,,true,,V,V,,,,,,,,,,,,,,,,,,V,V,V,,,,,,,,V,,,,,,6
+6762f470309e10ff8a2b724b,HostMT,Mid-Market,pro,Jay Taylor,,true,,,,,,V,,,,V,,,,V,V,,,,,V,,,,,,,,,,,,,,,,,5
+672d074b5d71633da624b1cd,Dinbnb AS,Mid-Market,pro,Francesca Pastore,,true,,,,,,V,V,,,V,,,,,,,,,,,V,,,,,,,V,V,,,,,,,,6
+691219dbcb495d4f11a100ec,"Norman Hospitality, LLC",SME,pro,Audrey Puylaert,,true,V,V,V,V,V,V,V,V,V,V,V,V,,V,V,V,V,V,V,V,V,,V,,V,V,V,V,V,V,V,V,V,V,V,V,33
+67b0cfe85e080b23fd3697e3,Wanderluxe Hospitality,Mid-Market,pro,Tatiana Del Rosario,,true,,,,,V,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2
+678ac5b81e8afb8c9a78c125,Ocean City Vacation Homes,SME,pro,Tatiana Figueroa,,true,,,,,,,,V,,,,,,,,,,,,V,V,,,,,,,,V,,,,,,,V,5
+69f25adce330761c405c9409,Vida Pinilla,Mid-Market,pro,Ana Loera,,true,,V,V,V,,V,V,V,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,7
+66fc802b05ed3c13a4df464b,"VacayPlay, LLC",SME,pro,Audrey Puylaert,,true,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,,,,,,,1
+6373b7c4e3c7f40046a0b231,"Vacation Nest, LLC",SMB,pro,Tatiana Del Rosario,,true,,,,,,,V,V,,,,,,,V,,,,,V,,,V,,,,,,,,,,,,,,5
+675c9c6248c41439a1c9762e,Rental Management One,Mid-Market,pro,Matthew Bonasera,,true,,V,,,,,V,,,,,V,,,,,,,V,V,V,V,V,,,,,V,V,,,,,,,,10
+60129a280d6c74003082c75c,QF Living Ltd.,Mid-Market,pro,Mattia Peressini,,true,V,V,V,,,,V,V,,V,,,,,V,,,V,,V,V,V,,,,,,,V,,,,,,,V,13
+68017d44259cbcdbc6e8c5c3,Lark Mountain Properties,Mid-Market,pro,Matthew Bonasera,,true,V,,V,,,,OFF,,,,,,,,V,,,V,,V,V,V,V,,,,,V,V,,V,,,,,V,12
+6920f5a95cd28d883ce2b5b8,US Corporate Housing,SMB,pro,Salome Alvarez,,true,,V,V,V,,,V,V,,,V,V,,V,V,,,,V,V,V,V,V,,V,V,,V,V,,,,,,,,18
+681369e779686af4eacd5aac,Dreamhaus Management,Mid-Market,pro,Ambar Jenrette,,true,,,,,,,,V,,,,,,,,,,,,V,V,,,,,,,,,,,,,,,,3
+673248b954b397d19ec26e23,Sam Hickling,SMB,pro,Courtney Trow,,true,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,1
+660c2e42f7df44d3fc2d0744,Sealodge,Mid-Market,pro,Steven Brumwell,,true,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+6931eff4a3d1a005adf060be,Avari - CA,Enterprise,pro,Guesty Support,,true,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,3
+63c1c1492ed596005d13682c,Villa Paraiso Vacation Rentals,Mid-Market,pro,Oscar Nomura,,true,,V,,,V,,,,,,,,,,,,,,,V,,,,,V,,,,,,,,,,,,4
+6876d83bb8a30a41bf5391d4,Flexi-Home,SMB,pro,Daniel Sanchez,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,OFF,,0
+69e383daaa4cb1bd69a447b8,KIMAE GROUP LTD,SMB,pro,Alejandra Bartrina Soler,,true,,V,,V,,V,,,,,,,,,,,,,,,,,V,,,V,,,V,,,,,,,,6
+6751b3a4c07cbe043d294f17,Kaizenpm LTD,Mid-Market,pro,Courtney Trow,,true,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,V,2
+68ac4eb3abd6e30d92e15773,Donald,SMB,pro,Ander Vicente,,true,,,,,,,,,,,,,,,,,,,,,V,V,V,,V,,,,,,,,,,,,4
+65532d7069069cd90eee7913,Olauda Serviced Accommodation Ltd,SMB,pro,Dana Evans,,true,,,V,,,,,,,,,,,,V,,V,,,,,,,,V,,,,,,,,,,,,4
+5ea28fe43cffc6002b181f43,Advante Homes,Enterprise,enterprise,Sharine Duran,,true,,V,V,,,,V,,,,,,,V,OFF,,,,,V,V,V,,,,V,,,OFF,,,,,,,V,9
+66430b54edfdf84f83ebd3de,Home to Holiday Property Management,Mid-Market,pro,Zoe Jiang,,true,,V,,V,V,V,V,,,V,,V,,,V,,,,V,V,V,V,V,,V,,,V,V,V,,,,,,,17
+696169b49c876f0277e174c6,DM Boutique Servicios Turisticos SAPI de CV,Mid-Market,pro,Pablo Paez,,true,,V,V,,,,V,,,,,,,,,,,,,,V,V,,,V,,,,V,,,,,,,,7
+69ced58f58f8d501c295eb81,Casago Alaska Retreats,Enterprise,pro,Devin Holbrook,,true,,V,V,V,,V,,V,,V,,V,,,,,,,,V,V,V,V,,V,,,V,V,,V,,,,,,15
+66885058f6abdb39ff57b9a9,Nestoria Estates Inc.,Mid-Market,pro,Carlos Villarreal,,true,,,,,,,V,,,,,V,,V,V,,,,V,V,V,,V,,,,,V,V,,V,V,,V,V,V,15
+69c6b51c0280b1bbdb3a1c93,Prestige Property Group LLC,SMB,pro,Lionel Glover,,true,,,,,,,,V,,,,,,V,,V,,,V,V,,,,,,,,,V,,,,,,,,6
+693b32061efcceb4712e31dc,CASAMIA VACATION RENTALS,SMB,pro,Salome Alvarez,,true,,,,,,,,,,,,V,,,,,,,,V,,V,,,,,,,V,,,,,,V,,5
+67c8bffc40e1ed4a6dae2921,Coveted Hospitality LLC,Mid-Market,pro,Enjoli Mitchell,,true,,V,V,,,,V,V,,,,,,,V,,V,,V,V,,V,,,,,,,V,,,,,,,,10
+697b77ad663b9035ac4ca67f,GoNomad Stays Inc,Mid-Market,pro,Benjamin Lockard,,true,,,,V,,,V,,,,,,,,V,,,,,,,,V,,,,V,,,,,,,,,,5
+66d8bd1954b7aad995340e36,hunter sharpe,SMB,pro,Guesty Support,,true,,V,,,,,,,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,,3
+65528466e99554ff51d45935,EL Zonte Reservation,Mid-Market,pro,Zafar Khan,,true,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,,2
+6933421d65ef28ca8e95b019,shardaAirbnb@gmail.com,SMB,pro,,,true,,V,,,,,,V,,,,,,,V,,,,,V,,,,,V,,,,,,,,,,,,5
+6a2b54f381a38ee7f65f63e7,Fountain Creek Inn,Mid-Market,pro,Bobby Hilzen,,true,,,,V,,,,,,,V,,,,V,,,,,,V,V,V,,,,V,,,,,,,,V,,8
+65c3d7b1491c631d57e0670f,Waterman Hospitality,Mid-Market,pro,Pablo Paez,,true,,,V,,,,,,,,V,,,,,,,,V,,,,,,,,,,,,,,,,,,3
+6933734365ef28ca8e95b028,LIENNA COLLECTIVE BY WC LODGING,Mid-Market,pro,Francine Boateng,,true,,V,V,V,,,V,,,,,,,V,,,,,,V,V,V,,,,,,,V,V,V,,,,,,11
+60b4ed00a32033002e44e4e2,RSB Living / Management,Mid-Market,pro,Alexandra Laframboise,,true,,,V,V,V,V,V,OFF,,V,,V,,V,V,V,V,V,,V,V,V,V,,,,V,,V,,,,,,,V,19
+6729ac9c5d71633da624b106,Lake Tekapo Accommodation,SMB,pro,Nelson Sing,,true,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+6994e65ed6216b9e5491aca0,Freshleaf Lda,SMB,pro,Daniel Sanchez,,true,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,1
+664bd585cf0b3b3eaa8ae209,KRAIN Costa Rica,Mid-Market,pro,Stacy Wesson,,true,,,,,,,,,,,,,,,V,,V,,V,V,V,,V,,V,,,V,V,,V,,,,,,10
+6750c6053ca23fef572f9de4,Ratito,SMB,pro,Tatiana Del Rosario,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,V,3
+69f3d291a36ffdd1068688f7,Boutikia LLC,SMB,pro,Carlos Noriega,,true,,,,,,,V,,,V,,V,,,V,V,,,,V,V,,,,,,,,V,,,,,,,,8
+5f5817942d83ee002da7dc15,Tasman,Mid-Market,pro,Daniela Collazo,,true,,V,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,,,,,,,2
+68d1d4e4c98fd7dbce25fa66,Daugherty Management,SME,pro,Enjoli Mitchell,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,1
+698e53ac9ac3e61b0163e77a,Sun Haven Collection,Mid-Market,pro,Francine Boateng,,true,,,,,,,,,,,,,,,V,,,,V,,,,V,,,,,,,,,,,,,,3
+6412f0c0f15801002b288926,West Indies Vacation Rentals,SME,pro,Cameron Gray,,true,,,,,,,,,,,,,,,V,,V,,,V,V,,V,,,,,,V,,,,,,,V,7
+68f7bdbc9b696177c75476db,Green Gables Beach Resort,SMB,pro,Guesty Support,,true,,V,,,,V,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,,3
+67118388fc9341e121e3db05,TAIMS Inc,Mid-Market,pro,Oscar Rodriguez,,true,,,,,,V,V,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,3
+5de7976377602c001f7e044b,Jenny Ellinas,Mid-Market,pro,Carla Scimia,,true,,V,,OFF,,,V,,,,,,,,,,,,,V,,,,,,,,,V,V,,,,,,,5
+667eee524bd396ee968c2e10,Paradise Coast Vacations LLC,Mid-Market,pro,Guesty Support,,true,V,,,V,V,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,4
+642dd0f7b7f8d900a267c529,Florida Dreams,Mid-Market,pro,Juan Viana,,true,,V,V,V,V,V,V,V,V,V,V,V,,V,V,V,V,,V,V,V,V,V,,V,V,V,V,V,,,,,,V,,26
+69cbd1e27d4a36773469e305,Residences Louis,Mid-Market,pro,Ayman Hazm,,true,,V,V,V,,V,V,V,,,V,V,,V,V,V,,,OFF,V,V,V,V,,,,,,V,,,,,,,,16
+690189bf32feafcbded99af2,Mavari Stays,SMB,pro,Guesty Support,,true,,V,,V,,,V,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,4
+67d82e8b7468c0a23a028306,Central Belfast Apartments,SME,pro,Jay Taylor,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,1
+6920aa1f51ad620fe8272ce8,Ventur Group LLC,Mid-Market,pro,Matthew Bonasera,,true,,V,,,,,,,,,,V,,,,,,,,,V,,,,,,,,,,,,,,,,3
+636a8f051ade3b003b360f99,Zuma Property Management,Mid-Market,pro,Josue Paredes,,true,,,,V,,,V,,,,,V,,,,,,,,V,V,V,,,,,,,V,,,,,,,,7
+686d6efd848cfe372d8d3424,Hostie Vacation Rentals,SME,pro,Josue Paredes,,true,,V,,V,,,V,,,,,V,,,V,,,,,V,,,V,,V,,,V,V,,,,,,,,10
+66e47b69915df9ce68b0be45,Five Star Hospitality,SME,pro,Audrey Puylaert,,false,,,,,,,,,,,,,,,OFF,,,,,,,,,,,,,,,,,,,,,,0
+69694921f24cfa0b4835f5d6,Louis Villas,Mid-Market,pro,Dana Evans,,true,,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,2
+6a4273a3d306ace08f61b618,Guest House Campinas,SMB,pro,,,true,,,,,,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,,V,,3
+67b8879940e1ed4a6dae23d2,Check In Conciergerie,Mid-Market,pro,Steven Brumwell,,true,,V,V,,,V,,,,,V,,,,V,,,,V,,V,,,,,,,,,,,,,,,,7
+6691731ff6abdb39ff57bbc6,DreamStay Vacation Rentals,Mid-Market,pro,Ana Loera,,true,V,,V,,,V,V,V,,V,V,,,,V,,V,,,,V,V,V,,,,,,,,V,,,,,,13
+632bc179f2796b003185dfc0,Gestion 1030 inc.,Mid-Market,pro,Zafar Khan,,true,,,,,,,V,,,,,V,,V,V,,,,V,V,V,V,V,,,,V,V,,,,,,,V,,12
+5ef3d1c8d3d96e002c5c8ccf,Wyo Stays,Mid-Market,pro,Oscar Nomura,,true,V,V,V,V,,,V,,,,V,V,,V,V,,V,V,V,V,V,V,V,,V,,,,V,,V,,,V,,V,21
+5acb8f33ce50c4002cb2dc16,DUNABNB,Enterprise,enterprise,Steven Brumwell,,true,,,,,,,V,,,,,,,,,,,,,,V,,V,,,,,,,,,,,,,,3
+6a32ac0cdf13a890fa85e19c,Tracey Donohue,SMB,pro,Andrew Montgomery,,true,,V,V,,V,V,,V,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,6
+69a1eaf9f879ec73b0757752,Iron Horse Property Management,Mid-Market,pro,Juan Viana,,true,,V,V,,,,,,,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,4
+691e139f71b66982c92f418d,Jamcae Limited,Mid-Market,pro,Juan Viana,,true,,V,,,,V,V,,,V,,V,,V,,,,,,V,V,V,,,,,,,V,,V,,,,,,11
+64bee42b3f036daed8133ba2,"Centennial Properties, LLC",Mid-Market,pro,Guesty Support,,true,,,V,,,,V,,,,,,,,,,,,,,V,,,,V,,,,,,,,,,,,4
+6426dac3a3b9e3003b588f7f,NXT LA JOLLA VACATION,SME,pro,Tatiana Figueroa,,true,,,,,,,,,,,,,,,,,V,,,V,,,,,V,,,,,V,,,,,,,4
+65b120e0445f7f0a56c2a4ab,Adlene DJEKIREF,SMB,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,V,V,V,,,,,,,,,,,,,,3
+697b996997c71aa6720b0e0c,Duke House,SMB,pro,Giorgia Ruocci,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,1
+681cab9c79686af4eacd5d9a,Antoine Bretagne,SME,pro,Joaquin Benitez,,true,,V,V,,,,V,V,,,,V,,V,V,,,,,,V,,V,,,,,,V,,,,,,,,10
+6782ca9357409f7f586a3059,Boulevard Stays,SME,pro,Stacy Wesson,,true,,,,,,,V,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,,2
+64c3820cb1427f038022f6e2,"INTER CORVETA - INVESTIMENTOS, LDA",Mid-Market,pro,Rafael Merchán,,false,,,,,,,,,,,,,,,OFF,,,,,,,,,,,,,,,,,,,,,,0
+6859b434101680b2a9316647,Sam's Estates LLC,SMB,pro,Guesty Support,,true,,,,,,V,V,V,,V,,,,V,V,,,,,V,V,,,,V,,,,,,V,,,,,,10
+677f9b0a57409f7f586a2ead,BEST OF BEDZ,SMB,pro,Guesty Support,,true,,V,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,3
+697d0c8c97c71aa6720b0eae,Juniper Holiday and Home,SME,pro,Pablo Paez,,true,V,,,,,,V,,,,V,V,,,V,,,,,V,V,V,,,V,,,,V,V,V,V,V,V,V,V,17
+63110313837cff0035062c85,Brentwood Property Group,Mid-Market,pro,Benjamin Lockard,,true,V,,,,,,V,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,3
+679c2c88f6fab777ee05be5c,PMI Coastal GA,Mid-Market,pro,Tove May,,true,,,,,,,V,V,,,V,,,,,,,,,,V,V,V,,,,,,V,V,V,V,V,,,,11
+6760632b8273ca1f01cfdf58,PMI Metro Lakes,Mid-Market,pro,Tove May,,true,V,V,V,V,,V,V,V,,V,V,V,,V,V,V,,V,,V,V,V,V,,V,,V,V,V,V,V,V,,,,V,26
+5bbe1ed205fbeb0039803eb3,Hom Group,SME,pro,Pablo Paez,,true,,V,V,OFF,,,V,,,,V,OFF,,V,V,,,,V,,V,V,V,,,,V,V,V,,,,,,V,,14
+5ca75ba6e2a6e700216d3ef2,Seven Living,Mid-Market,pro,Carla Scimia,,true,V,,,OFF,,V,OFF,,,V,,V,,,V,,,,,V,V,,V,,,,,,V,,,,,,,V,10
+675ae13b116364e5fd4c789d,Landluft,Mid-Market,pro,Joaquin Benitez,,true,,,,,,,V,V,,,,,,,V,,,,,V,,V,V,,,,,,V,,V,,,,,,8
+5ba205af9baa82003848b96b,Hotelyzer Agency,Enterprise,enterprise,Jay Taylor,,false,,,,,,,,,,,,,,,,,,,,,,OFF,,,,,,,,,,,,,,,0
+66043c52247091eed0a3d66c,Honey Hospitality Group,SMB,pro,Carlos Noriega,,true,V,,,,,,V,,,,,,,,V,,,,,,,,V,,,,,,,,,,,,,V,5
+6913ab1c0980931b942a0745,Rental Ready Property Mgt,SMB,pro,Carlos Noriega,,true,,V,V,,,,V,,,,V,,,V,V,V,,,,,V,,V,,,,,,V,,,,,,,,10
+63c67169bb629e00406998dd,Silverkey Management Ltd,Mid-Market,pro,Rafael Merchán,,true,,V,V,,,V,V,V,,V,V,V,,V,,V,,,V,V,V,V,,,,V,,,V,,,,,,,,16
+5ba2a73430b511003e11d482,ENVITAE Luxury Apartment Stays,SME,pro,Audrey Puylaert,,true,,,,,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+6a1ac353c1d5178828685f94,Manpeksha Hospitality LLP,SMB,pro,Katherine Ting,,true,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+68f14fa5e4f9efbe702b8d87,Matignon Homes,SMB,pro,Daniel Sanchez,,true,,,,,,,V,,,,,,,V,V,,,,,V,V,V,V,,,,,,,,,,,,,,7
+67ec021cc8b52d834dcb8dd7,Flyp Homes LTD,SME,pro,Jay Taylor,,true,V,V,,,,,V,,,,V,V,,,V,,V,,,,V,,V,,V,,,,V,,,,,,,V,12
+682b934c9bf7f8c07ec24075,HomeSuiteHome,SMB,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,V,OFF,,,,,,,,,,,,,,V,2
+6875189fb8a30a41bf53911b,Chiva Immobilien UG,SMB,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,1
+67af4c9c5b4426a330040187,EnjoyApartments,Mid-Market,pro,Mattia Peressini,,true,,,,V,,,V,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+64ad29a375ac96002da6983a,BaliSuperHost,Enterprise,enterprise,Zoe Jiang,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,1
+695dcfdb244d66a02e325ed6,Arvia Living,SMB,pro,Katherine Ting,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,1
+6392dbd3301a54004461843f,NaiBnB,Enterprise,enterprise,Zoe Jiang,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,V,,,,,,,,2
+6798010e08ad1c127b6c4a8a,Boughton Hill Partners LLC,SMB,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,1
+6a2849e70e4fbff260e57378,Somos Fonte,SMB,pro,,,true,,,,,,,V,,,,V,V,,V,V,,V,,V,V,V,V,V,,V,,,,V,,V,,,,V,,15
+663d19c406cb7b952c750922,Recreation Stays,SME,pro,Cameron Gray,,true,,,,,,,,V,,,,,,,,,,,,V,V,,,,V,V,,V,V,,,,,,,,7
+6776f8cc309e10ff8a2b79e3,Dancing Palms Vacations,Mid-Market,pro,Austen Bernhardt,,true,,,,,,,V,V,,V,,,,V,V,,,,V,V,,V,V,,,,V,V,V,,V,,,,,,13
+67198267fb727774adaece80,Lodgism,Mid-Market,pro,Diana Chalita,,true,,,V,,,,V,V,,,V,V,,,V,V,,,,V,V,,,,V,,,V,V,V,V,,,,,,14
+659d97c777440fcc52e7c5a5,Carson Jory,SMB,pro,Katherine Ting,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,1
+69c1cfd24a4da1c92d8bc58b,KeyOra Property Management LLC,SMB,pro,Tatiana Del Rosario,,true,,V,V,,,V,V,V,V,V,V,V,,,V,V,V,,V,V,V,V,V,,V,V,,,V,,V,,,,V,,22
+6a01229424db941f82ec00a2,Hosts on the Coast 2021 Ltd,Mid-Market,pro,Zoe Jiang,,true,,V,V,,V,V,V,V,V,V,V,V,,V,V,V,V,,V,V,V,V,V,,V,V,V,V,V,,,,,,V,,25
+689eef8705a59cdc4ff3032a,Gough Groves,SMB,pro,Ander Vicente,,true,,,,,,,,,,,,,,,V,,V,,,V,,,,,,,,,,,V,,,,,,4
+656e7731431434b7f615ce1e,Comprende Short Stays,Mid-Market,pro,Rebecca Virgin,,true,V,,,,,V,V,V,,,,V,,V,V,,,,V,V,,V,V,,,,,,,,,,,,,V,12
+695474ec3b2d1f36d1b33d6a,Avaya Collective Ltd,SMB,pro,Salome Alvarez,,true,,,,,,,,,,,,,,,,,,,,V,,V,,,,,,,V,,,,,,,,3
+6a3bb358ed54d9abdbeacf23,KOVA,Mid-Market,pro,,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,1
+67f0090d48a9aa094fae1a63,Villa Coral LLC,SMB,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,2
+68bece295ae37cf73089f962,Zach Soder,SMB,pro,Tatiana Del Rosario,,true,,V,,,,,,,,,,,,,,,,,,,V,V,V,,V,,,,,,,,,,,,5
+67b793cf40e1ed4a6dae237e,South Padre Island Trips,Mid-Market,pro,Stacy Wesson,,true,V,V,V,V,,V,V,,,,V,,,,V,,V,V,,V,V,,,,V,,,,V,V,,,,,,V,16
+69e5f116217d05d0a62085fa,Alpha Apartments,SMB,pro,Giorgia Ruocci,,true,,,,,,,,,,,,V,,,,,,,,,,,,,,,,,,,,,,,,,1
+691b25d6480d366aee7b7861,Wanderlust,SMB,pro,Guesty Support,,true,,,,,,,,,,,,,,V,V,,,,,V,,,,,,,,,,,,,,,,,3
+69d0cf5ac1b1f5b42ebc9d61,Gesturis Srls Unipersonale,Mid-Market,pro,Carla Scimia,,true,V,,,,,,,,,,,V,,,V,,,V,,,V,V,V,,V,,,V,V,,V,,,,,V,12
+6698dec23c74563e37af511d,Mr. Max,Mid-Market,pro,Carla Scimia,,true,,V,V,,,,V,V,,V,V,V,,,V,,V,,,V,V,V,V,,V,,,V,V,,,,,,,,16
+69d5df72c1b1f5b42ebc9f01,Muniz Developments,SMB,pro,Tatiana Del Rosario,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,1
+61e5a8ef1c27d70032074d6b,Watts Investments Group LLC,SMB,pro,Tatiana Del Rosario,,true,,,,,,,,,,,,,,,V,,,,,V,V,V,V,,,,,,V,,,,,,,,6
+67900414787db2b6cc3a659b,On the Coast Property Group,Mid-Market,pro,Dana Evans,,true,,,,,,V,,,,V,,V,,,,,V,,,V,V,,V,,V,,,V,V,,V,,,,,,11
+67298c1b5d71633da624b0ff,Startrise Management Pty Ltd,SMB,pro,Katherine Ting,,true,,,,,,,V,,,V,,,,,,,,,,,V,,,,,,,,V,,,,,,,,4
+646659042e017800416eded3,"Blue Sky Village, LLC",Mid-Market,pro,Diana Chalita,,true,,,,,,,,,,,V,,,,V,,,,,,V,V,,,,,,,V,V,V,,,,V,,8
+68f95ca432feafcbded99877,Namastay Homes,Mid-Market,pro,Tatiana Del Rosario,,true,,,,,,,,,,,,,,,V,,,,,,V,,,,,,,,,,,,,,,,2
+6a1db72186401eca4b85b44a,Simply Rented Vacation Rentals,SMB,pro,Austen Bernhardt,,true,,V,V,,,V,V,V,,,V,V,,V,V,V,,,,V,V,V,V,,V,,,V,V,V,V,,,,V,,20
+693727b9069ffc2dc343f2f8,Archie Tino,SMB,pro,Tatiana Del Rosario,,true,,,V,,V,V,V,V,,,V,V,,V,V,V,V,,V,V,V,V,V,,V,,V,V,V,,,,,,,,20
+69a4a0d3f879ec73b0757828,130 E Mars LLC,Mid-Market,pro,Lionel Glover,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,1
+6875a5826376a7987b6c17e4,Costa Rica Personal Travel Host,SMB,pro,Lionel Glover,,true,,V,V,,,,,V,,V,V,,,,,,V,,V,,V,,V,,,,,,,V,V,,,,,,11
+6a0b0bebc265e5cfb4dc570c,Grégoire Tombez,SMB,pro,Ander Vicente,,true,,V,,,,,,,,,,,,,,,,,,,V,,,,,,,V,V,,,,,,,,4
+66fc5dfaf36f17e56f3fe426,PMI Breck,Mid-Market,pro,Tove May,,true,V,V,,OFF,,,V,V,,,V,,,V,V,V,,V,,V,V,V,V,,V,,,,V,,V,V,V,,V,V,20
+69004cbb9b696177c754794e,Nestify Spaces,SMB,pro,Salome Alvarez,,true,,V,V,,,,V,,,V,,,,V,V,,V,,,,V,V,V,,V,,,,V,,,,,,,,12
+680c794540918f71a47ae51a,Erik Erik,SMB,pro,,,true,,V,V,,,,,V,,,V,,,,V,V,V,,,V,V,,,,V,,,V,V,,,,,,V,,13
+69daa95c924d4c5b4bb34ba5,Mcvap Enterprises,SMB,pro,Zafar Khan,,true,,,,,,,,V,,,,,,,,,,,V,,V,V,,,V,,,,,,,,,,,,5
+658ef13aaaf99c73358a4c81,ONBA,Mid-Market,pro,Guesty Support,,true,,,,,,,,V,,V,,,,,,,,,,V,,,V,,,,,,V,,,,,,,,5
+685063809bf7f8c07ec24d1c,VacaFlorida,SMB,pro,Guesty Support,,true,,V,V,,,,,V,,,,V,,,,,,,,,V,V,V,,V,,,,,,V,,,,,,9
+6553d2a0fea88af7c62d1e43,Nanny Enterprise Ventures LLC,Mid-Market,pro,Oscar Nomura,,true,,,V,,,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2
+6667ea4d1269c78e4944aa66,Visity,SMB,pro,Oscar Rodriguez,,true,,,,,,,,,,,,,,,,,,,,,,,,,V,,,V,V,V,V,,,,V,,6
+694012cfb144f2e7b105ce0b,BNBHOST,SMB,pro,Daniel Sanchez,,true,,,,,,,V,V,,,,,,V,V,,,,V,,V,V,,,,,,,,,,,,,,,7
+674cb2f54205b64ae791db3b,Steve Og,SMB,pro,Guesty Support,,true,,,,,,,V,,,,,V,,,V,,,,,V,V,V,V,,,,,,,,,,,,,,7
+672ab07dbe4aa729794a5934,Lumina,SMB,pro,Guesty Support,,true,,V,V,,,,,,,,V,V,,V,V,V,V,,V,V,V,V,,,,,V,V,V,,,,,,V,,16
+66ce5775c9aac61893c9cce7,Casa Collective,SMB,pro,,,true,,,,,,,,V,,,,,,,,,,,,,,,V,,V,,,,V,,,,,,,,4
+698e27d51d2e729c9e19e0c7,Abode Park City,SME,pro,Guesty Support,,true,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,V,,,V,4
+632637ab3a7e830038dcfb29,StayClassy Corporate Housing,SME,pro,Tatiana Figueroa,,true,,,,,,V,V,V,,V,,,,V,V,,,,,V,V,V,,,,,,,V,,V,,,,,,11
+688455aea14c863e5df127e5,Incredible Mountain Cabins,SMB,pro,Oscar Rodriguez,,true,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,V,V,,,,,,3
+6940190f9b35d6a585f9f0d2,Airlocando,SMB,pro,,,true,V,V,,,V,V,V,OFF,,V,OFF,V,,OFF,V,OFF,V,OFF,V,V,V,OFF,V,,V,,OFF,V,V,V,V,V,V,V,OFF,V,22
+6995e134d6216b9e5491ace8,Square Real Estate,Mid-Market,pro,Tatiana Figueroa,,true,,V,V,,V,V,V,V,,V,,,,V,,,V,,,V,V,OFF,,,,,,,V,,,,,,,,12
+685b428e885fd44934acb1bb,BPM Services Ltd,SMB,pro,Nelson Sing,,true,,V,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,,2
+69f173bc57be543e152bbc74,Big Bear Alpine Rentals & MGMT LLC,SMB,pro,Lionel Glover,,true,,,,,,,,,,,,,,,V,,,,,,,,V,,V,,,V,V,,,,,,,,5
+68b0731c2302dce34a4ade4d,Pathway Travel,SMB,pro,Zafar Khan,,true,,,,,,,,,,,,,,,V,,,,,V,,,,,,,,,,,,,,,,,2
+6797be057f87dd47600c75d3,Haugesund Apartments,SMB,pro,Giorgia Ruocci,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,1
+68f33b709b696177c75475a8,Loch Tay Cottages,SMB,pro,Dana Evans,,true,,,,,,,,,,,,,,,,,,,,,V,V,V,,V,,,,V,,,,,,,,5
+689284118fa2976c485f69dd,Eileen,SMB,pro,Lionel Glover,,true,,,,,,,V,,,,,,,,V,,,,,V,V,,V,,,,,V,V,,,,,,,,7
+674032ec54b397d19ec2726e,Friday Retreats Ltd,Mid-Market,pro,Steven Brumwell,,true,,V,,,,,OFF,V,OFF,V,,V,,,,V,V,,,V,V,V,V,,V,,,V,V,V,V,,,,V,,16
+6908b50032feafcbded99ccb,Kanaloa Realty,SMB,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,1
+655559fbfea88af7c62d1e45,Gestion ProHost,Mid-Market,pro,Audrey Puylaert,,true,,,,,,,V,,,,,,,,V,,,,,V,V,,,,,,,,,,,,,,,,4
+6400bb01e84463003d11174d,Wonder Vacation Homes,SME,pro,Tatiana Figueroa,,true,,,,,,,V,,,,V,V,,,V,,,,,,V,V,V,,V,,OFF,,,,,,,,,,8
+69cf13d4888d4187f93c617a,"Best Views Cabin Rentals, DBA Mountain Comfort Cabin Rentals",Mid-Market,pro,Josue Paredes,,true,,,,,,V,,,,V,,,,,,,,,V,V,V,,,,,,,,,,,,,,,,5
+63041fb22063cc003271039b,Pedro Ferraro,Mid-Market,pro,Tatiana Del Rosario,,true,,,V,,,,OFF,,,,,,,V,,,,,,V,V,OFF,V,,,,,,,,,,,,,,5
+65b58073c27c3ff03ab7f744,Five Star Realty,Mid-Market,pro,Tove May,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,1
+67e56eddc8b52d834dcb8c20,Arezzini Worldwide,Mid-Market,pro,Francine Boateng,,true,,,V,,,,,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,,,3
+69bb677546a4a24644e6b43e,Xvantage,Enterprise,enterprise,,,true,,V,,,,,V,,,V,,,,,V,,,,,V,V,,V,,,,,,,V,V,,,,,,9
+64f5df1004894d9a11346302,Island Abodes,Mid-Market,pro,Guesty Support,,true,,,,,,,,V,,,,,,V,,,,,,V,,V,,,,,,,V,,,,,,,,5
+6893952b8fa2976c485f6a35,Full Circle Property,SMB,pro,Guesty Support,,true,V,,,OFF,,,V,,,,V,V,,,V,V,,,V,V,V,V,V,V,V,,,V,V,,,,,V,V,V,18
+67bc7b6e611958916c05dff2,Immobili e Soluzioni Rent,Mid-Market,pro,Mattia Peressini,,true,,,V,V,,,,,,,,,,,,,,,,,V,,,,V,,,,,,,,,,,,4
+6929f0e3e31a363ae329dee0,The California Building,SME,pro,Michelle Kim,,true,,V,V,V,,V,V,V,,V,V,V,,V,V,V,V,,,V,V,V,V,,V,,,V,V,V,V,,,,,,22
+610b6db56cbf47002d085b50,Renjoy,Enterprise,pro,Michelle Kim,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,V,V,,,,,,,,3
+683f13af1c5e688f1cc7ce5a,Chalet St Moritz,SMB,pro,Ander Vicente,,true,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,,2
+68f97a2f80fe9feeb7b57f9d,Ky Home Solution,Mid-Market,pro,Ana Loera,,true,,V,V,,,,V,V,,,,,,V,V,,,,V,V,V,,,,V,,,,V,V,V,,,,,,13
+6358704efe5f8f0068bd9416,Breckenridge Family Vacations,SMB,pro,Guesty Support,,true,,,,,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+67c38d1d40e1ed4a6dae279c,Martin Residences,SMB,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,1
+68c190d74544c7fe83880b59,Lakefront Luxury,SME,pro,Ram Cheriyath,,true,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,V,,,,,V,,V,5
+69c4fea7b700542380959555,Medzure Suites,SMB,pro,Giorgia Ruocci,,true,,V,V,,,,V,V,,,,V,,,V,,,,V,V,,,,,,,,,,,,,,,,,8
+692a5cd865ef28ca8e95ae02,The Good Life Sosua,Mid-Market,pro,Josue Paredes,,true,,,,,,,,V,,,,,,,,,,,,,V,V,V,,,,,,V,,,,,,,,5
+6a393ca9c49e2ac0d41438f0,Delfhy,Mid-Market,pro,,,true,,,,,,,,,,,V,,,,,,,,,,V,,,,,,,,,,,,,,,,2
+606a2f40cc944d002f6721e7,Jodie  Kenney,Mid-Market,pro,Oscar Nomura,,true,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,,,V,,,,,,3
+6793fa51d9deecc47f5fde52,PMI Annapolis,Mid-Market,pro,Tove May,,true,,V,OFF,V,,,V,V,,V,,V,,,V,,,,,V,V,V,V,,,,,,V,V,V,,,,,V,15
+69efc315e453daafc4d64955,Housmigo Rentals LLC,SMB,pro,Ramiro Peña,,true,,V,V,,V,V,V,V,V,V,V,V,,V,V,V,V,,V,V,V,V,V,,V,,V,V,V,,,,,,V,,24
+69c699713347f19f4415d389,Hey Miami LLC,Mid-Market,pro,Josue Paredes,,true,,,,,,,,,,,,,,,V,,,,,V,V,V,,,,,,V,,,,,,,,,5
+685ad207885fd44934acb17a,Evangelos Marinis,SMB,pro,Michael Maloney,,true,,V,,,V,V,V,V,,,,V,,,V,,,,,,V,,V,,,,,,,,,,,,,,9
+691f84af51ad620fe8272ca2,Soundview Partners LLC,SMB,pro,Ambar Jenrette,,true,,,,,,V,,,,,,,,,,,,,,,V,,,,,,,V,,,,,,,,,3
+6a19b618c4736773cfd8ed46,A&E PROPERTIES HUB LIMITED,SMB,pro,Ander Vicente,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,1
+5c0aa51ebe209b03c43294d1,SKYHOMES,Mid-Market,pro,Joaquin Benitez,,true,,,V,,,,V,V,,,V,V,,V,V,,V,,V,V,V,V,V,,,,,,,,,,,,,,13
+6981c248c43dd1a712877d60,OpaleKeys,SME,pro,Ayman Hazm,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,1
+697df50dc43dd1a712877d2f,We property investments (Pty) Ltd,SMB,pro,Daniel Sanchez,,true,,V,V,,,,V,V,,,V,V,,V,V,V,V,,,V,V,V,V,,V,,,,V,,,,,,,,16
+602fb3fdb54a52002fe0341c,Traveller' Escapade ( Stay Leisurely ),Mid-Market,pro,,,true,,V,,,,,,,,,,,,,,,,,,,V,V,V,,,,,,,,,,,,,,4
+679cb9118813d085915a6c14,53 Degrees Property Ltd,Mid-Market,pro,Jay Taylor,,true,,,,,,,,,,,,,,,V,,,,,V,V,,,,,,,,,,V,,,,,,4
+68ffe2839b696177c7547928,Tyler J Thompson,SMB,pro,Guesty Support,,true,V,V,,,,,,,,,,,,,,,,,,,V,V,,,,,,V,,,,,,,,V,6
+67e1288cca7c39bad0050470,Matthew Baker,SMB,pro,Daniel Sanchez,,true,,V,,,V,,V,,,,,,,,V,,,,,V,V,V,,,,,,,,,,,,,,,7
+69f399e1a36ffdd1068688cc,Blue Puffin Stays LTD,Mid-Market,pro,Rafael Merchán,,true,V,V,V,,,,V,V,,,V,,,,V,,,V,,V,V,,,,V,,,,V,,V,,V,,,V,15
+6839471f1c5e688f1cc7cc40,Emilio Garlot,SMB,pro,Guesty Support,,true,,,,,,,,V,,,,V,,V,OFF,,,,,V,,V,,,,,,,,,,,,,,,5
+693497f565ef28ca8e95b053,BROUGHAM IMMOBILIER,Mid-Market,pro,Steven Brumwell,,true,,V,V,,V,V,,,,V,,V,,V,V,,,,,,V,V,V,,,,,,,,V,,,,,,12
+626902eb92ca6b0031a33088,Alexey Penkrat,Mid-Market,pro,Rafael Merchán,,true,,,,,,,V,,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,V,4
+68ebe6bc9b696177c75473a5,Vacation Rental Connect,SMB,pro,Ramiro Peña,,true,,V,V,,,,,,,,,,,,V,,,,,,V,,,,,,,,V,,V,,,,,,6
+692629310cb25a3efd78109f,Living Gen,SMB,pro,Ramiro Peña,,true,,,,,,V,V,,,,,,,,,,,,,,V,,V,,,,,,,,,,,,,,4
+688bf6aba14c863e5df129f2,My Royal Estates,SMB,pro,Zafar Khan,,true,,,,,,,,V,,,,V,,V,V,,,,,V,V,,,,,,,,,,,,,,,,6
+69f3a46fe330761c405c9484,LuxBay LLC,Mid-Market,pro,Carlos Villarreal,,true,,,,,,,,,,,,,,,,,,,,,V,V,V,,,,,,,,,,,,,,3
+653223b9f7301b58c8286ae9,Cloud Stays Management,SME,pro,Sharine Duran,,true,V,,,,,V,,,,V,,,,,,,,V,V,V,V,V,,,,,V,V,V,V,,V,V,,,V,15
+684b8a909bf7f8c07ec24be2,Innogreen,SMB,pro,Nelson Sing,,true,,V,V,,V,V,V,V,,,V,V,,V,V,V,V,,V,V,V,V,V,,V,,,V,V,,,,,,,,20
+678863dc1e8afb8c9a78bfaf,Palm Vista Vacations,SMB,pro,Guesty Support,,true,,,,,,,,V,,,,,,,,,,,,,V,,,,,,,,V,,,,,,,,3
+6281dd553f98320036a4fae3,Air Design Australia,Mid-Market,pro,Zoe Jiang,,true,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+6a0e1087c0da7845a8d92f3a,Launceston Short Stays,SMB,pro,Nelson Sing,,true,,,,,,,V,,,,,,,,,,,,,V,,,,,,,,,,,V,,,,,,3
+6a0f5d79cf6d5eb7292b1597,Scottdale Industries,Mid-Market,pro,Alexandra Laframboise,,true,,,V,,,,V,,,V,,V,,V,,V,,,,V,V,,,,,,,,,,,,,,,,8
+5de841796f0d08001f52f7a6,Allen Lu,SME,pro,Stacy Wesson,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,1
+66c374761307cb14807cb46d,STR MGMT LLC,Mid-Market,pro,Ram Cheriyath,,true,,V,V,,,,V,,,V,,,,,,,,,,V,V,V,,,,,,,V,V,V,,,,,,10
+62b07c76388a1e0033bda419,Brighton Holiday Lets - part of Holiday Home Owners,Mid-Market,pro,Jay Taylor,,true,,,,,,,V,,,,V,,,V,V,,,,,,V,,,,,,,,,,,,,,,,5
+68b0bf66c3307ffd38a1c31f,"Fitzgerald Enterprises, LLC",SMB,pro,Guesty Support,,true,,V,,,,,,,,V,,,,V,,,,,,,,,V,,,,,V,,,,,,,,,5
+5e335fbbc9fafe0027ab5f38,JL Property Management,Mid-Market,pro,Zoe Jiang,,true,,V,V,,V,V,V,V,V,V,V,V,,V,V,V,V,,V,V,V,V,V,,V,,,,V,,V,,,,,,22
+60b5f3c1450395002dc9af78,Bell Cross Roberton Limited trading as BCR Stays,SME,pro,Sharine Duran,,true,,V,V,,,,,,,,,,,,V,,,,,V,V,,V,,V,,V,,,,,,,,,,8
+699791b10e798385617b4dd9,"Hostwell, Inc.",Mid-Market,pro,Enjoli Mitchell,,true,,,,,,,V,V,,,,,,V,V,,,,,,V,,V,,V,,V,,V,,V,,,,,,10
+698502569d285d8db3480102,Super Host Vacation,SMB,pro,Ambar Jenrette,,true,,V,V,,,,V,V,,,,,,,V,,,,,,V,,,,,,,,V,V,,,,,,,8
+690291979b696177c7547a06,Rushmore Vacation Rentals,Mid-Market,pro,Ana Loera,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,1
+69a9b8360dbc5df3b7df4f5b,Driem House LLC,SMB,pro,Oscar Rodriguez,,true,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+61dea985fe421d00349f8a95,Christian Martin,Mid-Market,pro,Melodie Landemard,,true,,V,V,,,V,V,V,,,V,V,,V,V,V,V,,V,V,V,V,V,,V,,V,V,V,,,,,,V,,21
+693ad7571efcceb4712e31bc,Homebelike Inc,Mid-Market,pro,Pablo Paez,,true,V,,,,,,,,,,,,,,,,,,,,V,V,V,,,,,,,,,,,,,V,5
+62bdef86e369f30032e67b2d,Mi casa es tu casa,Mid-Market,pro,Daniela Collazo,,true,,,,,,,,,,,,V,,,V,,,,,,,,,,,,,,,,,,,,,,2
+62bf1090d7cb9d003263876e,KOHCOON Hospitality | Igor & Judith,Mid-Market,pro,Ambar Jenrette,,true,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,,2
+698d49f851a9bb2e04405e64,Ombiance,SMB,pro,Zafar Khan,,true,,V,,,,,V,V,,V,V,,,,V,,,,,,V,V,V,,V,,,V,,V,V,,,,V,,14
+689513738fa2976c485f6ac4,LiivUP NOLA,Mid-Market,pro,Matthew Bonasera,,true,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,1
+621d124f705da4003313b2e4,BPM Reservations Team,SME,pro,Pablo Paez,,true,,,,,,,V,,,,,,,V,V,,,,V,V,V,V,,,,,,,V,,,,,,,,8
+68c99f2a467ac68da2e58296,Sea Coast Rentals,SME,pro,Tatiana Figueroa,,true,V,V,V,,,V,V,V,,V,V,V,,V,,V,V,,V,V,V,V,V,,V,,V,V,V,,V,,V,V,V,V,26
+6542c4e210675435b7246225,Bungalow Solutions LLC,SME,pro,Juan Viana,,true,V,V,V,OFF,,OFF,V,OFF,,,,OFF,,V,V,,V,V,,OFF,V,V,V,,OFF,,,,V,V,V,,,,,V,15
+63d7edf439e935004cc1d253,Stars Vacation Homes,SME,pro,Ana Loera,,true,V,V,V,V,,V,V,V,V,V,V,V,,V,V,V,V,V,V,V,V,V,V,,V,,,V,V,V,V,V,V,V,V,V,31
+64ac922ea7f3b8002b6e4dee,Meadow,SME,pro,Francine Boateng,,true,,V,V,,,,V,V,,,V,V,,,V,,V,,V,V,V,,V,,V,,,V,V,V,V,,,,,,17
+63fffb6fa30ebe003f326fe5,Bilyk Investment Group,Mid-Market,pro,Stacy Wesson,,true,V,V,V,,V,V,V,V,V,V,V,V,,V,V,V,V,V,V,V,V,V,V,,V,,V,V,V,V,V,V,V,V,,V,31
+6839ee1aca0d576ff1aa1dfc,SeaLaVie SXM,Mid-Market,pro,Ambar Jenrette,,true,,V,V,,,,,V,,,,V,,V,V,,,,V,V,V,V,,,V,,,,V,V,V,,,,,,14
+5e3211b7d7fe8e0027bb7999,George McGourty,SMB,pro,Guesty Support,,true,,V,,,,,,,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,2
+6941d776b144f2e7b105ceb9,Rockport Escapes,SME,pro,Pablo Paez,,true,,V,V,,V,V,V,V,V,V,V,V,,V,V,V,V,,V,V,V,V,V,,V,,,V,V,V,V,,,,V,,25
+6a0b6cffda857f0731aaf0b4,Royare Properties,SMB,pro,Isaac Torres,,true,,,,,,V,V,,,V,,,,,,,V,,,,V,V,V,,,,,V,V,,,,,,V,,10
+6863fd4db12c774daba2509e,Cabo Home Collection LLC,SMB,pro,Oscar Rodriguez,,true,,V,V,,,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+67a891da5e080b23fd369570,Majestic Home Rentals,SMB,pro,Guesty Support,,true,,V,,,,,V,,,,,V,,,,,,,,,V,V,V,,,,,,,,,,,,,,6
+5a9ad4fb8e97b0001f744f45,Kyle Laughlin,Mid-Market,pro,Dana Evans,,true,,,,,,,V,,,,,,,V,,V,,,,V,V,V,V,,,,,,,,,,,,,,7
+69f216e2e330761c405c93e6,Tailwind STR,Mid-Market,pro,Carlos Villarreal,,true,,,,,,,,,,,,,,,,,,,,,V,,V,,,,,,,,,,,,,,2
+577d4cc470142b0e00159aff,Bnbhost,Mid-Market,pro,Francesca Pastore,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,OFF,,0
+692f629cc434558f4b258556,Benner Equity LLC,Mid-Market,pro,Juan Viana,,true,,V,,,,V,,V,,,,V,,,V,,V,,V,V,V,,,,V,,,V,V,,,,,,,,12
+693b27a934d7876681c093a9,Bear Lake Cozy Cabins,Mid-Market,pro,Ambar Jenrette,,true,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,V,,,,,,,,2
+67ea9c7cc8b52d834dcb8d5f,Host My Home,SMB,pro,Dana Evans,,true,,,,,,,,,,,,V,,,V,,V,,V,,V,V,V,,V,,,,V,,,,,,,,9
+66b0d6d018386d5cc48db7eb,Heimby,Mid-Market,pro,Jay Taylor,,true,,,,,,,,,,,,,,,V,,,,,V,V,,,,,,,,,,,,,,,,3
+67ade2235e080b23fd369709,HUBBO,SMB,pro,Guesty Support,,true,,,,,,,,,,,,,,,V,,,,,V,V,V,V,,,,,,V,,,,,,,,6
+669002aef6abdb39ff57bb72,FPT Marketing 2003 LLC,Mid-Market,pro,Diana Chalita,,true,,,,,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+62949e54f4ab0f00338fbb13,Frankie Says,SME,pro,Jay Taylor,,true,V,,V,,V,V,,,,V,V,,,V,,,V,V,V,V,V,V,V,,,,,,,,,,V,,,V,16
+69ee3e87b01f4fe47cf40399,The Volare Homes,SMB,pro,Oscar Rodriguez,,true,,,V,,,,,V,,,,,,,,,,,,,V,V,,,V,,,,,,V,,,,,,6
+692d703665ef28ca8e95ae9e,Alpine Luxury Stays,SMB,pro,Daniel Sanchez,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,1
+64e7b3b62b22ad668d6f76d8,Costa Atlantica,Mid-Market,pro,Diana Chalita,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,1
+697ccb95663b9035ac4ca71a,MACONCIERGERIE,Mid-Market,pro,Steven Brumwell,,true,,V,V,,V,V,,V,,V,,,,,,,V,,,V,V,,V,,V,,,,,,,,,,,,11
+6808f24fabdb4436528138c4,Crescendo Property Management,Mid-Market,pro,Enjoli Mitchell,,true,,,,,,,V,V,,,,,,,V,,,,,,V,,,,V,,,V,V,,V,,,,,,8
+69d5686134aa7f1395349c5d,Heavenly Vacations by Casago,Enterprise,pro,,,true,,,,,,,V,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2
+6915f6045cd28d883ce2b561,Florida Homes Property Management LLC,SMB,pro,Salome Alvarez,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,V,,,,,2
+61685fadbdae0000381cff07,AppartAli,Mid-Market,pro,Ayman Hazm,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,V,,,,,,,,2
+661cca0abb6a043a0f80dddc,GregIMMO,SMB,pro,Ander Vicente,,true,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,V,,,,,,,,2
+6a02076224db941f82ec011c,AM TO PM RENTALS,SMB,pro,Ander Vicente,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,1
+64c185efb33ddacb5b0deff8,"ReHive Stays, LLC",Mid-Market,pro,Enjoli Mitchell,,true,,,,,,,,,,,V,,,,V,V,V,,V,,,,,,,,,V,V,,,,,,V,,8
+66d740a1580ac4aef92cd393,Boutique Mexico Villas,SMB,pro,Guesty Support,,true,,,V,,,,V,,,,V,,,V,V,,,,,,,V,V,,,,,,,,,,,,,V,8
+64908860b7fd2a002ceaa505,Arivia Villas,SMB,pro,,,true,,,OFF,V,,,OFF,,,,,OFF,,OFF,V,OFF,,,,,OFF,OFF,,,OFF,,,OFF,,,,,,,,,2
+688e225aa14c863e5df12aa0,Stay On The Gulf Coast,Mid-Market,pro,Cameron Gray,,true,,V,V,V,,V,V,V,V,V,V,,,V,V,V,,,V,V,V,V,V,,V,,,V,V,,V,,,,V,,22
+67ae74915b4426a330040146,Tropical Hospitality,Mid-Market,pro,Francine Boateng,,true,,,,,,,,,,V,,,,V,,,V,,,V,V,,,,,,,,,,,,,,,,5
+676dc516892a35ba99f8c80d,Stay Here,Mid-Market,pro,Ram Cheriyath,,true,,V,V,,,,V,V,,V,,,,V,V,V,V,,,V,V,V,V,,V,,V,,V,V,V,,,,,,18
+6960bd6c08ed3a031e8a0aa8,Property Partners,Mid-Market,pro,Joaquin Benitez,,true,,,,,,,OFF,,,,,,,,,,V,,V,,V,,,,,,,,,,,,,,,,3
+692c18ec51ad620fe8272fc8,Peter Jen,SMB,pro,Daniel Sanchez,,true,,V,V,V,V,V,,,,V,,,,V,,,V,,,,V,V,,,,,,,V,V,V,,,,,,13
+5dcc2ff3dbd151001f0193a5,Josh Isaac,Mid-Market,pro,Rafael Merchán,,true,,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,2
+69777a96ea85becc03a16777,My London Hop,SMB,pro,Giorgia Ruocci,,true,,,,,,,,,,,,V,,,,V,,,,,,,V,,,,,,,,,,,,,,3
+597212412663471000e369d3,Wehost,SME,pro,Jay Taylor,,true,V,,,,,,,,,,,,,,,,,,,,V,,V,,,,,,,,,,,,,V,4
+6938c7cf187fa8a67535b7f1,CDA Vacation Rentals,Mid-Market,pro,Ana Loera,,true,,V,V,V,,,V,V,V,V,V,V,,V,V,V,V,,V,V,V,V,V,,V,,,V,V,V,V,,,,V,,24
+698f33189ac3e61b0163e7be,Luxury Explorers Vacation Homes Rental LLC.,SMB,pro,Ander Vicente,,true,,V,,V,,,,,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,4
+68b9265d8478fbf609aac912,RentPlanet,Enterprise,enterprise,Steven Brumwell,,true,,V,,V,,,OFF,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2
+6074c27c183771002f866292,The Heim,Mid-Market,pro,Jay Taylor,,true,V,V,,,,,V,V,,,,,,,V,,V,,,,V,V,,,V,V,,,,,V,V,V,,,V,14
+69cfe618c1b1f5b42ebc9d17,Top Living Apartments Srl,Mid-Market,pro,Carla Scimia,,true,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,,1
+689d6d918fa2976c485f6d7f,Noosa Holiday Gems,Mid-Market,pro,Rebecca Virgin,,true,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,1
+65c753ef2ffb9595c28f272b,Tropical Stays Cairns,SME,pro,Sharine Duran,,true,,,,OFF,,,V,,,V,,V,,V,,,V,,V,V,V,OFF,V,,,,,,V,,,,,,,,10
+66c2bf6f3115bbdac808a289,Banyan Living,SME,pro,Sharine Duran,,true,V,V,V,V,,V,,V,,,V,,,V,,V,V,V,,V,V,V,,,V,V,,V,V,,V,V,V,V,,V,23
+60f6b27fde6465002d1eae2b,Tripas Coração,Mid-Market,pro,Rafael Merchán,,true,,,V,,,,V,,,V,,,,V,V,,,V,,V,V,V,V,,,,,,V,,,,,,,V,12
+5f0e46b91894fb002c508b79,Rent Mission Beach,Mid-Market,pro,Matthew Bonasera,,true,,V,V,V,V,V,V,V,V,V,V,V,,V,V,V,V,,V,V,V,V,V,,,,V,V,V,,,,,,V,,24
+67191fb7217e6427c3ae8d61,Jay,SMB,pro,Courtney Trow,,true,,,,V,,,V,,,,,,,,,,,,,,V,V,V,,,,V,,V,V,,,,,,,8
+6a328d3d7028915b39d3ac0e,Waleed Alajmi Rentals,SMB,pro,Guesty Support,,true,,,V,V,,,V,V,,,,V,,V,,V,,,V,,V,V,V,,,,,,V,,V,,,,,,13
+68f88b9c32feafcbded99826,Airhomey,SMB,pro,Zoe Jiang,,true,,,,,,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+691d1c4f480d366aee7b7923,Midway Vacations,SME,pro,Daniela Collazo,,true,OFF,,OFF,OFF,,,OFF,OFF,,,OFF,,,V,OFF,,,,,V,V,V,V,,,,,,V,V,OFF,,,,,V,8
+642c5bf658223300356b9164,Life Home GmbH,SMB,pro,Giorgia Ruocci,,true,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,1
+63ecdfb9e2e88c002d5debf1,Nook and Key Escapes Limited,Mid-Market,pro,Joaquin Benitez,,true,,,,,,,V,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,2
+5d550d35c17422001f7b665d,Ryan - Eniko - Bnb Edge,SMB,pro,Katherine Ting,,true,,,,,,,,,,,,,,V,,,,,,V,V,V,,,,,,,,,,,,,,,4
+68a91b44c3307ffd38a1c0de,Prince Vaction Homes,SMB,pro,Austen Bernhardt,,true,,,,V,,,V,OFF,,,,V,,,,,,,,V,V,V,,,,,,,,,,,,,,,6
+65d606fbb17da951fa0944bc,The Konciergerie,Mid-Market,pro,Steven Brumwell,,true,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,1
+698361e2acc41a2405089f6d,Iberis Apartments s.r.o.,SMB,pro,Daniel Sanchez,,true,,,,,,,,,,,,,,,,V,,,,,,,V,,,,,,,,,,,,,,2
+68ae49d7c3307ffd38a1c25c,Penthouse 9 Corporation,Mid-Market,pro,Benjamin Lockard,,true,V,V,V,V,V,V,V,V,,V,V,V,,V,V,V,V,V,V,V,V,V,V,,V,V,V,V,V,V,V,V,V,,,V,31
+698db28a2545aee1ddea0409,Ghost Rentals,SMB,pro,Austen Bernhardt,,true,,,,V,V,,,,,,,,,,V,,V,,,,,,,,,,,,,,,,,,,,4
+69c5df3a3347f19f4415d352,Havainix Management company,Mid-Market,pro,Zoe Jiang,,true,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,,2
+67fb862b56bac59fb2d49f67,Anthony CAMPANA,SMB,pro,Ander Vicente,,true,,V,V,,,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+65984085524525382ba404b5,Smoky Mountain Vacation Cabins,SME,pro,Benjamin Lockard,,true,,,,,,,V,V,,V,,V,,,V,,,,,,V,V,,,,,,,,,,,,,,,7
+697c0eb5663b9035ac4ca6d9,SherStay,SMB,pro,Ramiro Peña,,true,,,V,,,,V,,,,,,,,V,,,,,,,,,,,,,,V,,,,,,V,,5
+6566138da6aaa15054eb403a,Aval Property Experience LLC,SMB,pro,Oscar Rodriguez,,true,V,V,,OFF,,V,V,V,,,,,,V,,V,,V,,V,V,V,V,,V,,,V,V,V,V,,,,OFF,,17
+687ed23da14c863e5df12659,Girraween Country Inn,SMB,pro,Nelson Sing,,true,,V,V,V,,,V,V,,,,,,,V,,,,,,V,V,V,,,,,,,,,,,,,,9
+5f1eed10be0e02002c1c0338,Yeti Home Services LLC,Mid-Market,pro,Zafar Khan,,true,,,,OFF,,,,OFF,,,,,,,V,,,,,V,V,V,OFF,,,,,,V,V,,,,,,,6
+689211fd8fa2976c485f69a0,"406 Capital Properties, LLC",SMB,pro,Guesty Support,,true,,V,,,,,,V,,,V,,,,,,V,,,,,V,,,,,,,,V,,,,,V,,7
+6859f2918e18aabad83b38ee,Our Island,Mid-Market,pro,Nelson Sing,,true,,,,,,V,V,,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,4
+648bca2d5c53b8007ef3a0d8,Time in a Place,Mid-Market,pro,Rebecca Virgin,,true,,V,V,V,,,V,V,,,V,,,V,V,V,V,,V,V,V,V,V,,,,,V,V,V,V,,,,,,19
+63c524f314d7a8004162fe52,HomeVacay,Mid-Market,pro,Zoe Jiang,,true,,,,,,,OFF,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,,,2
+6a1c4ec469f1f598e136d874,vayosif lecha LDT,SMB,pro,Daniel Sanchez,,true,,,,,,V,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,,2
+69cab816e477d9bda1e2042b,L&R Property Management,SMB,pro,Giorgia Ruocci,,false,,,,OFF,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
+5b45b51856881a00bb767d5d,TravelHost Africa,SMB,pro,Courtney Trow,,true,,V,V,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+66847af24bd396ee968c2ea3,The Hill's Posh Lifestyle Experience LLC,Mid-Market,pro,Enjoli Mitchell,,true,,OFF,OFF,V,,V,OFF,V,,V,,V,,,,,V,,,V,,V,V,,,,V,,,OFF,,,,,,,10
+66a3c50b54a137fab72e3e5e,Conserjeria Sierra Madrid,Mid-Market,pro,Joaquin Benitez,,true,,,V,V,V,V,V,,,V,,V,,V,V,V,,,,,V,V,V,,,,,V,V,,,,,,,,15
+69430522b144f2e7b105cf04,Suitesecu Rentals,SMB,pro,Ramiro Peña,,true,,,V,V,,,,,,,V,,,,,,V,,,,V,,V,,,,,,V,,V,,,,,,8
+6a1f5115bd25c7223a4a9a91,Hostin,Mid-Market,pro,Diana Chalita,,true,,,,,,,,,,,,,,,,,,,,,V,V,V,,,,,,,,,,,,,,3
+6859df8e8e18aabad83b38e6,Newport Beach Vacation Properties,SME,pro,Stacy Wesson,,true,V,V,V,V,,,,,,,V,V,,,V,V,V,V,,V,V,V,V,,,,,V,V,V,V,V,V,V,,V,22
+694ae26f88cba42d9e7a8e0c,1235 West Investments LLC,SMB,pro,Ramiro Peña,,false,,OFF,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
+6901f1fc32feafcbded99b08,Atmos properties,SMB,pro,Nelson Sing,,true,,,V,V,,,OFF,V,,,V,,,V,V,,,,V,,V,V,V,,,,,,V,,,,,,,,11
+679ce0ac85f74b5fe968cf7e,Trails to Ales Realty LLC,SMB,pro,Guesty Support,,true,,,,,,,V,V,,,,,,,V,,,,,V,V,V,,,,,,,,,,,,,,,6
+647df114dead930054e452db,Home Free Furnished Rentals,SMB,pro,Ambar Jenrette,,true,,,,V,,,V,V,,V,,V,,,V,,,,,,V,,V,,,,,,,V,,,,,,,9
+5dc4724781b892001fd17fdc,Cyclinn,SME,pro,Pablo Paez,,true,,,V,,,,,,,,V,,,,V,,,,,,,V,,,,,,V,,,,,,,,,5
+69c0b77e0dbdf1eea85fc3c2,Booking,SMB,pro,Daniel Sanchez,,true,,,,V,V,,,,,,,,,V,,,,,,V,V,V,V,,,,,,,,,,,,,,7
+6955293d3b2d1f36d1b33d85,Petrus Fourie,SMB,pro,Daniel Sanchez,,true,,,V,,,,,,,,V,,,,V,,,,,,,,,,,,,,,,,,,,,,3
+62cc441b4613d60033629136,Memories Vacation Home Management,SME,pro,Pablo Paez,,true,,,,V,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,2
+68f032f8e4f9efbe702b8d4a,Big Island Vacation Properties,Mid-Market,pro,Ana Loera,,true,,V,,V,,,,,,V,,,,V,V,,,,,,,V,,,,,,,V,V,,,,,,,8
+68dcb569455d7fda43611a67,Rajur Holdings,SMB,pro,Ana Loera,,true,,,,,,V,V,V,,V,,,,V,V,,,,,,V,V,,,,,,,,,,,,,,,8
+625eabc1e6143d003241451b,Tanya Svoboda,Mid-Market,pro,Diana Chalita,,true,,V,,,,,,V,,,,,,,V,,,,,,V,,V,,,,,,V,,,,,,,,6
+67e1b8e0c8b52d834dcb8b0d,Stay NJ,SMB,pro,Guesty Support,,true,,,,V,,,OFF,,,,,,,,,,,,,,,,V,,,,,,V,,,,,,,,3
+6a49495151a9cc0a45fe2ad2,3L Properties,SMB,pro,,,true,,V,V,V,V,V,V,,,V,V,V,,V,V,V,V,,OFF,V,V,V,V,,,,V,V,V,,,,,,V,,21
+69ba95974a4da1c92d8bc2ec,MELISSA HOSPITALITY SINGLE MEMBER S.A.,Mid-Market,pro,Carla Scimia,,true,,,,V,V,V,V,V,,V,V,V,,,,,V,,V,V,V,V,V,,,,,V,V,,,,,,V,,17
+68fa453632feafcbded998c2,Empire Riverside Stay,SMB,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,1
+63fcbdb08d3003003df423bb,"Jon, Bellwether Property",Mid-Market,pro,Tove May,,true,,,,,,,OFF,,,,,,,,,,,,,V,V,,,,,,,,V,,,,,,,,3
+6051f000c60c59002ca9341d,Ian Jarrett,SME,pro,Jay Taylor,,true,,,V,V,,V,,,,,,,,,V,,,,V,V,V,,V,,,,,,V,,,,,,,,9
+683995816ad42132cdbfa66f,The Senses Collection,SMB,pro,Courtney Trow,,true,,,,V,,,OFF,,,OFF,,OFF,,OFF,,OFF,,,,V,,,OFF,,,,,,,,,,,,,,2
+67891f000560667fb69d98af,Soltire Stays,Mid-Market,pro,Courtney Trow,,true,,,,,,V,,V,,,,V,,,V,,V,,V,V,V,,V,,,,,,,V,V,,,,,,11
+668ffa2ff6abdb39ff57bb6f,O-Lac inc,SMB,pro,Guesty Support,,true,,V,V,V,V,,V,V,,V,V,V,,V,V,V,V,,V,V,V,V,V,,,,V,V,V,V,V,,,,,,23
+637584ecc84c6100468437f0,Colby & Conrad,SME,pro,Benjamin Lockard,,true,,,,,,,,,,,,,,V,V,,,,,V,V,V,V,,,,,V,V,V,V,,,,,V,11
+66f05b8188a5fce1e7b84de9,Oban Holiday Lets Ltd,Mid-Market,pro,Francesca Pastore,,true,,,,,V,,,,,,,,,,,,,,,V,V,,V,,,,,,,,V,,,,,,5
+698a569ba1080b7731bd3db2,Kevin Dennis,SMB,pro,Austen Bernhardt,,true,,,,,,,,,,,,,,,V,,,,,,V,,,,,,,,V,,,,,,,,3
+6470a2c5bf09b100435fa18c,Del Mar Vacations,SME,pro,Michelle Kim,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,1
+621973f87008bb0033bd4947,Bear Stay LLC,Mid-Market,pro,Benjamin Lockard,,true,,,V,OFF,,,OFF,V,,,V,V,,V,V,,V,,,V,V,V,V,,,,,,V,,,,,,,,12
+664769def167a0bb227081e1,Bayside Corp S.L,Mid-Market,pro,Carla Scimia,,true,,V,V,V,V,V,V,V,V,V,V,V,,V,V,V,V,,V,V,V,V,V,,,,V,V,V,V,V,,,,V,,26
+5a68a9b91e2ba70015056bc6,Kevin Boer,SMB,pro,Carlos Noriega,,true,,,,,,,V,V,,,,,,,V,,,,,V,V,V,V,,,,,,,,,,,,,,7
+5bead1b2ffc666003ea00e17,Be London,Mid-Market,pro,Jay Taylor,,true,,,,OFF,,,,,,V,,,,,,,,,,V,,,,,,,,,,,,,,,,,2
+68f7babc669647d6ff17de31,david@alpinerp.com,SMB,pro,Guesty Support,,true,V,V,V,V,,,V,V,,V,,,,,V,,,,,,V,V,V,,V,,,,,,,,,,,V,13
+69e67d2299ab54f5bdf04de6,Low Tide Retreats LLC,SMB,pro,Lionel Glover,,true,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,1
+632a193d8d005000330bca94,Urban Furnished,SME,pro,Stacy Wesson,,true,,,,V,,,,,,,,,,,,,,,,,V,V,V,,,,,,,,,,,,,,4
+68d29c637272afd420f728c5,LetMeRent s.r.o.,SMB,pro,Giorgia Ruocci,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,1
+6a108f76ea1059ad753add7b,Hospedou Gestão,SMB,pro,,,true,,,,,,,,,,V,,,,V,,,,,,V,,,,,,,,,,,,,,,,,3
+6953d4933b2d1f36d1b33d44,PK Holidays,SME,pro,Steven Brumwell,,true,,,,V,,,V,V,,,V,,,V,V,V,,,V,V,V,,V,,,,,V,V,,V,,,,,,14
+69bdbe984a4da1c92d8bc43a,Host-me,Mid-Market,pro,Matthew Bonasera,,true,,V,V,V,V,V,V,V,V,V,V,V,,V,V,V,V,,V,V,V,V,V,,,,,V,V,V,V,,,,,,24
+69445327b144f2e7b105cf45,Oak Street Capital LLC,SMB,pro,Salome Alvarez,,true,,,,V,,,,V,,,,,,V,V,,,,,V,V,V,,,,,V,,V,,,,,,,,9
+5fc53c49bdc1ba0030c3936a,Jim Grady,SME,pro,Stacy Wesson,,true,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,1
+68e1480f455d7fda43611baa,Trevor Drew,SMB,pro,Carlos Noriega,,true,,,,OFF,,,V,,,V,,,,,V,,,,,V,V,,V,,,,,,,,,,,,,,6
+6830b0309bf7f8c07ec24266,Indulge Vacation Rentals,SME,pro,Oscar Nomura,,true,,V,V,V,V,V,V,V,,V,V,V,,V,V,,V,,V,V,V,,V,,,,,V,V,V,V,,,,,,21
+67eec01f48a9aa094fae1a11,Everblue Properties,Mid-Market,pro,Cameron Gray,,true,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,1
+697a888697c71aa6720b0d83,Sunset Residences,SMB,pro,Austen Bernhardt,,true,,,,,,,,,,,,,,,V,,,,,,V,V,V,,,,,,,,,,,,,,4
+60fed25d9e3dd8002da530e5,Seth Hillenmeyer,Mid-Market,pro,Francine Boateng,,true,,,,V,,V,V,V,,V,,V,,V,V,V,V,,V,V,V,V,V,,,,,V,V,,,,,,,,17
+69f22d35a36ffdd106868834,Nourish Vacation Homes,Mid-Market,pro,Carlos Villarreal,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,V,,,,,,,,,2
+690e2a5fbef5c5b447994fc8,Seashell Vacation Rentals,SME,pro,Carlos Villarreal,,true,,V,V,,,,,V,,,,V,,,,,,,V,,V,V,,,,,,,,V,V,,,,,,9
+693c29621efcceb4712e3202,GuestSpaces Vacation Rentals,SME,pro,Alexandra Laframboise,,true,,V,V,,,,V,V,,,V,V,,,V,,,,V,,V,V,V,,,,V,,V,,,,,,V,,14
+6924bb4bb4a7e2ab11030bc7,MJ Homes,SMB,pro,Salome Alvarez,,true,,V,V,V,,,V,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,5
+692087d60cb25a3efd780f59,CJR Stays,SMB,pro,Austen Bernhardt,,true,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,36
+6768f529309e10ff8a2b7462,Edgewood Cabins,SMB,pro,Zafar Khan,,false,,,,,,,,,,,,,,,,,,,,,,OFF,,,,,,,,,,,,,,,0
+69c437c497364dea190fce13,Rebornhost,SMB,pro,Ambar Jenrette,,true,V,V,V,V,V,V,V,V,V,V,V,V,,V,V,V,V,V,V,V,V,V,V,,V,V,,,V,,,,,,,V,26
+66018b62c9d2b0a68e714a4d,GrandStay,Mid-Market,pro,Daniel Sanchez,,true,,,,V,,,,,,,,,,V,V,,,,,V,V,V,V,,,,,,V,,,,,,,,8
+6a03ac1a24db941f82ec01db,Vacation Rental Assistance,Mid-Market,pro,Enjoli Mitchell,,true,,V,V,V,,,V,V,,,V,,,V,V,,,,,V,V,V,V,,,,,V,,,V,,,,V,,15
+675c1d9c116364e5fd4c78ca,Incoming Verona srl,Mid-Market,pro,Carla Scimia,,true,,V,,,,V,,,,,,,,,,,,,,,V,,V,,,,,,,,,,,,,,4
+69d91a11888d4187f93c6535,U-CO,Mid-Market,pro,Carlos Villarreal,,true,,,,V,,,,V,,V,,,,,V,,V,,,V,V,V,V,,,,,,,,,,,,,,9
+666c42cd1269c78e4944ab0e,1804 Villas & Suites,SMB,pro,Ander Vicente,,true,,V,,,,,,V,,,,V,,,V,,,,,,,,,,,,V,,V,,,,,,,,6
+69ed6148e6a377973f278fed,Heritage Collection VR LLC,SMB,pro,Zafar Khan,,true,,,,V,,,,,,,,,,,V,,,,,V,V,,V,,,,,V,,,,,,,,,6
+652d7bd2f05bc9a6ebc6a507,Getaway Haus,Mid-Market,pro,Ana Loera,,true,,V,V,V,V,V,V,,,V,V,V,,V,,,V,,V,,V,V,V,,,,,V,V,,,,,,,,17
+68892383a14c863e5df1291c,CarefreeNb Hosting,Mid-Market,pro,Audrey Puylaert,,true,,V,V,OFF,,V,V,V,,,V,V,,V,V,V,,,,V,V,V,V,,,,,,V,,,,,,,,15
+67896fe61e8afb8c9a78c05d,Marshe Properties Limited,SMB,pro,Courtney Trow,,true,,,V,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,2
+69dea2319340ba4cbda1362b,Engel & Völkers San Miguel,Mid-Market,pro,Josue Paredes,,true,,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+61035f9787681700322bf9a3,Rocky Point Beach Rentals.com,Mid-Market,pro,Josue Paredes,,true,,,,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+69440817b8b21ff79ffcdc03,Mamazul Rentals,SMB,pro,Ramiro Peña,,true,,,,,,,,,,,,,,,,,,,,,V,V,V,,,,,,,,,,,,,,3
+6794370f08ad1c127b6c48a9,Duvoire,Mid-Market,pro,Ram Cheriyath,,true,,,,V,,,,V,,,,V,,V,,,,,,,V,,,,,,V,,,,,,,,,,6
+68ffb4a19b696177c7547913,Shores Vacation Rentals,SME,pro,Francine Boateng,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,1
+67183cc0fb727774adaece30,Vanage Vacation Homes,Mid-Market,pro,Benjamin Lockard,,true,,V,V,,,,,,,,,,,,,,,,,V,,,,,,,V,V,V,,,,,,,,6
+669fd4375db8ecdd6b7e2916,Angelo Sturzebecher,SMB,pro,Guesty Support,,true,,,V,V,V,,V,,,,V,,,,,V,,,,,V,,,,,,OFF,,V,,,,,,,,8
+69bacacb0dbdf1eea85fc1ba,RE Management & Consulting S.r.l.,SMB,pro,Guesty Support,,true,,V,V,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,3
+67488d4c4205b64ae791d9fb,Juno Wong,SMB,pro,Katherine Ting,,true,,,,,,,,,,,,,,,,,,,,,V,,V,,,,,,,,,,,,,,2
+689c639c8fa2976c485f6d0c,Flat Manager,Enterprise,enterprise,Steven Brumwell,,true,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,2
+661fe51eb6f3872323b07ff5,Vesta Management LLC,Mid-Market,pro,Diana Chalita,,true,,,,,,,,,,,,,,,V,,,,V,V,V,,,,,,,,V,,,,,,,,5
+6977681aea85becc03a1676e,Property Egg,SMB,pro,Giorgia Ruocci,,true,,V,V,,,,,,,,V,,,V,,V,,,,V,V,V,V,,,,,,,,,,,,,,9
+6931efc1a3d1a005adf060bd,Avari - AL,Enterprise,enterprise,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,1
+6877cb71b8a30a41bf539219,Babylon,SMB,pro,Mattia Peressini,,true,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,V,2
+5e395e31cf61d0002930f9dc,Philip Saunders,Mid-Market,pro,Daniel Sanchez,,true,,,V,,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2
+65d5bbc248d51cec4f27c6bc,Double kaylee,SMB,pro,Daniel Sanchez,,true,,,,V,,,,,,,,V,,V,V,,,,,V,V,V,V,,,,,,V,,,,,,,,9
+66639bcf7e5a5aa7f2054d6f,HG - San Diego Short Term Rental Management,Enterprise,pro,Guesty Support,,true,,OFF,OFF,OFF,,,,OFF,,,OFF,,,OFF,V,,,,,,OFF,OFF,,,,,,,,,,,,,,,1
+67fea5eb259cbcdbc6e8c4ec,Whistler Platinum,SME,pro,Michelle Kim,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,1
+697d0e1c663b9035ac4ca73c,Brightwater Residences,Mid-Market,pro,Francine Boateng,,true,,V,V,V,,,V,,,,V,V,,,V,,,,,V,V,V,,,,,V,,,,,,,,,,11
+66eaf97726dd45c415d4bb2a,VANDERGOTEN REAL ESTATE SL,SMB,pro,Daniel Sanchez,,true,,,V,,,,,V,,,V,,,,,,,,,,,,V,,,,,,,,,,,,,,4
+67161bc9fe88d43beb172b13,LUXURY HOMES RENT,Mid-Market,pro,Steven Brumwell,,true,V,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,2
+650c88e747b48b04df2869ed,Book Our Place,Enterprise,pro,Guesty Support,,true,,V,V,,,V,V,,,V,,V,,V,,V,V,,V,V,V,,V,,,,,V,V,V,V,,,,,,17
+67ed5031c8b52d834dcb8e47,Studio Lovecchio s.r.o.,SMB,pro,Daniel Sanchez,,true,,V,,V,V,V,V,,V,V,,V,,V,V,,V,,,V,V,V,V,,,,,,V,,,,,,,,16
+6022d42230650c0031bc91c1,ULIV,Enterprise,enterprise,Daniela Collazo,,true,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+68d3f85f455d7fda436117ed,"West Elm Properties, LLC",SMB,pro,Guesty Support,,true,,V,V,,,,,,,,,,,V,V,,,,,V,,,,,,,,,,,,,,,,,5
+67621f39892a35ba99f8c46f,Leo Santos,Mid-Market,pro,Ana Loera,,true,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,V,,,,,,,,2
+5e7c1674409d0c0029b72533,Marigny,Mid-Market,pro,Ram Cheriyath,,true,,,,,,,,,,,,,,,,,,,V,,V,,,,,,,,,,,,,,,,2
+67f939f356bac59fb2d49eea,MyLocTravel,SME,pro,Steven Brumwell,,true,,V,V,V,V,V,V,V,V,V,V,V,,V,V,V,V,,,V,,V,V,,,,V,V,V,,,,,,V,,22
+639cc2c9c1d582004222ddb4,Operadora San Diego,Mid-Market,pro,Daniela Collazo,,true,,,,,,,,,,,,,,,,,,,,,V,,V,,,,,,,,,,,,,,2
+648dc2bc5c53b8007e09e259,Henchmen Property Management,Mid-Market,pro,Audrey Puylaert,,true,,V,V,,,,V,V,,V,V,,,V,V,,,,V,V,V,,V,,,,,V,V,V,,,,,,,15
+6a345a347028915b39d3ace9,Time and Home Holiday Services,Mid-Market,pro,Joaquin Benitez,,true,,V,,V,,V,V,V,,V,V,V,,V,V,,V,,V,V,V,V,V,,,,,,V,,,,,,V,,18
+6978068397c71aa6720b0c77,Aunaisin,SMB,pro,Ramiro Peña,,true,,V,,,,,,,,,,,,V,,,,,,,V,V,,,,,,,,,,,,,,,4
+6318bd126e26ea0035538b0d,Celyn  Ganske,Mid-Market,pro,Juan Viana,,true,,,OFF,V,,OFF,OFF,OFF,,,OFF,,,,,,,,,,OFF,,OFF,,,,,OFF,OFF,OFF,OFF,,,,,,1
+66a664c13c74563e37af53b4,Hebergia,Mid-Market,pro,Ram Cheriyath,,true,,,,,,,,,,,,,,,,,,,,,V,V,V,,,,,,,,,,,,,,3
+68c83e9a05d1a382469f6bd0,Stay with Branch Vacation Rentals,Mid-Market,pro,Audrey Puylaert,,true,,,,,,,V,,,,,,,,,,,,,,V,,V,,,,V,V,,V,,,,,V,,7
+5ffc691620b9c0002ff93757,Stephen Cummings,SME,pro,Juan Viana,,true,,,,,,,,,,,,,,,,,,,,,V,,V,,,,,,,,,,,,,,2
+68fa462832feafcbded998c3,Keytoko,Mid-Market,pro,Steven Brumwell,,true,,V,V,V,,,,,,,V,,,,,V,,,,,V,,V,,,,,,V,V,,,,,,,9
+61e83b45867d500031406216,"Flaneur, the vacation Rental Company",SME,pro,Alexandra Laframboise,,true,,,,,,,,,,,,,,,,,V,,,,V,,,,,,,V,V,,,,,,,,4
+6953d56988cba42d9e7a8f8e,SDK Homes Aps,SMB,pro,Courtney Trow,,true,,,,,,,,,,,,,,,V,,,,,,V,,,,,,,,,,,,,,,,2
+695e562b6b73d4e3971eeb5c,Lil Blu Properties Ltd T/A Lil Blu Stays,SMB,pro,Courtney Trow,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,2
+5cae1cd01963d20020ac1a48,STAE-Homes,Mid-Market,pro,Jay Taylor,,true,,,,,,,,V,,V,,,,V,,,,,,,,,,,,,,,,,,,,,,V,4
+6a01de4424db941f82ec00fd,Vit Vosecek,Mid-Market,pro,Joaquin Benitez,,true,V,,V,,,,V,V,,V,,,,V,V,V,,,,,V,V,V,,V,,,,,,,,,,,V,13
+5f75b1fbc3e3190028c14764,Richmond Property Group Ltd,SMB,pro,Mattia Peressini,,true,,,,,,,,,,,,,,V,OFF,,,V,,,V,OFF,V,,V,,,,OFF,,,,,,,,5
+5d652541b6dd0d0022186a5a,TWO KEENS,Mid-Market,pro,Francesca Pastore,,true,V,V,,OFF,,V,V,V,,V,,,,V,,V,V,V,V,V,V,V,V,,V,,,,V,V,V,V,V,V,,V,23
+695d38fe40bbbd7a4e6cfe87,GoodNight Stay,Mid-Market,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,1
+67f3e2c2c3c7926782f6fd63,Miami Vacation Rentals,SME,pro,Matthew Bonasera,,true,,,V,,,,,V,,,V,,,,V,,,,,,V,,,,,V,,,V,,,,,,,V,8
+6924eaa051ad620fe8272dea,TriPower Vacation Rentals,SME,pro,Tatiana Figueroa,,true,V,V,V,,,,V,V,,,,,,,,,,,V,,,,,,OFF,,,,,,,,,V,V,V,9
+6a1874c2c1d5178828685ebe,Coastal Vacation Rentals,Mid-Market,pro,Diana Chalita,,true,,V,,OFF,,,V,,,V,,,,,V,V,,,,,,,,,,,,,V,,,,,,,V,7
+5edaef4b52d5d3002de7b4a0,Maximum Vacation Homes,SMB,pro,Carlos Villarreal,,true,V,V,,V,,,,V,,,,,,,,,,,,,,,,,V,,,V,V,,,,,,V,V,9
+606492432cf0ad0030c466c4,Fresh Air Property Management,Mid-Market,pro,Jay Taylor,,true,,,,,,,V,,,,,,,,,,,,,V,,V,,,,,,,,,,,,,,V,4
+60a11f07b5ba8c0032edf1f2,Tucker Lecaroz,SME,pro,Benjamin Lockard,,true,,,,,,,,,,V,,,,,OFF,,,,,V,,,,,V,,,,V,,,,,,,,4
+5dee27c28e1c2c001f6e4236,Betterstays,Mid-Market,pro,Rafael Merchán,,true,V,,V,,,,V,,,,V,,,V,,,,V,,,V,V,V,,V,,,V,V,V,V,,,,,V,15
+5df0cb42324ff7002085b7e5,Hostini,SME,pro,Francesca Pastore,,true,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,,,,,1
+677edaa657409f7f586a2e4d,Dans Florida Condos,SMB,pro,Carlos Noriega,,true,,V,V,,,,,V,,V,,V,,,V,,,,V,V,,,V,,,,,,V,V,,,,,,V,12
+5a8f8d7c088527002c859860,Tiny Away,Enterprise,enterprise,Zoe Jiang,,true,,V,V,,,,,,,,,,,,,,,,,,V,,V,,,,,,,,,,,,,,4
+6564db50a6aaa15054eb4027,Ferncliff Lodge,Mid-Market,pro,Audrey Puylaert,,true,,V,V,OFF,,,V,V,,,,V,,,V,,,,,,V,V,,,,,,,V,,,,,,,V,10
+651301a0b6ca79788f86d4d0,Dera str group llc,SMB,pro,Tatiana Del Rosario,,true,,V,V,V,,V,,V,,V,,,,,,,,,,,,,,,,,,,,,,,,,,V,7
+6647b249f167a0bb227081f3,"Pirawa Properties, INC.",SMB,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,1
+6361401a09cd6a004c376443,APEK Rentals,Enterprise,pro,Guesty Support,,true,V,V,V,V,V,V,V,V,V,V,V,V,,V,V,V,V,V,V,V,V,V,V,,V,V,V,V,V,V,V,V,V,V,OFF,V,33
+694ad57b5746ac96c0eb4e07,Residentas PT,Mid-Market,pro,Rafael Merchán,,true,,,,,,,,,,,,,,,,,,V,,,V,V,V,,,,,,V,,,,,,,V,6
+68107bc4ea19258f6a31383b,Amber Stays Ltd,SMB,pro,Dana Evans,,false,,,,,,,,,,,,,,,,,,,,,,,,,,,,OFF,,,,,,,,,0
+5f3a7d87949020002db896dc,Curated Property,Mid-Market,pro,Jay Taylor,,true,V,,V,,,,V,V,,,,,,V,V,,,,,,V,V,V,,,,,OFF,V,,,,,,,,10
+6847199ce163651ced70b388,PMI Southwest Florida,Mid-Market,pro,Tove May,,true,,,,,,,,,,,,,,,,,,,,V,V,V,,,V,,,,,V,,,,,,V,6
+697cf07e97c71aa6720b0e9b,Asesoria e Inversiones Riverso Andes SPA,Mid-Market,pro,Juan Viana,,true,V,,,,,,,,,,,,,,,,,,,,V,V,V,,V,,,,,,,,,,,V,6
+6437e126c436d2003e3504a7,Olala Homes,Enterprise,enterprise,Mattia Peressini,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,1
+665098227ece3a46c68c5b7b,HILO Collection,Mid-Market,pro,Daniel Sanchez,,true,,,V,V,,,V,OFF,,,,,,,,,,,,,,,,,V,,,V,,V,V,,,,,,7
+667e7783b9fa45b28b1add33,Marone Management Kft.,Mid-Market,pro,Carla Scimia,,true,V,V,V,,,,,,,,,,,V,,,,,,V,V,,V,,,,,,,,,,,,,V,8
+675c9a27fbdf9f70c0e7d1bd,PMI Blue Ridge,Mid-Market,pro,Tove May,,true,V,,,V,,,V,V,,,,,,,,,,,,V,V,V,,,V,,,V,V,,,,,,,V,11
+685c51f8b12c774daba24d86,Mi.Re Project LLC,Mid-Market,pro,Ram Cheriyath,,true,,V,,,,,OFF,OFF,,,,,,,,,,,,,V,OFF,V,,,,,,,,,,,,,OFF,3
+5aff29ca5e0f84006a37cb5d,Stay Awhile Villas,SME,pro,Audrey Puylaert,,true,,,V,,V,,V,OFF,,V,,,,V,V,,V,,,V,V,,,,,,,V,V,,,,,,OFF,,11
+6630f5b1713d3ca356f49862,HH Island Rentals,Mid-Market,pro,Matthew Bonasera,,true,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,V,,,,,,,,2
+69f38857e330761c405c9473,cream one s.r.o.,SMB,pro,Daniel Sanchez,,true,,,V,,,,,,,,,,,,V,,V,,V,V,,,,,V,,,,V,,,,,,V,,8
+68aed999c3307ffd38a1c27c,MIT Vacation Rentals,SMB,pro,Guesty Support,,true,V,,,,,,,,,V,,,,V,V,,,,,V,V,V,V,,,,,,V,,,,,,,V,10
+691be87fe20d659c1e6bd35d,Violet Group Ltd,Mid-Market,pro,Rafael Merchán,,true,V,,V,,,,,V,,,,,,,,V,,,,V,,,,,V,,,,V,V,,,,,,V,9
+5be2168ff587930038b6ae0d,Allen Thomas,Mid-Market,pro,Benjamin Lockard,,true,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,2
+697d08cb663b9035ac4ca73a,Mountain Air Cabins and Real Estate,Mid-Market,pro,Alexandra Laframboise,,true,V,V,V,V,V,V,V,V,,V,V,V,,V,V,V,V,V,V,V,V,V,V,,V,,V,V,V,,,,,,V,,26
+67463a3cfb1543cbd527a5e2,"Legacy Corporate Properties, Inc.",Mid-Market,pro,Benjamin Lockard,,true,V,V,V,V,,,V,V,,,,,,,,,,,,,,,,,,,,,,,V,,,V,,V,9
+69cc4d66a9f6b32e370fe8f5,GEKO S.A.C.,Mid-Market,pro,Daniela Collazo,,true,V,,,V,V,V,,,V,V,,,,,,,,,,V,,,V,,,,,,,,,,,,,V,9
+6745e54b4205b64ae791d921,Kindle Ridge,SMB,pro,Ramiro Peña,,true,,,,V,,,OFF,V,,,,,,V,OFF,,,,,V,,OFF,,,,,,,,,,,,,,,4
+5c239af5aff3ee0028284d7d,Neat Suites,SME,pro,Stacy Wesson,,true,,V,,,,,V,,,,,V,,,V,,,,,,V,V,V,,V,,,V,,,,,,,,V,10
+65cb786f36da152bda20cb1d,Gestion Ma Kabane,Mid-Market,pro,Tove May,,true,,,,V,,,,,,V,,,,V,V,,,,,V,V,,,,,,,,,,,,,,,,6
+691ef73751ad620fe8272c78,"El Pampero Investimentos, Lda",SMB,pro,Ander Vicente,,true,,,,,,,V,,,,,,,,V,,,,,V,,,,,,,,,V,,,,,,,,4
+64c8ce07e81a04c3247ccaf8,KIPPAL,SMB,pro,Tatiana Del Rosario,,true,,,,,,V,,,,,,V,,,,,,,,V,,,,,,,,V,,,,,,,,,4
+671facea217e6427c3ae8e62,KRG Vacation Rentals,Mid-Market,pro,Enjoli Mitchell,,true,,V,V,V,V,V,V,V,,V,V,,,,V,V,,V,,,V,V,V,,V,,,,V,,,,,V,OFF,V,19
+667045cceba67e5ba8a581db,CoolBnBs,Mid-Market,pro,Enjoli Mitchell,,true,V,,,,,,OFF,V,,,,V,,,OFF,,,,,V,V,V,,,,,,V,,,,,,,,V,8
+68c9af7ae470f3f13410f6b1,PMI Estes Park,Mid-Market,pro,Tove May,,true,,,,V,,,,,,,V,,,,V,,V,,,,V,,,,V,,,,V,,,,,,V,,8
+636ab0a7212e8b004f9f7610,Get RED-y Vacations,Mid-Market,pro,Josue Paredes,,true,,,,,,,V,,,,,V,,,,,,,,V,V,V,,,V,,,V,V,,,,,,V,V,10
+637e8a64b8e6e50030a658b7,trey@modernvrm.com,Mid-Market,pro,Zafar Khan,,true,V,,V,V,,V,V,V,,V,V,V,,V,V,V,,,,V,V,V,V,,V,,,V,V,V,V,,,,V,V,23
+665046f77fe2c5eeeb5cac66,Unik Vacation,Mid-Market,pro,Mattia Peressini,,true,V,,,,,,V,,,,,,,,,,,,,,V,V,V,,,,,,,,,,,,,V,6
+605dc8bcc124b6002cbc9e89,Liiiving,Mid-Market,pro,Rafael Merchán,,true,V,,V,,,,,V,,,V,,,,,,,V,,V,V,,,,,,,,,,,,,,,V,8
+6a29bb58b474dc31355a117c,Hive Holiday Homes,SME,pro,Francesca Pastore,,true,V,V,V,V,,V,V,V,,V,,V,,V,,,,V,,,V,V,V,,V,,,,,,,,,,V,V,17
+6779e5da309e10ff8a2b7b3f,Sophia,SME,pro,Ram Cheriyath,,true,,,V,OFF,,V,,V,,,,,,,,,,,,V,,V,,,,,,,,,,,,,,,5
+66eced7f1dc77ec07955d9a2,Beach Huts Middleton,Mid-Market,pro,Katherine Ting,,true,,,,OFF,,V,OFF,,,,,,,,OFF,,,,,,,,,,,,,,,,,,,,,,1
+66561ff3a2804e4d37b295ae,Shore Thing Property LLC,SME,pro,Matthew Bonasera,,true,V,,V,OFF,,,,,,,V,,,V,,,,,,,V,V,V,,V,,,V,V,V,V,,,,,V,13
+5bdb0bb50176f0003e48d8bb,Angel Host Inc,Enterprise,enterprise,Daniela Collazo,,true,,,V,OFF,,,V,OFF,,V,,V,,V,,,,,,,V,V,V,,,,,,V,,,,,,,,9
+68502ae069052da60a37bb35,PMI Grand Partners,SMB,pro,Austen Bernhardt,,true,,,,OFF,,,V,,,,,V,,,V,,,,,V,V,V,V,,V,,,V,V,V,V,,,,V,,13
+62dfb5609b58d9003489fdd9,Short Term Accommodation Management,Mid-Market,pro,Rebecca Virgin,,true,V,V,,OFF,,,V,V,,,,V,,,V,,V,,V,V,V,V,V,,,,,,V,,,,,,,V,14
+677364cf309e10ff8a2b7823,stay albatross,Mid-Market,pro,Ambar Jenrette,,true,V,,V,V,,,,,,,,,,,V,,,,,V,V,,V,,,,,,V,V,,,,,,V,10
+67b60a1a5e080b23fd369971,Property Management Brickell,SMB,pro,Carlos Noriega,,true,,,,,,,,V,,,,V,,,,,,,,,V,V,V,,,,,,,,,,,,V,V,7
+67ab756274bbea4a11fa70fd,PMI Home Team,SMB,pro,Lionel Glover,,true,V,,V,,,,V,,,,,,,V,,,,,,,V,V,V,,V,,V,V,V,V,V,,,,,V,14
+679c2d7ff6fab777ee05be5d,PMI Realty Management NW,Mid-Market,pro,Austen Bernhardt,,true,,,V,,,,,V,,,V,,,,V,V,,,,V,V,,V,,V,,,,V,V,V,,,,,V,13
+6a0d837b3a9fbb09f420ad57,HejU,SMB,pro,Daniel Sanchez,,true,,,,,,,,V,,,,,,,V,,,,,,,,,,,,,,,,,,,,,V,3
+6786c86d1e8afb8c9a78be4b,Lanui Realty,Mid-Market,pro,Matthew Bonasera,,true,V,,V,V,,V,V,V,,V,V,V,,V,V,V,V,V,V,V,V,V,V,,V,,,V,V,,,,,,,V,23
+697b85ea663b9035ac4ca684,Stay on 30a,SME,pro,Tatiana Figueroa,,true,V,V,V,V,,,V,,,,V,V,,,V,,V,,,V,V,V,V,,V,,,,V,V,V,,,,,V,18
+674c89854205b64ae791db2d,Apex Short Term Stays,SME,pro,Audrey Puylaert,,true,,,V,,,V,,,V,V,,,,V,,,,,,V,V,V,,,,,,,V,,,,,,,,9
+67ec440548a9aa094fae1946,The Dolly House,SMB,pro,Salome Alvarez,,true,V,,,OFF,,,V,V,,,V,,,,V,,,,,V,V,V,,,V,,,,,V,,,,,,V,11
+62b337033513aa00347a2410,Jeff Nisius,Mid-Market,pro,Ram Cheriyath,,true,V,,V,,,V,V,V,,V,V,V,V,V,V,V,V,V,,V,V,V,V,,V,,V,V,V,,V,,,V,,V,25
+69f3b416e330761c405c948f,Hearth and Haven Vacation Rentals,Mid-Market,pro,Carlos Villarreal,,true,,,V,,,,,V,,,V,,,,V,,,,,,V,V,,,V,,,V,V,,,,,V,,V,11
+69f23c0fa36ffdd10686883b,Bahaya Studio,SMB,pro,,,true,V,V,V,V,V,V,V,V,V,V,V,V,,V,V,V,V,V,V,V,V,V,V,,V,,V,V,V,,,,,V,V,V,29
+693ff4b9570de86384a95d56,Homega,SMB,pro,Courtney Trow,,true,V,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2
+6862e08eb12c774daba2501a,LS Living Solutions GmbH,SMB,pro,Mattia Peressini,,true,V,,,V,,V,V,V,,,,,V,,V,V,,V,,V,V,V,,,V,,,V,V,,,,,,,V,16
+696e041db558d35d8ff05dbb,Chimento Properties,SMB,pro,Daniel Sanchez,,true,V,V,V,OFF,,,V,V,,,,,,V,V,V,V,V,V,V,V,V,V,,,,,,,,V,,,V,,V,18
+6807edbdabdb443652813879,CaymanVacation.com Inc.,SME,pro,Michelle Kim,,true,V,,V,V,,OFF,V,,,V,V,V,,V,V,,,,,V,V,,V,,V,,,,V,V,V,,,,,V,17
+68dc7179455d7fda43611a4e,Mayan Getaways,SMB,pro,Carlos Noriega,,true,,,,,,,,,,,,,,,,,,,,,V,,V,,,,,,,,,,,,,V,3
+6334a9f4fbc794003300a8df,Holdfast Holdings LLC,SME,pro,Oscar Nomura,,true,V,,,V,,V,OFF,,,,,V,,,,,,,,,V,,,,,,,,,,,,,,,V,6
+61c3cb157f91160032321589,Capitalia,Enterprise,enterprise,Daniela Collazo,,true,,V,V,V,V,V,V,V,V,V,V,V,,V,V,V,V,,V,V,V,V,V,,,,V,V,V,V,V,,,,,,25
+697a2cee97c71aa6720b0d44,Mountain Laurel Chalets,Mid-Market,pro,Michelle Kim,,true,V,,,,,V,V,,,V,,V,,,V,,,,,V,,,,,V,,,,,,,,,,,V,9
+6911fd1e550760fa8fef6f06,PMI Orlando,Mid-Market,pro,Michelle Kim,,true,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,V,,,,,,,,2
+680f840727962971e7ee00c0,Wyndale Living,SMB,pro,Courtney Trow,,true,V,V,,,,,V,,,,,V,,,V,,,V,,,V,V,V,,,,,,,,,,,,,V,10
+66d8f05354b7aad995340e48,Duna Stays,Mid-Market,pro,Oscar Rodriguez,,true,V,V,V,,,,V,V,,,,,,,,,,,,,V,V,,,V,,,V,,,,,,V,,V,11
+636e32938bd5a2003029bee5,City Superhost Ltd,SME,pro,Francesca Pastore,,true,V,V,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,V,4
+69fe1fdc24db941f82ebffa7,"Next Level Host, LLC",Mid-Market,pro,Ana Loera,,true,V,V,V,V,V,V,V,V,,V,V,V,,V,V,V,V,V,,V,V,V,V,,V,,,V,V,,V,,,,V,,25
+69933bef41d409613cc75390,Brickon Baja,SMB,pro,,,false,OFF,OFF,OFF,OFF,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
+68da7920455d7fda43611996,Juan Martin Starobinsky,SMB,pro,Lionel Glover,,true,V,,,OFF,,,V,,,,,V,,V,V,,,V,,V,V,,V,,,,,,,,,,,,,,9
+6536e701dc41f79f2ebae0fb,"What matters, we host.",Mid-Market,pro,Pablo Paez,,true,V,,V,V,,V,,,,V,V,,,,V,,,,,,V,,V,,,,,V,,,,,,V,,V,12
+68f6332c669647d6ff17ddb7,DoCo Vacations,SME,pro,Benjamin Lockard,,true,V,,,,,,V,,,,,,,,,,,,,V,V,V,V,,,,,,V,,,,,,,,7
+687a54c92757e823e9782877,PMI Coeur d'Alene,SMB,pro,Austen Bernhardt,,true,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,V,2
+54f14865ee377a1100ad6b25,Great Dwellings,SME,pro,Michelle Kim,,true,,V,,,,,,V,,,V,,,,,,,,,,V,,,,,,,V,,,,,,,,V,6
+6362e15264e1de0053681f65,Commendable Rentals LLC,Mid-Market,pro,Rafael Merchán,,true,V,,,V,,,V,,,V,,,,,,,,V,,,V,V,V,,,,,,V,V,V,,,,,,11
+66b8767209f6eb953cb9dd73,AirDXB,Enterprise,enterprise,Ayman Hazm,,true,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,1
+64cac18910bac429a7655ab5,AM Group LLC,Mid-Market,pro,Audrey Puylaert,,true,,,V,,,,OFF,,,,V,,,,V,,,,,,V,V,,,,,,,V,,,,,,,,6
+6797aaf008ad1c127b6c4a3f,BozemanBnB,Mid-Market,pro,Carlos Noriega,,true,,,V,OFF,,,,,,,,,,,,,,,,,V,,,,,,,,V,,,,,,,,3
+67c97d3940e1ed4a6dae295e,Tatiana Filipa Gonçalves Silva Unipessoal Lda,SMB,pro,Giorgia Ruocci,,true,V,,,,,,,,,,,,,,V,,,,,,,,,,V,,,,V,V,V,,,,,,6
+6760b6a132d244f081e68774,PMI Southeast CT,Mid-Market,pro,Tove May,,true,V,,,,,,,,,,,V,,,,,,,,,,,,,,,,,V,,V,,,,,,4
+66437bd7edfdf84f83ebd3ef,Franklin Suites South Beach,Mid-Market,pro,Oscar Nomura,,true,,,,,,,V,,,,,V,,,,,,,,,,,,,V,,,,,,,,,,,,3
+64d67002752b5efdc3216c49,Beach Weekend,SME,pro,Cameron Gray,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,V,,V,,,,,,3
+67fd56ef56bac59fb2d49fe0,Dorsen Stay,Mid-Market,pro,Michelle Kim,,true,,,V,V,,,,,,,,,,,V,,,,,,V,V,V,,,,,,V,,,,,,,,7
+68d6e9bc455d7fda436118d3,BUHO Property,SMB,pro,Salome Alvarez,,true,V,,V,OFF,,V,V,,,,V,,,V,V,V,V,V,,V,V,V,,,V,,,,V,,V,,,,,,16
+5e86008f3b57e50029c6f7a3,COASTAWAYS,Mid-Market,pro,Francesca Pastore,,true,V,,V,OFF,,,,V,,,V,V,,V,V,,V,V,,V,V,V,V,,V,,V,,V,V,V,,,,,,18
+68af6c6fc3307ffd38a1c2b6,Stay Hospitality,SME,pro,Daniela Collazo,,true,V,,V,V,,,V,V,,,,,,,V,,,,,V,V,,,,V,,V,,,V,,,,,,,11
+6894940b8fa2976c485f6a7b,ACP Property Management,SMB,pro,Rafael Merchán,,true,,,V,,,,V,V,,,V,V,,,V,,,V,,V,V,V,,,,,,,,,V,,,,,,11
+6a0a95e47039d420d3367e71,Roombix Company Limited,Mid-Market,pro,Zoe Jiang,,true,,,V,,,,,V,,,,,,,V,,,,,,,,,,,,,,V,,,,,,,,4
+614f3a3a96a3a1002ffb58df,PBD Living,Mid-Market,pro,Enjoli Mitchell,,true,V,,,,,,V,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+699f438e5042ea2535f13f10,Platinum Corporate Housing LLC,Mid-Market,pro,Benjamin Lockard,,true,,,V,,,,,V,,,,,,,,,,,,,V,V,V,,,,,,,,,,,,,,5
+630c144076877b0034570fe8,Nashville Vacation Homes,SMB,pro,Guesty Support,,true,,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,,2
+69fe47335345bf1c5c6bc4e5,Casiola Four Corners,SMB,pro,,,true,,,,V,,,V,V,,,,,,,,,,,,,V,V,V,,,,,,,,,,,,,,6
+65a667e4b9e4d7d58c549b97,CiCoSolutions Limited,Mid-Market,pro,Carla Scimia,,true,,,V,OFF,,,,,,,,,,,,,V,,,V,,,,,,,,,,V,V,,,,,,5
+6982112b53b1f96a082bd86a,STL Stays,Mid-Market,pro,Ander Vicente,,true,V,,V,V,,V,V,V,,,V,,,V,,,V,V,,,V,V,V,,,,V,,V,V,,,,,V,,17
+64d55cb7ce67eb04531a85a4,"Travel Luxe Vacation Rental Management, LLC",Mid-Market,pro,Audrey Puylaert,,true,V,,,OFF,,V,OFF,V,,V,,,,,V,,,V,,V,,,V,,,,V,,V,,,,,,,,10
+68f72d1b669647d6ff17de0a,Laydo Lodges,SMB,pro,Giorgia Ruocci,,true,,,,V,,OFF,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+6824de7a9bf7f8c07ec23e87,The Penthouse at Grand Plaza,Mid-Market,pro,Diana Chalita,,true,,,,,,,,,,,,,,,V,,,,,V,,,,,,,,,,,,,,,,,2
+699699720e798385617b4d65,Whistler Breaks Vacation Rentals Ltd,Mid-Market,pro,Alexandra Laframboise,,true,,,,,,V,,,,,V,,,,,,,,,,,,,,,,,V,V,V,V,,,,,,6
+68dc0ec1ea1895d9005ea5b5,Jaco Homes,Mid-Market,pro,Josue Paredes,,true,,,,,,,,V,,,V,,,,,,V,,,V,V,V,V,,,,,,,,,,,,,,7
+5d0ad220923bcf001fbf0f27,goldnest,SME,pro,Tatiana Figueroa,,true,V,,V,,,,V,V,,,V,V,,,V,V,V,,,V,V,V,,,,,V,V,V,,,,,,,,15
+668416f75cf364d3f1d4fc02,La Loge du Bassin,SMB,pro,Ander Vicente,,true,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,V,V,V,,,,,,4
+64139ff3c65440002b13309c,openroadstays,Mid-Market,pro,Carlos Villarreal,,true,,,,,,V,V,,,,,V,,,V,,,,,V,V,V,V,,V,,,V,,,,,,,,,10
+5ace5614361a370024403cf2,Victor Feria,Mid-Market,pro,Oscar Nomura,,true,,,,,,,V,,,,,,,,V,,,,,,V,V,V,,,,,,,,,,,,,,5
+697b6d7018d47177e4626409,360 Suítes,Enterprise,enterprise,Tatiana Figueroa,,true,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+6728b004be4aa729794a58b4,Homeprime,Enterprise,enterprise,Steven Brumwell,,true,,,V,,,,V,,,,,,,,V,,,,,,V,,,,,,,,,,V,,,,,,5
+686df480848cfe372d8d3444,T R P S VACATION HOMES RENTAL CO. L.L.C,Mid-Market,pro,Joaquin Benitez,,true,,,,,,,,,,,,,,,V,,V,,,,,,,,,,,,,V,,,,,,,3
+68409606f3014ca4db02ba03,Apex Experience,SMB,pro,Tatiana Del Rosario,,true,V,,,,,,V,,,,,,,,,,,V,,V,V,V,V,,,,,,,,,,,,,,7
+5e5943189deedf002d55fa23,Kim Herrlein,Mid-Market,pro,Oscar Nomura,,true,,,,V,,V,V,OFF,,V,,,,V,,,,,,,,,,,,,V,,,,,,,,,,6
+649b55e80e74c200484af7e9,Calibrate Estates LLC,Mid-Market,pro,Enjoli Mitchell,,true,V,,,OFF,,,V,OFF,,V,,,,,,,V,,,V,,,,,,,,,,,,,,,,,5
+6362ae0ca530a300606728c4,Carolina Palm Vacations,SME,pro,Cameron Gray,,false,,,OFF,,,,OFF,,,,,OFF,,,,,,,,,,,,,,,,,,,,,,,,,0
+68bf98615ae37cf73089f9b7,Visit Vail By Esquiar LLC,Mid-Market,pro,Matthew Bonasera,,true,V,,V,,,V,V,,,,,,,,,,,,,,,V,,,V,,,V,V,V,,,,,V,,10
+6602f6870e127ba484a75426,Las Clementinas Hospitality,SMB,pro,Tatiana Del Rosario,,true,,,,,,,,,,,,V,,,V,,,,,,,,,,,,,,V,V,,,,,,,4
+6681e8581d4f0cc576fdd0b6,Punto Paz Rentals,SMB,pro,Tatiana Del Rosario,,true,,,,,,,,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+679bac6985f74b5fe968cf22,Hosted by Sleepover Ltd,SMB,pro,Dana Evans,,true,,,,,,,,,,,,,,,V,,,,,V,V,V,,,,,,,V,,,,,,V,,6
+6737c1df54b397d19ec27003,Auszeit Apartments,Mid-Market,pro,Joaquin Benitez,,true,,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,,,,,,,,,2
+68a4bfc198a490922e9193f4,B-Infiniti Villas & Homes,Mid-Market,pro,Francesca Pastore,,true,,,,V,,,V,,,V,,V,,V,,,,,,V,V,V,V,,V,,,,V,,,,,,,,11
+691f524a51ad620fe8272c90,Flex Immobilier,Mid-Market,pro,Audrey Puylaert,,true,V,,V,V,,V,V,V,,V,V,V,,V,V,V,,V,,V,V,V,V,,,,,,,,,,,,,,17
+68a2b19a05a59cdc4ff30418,"TAMON CAPITAL GROUP, LLC",SMB,pro,Oscar Rodriguez,,true,V,,V,V,,V,V,V,,V,V,V,,V,V,V,V,V,,V,V,V,V,,V,,V,V,V,,,,,,V,,23
+67ab1db45e080b23fd369637,Maria Jose Perez,SMB,pro,Guesty Support,,true,,,,V,,,,,,V,,V,,,V,,,,,,,,,,,,,,V,,,,,,,,5
+622728f1e729f7003530a929,Equity Residences,Mid-Market,pro,Oscar Nomura,,true,,,,OFF,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,1
+686fb07b6376a7987b6c1618,SONN'IDYLL Retreats e.G.,SMB,pro,Giorgia Ruocci,,true,,,OFF,OFF,,,,V,,,,,,,,,,V,,,OFF,OFF,OFF,,,,,,V,,,,,,,,3
+68b07ca02302dce34a4ade51,ANANA HOMES,SMB,pro,Tatiana Del Rosario,,true,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,OFF,,,,,,,,1
+6512ec7058d8d49adbb30b06,Going Coastal Property Management,SME,pro,Benjamin Lockard,,true,,,,OFF,,,,,,,,,,,,,,,,,V,,,,,,,,,V,V,,,,,,3
+5d5c49b7ef0315001f6ee607,Portoro Homes,Enterprise,enterprise,Daniela Collazo,,true,,,V,OFF,,,V,V,,,V,V,,V,V,,,,,,V,V,,,,,,V,V,V,V,,,,,,13
+652fda962c12214e3195d48a,Nook Stays,Mid-Market,pro,Carla Scimia,,true,,,,,,,,,,V,V,,,,V,,,,,,,,,,,,,,,,,,,,,,3
+6033f7b0ae5e6f002fd51303,Hallson Hospitality Co.,SME,pro,Alexandra Laframboise,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,V,,,,,,2
+675577572b8de62488c9fb72,Luxstay,Mid-Market,pro,Steven Brumwell,,true,V,,,V,,,,V,,,V,V,,,V,V,V,V,,V,V,V,V,,,,V,V,V,,,,,,V,,17
+69e0cac684f30b81799ba699,BMG NICE CONCIERGERIE,Mid-Market,pro,Steven Brumwell,,true,,,,,,,,,,,,,,,,,,V,,,V,,,,,,,,,,,,,,,,2
+6a270d0f4b2eed6c34919d5f,Luxury Getaways,Mid-Market,pro,Tove May,,true,V,,V,V,,V,V,V,,,V,,,,V,,,V,,V,V,V,V,,V,,,V,V,,V,,,,V,V,19
+69bd58ec4a4da1c92d8bc402,VOL HOSTING,SME,pro,Matthew Bonasera,,true,,,,OFF,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,1
+68b8480d5ae37cf73089f796,LOKA,SMB,pro,Ander Vicente,,true,,,,,,,V,,,,,,,,V,,,,,,,,,,,,,,,,,,,,,,2
+678923670560667fb69d98b7,Snowbasin Vacation Rentals and Powder Mountain Vacation Rentals,Mid-Market,pro,Zafar Khan,,true,V,,,V,,,V,V,,,V,,,,V,,,,,,V,,,,,,,,V,,,,,,,,8
+67698db4309e10ff8a2b748a,Easilets Limited,Mid-Market,pro,Joaquin Benitez,,true,V,,V,,,,V,V,,,,V,,,V,,V,,,,V,,V,,,,,,,,,,,,,,9
+67743591892a35ba99f8ca84,Fresh Start Property Management,SMB,pro,Guesty Support,,true,V,,,V,,V,,,,V,,,,,,,,,,V,V,,,,,,,,,,,,,,V,,7
+69f17a1b4b8dbace6132d6d9,Mingo Canas,SMB,pro,Guesty Support,,true,V,,V,V,,,V,V,,,V,,,,V,,,V,,,V,,V,,V,,V,,V,,,,,,V,,14
+696e0505b558d35d8ff05dbe,Salt & City Stays,Mid-Market,pro,Ayman Hazm,,true,V,,,,,,OFF,,,,,V,,,,,,,,,V,,,,,,,,,,,,,,,V,4
+6811a82943c69c248b3fcb2b,wowstay,Mid-Market,pro,Sharine Duran,,true,,,,,,,,V,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,2
+672a28cdbe4aa729794a5910,Stay in Iceland,SMB,pro,Giorgia Ruocci,,true,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+68d6d384455d7fda436118ca,Scenic Stays,Enterprise,enterprise,Tatiana Figueroa,,true,V,,V,OFF,,,V,OFF,,,V,,,,V,,,V,,,V,,,,V,,,,V,V,V,,,,,,11
+644296ae8062130039e4a8f9,Virtual Homes Realty,Mid-Market,pro,Tove May,,true,V,,V,V,,V,V,V,,V,V,,,V,V,,,V,,V,V,V,V,,V,,,,V,,V,,,,,,18
+655346f4ac25e87d1056b160,Stay Homy,Mid-Market,pro,Rafael Merchán,,true,,,,OFF,,,,,,,,,,,V,,V,V,,V,V,,,,,,,,,,,,,,,,5
+698643d7c43dd1a712877d97,Wilder Waters Vacation Rental Management Inc,Mid-Market,pro,Francine Boateng,,true,V,,V,V,,V,,,,V,,,,,,,,,,V,,V,,,,,,,,,,,,,,,7
+67f01c8f48a9aa094fae1a6a,William Andrade,SMB,pro,Guesty Support,,true,V,,V,V,,V,V,,,V,,V,,V,V,V,,,,V,V,V,V,V,V,,V,V,V,V,V,,,,V,V,23
+5d6d5ce1229c8c0020c217ae,Horseshoe Bay Living,SME,pro,Cameron Gray,,true,V,,,,,,V,,,,,,V,V,V,,,,,V,V,,,,,,,V,,,,,,,,,8
+65e11cec79b43b53e1af5c81,Synergy Rental Group,Mid-Market,pro,Diana Chalita,,true,,,,,,,,,,,,,,,,V,,,,,,,,,V,,,,,,,,,,,,2
+6994ba6006158b9341e7e0a2,Marisol & Co. Hospitality Group,Mid-Market,pro,Francine Boateng,,true,,,,,,,,,,V,,,,,,,,,,,V,V,,,,,,V,,,,,,,V,,5
+662c7b0c713d3ca356f497cb,Freedom Vacation Rentals,Mid-Market,pro,Oscar Nomura,,true,,,V,OFF,,V,V,,,V,V,V,,,,,V,V,,V,V,V,V,,,,,,V,V,,,,,,,14
+633ce6133627590032806db7,Premier Vacation Stays,Mid-Market,pro,Enjoli Mitchell,,true,,,,,,,,V,,,V,,,,V,V,,,,V,V,V,,,,,,V,,,,,,,,,8
+675088ce3780f3a8abe636d7,SMART HOST VACATION HOME RENTAL L.L.C.,Mid-Market,pro,Ayman Hazm,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,V,V,,,,,,,3
+6639b053af65b5a61d2cec4c,Clifton Partners Property,Mid-Market,pro,Zoe Jiang,,true,V,,,OFF,,V,V,V,,,V,V,,V,V,,V,V,,V,V,OFF,V,V,,,V,V,V,,,,,,V,V,19
+66d07cd5f48715e4ecea2688,Vivendos Homes SL,SMB,pro,Ander Vicente,,true,V,,V,,,,,,,,V,,,V,V,,V,,,,V,V,V,,,,,,,,,,,,,V,10
+693fe0317e1715aa98c354f6,Ilic Corporation,SMB,pro,Courtney Trow,,true,V,,V,,,,,,,,,,,,V,,,,,,V,,,,,,,,,,,,,,,V,5
+68cbee25467ac68da2e582a7,Nordic Guest AB,SMB,pro,Giorgia Ruocci,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,1
+69e250520f8cce78dc112886,Vacant Nests,Mid-Market,pro,,,true,,,,,,,,,,,,,,,,,,,,V,V,,,,,,,,V,,,,,,,V,4
+63f77f4e7e251b0030c1464a,Cloud9,Mid-Market,pro,Matthew Bonasera,,true,V,,V,V,,,V,V,,,,,,,V,,V,V,,V,V,V,V,,V,,V,,,,V,,,,,V,16
+68dbf54b455d7fda43611a1a,Golden Isles Retreats,Mid-Market,pro,Josue Paredes,,true,,,,,,,V,V,,,,,,,V,,,,,V,V,V,V,,,,,V,V,,,,,,,V,10
+65351c644892a1c2b05f9e34,AIR MGMT,SME,pro,Benjamin Lockard,,true,V,,V,,,,V,V,,V,,,,V,V,V,,,,V,V,V,,,,,,,V,,,,,,,V,13
+6840ab56ca0d576ff1aa1e3a,UAB Domillion,Mid-Market,pro,Francesca Pastore,,true,,,,,,,,,,,,,,,,,,V,,V,,,,,,,,,V,,,,,,,,3
+65fbdfd0d916089814834489,Praia Villas,Mid-Market,pro,Rebecca Virgin,,true,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,2
+660583ed73200f683ecf3134,OutpostX,Mid-Market,pro,Diana Chalita,,true,,,V,V,,,V,,,,,,,,,V,,V,,V,,,,,,,,,V,,,,,,,,7
+685065549bf7f8c07ec24d1f,Coast to Coast Connections,SMB,pro,Tatiana Del Rosario,,true,,,V,V,,V,V,V,,V,,V,,V,V,,,V,,V,V,V,,V,,,,V,V,V,V,,,,V,V,20
+6862ebb9b12c774daba25021,Royal Vista Vacations Homes Co. LLC,Mid-Market,pro,Ayman Hazm,,true,,,,V,,,V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2
+68890ecea14c863e5df1290d,KSN Real Estate,SMB,pro,Dana Evans,,true,V,,V,V,,,V,,,,V,V,,,,,V,,,,V,V,V,V,V,,,,V,V,,,,,V,V,16
+6350a5240e693e0030bf2c4e,Peachy Properties,Mid-Market,pro,Rebecca Virgin,,true,,,,,,,V,,,,,,,,V,,,,,,V,,V,,,,V,,,,V,,,,,V,7
+668f4d5b3a1924cbf20ceb9b,NextGen Furnished Rentals LLC,Mid-Market,pro,Francine Boateng,,true,V,,,,,,V,V,,V,V,V,,V,V,,,,,V,V,V,V,,V,,,V,,,,,,,,V,15
+63cfe630ecbfb30039426da8,Maxwell Residences,Mid-Market,pro,Benjamin Lockard,,true,,,,OFF,,,OFF,,,OFF,,OFF,,V,OFF,,,,,V,,,,,,,V,,V,,,,,,,,4
+67d362f57468c0a23a0281f5,Stay Portland,SME,pro,Stacy Wesson,,true,V,,,,,,V,,,,,,,,,,,,,,V,V,,,,,,,,,,,,,,,4
+654656eac66d810b8ce078ac,"Martinek Management, Inc.",Mid-Market,pro,Carlos Villarreal,,true,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,,,1
+69f45411a36ffdd106868926,5starbalivilla,Mid-Market,pro,Zoe Jiang,,true,,,V,,,,V,,,,V,,,,,,,V,,,,V,,,,,,,,,,,,,,,5
+5db6c592bba9f4001f7d610f,EASY BNB GmbH,SME,pro,Joaquin Benitez,,true,,,V,,,,,,,,,V,,V,V,,,V,,,OFF,V,,,,,,,,,,,,,,,6
+692739cf51ad620fe8272e74,Fripp Island Golf & Beach Resort,SME,pro,Cameron Gray,,true,,,,,,,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,1
+6601f8d2c9d2b0a68e714a68,"Navigate Stays, Inc.",SME,pro,Audrey Puylaert,,true,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,1
+5db0a5a602bcef001fed7da1,GreatStay,Mid-Market,pro,Mattia Peressini,,true,,,,,,,,,,,,,,OFF,,,,,,,,V,,,,,,,,,,,,,,,1
+5cf3120c0f6abc001ff04f2e,Hello Host,Mid-Market,pro,Rebecca Virgin,,true,,,V,,,,,V,,,,,,V,V,,,,,,V,V,,,,,,,V,,,,,,,,7
+63991db67ee89b004e196515,Soulfull Stayz,SMB,pro,Rebecca Virgin,,true,,,V,,,,,V,,,,,,,V,,,,,,,,,,,,,,V,,,,,,OFF,,4
+573b8b688e31d30e0035418f,Bijou Getaways,Mid-Market,pro,Alexandra Laframboise,,true,,,,,,,,V,,,,,,,V,,,,,,V,V,,,,,,,V,,,,,,,,5
+66e0538243d84c7d87fb527f,emiliano Sofia,SMB,pro,Ander Vicente,,true,,,,,,,,,,,,,,,,,,,,,,V,,,,,,,,,,,,,,,1
