@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Q3’26 CapEx effort — one pager</title>
+  <style>
+    :root {
+      --ink: #1a2332;
+      --muted: #5b6573;
+      --line: #d8dee6;
+      --ai: #1f4e79;
+      --geo: #1d6a4f;
+      --up: #7a3e12;
+      --anz: #4a3d7a;
+      --bg: #f6f8fb;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: #e8edf3;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+    .page {
+      width: 11in;
+      min-height: 8.5in;
+      margin: 16px auto;
+      background: #fff;
+      padding: 18px 22px 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+    h1 {
+      margin: 0 0 2px;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+    .sub {
+      color: var(--muted);
+      margin: 0 0 10px;
+      font-size: 10.5px;
+    }
+    .rules {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 7px 10px;
+      margin-bottom: 10px;
+    }
+    .totals {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .tot {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 6px 8px;
+    }
+    .tot b { display: block; font-size: 14px; }
+    .tot span { color: var(--muted); font-size: 10px; }
+    .tot.ai { border-top: 3px solid var(--ai); }
+    .tot.geo { border-top: 3px solid var(--geo); }
+    .tot.up { border-top: 3px solid var(--up); }
+    .tot.anz { border-top: 3px solid var(--anz); }
+    .tot.all { border-top: 3px solid var(--ink); background: var(--bg); }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 12px;
+    }
+    section {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 10px 7px;
+      break-inside: avoid;
+    }
+    section h2 {
+      margin: 0 0 4px;
+      font-size: 13px;
+    }
+    section.ai h2 { color: var(--ai); }
+    section.geo h2 { color: var(--geo); }
+    section.up h2 { color: var(--up); }
+    section.anz h2 { color: var(--anz); }
+    .orig { color: var(--muted); margin-bottom: 5px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 2px 4px; border-bottom: 1px solid #eef1f5; vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; font-size: 9.5px; }
+    td.num, th.num { text-align: right; white-space: nowrap; }
+    .paste {
+      font-family: ui-monospace, Menlo, Consolas, monospace;
+      font-size: 9.5px;
+      background: var(--bg);
+      padding: 4px 6px;
+      border-radius: 4px;
+      margin-top: 5px;
+      word-break: break-word;
+    }
+    .d { font-weight: 700; }
+    @media print {
+      body { background: #fff; }
+      .page { margin: 0; box-shadow: none; width: auto; min-height: auto; padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Q3’26 CapEx effort — one pager</h1>
+    <p class="sub">How original inputs became Column E (before × 3) and Column D (MM). 11 working weeks / Q · Dev TL and 1-month Product TL are not × 3.</p>
+
+    <div class="rules">
+      <b>Formulas.</b>
+      Dev before = weeks ÷ 11, MM = before × 3.
+      %-roles before = weekly % (summed), MM = before × 3.
+      Dev TL before = % or weeks÷11, MM = before (no × 3).
+      Product TL for 1 month @ 100% → 1.0 in E and 1.0 MM.
+    </div>
+
+    <div class="totals">
+      <div class="tot ai"><span>AI</span><b>43.5MM</b></div>
+      <div class="tot geo"><span>Geo</span><b>11.3MM</b></div>
+      <div class="tot up"><span>Upsells</span><b>1.9MM</b></div>
+      <div class="tot anz"><span>ANZ</span><b>2.6MM</b></div>
+      <div class="tot all"><span>All four</span><b>59.3MM</b></div>
+    </div>
+
+    <div class="grid">
+      <section class="ai">
+        <h2>1. AI — 43.5MM for Q3'26</h2>
+        <div class="orig">
+          <b>Original CSV:</b> 60.63 EE weeks · 6 IL / 2 UK devs · 3 DS × 85% · IL TLs 100+40+10% · PTL 50+40% · PD Ella 30% + Javi 30% · VP 30% · 11 PMs × 30% · Design IL 220% + Spain 50%.
+          <br><b>Then changed:</b> 6 IL / 12 UKR · +Design TL 30% + designer 15% on top of CSV · Data 3×70% · PMs half 1 week / half 2 weeks at 30% · added 0.9 UKR TL, 0.5 / 0.1 R&amp;D Directors.
+        </div>
+        <table>
+          <tr><th>Segment</th><th class="num">E</th><th class="num">MM</th><th>How</th></tr>
+          <tr><td>Dev (1.8 IL + 3.7 UKR)</td><td class="num">5.5</td><td class="num">16.5</td><td>60.63÷11, split 6/18 vs 12/18</td></tr>
+          <tr><td>Data team</td><td class="num">2.1</td><td class="num">6.3</td><td>3 × 70%; ×3</td></tr>
+          <tr><td>IL TL / UKR TL</td><td class="num">1.5 / 0.9</td><td class="num">1.5 / 0.9</td><td>Dev TL; no ×3</td></tr>
+          <tr><td>R&amp;D Dir IL / UKR</td><td class="num">0.5 / 0.1</td><td class="num">1.5 / 0.3</td><td>added; ×3</td></tr>
+          <tr><td>Product Team Lead</td><td class="num">0.9</td><td class="num">2.7</td><td>Gil + Yarin; ×3</td></tr>
+          <tr><td>Product Director</td><td class="num">0.6</td><td class="num">1.8</td><td>Ella + Javi summed; ×3</td></tr>
+          <tr><td>VP Product IL</td><td class="num">0.3</td><td class="num">0.9</td><td>Sapri 30%; ×3</td></tr>
+          <tr><td>PM IL</td><td class="num">0.5</td><td class="num">1.5</td><td>(5.5×0.3×1 + 5.5×0.3×2)÷11</td></tr>
+          <tr><td>Designer IL / Spain</td><td class="num">2.7 / 0.5</td><td class="num">8.1 / 1.5</td><td>CSV + 0.45 IL add-on; ×3</td></tr>
+        </table>
+        <div class="paste"><span class="d">D</span> 43.5MM for Q3'26<br>
+          <span class="d">E</span> 5.5 Dev (1.8 IL Dev, 3.7 UKR), 2.1 Data team, 1.5 IL TL, 0.9 UKR TL, 0.5 R&amp;D Director IL, 0.1 R&amp;D Director UKR, 0.9 Product Team Lead, 0.6 Product Director, 0.3 VP Product IL, 0.5 PM IL, 2.7 Designer IL, 0.5 Designer Spain</div>
+      </section>
+
+      <section class="geo">
+        <h2>2. Geo — 11.3MM for Q3'26</h2>
+        <div class="orig">
+          <b>Original CSV:</b> 12.5 + 4 + 6 = 22.5 weeks · PD Javier 15% + Ella 30% · PM Rinat 40% + Alex 30% · Design 10%. No TL / R&amp;D / IL–UKR split in file.
+          <br><b>Then changed:</b> final E added 0.6 IL TL and 0.25 R&amp;D Director IL. Dev kept as unsplit 2.0.
+        </div>
+        <table>
+          <tr><th>Segment</th><th class="num">E</th><th class="num">MM</th><th>How</th></tr>
+          <tr><td>Dev</td><td class="num">2.0</td><td class="num">6.0</td><td>22.5÷11; ×3</td></tr>
+          <tr><td>IL TL</td><td class="num">0.6</td><td class="num">0.6</td><td>added; Dev TL; no ×3</td></tr>
+          <tr><td>R&amp;D Director IL</td><td class="num">0.25</td><td class="num">0.75</td><td>added; ×3</td></tr>
+          <tr><td>Product Director</td><td class="num">0.5</td><td class="num">1.5</td><td>0.15+0.30; ×3</td></tr>
+          <tr><td>PM</td><td class="num">0.7</td><td class="num">2.1</td><td>0.40+0.30; ×3</td></tr>
+          <tr><td>Designer IL</td><td class="num">0.1</td><td class="num">0.3</td><td>10%; ×3</td></tr>
+        </table>
+        <div class="paste"><span class="d">D</span> 11.3MM for Q3'26<br>
+          <span class="d">E</span> 2.0 Dev, 0.6 IL TL, 0.25 R&amp;D Director IL, 0.5 Product Director, 0.7 PM, 0.1 Designer IL</div>
+      </section>
+
+      <section class="up">
+        <h2>3. Upsells — 1.9MM for Q3'26</h2>
+        <div class="orig">
+          <b>Original (stated):</b> 3 Dev weeks · Product TL IL one full month on this · R&amp;D UKR TL 10%/week all Q (labeled UKR TL).
+        </div>
+        <table>
+          <tr><th>Segment</th><th class="num">E</th><th class="num">MM</th><th>How</th></tr>
+          <tr><td>Dev</td><td class="num">0.3</td><td class="num">0.8</td><td>3÷11; ×3</td></tr>
+          <tr><td>UKR TL</td><td class="num">0.1</td><td class="num">0.1</td><td>10%; Dev TL; no ×3</td></tr>
+          <tr><td>Product Team Lead</td><td class="num">1.0</td><td class="num">1.0</td><td>1 month @ 100%; no extra ×3</td></tr>
+        </table>
+        <div class="paste"><span class="d">D</span> 1.9MM for Q3'26<br>
+          <span class="d">E</span> 0.3 Dev, 0.1 UKR TL, 1.0 Product Team Lead</div>
+      </section>
+
+      <section class="anz">
+        <h2>4. ANZ — 2.6MM for Q3'26</h2>
+        <div class="orig">
+          <b>Original (stated):</b> 5 UKR Dev weeks · 1 week IL TL · 0.5 week UKR TL · R&amp;D Dir IL 5%/week · PM IL 20%/week · Product Director 10%/week.
+        </div>
+        <table>
+          <tr><th>Segment</th><th class="num">E</th><th class="num">MM</th><th>How</th></tr>
+          <tr><td>UKR Dev</td><td class="num">0.5</td><td class="num">1.4</td><td>5÷11; ×3</td></tr>
+          <tr><td>IL TL</td><td class="num">0.1</td><td class="num">0.1</td><td>1÷11; no ×3</td></tr>
+          <tr><td>UKR TL</td><td class="num">0.05</td><td class="num">0.05</td><td>0.5÷11; no ×3</td></tr>
+          <tr><td>R&amp;D Director IL</td><td class="num">0.05</td><td class="num">0.15</td><td>5%; ×3</td></tr>
+          <tr><td>PM IL</td><td class="num">0.2</td><td class="num">0.6</td><td>20%; ×3</td></tr>
+          <tr><td>Product Director</td><td class="num">0.1</td><td class="num">0.3</td><td>10%; ×3</td></tr>
+        </table>
+        <div class="paste"><span class="d">D</span> 2.6MM for Q3'26<br>
+          <span class="d">E</span> 0.5 UKR Dev, 0.1 IL TL, 0.05 UKR TL, 0.05 R&amp;D Director IL, 0.2 PM IL, 0.1 Product Director</div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
