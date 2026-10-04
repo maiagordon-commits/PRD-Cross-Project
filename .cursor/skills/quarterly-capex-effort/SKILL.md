@@ -148,3 +148,5 @@ Dev / Data / TL / R&D Director / Product / Design → Total MM.
 ## Reference
 
 Worked Q2/Q3 examples and label conventions: [references/examples.md](references/examples.md)
+
+Q3’26 full one-pager (original inputs → Column E/D for AI, Geo, Upsells, ANZ): [references/q3-26-capex-one-pager.md](references/q3-26-capex-one-pager.md) · printable [q3-26-capex-one-pager.html](references/q3-26-capex-one-pager.html)
